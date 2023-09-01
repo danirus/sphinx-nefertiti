@@ -2,7 +2,7 @@
 
 Nefertiti for Sphinx is yet another Sphinx theme.
 
-An image is worth a thousand words, but do not miss the [documentation site](https://sphinx-nefertiti.readthedocs.io/en/latest/).
+An image is worth a thousand words, but visiting the [documentation site](https://sphinx-nefertiti.readthedocs.io/en/latest/) gives a more comprehensive idea.
 
 ![screenshot](/docs/source/_static/img/screenshot.png)
 
