@@ -14,6 +14,7 @@ clean:  ## Clean up built files.
 
 build-ext:  ## Build Sphinx extension.
 	npm run build
+	mkdir -p sphinx_nefertiti/colorsets/
 	cp site/css/bootstrap-icons.css   			sphinx_nefertiti/static/
 	cp site/css/bootstrap-icons.woff2 			sphinx_nefertiti/static/
 	cp site/js/*.min.js               		  	sphinx_nefertiti/static/
