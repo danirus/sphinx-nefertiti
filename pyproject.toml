@@ -4,8 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sphinx-nefertiti"
-description = "The theme Nefertiti for Sphinx"
-requires-python = ">3.7"
+description = "The Nefertiti for Sphinx theme"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "sphinx >= 6,<8"
+]
 authors = [
     { name = "Daniela Rus Morales", email = "danirus@eml.cc" },
 ]
