@@ -1,0 +1,34 @@
+@mixin scrollbars {
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    scrollbar-gutter: auto;
+    width: 4px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: $gray-500;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--#{$prefix}body-bg);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $primary;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--#{$prefix}body-bg);
+  }
+
+  // Standard version (Firefox only for now)
+  scrollbar-color: $gray-500 var(--#{$prefix}body-bg);
+
+  &:hover {
+    scrollbar-color: $primary var(--#{$prefix}body-bg);
+  }
+}

@@ -1,0 +1,28 @@
+<!-- colorssets-dropdown.html -->
+<li class="nav-item dropdown">
+  <a class="nav-link d-flex py-2 px-0 px-lg-2 dropdown-toggle align-items-center" id="snftt-color" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle color set">
+    <i class="bi bi-palette"></i>
+    <span id="snftt-color-text" class="d-lg-none small ms-2">{{ _('Change color set') }}</span>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-color-text">
+    <li>
+      <h6 class="dropdown-header">{{ _('Change color set') }}</h6>
+    </li>
+    {% for item in all_colorsets %}
+    <li>
+      <a class="dropdown-item d-flex align-items-center" data-snftt-color="{% if item=='default' %}cyan{% else %}{{ item }}{% endif %}" href="#" aria-pressed="false">
+        <span class="{% if item=='default' %}cyan{% else %}{{ item }}{% endif %} small">
+          <i class="bi bi-circle-fill"></i>
+        </span>
+        <span class="small ms-3">{{ _(item|capitalize) }}</span>
+        <i class="bi bi-check ms-auto"></i>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</li>
+
+<li class="nav-item col-12 col-lg-auto h-100" aria-hidden="true">
+  <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+  <hr class="d-lg-none text-white-50">
+</li>

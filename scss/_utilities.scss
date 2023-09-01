@@ -1,0 +1,49 @@
+section::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.nftt-gutter {
+  --bs-gutter-x: 3rem;
+}
+
+dd {
+  margin: .5rem 0 .5rem .5rem;
+}
+
+.field-list {
+  display: grid;
+  grid-template-columns: fit-content(30%) auto;
+
+  dt {
+    padding-right: 16px;
+    padding-left: .5rem;
+    font-family: var(--#{$prefix}font-family-monospace);
+    font-size: .95rem;
+    word-break: break-word;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol,
+  dl {
+    margin-bottom: 0;
+  }
+}
+
+// .contains-task-list {
+//   padding-left: .5rem;
+//   list-style-type: none;
+// }
+
+.task-list-item-checkbox {
+  @extend .form-check-input;
+}

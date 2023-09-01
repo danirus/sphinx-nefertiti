@@ -1,0 +1,151 @@
+@use "sass:color";
+
+$prefix: nftt-;
+$font-size-base: 1rem;
+$enable-shadows: true !default;
+
+//
+// Color system
+//
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #078349 !default;
+$teal:    #20c997 !default;
+$cyan:    #0dcaf0 !default;
+
+$indigo-100: tint-color($indigo, 80%) !default;
+$indigo-200: tint-color($indigo, 60%) !default;
+$indigo-400: tint-color($indigo, 20%) !default;
+$indigo-500: $indigo !default;
+$indigo-700: shade-color($indigo, 40%) !default;
+$indigo-800: shade-color($indigo, 60%) !default;
+
+$blue-100: tint-color($blue, 80%) !default;
+$blue-200: tint-color($blue, 60%) !default;
+$blue-600: shade-color($blue, 20%) !default;
+$cyan-200: tint-color($cyan, 60%) !default;
+$cyan-700: shade-color($cyan, 40%) !default;
+$yellow-100: tint-color($yellow, 80%) !default;
+$yellow-300: tint-color($yellow, 40%) !default;
+$yellow-700: shade-color($yellow, 40%) !default;
+$orange-300: tint-color($orange, 40%) !default;
+$orange-700: shade-color($orange, 40%) !default;
+$pink-200: tint-color($pink, 60%) !default;
+$pink-700: shade-color($pink, 40%) !default;
+$red-200: tint-color($red, 60%) !default;
+$red-600: shade-color($red, 20%) !default;
+$teal-300: tint-color($teal, 40%) !default;
+$teal-700: shade-color($teal, 40%) !default;
+
+$primary:       $indigo !default;
+$secondary:     $white !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $purple !default;
+$light:         $white !default;
+$dark:          $gray-800 !default;
+
+// Body ----------------------------------------------------------------
+
+// scheme-color light.
+$scheme-light-body-color: $gray-700;
+$scheme-light-body-hc-color: $gray-800;
+$scheme-light-body-bg: #fafafa;
+$scheme-light-body-secondary-color: rgba($scheme-light-body-color, .75) !default;
+$scheme-light-body-secondary-bg: $gray-200 !default;
+$scheme-light-body-tertiary-color: rgba($scheme-light-body-color, .8) !default;
+$scheme-light-body-tertiary-bg: $gray-100 !default;
+$scheme-light-body-emphasis-color: $black !default;
+$scheme-light-pre-border-color: $gray-200;
+$scheme-light-foot1-bg: #fff;
+$scheme-light-foot2-bg: $indigo-100;
+$scheme-light-foot2-link1: get-color-contrast($scheme-light-foot2-bg, 15%);
+$scheme-light-foot2-link2: get-color-contrast($scheme-light-foot2-bg, 30%);
+$scheme-light-foot2-link-bg: color.scale($scheme-light-foot2-bg, $lightness: -10%, $saturation: 30%);
+$scheme-light-foot2-link-hover: get-color-contrast($scheme-light-foot2-bg, 0%);
+$scheme-light-headings-color: $gray-700;
+$scheme-light-border-color: $gray-200;
+$scheme-light-border-color-translucent: rgba($black, .175) !default;
+$scheme-light-link-color: $indigo-500;
+$scheme-light-link-hover-color: $indigo-700;
+$scheme-light-link-decoration-color: $indigo-200;
+$scheme-light-link-decoration-color-rgb: #{to-rgb($indigo-200)};
+$scheme-light-code-color: #c63477;
+$scheme-light-admon-svg-color: black;
+$scheme-light-admon-attention-color-bg: $yellow-300;
+$scheme-light-admon-caution-color-bg: $orange-300;
+$scheme-light-admon-danger-color-bg: $pink-200;
+$scheme-light-admon-error-color-bg: $red-200;
+$scheme-light-admon-important-color-bg: $blue-200;
+$scheme-light-admon-note-color-bg: $cyan-200;
+$scheme-light-admon-tip-color-bg: $teal-300;
+$scheme-light-table-bg: white;
+$scheme-light-table-striped-bg: tint-color($indigo, 90%);
+
+// scheme-color dark.
+$scheme-dark-body-color: $gray-100;
+$scheme-dark-body-hc-color: $white;
+$scheme-dark-body-bg: $gray-800;
+$scheme-dark-body-secondary-color: rgba($scheme-dark-body-color, .75) !default;
+$scheme-dark-body-secondary-bg: $gray-800 !default;
+$scheme-dark-body-tertiary-color: rgba($scheme-dark-body-color, .5) !default;
+$scheme-dark-body-tertiary-bg: mix($gray-800, $gray-900, 50%) !default;
+$scheme-dark-body-emphasis-color: $white !default;
+$scheme-dark-pre-border-color: $gray-700;
+$scheme-dark-foot1-bg: $gray-900;
+$scheme-dark-foot2-bg: $indigo-800;
+$scheme-dark-foot2-link1: get-color-contrast($scheme-dark-foot2-bg, 15%);
+$scheme-dark-foot2-link2: get-color-contrast($scheme-dark-foot2-bg, 30%);
+$scheme-dark-foot2-link-bg: color.scale($scheme-dark-foot2-bg, $lightness: 10%, $saturation: 30%);
+$scheme-dark-foot2-link-hover: get-color-contrast($scheme-dark-foot2-bg, 0%);
+$scheme-dark-headings-color: $gray-100;
+$scheme-dark-border-color: rgba($gray-500, .175);
+$scheme-dark-border-color-translucent: rgba($white, .15) !default;
+$scheme-dark-link-color: $indigo-100;
+$scheme-dark-link-hover-color: $yellow-300;
+$scheme-dark-link-decoration-color: $indigo-400;
+$scheme-dark-link-decoration-color-rgb: #{to-rgb($indigo-400)};
+$scheme-dark-code-color: #ff65f7;
+$scheme-dark-admon-svg-color: white;
+$scheme-dark-admon-attention-color-bg: shade-color($yellow-700, 5%);
+$scheme-dark-admon-caution-color-bg: $orange-700;
+$scheme-dark-admon-danger-color-bg: $pink-700;
+$scheme-dark-admon-error-color-bg: $red-600;
+$scheme-dark-admon-important-color-bg: $blue-600;
+$scheme-dark-admon-note-color-bg: $cyan-700;
+$scheme-dark-admon-tip-color-bg: $teal-700;
+$scheme-dark-table-bg: shade-color($gray-800, 70%);
+$scheme-dark-table-striped-bg: $gray-900;
+
+// Fonts
+
+// stylelint-disable-next-line value-keyword-case
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+// Navbar
+
+$navbar-dark-color: rgba($white, .85);
+$navbar-dark-hover-color: $white;
+$navbar-dark-disabled-color: $gray-500;
+$navbar-dark-active-color: $indigo-100;
+$navbar-dark-brand-color: $white;
+$navbar-dark-brand-hover-color: $white;

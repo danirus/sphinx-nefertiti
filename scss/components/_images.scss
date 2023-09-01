@@ -1,0 +1,44 @@
+/* stylelint-disable selector-no-qualifying-type */
+img {
+  &.align-center {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &.align-left {
+    float: left;
+    margin: .4rem 1.8rem .4rem 0;
+  }
+
+  &.align-right {
+    float: right;
+    margin: .4rem 0 .4rem 1.8rem;
+  }
+}
+
+figure {
+  figcaption {
+    margin: 1rem .35rem .5rem;
+    font-size: .85rem;
+    text-align: center;
+  }
+
+  &.align-center {
+    margin: 0 auto 1rem;
+
+    figcaption {
+      margin: 1rem auto .5rem;
+    }
+  }
+
+  &.align-left {
+    float: left;
+    margin: .4rem 1.8rem .4rem 0;
+  }
+
+  &.align-right {
+    float: right;
+    margin: .4rem 0 .4rem 1.8rem;
+  }
+}

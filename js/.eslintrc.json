@@ -1,0 +1,28 @@
+{
+    "extends": "../.eslintrc.json",
+    "env": {
+      "es2022": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "ignorePatterns": ["coverage/*"],
+    "overrides": [
+      {
+        "files": [
+          "./*.js",
+          "./src/**/*.js"
+        ],
+        "rules": {
+          "import/extensions": [
+            2,
+            {
+              "js": "always",
+              "json": "always"
+            }
+          ]
+        }
+      }
+    ]
+  }

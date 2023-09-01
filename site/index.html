@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/sphinx-nefertiti.css">
+  <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+  <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="/css/pygments_dark.css">
+  <link rel="stylesheet" type="text/css" href="/css/pygments_dark.css">
+  <title>Nefertiti Theme documentation &mdash; Nefertiti for Sphinx 0.1.0 documentation</title>
+  <style>
+  :root {
+    --nftt-body-font-family: "Verdana", var(--nftt-font-sans-serif) !important;
+    --nftt-font-monospace: "Monaco", var(--nftt-font-family-monospace) !important;
+    --nftt-project-name-font: "Tahoma", var(--nftt-body-font-family);
+    --nftt-documentation-font: "Palatino", var(--nftt-body-font-family);
+    --nftt-documentation-font-size: 1.1rem;
+    --nftt-doc-headers-font: "Georgia", var(--nftt-documentation-font);
+  }
+
+  .nefertiti-bg {
+    margin-right: 1rem;
+    background: white;
+    border: 0;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+  }
+</style>
+</head>
+
+<body>
+  <header class="navbar navbar-expand-lg navbar-dark nftt-navbar flex-column fixed-top">
+    <div class="skip-links container-xxl visually-hidden-focusable overflow-hidden justify-content-start">
+      <div class="border-bottom mb-2 pb-2 w-100">
+        <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">Skip to docs navigation</a>
+        <a class="d-inline-flex p-2 m-1" href="#content">Skip to main content</a>
+      </div>
+    </div>
+    <nav class="container-xxl nftt-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+      <div class="nftt-navbar-toggler">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle documentation navigation">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <a class="navbar-brand me-0 md-lg-2" href="/" aria-label="Nefertiti for Sphinx">
+        <img src="img/nefertiti.svg" width="36" height="36" class="nefertiti-bg" alt="Nefertiti for Sphinx"><span class="brand-text">Nefertiti for Sphinx</span>
+      </a>
+      <div class="d-flex d-lg-none">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttNavbar" aria-controls="nfttNavbar" aria-label="Toggle navigation">
+          <i class="bi bi-three-dots"></i>
+        </button>
+      </div>
+
+      <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="nfttSearch" aria-labelledby="nfttSearchOffcanvasLabel" data-bs-scroll="true">
+        <div class="offcanvas-header px-4 pb-0">
+          <h5 class="offcanvas-title fw-bold" id="nfttSearchOffcanvasLabel">Search the documentation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttSearch"></button>
+        </div>
+        <div class="offcanvas-body p-4 pt-0 p-lg-0 px-lg-3">
+          <hr class="d-lg-none text-white-50">
+          <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
+            <li class="nav-item col-12 col-lg-auto">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-search">
+                <button class="btn btn-primary" type="button" id="button-search" aria-label="Submit seatch">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
+        <div class="offcanvas-header px-4 pb-0">
+          <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">Nefertiti for Sphinx</span></div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttNavbar"></button>
+        </div>
+        <div class="offcanvas-body p-4 pt-0 p-lg-0">
+          <hr class="d-lg-none text-white-50">
+          <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
+
+            <li class="nav-item col-12 col-lg-auto">
+              <a class="nav-link py-2 py-lg-0 px-0 px-lg-2" href="https://example.com" target="_blank" rel="noopener" aria-label="Visit repository https://example.com">
+                <div class="d-flex align-items-center">
+                  <div class="me-2">
+                    <i class="bi bi-git size-24"></i>
+                  </div>
+                  <div class="repo d-flex flex-column" data-snftt-repo-url="https://github.com/danirus/django-comments-xtd">
+                    danirus/django-comments-xtd
+                    <div class="d-flex justify-content-center" data-snftt-repo-metrics>
+                      <span class="pe-2 d-flex justify-content-center align-items-center">
+                        <i class="bi bi-tag size-14"></i>
+                        <span class="repo-metric" data-snftt-repo-tag></span>
+                      </span>
+                      <span class="pe-2 d-flex justify-content-center align-items-center">
+                        <i class="bi bi-star size-14"></i>
+                        <span class="repo-metric" data-snftt-repo-stars></span>
+                      </span>
+                      <span class="d-flex justify-content-center align-items-center">
+                        <i class="bi bi-diagram-2 size-14"></i>
+                        <span class="repo-metric" data-snftt-repo-forks></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li class="nav-item col-12 col-lg-auto h-100" aria-hidden="true">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none text-white-50">
+            </li>
+
+            <!-- versions -->
+            <li class="nav-item dropdown">
+              <a class="nav-link d-flex py-2 px-0 px-lg-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
+                <span id="snftt-version-text" class="d-lg-none small">Select version</span>
+                <span class="small ms-2" data-snftt-version-active>v1.0.0</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text">
+                <li>
+                  <h6 class="dropdown-header">Versions</h6>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="index.html?v=1.0.0" data-snftt-version-url="index.html?v=1.0.0" data-snftt-version="v1.0.0">
+                    <span class="small ms-2">v1.0.0</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="index.html?v=0.4.0" data-snftt-version-url="index.html?v=0.4.0" data-snftt-version="v0.4.0">
+                    <span class="small ms-2">v0.4.0</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item col-12 col-lg-auto h-100" aria-hidden="true">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none text-white-50">
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link d-flex py-2 px-0 px-lg-2 dropdown-toggle align-items-center" id="snftt-color" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle color set">
+                <i class="bi bi-palette"></i>
+                <span id="snftt-color-text" class="d-lg-none small ms-2">Change color set</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-color-text">
+                <li>
+                  <h6 class="dropdown-header">Change color set</h6>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="blue" href="#" aria-pressed="false">
+                    <span class="blue small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Blue</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="indigo" href="#" aria-pressed="false">
+                    <span class="indigo small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Indigo</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="purple" href="#" aria-pressed="false">
+                    <span class="purple small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Purple</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="pink" href="#" aria-pressed="false">
+                    <span class="pink small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Pink</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="red" href="#" aria-pressed="false">
+                    <span class="red small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Red</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="orange" href="#" aria-pressed="false">
+                    <span class="orange small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Orange</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="yellow" href="#" aria-pressed="false">
+                    <span class="yellow small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Yellow</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="green" href="#" aria-pressed="false">
+                    <span class="green small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Green</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-color="teal" href="#" aria-pressed="false">
+                    <span class="teal small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Teal</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item current d-flex align-items-center" data-snftt-color="cyan" href="#" aria-pressed="false">
+                    <span class="cyan small">
+                      <i class="bi bi-circle-fill"></i>
+                    </span>
+                    <span class="small ms-3">Cyan</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="nav-item col-12 col-lg-auto h-100" aria-hidden="true">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none text-white-50">
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link d-flex py-2 px-0 px-lg-2 dropdown-toggle align-items-center" id="snftt-luz" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle light/dark">
+                <i class="bi bi-circle-half" data-snftt-luz-icon-active></i>
+                <span id="snftt-luz-text" class="d-lg-none small ms-2">Toggle light/dark</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-luz-text">
+                <li>
+                  <h6 class="dropdown-header">Light/dark</h6>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-luz="light" href="#" aria-pressed="false">
+                    <span class="small">
+                      <i class="bi bi-sun" data-snftt-luz-icon="light"></i>
+                    </span>
+                    <span class="small ms-3">Light</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" data-snftt-luz="dark" href="#" aria-pressed="false">
+                    <span class="small">
+                      <i class="bi bi-moon-stars"  data-snftt-luz-icon="dark"></i>
+                    </span>
+                    <span class="small ms-3">Dark</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item current d-flex align-items-center" data-snftt-luz="default" href="#" aria-pressed="false">
+                    <span class="small">
+                      <i class="bi bi-circle-half" data-snftt-luz-icon="default"></i>
+                    </span>
+                    <span class="small ms-3">Default</span>
+                    <i class="bi bi-check ms-auto"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container-xxl nftt-gutter nftt-layout">
+    <aside class="nftt-sidebar">
+      <div class="title d-none d-md-block">
+        <i class="bi bi-book"></i>&nbsp;&nbsp;<span>Table of contents</span>
+      </div>
+      <div id="sidebar" tabindex="-1" class="offcanvas-lg offcanvas-start" aria-labelledby="nfttSidebarOffcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title fw-bold" id="nfttSidebarOffcanvasLabel">Table of contents</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="toc" aria-label="Main menu">
+            <div class="mb-3 p-1 pt-3 pb-4 border-bottom">
+              <input id="sidebar-filter" type="text" name="filter" class="form-control form-control-sm" placeholder="filter" aria-label="filter">
+            </div>
+            <ul class="current">
+              <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick start</a></li>
+              <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a></li>
+            </ul>
+            <ul>
+              <li class="toctree-l1">
+                <a class="reference internal" href="users-guide/index.html">User's guide</a>
+                <ul>
+                  <li class="toctree-l2"><a class="reference internal" href="users-guide/setup.html">Setup</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="users-guide/customization.html">Customization</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="users-guide/components.html">Components</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="users-guide/deploying.html">Deploying</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="users-guide/development.html">Development</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="users-guide/contributing.html">Contributing</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul>
+              <li class="toctree-l1">
+                <a class="reference internal" href="howto-pages/index.html">How-to pages</a>
+                <ul>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-01.html">First story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-02.html">Second story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-03.html">Third story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-04.html">Forth story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-05.html">Fifth story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-06.html">Sixth story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-07.html">Seventh story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-08.html">Eighth story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-09.html">Ninth story</a></li>
+                  <li class="toctree-l2"><a class="reference internal" href="howto-pages/story-10.html">Tenth story</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <template data-toggle-item-template="">
+            <button class="btn btn-sm btn-link toctree-expand" type="button">
+              <i class="bi bi-caret-right"></i>
+              <span class="visually-hidden">Toggle menu contents</span>
+            </button>
+          </template>
+        </div>
+      </div>
+    </aside>
+    <main class="nftt-main">
+      <article id="content" class="nftt-content" role="main">
+        <section id="quick-start">
+    <span id="id1"></span><h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h1>
+    <p>Nefertiti for Sphinx can be setup and running in a blink of an eye. Follow this quick start guide to go through the minimal steps to use it with your project.</p>
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>This page assumes that you want to try Nefertiti on an already existing Sphinx project.</p>
+    </div>
+    <section id="in-a-blink-of-an-eye">
+    <h2>In a blink of an eye<a class="headerlink" href="#in-a-blink-of-an-eye" title="Permalink to this heading">¶</a></h2>
+    <p>Install the package from PyPI:</p>
+    <div class="highlight-bash notranslate"><div class="highlight"><pre id="codecell0"><span></span>pip install sphinx-nefertiti</pre></div>
+    </div>
+    <p>Edit the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file in your documentation directory and change your <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> setting:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell1"><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">"sphinx_nefertiti"</span></pre></div>
+    </div>
+    <p>Now rebuild the docs and serve them to get a first glimpse of your site made up with Nefertiti. Within the directory of your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file:</p>
+    <div class="highlight-shell notranslate"><div class="highlight"><pre id="codecell2"><span></span>$ make clean
+$ make html
+$ python -m http.server -d build/html</pre></div>
+    </div>
+    <p>Visit <a class="reference external" href="http://localhost:8000">http://localhost:8000</a>.</p>
+    </section>
+    <section id="customize-the-theme">
+    <h2>Customize the theme<a class="headerlink" href="#customize-the-theme" title="Permalink to this heading">¶</a></h2>
+    <p>The following details of Nefertiti for Sphinx can be customized:</p>
+    <blockquote>
+    <div><ol class="arabic simple">
+    <li><p>Fonts.</p></li>
+    <li><p>Color set: blue, indigo, purple, pink, red, …</p></li>
+    <li><p>Pygments styles for light and dark color schemes.</p></li>
+    <li><p>Repository name and URL to display it in the header.</p></li>
+    <li><p>Project version dropdown selector.</p></li>
+    <li><p>Footer links.</p></li>
+    </ol>
+    </div></blockquote>
+    <p>They all are entries of the <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> setting of your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p>
+    <section id="fonts">
+    <h3>1. Fonts<a class="headerlink" href="#fonts" title="Permalink to this heading">¶</a></h3>
+    <p>There are 5 options related to font face customization and 2 options related to font size.</p>
+    <p>The font face options are:</p>
+    <blockquote>
+    <div><ul class="simple">
+    <li><p><code class="docutils literal notranslate"><span class="pre">sans_serif_font</span></code>: Default site font, defaults to <a class="reference external" href="https://www.fontsquirrel.com/fonts/nunito?q%5Bterm%5D=Nunito&amp;q%5Bsearch_check%5D=Y">Nunito</a>.</p></li>
+    <li><p><code class="docutils literal notranslate"><span class="pre">monospace_font</span></code>: Default monospace font, for code blocks, defaults to <a class="reference external" href="https://www.fontsquirrel.com/fonts/ubuntu-mono?q%5Bterm%5D=Ubuntu+Mono&amp;q%5Bsearch_check%5D=Y">Red Hat Mono</a>.</p></li>
+    <li><p><code class="docutils literal notranslate"><span class="pre">project_name_font</span></code>: The font for the Project’s name. <code class="docutils literal notranslate"><span class="pre">sans_serif_font</span></code> otherwise.</p></li>
+    <li><p><code class="docutils literal notranslate"><span class="pre">documentation_font</span></code>: reStructuredText and Markdown content. <code class="docutils literal notranslate"><span class="pre">sans_serif_font</span></code> otherwise.</p></li>
+    <li><p><code class="docutils literal notranslate"><span class="pre">doc_headers_font</span></code>: To render documentation headers. <code class="docutils literal notranslate"><span class="pre">documentation_font</span></code> otherwise.</p></li>
+    </ul>
+    </div></blockquote>
+    <p>And the font size options:</p>
+    <blockquote>
+    <div><ul class="simple">
+    <li><p><code class="docutils literal notranslate"><span class="pre">monospace_font_size</span></code>: The CSS <code class="docutils literal notranslate"><span class="pre">font-size</span></code> for the <code class="docutils literal notranslate"><span class="pre">monospace_font</span></code>. ie: <code class="docutils literal notranslate"><span class="pre">"1rem"</span></code>.</p></li>
+    <li><p><code class="docutils literal notranslate"><span class="pre">documentation_font_size</span></code>: The CSS <code class="docutils literal notranslate"><span class="pre">font-size</span></code> for the <code class="docutils literal notranslate"><span class="pre">documentation_font</span></code>. ie: <code class="docutils literal notranslate"><span class="pre">"1.1rem"</span></code>.</p></li>
+    </ul>
+    </div></blockquote>
+    <p>Edit your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file and add or modify your <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> setting with the following content. By the way, the fonts referred to in this example are part of the Nefertiti for Sphinx distribution. If you want to use other Open Source licensed fonts read the section “How to add more fonts” to include them with your project.</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell3"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"sans_serif_font"</span><span class="p">:</span> <span class="s2">"Mulish"</span><span class="p">,</span>
+    <span class="s2">"monospace_font"</span><span class="p">:</span> <span class="s2">"Ubuntu Mono"</span><span class="p">,</span>
+    <span class="s2">"monospace_font_size"</span><span class="p">:</span> <span class="s2">"1.1rem"</span><span class="p">,</span>
+    <span class="s2">"project_name_font"</span><span class="p">:</span> <span class="s2">"Montserrat"</span><span class="p">,</span>
+    <span class="s2">"documentation_font"</span><span class="p">:</span> <span class="s2">"Assistant"</span><span class="p">,</span>
+    <span class="s2">"documentation_font_size"</span><span class="p">:</span> <span class="s2">"1.1rem"</span><span class="p">,</span>
+    <span class="s2">"doc_headers_font"</span><span class="p">:</span> <span class="s2">"Georgia"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    <p>Save the content, clean up the build directory, build it and serve it again:</p>
+    <div class="highlight-shell notranslate"><div class="highlight"><pre id="codecell4"><span></span>$ make clean
+    $ make html
+    $ python -m http.server -d build/html
+</pre></div>
+    </div>
+    <p>Visit <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> to take a look at the changes.</p>
+    </section>
+    <section id="color-sets">
+    <h3>2. Color sets<a class="headerlink" href="#color-sets" title="Permalink to this heading">¶</a></h3>
+    <p>Another customizable feature of the theme is the color set. In the header of this documentation you can see a dropdown with a palette icon. The colors listed in the dropdown represent the available color sets. Try them to apply the selected color set to this documentation.</p>
+    <p>To customize the color set in your project add an entry <code class="docutils literal notranslate"><span class="pre">style</span></code> to the <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> setting in your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> module:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell5"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ... other options ...</span>
+    <span class="s2">"style"</span><span class="p">:</span> <span class="s2">"pink"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    <p>When <code class="docutils literal notranslate"><span class="pre">style</span></code> is not given the theme defaults to <code class="docutils literal notranslate"><span class="pre">cyan</span></code>.</p>
+    </section>
+    <section id="pygments-styles">
+    <h3>3. Pygments styles<a class="headerlink" href="#pygments-styles" title="Permalink to this heading">¶</a></h3>
+    <p><a class="reference external" href="https://pygments.org/">Pygments</a> is the package in charge of rendering code blocks. Sphinx supports two settings related with pygments:</p>
+    <blockquote>
+    <div><ul class="simple">
+    <li><p><code class="docutils literal notranslate"><span class="pre">pygments_style</span></code>, applied when browser’s <code class="docutils literal notranslate"><span class="pre">prefers-color-scheme</span></code> returns <strong>light</strong>.</p></li>
+    <li><p><code class="docutils literal notranslate"><span class="pre">pygments_dark_style</span></code>, applied when browser’s <code class="docutils literal notranslate"><span class="pre">prefers-color-scheme</span></code> returns <strong>dark</strong>.</p></li>
+    </ul>
+    </div></blockquote>
+    <p>Nefertiti for Sphinx extends the use of these settings in a way that their styling is applied when the user selects the scheme in the light/dark dropdown, at the right side of the header.</p>
+    <p>If your Sphinx project has code-blocks, try changing the pygments style settings and see how they are applied when switching between light and dark schemes in the header. Update your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> module:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell6"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ... other options ...</span>
+    <span class="s2">"pygments_style"</span><span class="p">:</span> <span class="s2">"solarized-light"</span><span class="p">,</span>
+    <span class="s2">"pygments_dark_style"</span><span class="p">:</span> <span class="s2">"solarized-dark"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    <p>Then clean up and rebuild the project, as usual.</p>
+    <p>See more code blocks rendered with Pygments in the <a class="reference internal" href="users-guide/components/code-blocks.html#code-blocks"><span class="std std-ref">Code blocks</span></a> document in Nefertiti User’s guide.</p>
+    </section>
+    <section id="repository-data">
+    <h3>4. Repository data<a class="headerlink" href="#repository-data" title="Permalink to this heading">¶</a></h3>
+    <p>If your Sphinx project is about a source code product, and it resides in a Git repository, in GitHub or GitLab, Nefertiti can display information relative to your repository in the header.</p>
+    <p>Just add the <code class="docutils literal notranslate"><span class="pre">repository_name</span></code> and <code class="docutils literal notranslate"><span class="pre">repository_url</span></code> keys to your <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> setting:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell7"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ... other options ...</span>
+    <span class="s2">"repository_name"</span><span class="p">:</span> <span class="s2">"danirus/sphinx-nefertiti"</span><span class="p">,</span>
+    <span class="s2">"repository_url"</span><span class="p">:</span> <span class="s2">"https://github.com/danirus/sphinx-nefertiti"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    <p>Clean up and rebuild the project, as usual.</p>
+    </section>
+    <section id="version-dropdown">
+    <h3>5. Version dropdown<a class="headerlink" href="#version-dropdown" title="Permalink to this heading">¶</a></h3>
+    <p>If your project is available in different versions Nefertiti for Sphinx can display a dropdown in the header to switch between them. If you use <a class="reference external" href="https://readthedocs.org">readthedocs</a> it is enabled by default so long as you have enabled different versions in the admin interface of readthedocs.</p>
+    <p>If you host different versions in different URLs, like:</p>
+    <table class="docutils align-default">
+    <thead>
+    <tr class="row-odd"><th class="head"><p>Version</p></th>
+    <th class="head"><p>URL</p></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="row-even"><td><p>v2.9.9</p></td>
+    <td><p><a class="reference external" href="https://django-comments-xtd.readthedocs.io/en/latest/">https://django-comments-xtd.readthedocs.io/en/latest/</a></p></td>
+    </tr>
+    <tr class="row-odd"><td><p>v2.8.5</p></td>
+    <td><p><a class="reference external" href="https://django-comments-xtd.readthedocs.io/en/2.8.5/">https://django-comments-xtd.readthedocs.io/en/2.8.5/</a></p></td>
+    </tr>
+    <tr class="row-even"><td><p>v2.7.2</p></td>
+    <td><p><a class="reference external" href="https://django-comments-xtd.readthedocs.io/en/2.7.2/">https://django-comments-xtd.readthedocs.io/en/2.7.2/</a></p></td>
+    </tr>
+    </tbody>
+    </table>
+    <p>Enable the version dropdown by adding the <code class="docutils literal notranslate"><span class="pre">versions</span></code> key to your <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> setting:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell8"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ... other options ...</span>
+    <span class="s2">"versions"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">"v2.9.9"</span><span class="p">,</span> <span class="s2">"https://django-comments-xtd.readthedocs.io/en/latest/"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"v2.8.5"</span><span class="p">,</span> <span class="s2">"https://django-comments-xtd.readthedocs.io/en/2.8.5/"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"v2.7.2"</span><span class="p">,</span> <span class="s2">"https://django-comments-xtd.readthedocs.io/en/2.7.2/"</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    <p>Clean up and rebuild the project, as usual.</p>
+    </section>
+    <section id="footer-links">
+    <h3>6. Footer links<a class="headerlink" href="#footer-links" title="Permalink to this heading">¶</a></h3>
+    <p>In addition to the copyright notice, configurable with the <code class="docutils literal notranslate"><span class="pre">copyright</span></code> Sphinx setting, you can add links that are important to your project, like a link to your company website or a link to your code repository. Footer links are added via the <code class="docutils literal notranslate"><span class="pre">footer_links</span></code> key in the <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code>. This entry has to be a comma separated list of strings with the format: <code class="docutils literal notranslate"><span class="pre">"&lt;link</span> <span class="pre">title&gt;|&lt;URL&gt;"</span></code>.</p>
+    <p>As an example, the 4 links of the current Nefertiti for Sphinx documentation look like this in the <code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> setting:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell9"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ... other options ...</span>
+    <span class="s2">"footer_links"</span><span class="p">:</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="s2">"Documentation|https://sphinx-nefertiti.readthedocs.com"</span><span class="p">,</span>
+        <span class="s2">"Package|https://pypi.com/sphinx-nefertiti"</span><span class="p">,</span>
+        <span class="s2">"Repository|https://github.com/danirus/sphinx-nefertiti"</span><span class="p">,</span>
+        <span class="s2">"Issues|https://github.com/danirus/sphinx-nefertiti/issues"</span><span class="p">,</span>
+    <span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    <p>In addition you can remove the <strong>Built with Sphinx and Nefertiti</strong> notice by setting the <code class="docutils literal notranslate"><span class="pre">show_powered_by</span></code> key to False. It is <code class="docutils literal notranslate"><span class="pre">True</span></code> by default:</p>
+    <div class="highlight-python notranslate"><div class="highlight"><pre id="codecell10"><span></span><span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1"># ... other options ...</span>
+    <span class="s2">"show_powered_by"</span><span class="p">:</span> <span class="kc">False</span>
+<span class="p">}</span>
+</pre></div>
+    </div>
+    </section>
+    </section>
+    </section>
+
+    </article>
+      <aside class="nftt-toc">
+        <div class="mt-3 mb-1 my-lg-0 ps-xl-3 text-muted">
+          <button class="btn btn-link link-dark p-md-0 mb-2 mb-md-0 text-decoration-none nftt-toc-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+            On this page
+            <i class="ms-2 bi bi-chevron-expand"></i>
+          </button>
+          <div class="title d-none d-md-block">
+            <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">On this page</span>
+          </div>
+          <hr class="d-none d-md-block my-2">
+          <div class="collapse nftt-toc-collapse" id="tocContents">
+            <nav id="TableOfContents">
+              <ul>
+                <li class=""><a class="reference internal" href="#quick-start">Quick start</a><ul>
+                <li class=""><a class="reference internal" href="#in-a-blink-of-an-eye">In a blink of an eye</a></li>
+                <li class=""><a class="reference internal" href="#customize-the-theme">Customize the theme</a><ul>
+                <li class=""><a class="reference internal" href="#fonts">1. Fonts</a></li>
+                <li class=""><a class="reference internal" href="#color-sets">2. Color sets</a></li>
+                <li class=""><a class="reference internal" href="#pygments-styles">3. Pygments styles</a></li>
+                <li class=""><a class="reference internal" href="#repository-data">4. Repository data</a></li>
+                <li class="active"><a class="reference internal" href="#version-dropdown">5. Version dropdown</a></li>
+                <li class=""><a class="reference internal" href="#footer-links">6. Footer links</a></li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </nav>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <footer class="nftt-footer">
+    <nav class="py-4" aria-label="Documentation navigation">
+      <div class="container">
+        <ul class="pagination justify-content-between mb-0">
+          <li class="page-item">
+            <a class="d-flex px-xl-5 align-items-end" rel="prev" aria-label="Previous: Tralari">
+              <span class="prev-page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                  <title>arrow previous</title>
+                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+              </span>
+              <div class="d-flex flex-column">
+                <span class="text-small text-start">Previous</span>
+                <span>Nefertiti Theme documentation</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="page-item ms-auto">
+            <a href="#next" class="d-flex px-xl-5 align-items-end" rel="next" aria-label="Next: Tralara">
+              <div class="d-flex flex-column">
+                <span class="text-small text-end text-muted">Next</span>
+                <span class="underline">Installation</span>
+              </div>
+              <span class="next-page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <title>arrow next</title>
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="py-5 px-4 px-md-3">
+      <div class="container">
+        <div class="row">
+          <ul class="list-unstyled list-separator col-lg-12 pb-4 text-center">
+            <li class="d-inline">
+              <a href="https://pypi.com/sphinx-nefertiti" class="list-item">Documentation</a>
+            </li>
+            <li class="d-inline">
+              <a href="https://pypi.com/sphinx-nefertiti" class="list-item">Package</a>
+            </li>
+            <li class="d-inline">
+              <a href="https://github.com/danirus/sphinx-nefertiti" class="list-item">Repository</a>
+            </li>
+            <li class="d-inline">
+              <a href="https://github.com/danirus/sphinx-nefertiti/issues" class="list-item">Issues</a>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <a class="brand-text d-inline-flex align-items-center mb-2 text-decoration-none" href="/" aria-label="Nefertiti-for-Sphinx">
+              <span class="fs-6 fw-bold">Nefertiti for Sphinx</span>
+            </a>
+            <ul class="list-unstyled text-muted">
+              <li>Code licensed <a href="https://github.com/danirus/sphinx-nefertiti/blob/main/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</li>
+            </ul>
+            <div class="built-with pt-2">
+              Built with <a href="http://sphinx-doc.org">Sphinx 6.1.3</a> and <a href="https://github.com/danirus/sphinx-nefertiti">Nefertiti 0.1.0</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/bootstrap.bundle.js"></script>
+  <script src="/js/sphinx-nefertiti.js"></script>
+  <!-- <script src="/js/colorsets.js" type="module"></script> -->
+</body>
+</html>

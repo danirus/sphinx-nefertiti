@@ -1,0 +1,227 @@
+@mixin light-theme {
+  --#{$prefix}body-color-rgb: #{to-rgb($scheme-light-body-color)};
+  --#{$prefix}body-color: #{$scheme-light-body-color};
+  --#{$prefix}body-hc-color: #{$scheme-light-body-hc-color};
+  --#{$prefix}body-bg-rgb: #{to-rgb($scheme-light-body-bg)};
+  --#{$prefix}body-bg: #{$scheme-light-body-bg};
+
+  --#{$prefix}secondary-color: #{$scheme-light-body-secondary-color};
+  --#{$prefix}secondary-color-rgb: #{to-rgb($scheme-light-body-secondary-color)};
+  --#{$prefix}secondary-bg: #{$scheme-light-body-secondary-bg};
+  --#{$prefix}secondary-bg-rgb: #{to-rgb($scheme-light-body-secondary-bg)};
+
+  --#{$prefix}tertiary-color: #{$scheme-light-body-tertiary-color};
+  --#{$prefix}tertiary-color-rgb: #{to-rgb($scheme-light-body-tertiary-color)};
+  --#{$prefix}tertiary-bg: #{$scheme-light-body-tertiary-bg};
+  --#{$prefix}tertiary-bg-rgb: #{to-rgb($scheme-light-body-tertiary-bg)};
+
+  --#{$prefix}emphasis-color: #{$scheme-light-body-emphasis-color};
+  --#{$prefix}emphasis-color-rgb: #{to-rgb($scheme-light-body-emphasis-color)};
+
+  --#{$prefix}pre-border-color: #{$scheme-light-pre-border-color};
+
+  --#{$prefix}foot1-bg: #{$scheme-light-foot1-bg};
+  --#{$prefix}foot2-bg: #{$scheme-light-foot2-bg};
+  --#{$prefix}foot2-link1: #{$scheme-light-foot2-link1};
+  --#{$prefix}foot2-link2: #{$scheme-light-foot2-link2};
+  --#{$prefix}foot2-link-bg: #{$scheme-light-foot2-link-bg};
+  --#{$prefix}foot2-link-hover: #{$scheme-light-foot2-link-hover};
+
+  --#{$prefix}headings-color: #{$scheme-light-headings-color};
+  --#{$prefix}border-color: #{$scheme-light-border-color};
+  --#{$prefix}border-color-translucent: #{$scheme-light-border-color-translucent};
+  --#{$prefix}link-color: #{$scheme-light-link-color};
+  --#{$prefix}link-hover-color: #{$scheme-light-link-hover-color};
+  --#{$prefix}link-border-color: lighten(#{$scheme-light-link-color}, 45%);
+  --#{$prefix}link-active-color: shade-color(#{$scheme-light-link-color}, 75%);
+  --#{$prefix}link-decoration-color: #{$scheme-light-link-decoration-color};
+  --#{$prefix}link-decoration-color-rgb: #{$scheme-light-link-decoration-color-rgb};
+
+  --#{$prefix}code-color: #{$scheme-light-code-color};
+
+  --#{$prefix}admon-attention-color-bg: #{$scheme-light-admon-attention-color-bg};
+  --#{$prefix}admon-caution-color-bg: #{$scheme-light-admon-caution-color-bg};
+  --#{$prefix}admon-danger-color-bg: #{$scheme-light-admon-danger-color-bg};
+  --#{$prefix}admon-error-color-bg: #{$scheme-light-admon-error-color-bg};
+  --#{$prefix}admon-important-color-bg: #{$scheme-light-admon-important-color-bg};
+  --#{$prefix}admon-note-color-bg: #{$scheme-light-admon-note-color-bg};
+  --#{$prefix}admon-tip-color-bg: #{$scheme-light-admon-tip-color-bg};
+
+  .docutils {
+    &:not(.field-list) {
+      --#{$prefix}table-bg: #{$scheme-light-table-bg};
+      --#{$prefix}table-striped-bg: #{$scheme-light-table-striped-bg};
+    }
+  }
+
+  @include color-scheme(light);
+  color-scheme: light;
+}
+
+@mixin dark-theme {
+  --#{$prefix}body-color-rgb: #{to-rgb($scheme-dark-body-color)};
+  --#{$prefix}body-color: #{$scheme-dark-body-color};
+  --#{$prefix}body-hc-color: #{$scheme-dark-body-hc-color};
+  --#{$prefix}body-bg-rgb: #{to-rgb($scheme-dark-body-bg)};
+  --#{$prefix}body-bg: #{$scheme-dark-body-bg};
+
+  --#{$prefix}secondary-color: #{$scheme-dark-body-secondary-color};
+  --#{$prefix}secondary-color-rgb: #{to-rgb($scheme-dark-body-secondary-color)};
+  --#{$prefix}secondary-bg: #{$scheme-dark-body-secondary-bg};
+  --#{$prefix}secondary-bg-rgb: #{to-rgb($scheme-dark-body-secondary-bg)};
+
+  --#{$prefix}tertiary-color: #{$scheme-dark-body-tertiary-color};
+  --#{$prefix}tertiary-color-rgb: #{to-rgb($scheme-dark-body-tertiary-color)};
+  --#{$prefix}tertiary-bg: #{$scheme-dark-body-tertiary-bg};
+  --#{$prefix}tertiary-bg-rgb: #{to-rgb($scheme-dark-body-tertiary-bg)};
+
+  --#{$prefix}emphasis-color: #{$scheme-dark-body-emphasis-color};
+  --#{$prefix}emphasis-color-rgb: #{to-rgb($scheme-dark-body-emphasis-color)};
+
+  --#{$prefix}pre-border-color: #{$scheme-dark-pre-border-color};
+
+  --#{$prefix}foot1-bg: #{$scheme-dark-foot1-bg};
+  --#{$prefix}foot2-bg: #{$scheme-dark-foot2-bg};
+  --#{$prefix}foot2-link1: #{$scheme-dark-foot2-link1};
+  --#{$prefix}foot2-link2: #{$scheme-dark-foot2-link2};
+  --#{$prefix}foot2-link-bg: #{$scheme-dark-foot2-link-bg};
+  --#{$prefix}foot2-link-hover: #{$scheme-dark-foot2-link-hover};
+
+  --#{$prefix}headings-color: #{$scheme-dark-headings-color};
+  --#{$prefix}border-color: #{$scheme-dark-border-color};
+  --#{$prefix}border-color-translucent: #{$scheme-dark-border-color-translucent};
+  --#{$prefix}link-color: #{$scheme-dark-link-color};
+  --#{$prefix}link-hover-color: #{$scheme-dark-link-hover-color};
+  --#{$prefix}link-border-color: lighten(#{$scheme-dark-link-color}, 45%);
+  --#{$prefix}link-active-color: shade-color(#{$scheme-dark-link-color}, 75%);
+  --#{$prefix}link-decoration-color: #{$scheme-dark-link-decoration-color};
+  --#{$prefix}link-decoration-color-rgb: #{$scheme-dark-link-decoration-color-rgb};
+
+  --#{$prefix}code-color: #{$scheme-dark-code-color};
+
+  --#{$prefix}admon-attention-color-bg: #{$scheme-dark-admon-attention-color-bg};
+  --#{$prefix}admon-caution-color-bg: #{$scheme-dark-admon-caution-color-bg};
+  --#{$prefix}admon-danger-color-bg: #{$scheme-dark-admon-danger-color-bg};
+  --#{$prefix}admon-error-color-bg: #{$scheme-dark-admon-error-color-bg};
+  --#{$prefix}admon-important-color-bg: #{$scheme-dark-admon-important-color-bg};
+  --#{$prefix}admon-note-color-bg: #{$scheme-dark-admon-note-color-bg};
+  --#{$prefix}admon-tip-color-bg: #{$scheme-dark-admon-tip-color-bg};
+
+  .docutils {
+    &:not(.field-list) {
+      --#{$prefix}table-bg: #{$scheme-dark-table-bg};
+      --#{$prefix}table-striped-bg: #{$scheme-dark-table-striped-bg};
+    }
+  }
+
+  @include color-scheme(dark);
+  color-scheme: dark;
+}
+
+:root:not(.light):not(.dark) {
+  color-scheme: light dark;
+
+  @media (prefers-color-scheme: light) {
+    @include light-theme();
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme();
+  }
+}
+
+.light {
+  @include light-theme();
+}
+
+.dark {
+  @include dark-theme();
+}
+
+
+:root {
+  // Note: Custom variable values only support SassScript inside `#{}`.
+
+  // Colors
+  //
+  // Generate palettes for full colors, grays, and theme colors.
+
+  @each $color, $value in $colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $grays {
+    --#{$prefix}gray-#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-text {
+    --#{$prefix}#{$color}-text-emphasis: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-bg-subtle {
+    --#{$prefix}#{$color}-bg-subtle: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-border-subtle {
+    --#{$prefix}#{$color}-border-subtle: #{$value};
+  }
+
+  --#{$prefix}white-rgb: #{to-rgb($white)};
+  --#{$prefix}black-rgb: #{to-rgb($black)};
+  // --#{$prefix}body-color-rgb: #{to-rgb($body-color)};
+  // --#{$prefix}body-bg-rgb: #{to-rgb($body-bg)};
+
+  // Fonts
+
+  // Note: Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+  --#{$prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
+  --#{$prefix}font-family-monospace: #{inspect($font-family-monospace)};
+  --#{$prefix}documentation-font-size: #{inspect($font-size-base)};
+  --#{$prefix}monospace-font-size: 1rem;
+  --#{$prefix}gradient: #{$gradient};
+
+  // Root and body
+  // scss-docs-start root-body-variables
+  @if $font-size-root != null {
+    --#{$prefix}root-font-size: #{$font-size-root};
+  }
+  // --#{$prefix}body-font-family: #{$font-family-base};
+  @include rfs($font-size-base, --#{$prefix}body-font-size);
+  --#{$prefix}body-font-weight: #{$font-weight-base};
+  --#{$prefix}body-line-height: #{$line-height-base};
+  // --#{$prefix}body-color: #{$body-color};
+  @if $body-text-align != null {
+    --#{$prefix}body-text-align: #{$body-text-align};
+  }
+  // --#{$prefix}body-bg: #{$body-bg};
+  // scss-docs-end root-body-variables
+
+  // scss-docs-start root-border-var
+  --#{$prefix}border-width: #{$border-width};
+  --#{$prefix}border-style: #{$border-style};
+  // --#{$prefix}border-color: #{$border-color};
+  // --#{$prefix}border-color-translucent: #{$border-color-translucent};
+
+  --#{$prefix}border-radius: #{$border-radius};
+  --#{$prefix}border-radius-sm: #{$border-radius-sm};
+  --#{$prefix}border-radius-lg: #{$border-radius-lg};
+  --#{$prefix}border-radius-xl: #{$border-radius-xl};
+  --#{$prefix}border-radius-2xl: #{$border-radius-2xl};
+  --#{$prefix}border-radius-pill: #{$border-radius-pill};
+  // scss-docs-end root-border-var
+
+  // --#{$prefix}link-color: #{$link-color};
+  // --#{$prefix}link-hover-color: #{$link-hover-color};
+
+  --#{$prefix}highlight-bg: #{$mark-bg};
+  --#{$prefix}tertiary-bg: rgba(var(--#{$prefix}primary-rgb), .1);
+}

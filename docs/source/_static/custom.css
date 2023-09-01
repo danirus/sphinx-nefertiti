@@ -1,0 +1,19 @@
+.nefertiti-bg {
+  margin-right: 1rem;
+  background: white;
+  border: 0;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+/* :root {
+  --nftt-primary-rgb: 23,122,240 !important;
+}
+
+.navbar-dark {
+  --nftt-navbar-color: rgba(255, 255, 255, 0.85) !important;
+  --nftt-navbar-active-color: rgba(215, 255, 255, 0.95) !important;
+  --nftt-navbar-hover-color: white !important;
+  --nftt-navbar-brand-color: white !important;
+} */

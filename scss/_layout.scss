@@ -1,0 +1,223 @@
+@use "sass:color";
+
+:root,
+html {
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 0;
+  margin: 0 auto;
+  font-size: $font-size-base;
+  color: var(--#{$prefix}body-color);
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 63px;
+}
+
+.nftt-layout {
+  flex: 1 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+
+  @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-areas: "sidebar main";
+    grid-template-columns: 1.6fr 5fr;
+    gap: 1.5rem;
+  }
+}
+
+.nftt-sidebar {
+  grid-area: sidebar;
+
+  @include media-breakpoint-up(lg) {
+    position: sticky;
+    top: 6rem;
+    z-index: 2;
+    display: block;
+    padding-left: .25rem;
+    margin-left: -.25rem;
+    overflow-y: scroll;
+    border-right: 1px solid var(--#{$prefix}border-color);
+
+    @include scrollbars();
+  }
+}
+
+.nftt-main-wo-toc {
+  display: grid;
+  grid-area: main;
+  grid-template-areas: "content";
+  padding-right: 48px;
+
+  @include media-breakpoint-down(lg) {
+    padding-right: 0;
+  }
+}
+
+.nftt-main {
+  display: grid;
+  grid-area: main;
+  grid-template-areas:
+    "toc"
+    "content";
+  grid-template-rows: 1fr auto;
+  gap: inherit;
+
+  @include media-breakpoint-down(lg) {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-areas: "content toc";
+    grid-template-columns: 4fr 1fr;
+  }
+}
+
+.nftt-toc {
+  grid-area: toc;
+
+  code,
+  code * {
+    font-family: var(--#{$prefix}font-family-monospace);
+    font-size: .7rem;
+  }
+}
+
+
+.nftt-content {
+  grid-area: content;
+  min-width: 1px;  // Fix width when nftt-content contains a `<pre>`. See https://github.com/twbs/bootstrap/issues/25410
+  font-family: var(--#{$prefix}documentation-font);
+  font-size: var(--#{$prefix}documentation-font-size);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--#{$prefix}doc-headers-font);
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.nftt-footer {
+  > :nth-child(1) {
+    background-color: var(--#{$prefix}foot1-bg);
+  }
+
+  > :nth-child(2) {
+    background-color: var(--#{$prefix}foot2-bg);
+  }
+
+  .prev-page {
+    padding-right: .7rem;
+    color: $primary;
+  }
+
+  .next-page {
+    padding-left: .7rem;
+    color: $primary;
+  }
+
+  .col-title {
+    color: var(--#{$prefix}body-color);
+    border-bottom: 2px solid var(--#{$prefix}border-color);
+  }
+
+  a {
+    color: var(--#{$prefix}foot2-link1);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--#{$prefix}foot2-link-hover);
+    text-decoration-color: currentcolor;
+  }
+
+  .brand-text {
+    font-family: var(--nftt-project-name-font);
+    font-weight: 700;
+    color: var(--#{$prefix}foot2-link-hover);
+  }
+
+  .list-unstyled {
+    font-size: .9rem;
+
+    li {
+      display: inline;
+      color: var(--#{$prefix}foot2-link1);
+
+      @include media-breakpoint-down(lg) {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  .list-unstyled.list-separator {
+    li {
+      color: var(--#{$prefix}foot2-link1);
+
+      + li::before {
+        font-family: Verdana, Tahoma, sans-serif;
+        content: "\002022";
+
+        @include media-breakpoint-down(lg) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .list-item {
+    display: inline-block;
+    padding: .2rem 1rem;
+    margin: .5rem .2rem;
+    color: var(--#{$prefix}foot2-link2);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    &:hover {
+      color: var(--#{$prefix}foot2-link-hover);
+      background-color: var(--#{$prefix}foot2-link-bg);
+    }
+
+    @include media-breakpoint-down(lg) {
+      padding: .2rem 1rem;
+      margin: .2rem;
+    }
+  }
+
+  .built-with {
+    font-size: .7rem;
+    color: var(--#{$prefix}secondary-color);
+
+    a {
+      color: var(--#{$prefix}secondary-color);
+      // text-decoration: none;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--#{$prefix}tertiary-color);
+
+      &:hover {
+        color: var(--#{$prefix}foot2-link-hover);
+        text-decoration-color: var(--#{$prefix}foot2-link-hover);
+      }
+    }
+  }
+}

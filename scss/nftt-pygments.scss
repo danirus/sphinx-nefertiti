@@ -1,0 +1,9 @@
+/*
+ * This file produces a customization of the Pygments files
+ * used in dark and light color schemes.
+ * The reason to apply these changes is to comply with the
+ * accessibility rules proposed by:
+ * https://accessibilityinsights.io/docs/web/overview/
+ */
+@import "./custom-pygments/light/pastie";
+@import "./custom-pygments/dark/dracula";

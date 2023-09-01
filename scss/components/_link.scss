@@ -1,0 +1,33 @@
+/* stylelint-disable selector-no-qualifying-type */
+@mixin anchor {
+  color: var(--#{$prefix}link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: solid;
+  text-decoration-color: var(--#{$prefix}link-decoration-color);
+  text-underline-offset: 3px;
+
+  &.active,
+  &:focus,
+  &:hover {
+    color: var(--#{$prefix}link-hover-color);
+    text-decoration-color: currentcolor;
+  }
+
+  &:active {
+    color: var(--#{$prefix}link-active-color);
+    text-decoration-color: currentcolor;
+  }
+}
+
+a {
+  @include anchor();
+}
+
+.page-item a {
+  text-decoration: none;
+
+  span.underline {
+    @include anchor();
+  }
+}

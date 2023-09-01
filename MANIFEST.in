@@ -1,0 +1,6 @@
+include README.md
+include requirements.txt
+
+recursive-include sphinx_nefertiti *.*
+
+recursive-exclude sphinx_nefertiti *.pyc

@@ -1,0 +1,37 @@
+{%- block footer -%}
+<div class="py-5 px-4 px-md-3">
+  <div class="container">
+    {% if theme_footer_links %}
+    <div class="row">
+      <ul class="list-unstyled list-separator col-lg-12 pb-2 text-center">
+        {% for link in theme_footer_links.split(',') %}
+          {% set link_text=link.split("|")[0] %}
+          {% set link_url=link.split("|")[1] %}
+          <li class="d-inline">
+            <a href="{{ link_url }}" class="list-item">{{ link_text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <a class="brand-text d-inline-flex align-items-center mb-2 text-decoration-none" href="/" aria-label="Nefertiti-for-Sphinx">
+          <span class="fs-6 fw-bold">{{ project }}</span>
+        </a>
+        {% if show_copyright %}
+          <ul class="list-unstyled small text-muted">
+            <li>{{ copyright }}</li>
+          </ul>
+        {% endif %}
+        {% if theme_show_powered_by|lower == 'true' %}
+        <div class="built-with pt-2">
+          Built with <a href="http://sphinx-doc.org">Sphinx {{ sphinx_version }}</a> and <a href="https://github.com/danirus/sphinx-nefertiti">Nefertiti {{ nefertiti_version }}</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{%- endblock %}

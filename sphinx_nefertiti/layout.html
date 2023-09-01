@@ -1,0 +1,244 @@
+{# Template variable settings inherited from sphinx_rtd_theme #}
+{%- set url_root = pathto('', 1) -%}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif -%}
+{%- if not embedded and docstitle %}
+    {%- set titlesuffix = " &mdash; "|safe + docstitle|e -%}
+{%- else %}
+    {%- set titlesuffix = "" -%}
+{%- endif -%}
+{%- set hidetoc = '' %}
+{%- if meta is defined and meta %}
+    {%- if 'hidetoc' in meta.keys() %}
+        {%- set hidetoc = meta.get('hidetoc') %}
+    {%- endif %}
+{%- endif %}
+{%- set sphinx_version_info = sphinx_version.split('.') | map('int') | list -%}
+
+{%- macro script() %}
+    {%- for js in script_files %}
+    {{ js_tag(js) }}
+    {%- endfor %}
+{%- endmacro %}
+
+<!DOCTYPE html>
+<html class="no-js" {% if language is not none %}lang="{{ language }}"{% endif %}>
+  <head>
+    <meta charset="utf-8" />
+    {%- if metatags %}
+      {{ metatags }}
+    {%- endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="docsearch:name" content="{{ project|striptags|e }}" />
+    <meta name="docsearch:package_type" content="{{ package_type|striptags|e }}" />
+    <meta name="docsearch:release" content="{{ release|striptags|e }}" />
+    <meta name="docsearch:version" content="{{ version|striptags|e }}" />
+    {% block htmltitle %}
+      <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {% endblock %}
+    {%- if pageurl %}
+    <link rel="canonical" href="{{ pageurl|e }}" />
+    {%- endif %}
+    {%- if favicon_url %}
+      <link rel="icon" href="{{ favicon_url|e }}" />
+    {%- endif %}
+    {%- if use_opensearch %}
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
+          href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+    {%- endif %}
+    <link rel="stylesheet" href="{{ pathto('_static/bootstrap-icons.css', 1)|e }}" type="text/css" />
+    {%- for css in css_files %}
+      {%- if css not in ["_static/basic.css",] %}
+        {%- if css|attr("filename") %}
+          {{ css_tag(css) }}
+        {%- else %}
+          <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+        {%- endif %}
+      {%- endif %}
+    {%- endfor %}
+    {%- block linktags %}
+      {%- if hasdoc('about') %}
+        <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+      {%- endif %}
+      {%- if hasdoc('genindex') %}
+        <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+      {%- endif %}
+      {%- if hasdoc('search') %}
+        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+      {%- endif %}
+      {%- if hasdoc('copyright') %}
+        <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+      {%- endif %}
+        <link rel="top" title="{{ docstitle|e }}" href="{{ pathto(pagename) }}" />
+      {%- if parents %}
+        <link rel="up" title="{{ parents[-1].title|striptags|e }}" href="{{ parents[-1].link|e }}" />
+      {%- endif %}
+      {%- if next %}
+        <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+      {%- endif %}
+      {%- if prev %}
+        <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+      {%- endif %}
+    {% endblock -%}
+    {%- block extrahead %}{% endblock -%}
+    <style>
+      :root {
+        --nftt-body-font-family: "{{ theme_sans_serif_font }}", var(--nftt-font-sans-serif) !important;
+        --nftt-font-monospace: "{{ theme_monospace_font }}", var(--nftt-font-family-monospace) !important;
+        --nftt-project-name-font: {% if theme_project_name_font %}"{{ theme_project_name_font }}", {% endif %}var(--nftt-body-font-family);
+        --nftt-documentation-font: {% if theme_documentation_font %}"{{ theme_documentation_font }}", {% endif %}var(--nftt-body-font-family);
+        --nftt-doc-headers-font: {% if theme_doc_headers_font %}"{{ theme_doc_headers_font }}", {% endif %}var(--nftt-documentation-font);
+        {%- if theme_documentation_font_size %}--nftt-documentation-font-size: {{ theme_documentation_font_size }};{% endif -%}
+        {%- if theme_monospace_font_size %}--nftt-monospace-font-size: {{ theme_monospace_font_size }};{% endif -%}
+      }
+      h1 *, h2 *, h3 *, h4 *, h5 *, h6 * { font-size: inherit; }
+    </style>
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg navbar-dark nftt-navbar flex-column fixed-top">
+      <div class="skip-links container-xxl visually-hidden-focusable overflow-hidden justify-content-start">
+        <div class="border-bottom mb-2 pb-2 w-100">
+          <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">{{ _('Skip to docs navigation') }}</a>
+          <a class="d-inline-flex p-2 m-1" href="#content">{{ _('Skip to main content') }}</a>
+        </div>
+      </div>
+      <nav class="container-xxl nftt-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
+        <div class="nftt-navbar-toggler">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle documentation navigation">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+        {%- if theme_logo and theme_logo != 'None' %}
+          <a
+            href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
+            {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
+            class="navbar-brand me-0 md-lg-2"
+          >
+            <img src="{{ pathto('_static/' + theme_logo, 1) }}"
+              {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
+              {%- if theme_logo_height %} height="{{ theme_logo_height|e }}"{% endif %}
+              {%- if theme_logo_alt %} alt="{{ theme_logo_alt|e }}"{% endif %}
+              {%- if theme_logo_title %} title="{{ theme_logo_title|e }}"{% endif %}
+              class="nefertiti-bg"
+            />
+            <span class="brand-text">{{ project }}</span>
+          </a>
+        {% else %}
+          <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
+              {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
+              class="navbar-brand p-0 me-0 md-lg-2"
+          ><span class="brand-text">{{ project }}</span></a>
+        {% endif %}
+        <div class="d-flex d-lg-none">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
+            <i class="bi bi-search"></i>
+          </button>
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttNavbar" aria-controls="nfttNavbar" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+        </div>
+        {% include "searchbox.html" %}
+        <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
+          <div class="offcanvas-header px-4 pb-0">
+            <div class="offcanvas-title text-white fw-bold" id="nfttNavbarOffcanvasLabel"><span class="brand-text">Nefertiti for Sphinx</span></div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttNavbar"></button>
+          </div>
+          <div class="offcanvas-body p-4 pt-0 p-lg-0">
+            <hr class="d-lg-none text-white-50">
+            <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
+              {% if theme_repository_url and theme_repository_name %}
+              <li class="nav-item col-12 col-lg-auto">
+                <a class="nav-link py-2 py-lg-0 px-0 px-lg-2" href="{{ theme_repository_url }}" target="_blank" rel="noopener">
+                  <div class="d-flex align-items-center">
+                    <div class="me-2">
+                      <i class="bi bi-git size-24"></i>
+                    </div>
+                    <div class="repo d-flex flex-column align-items-center" data-snftt-repo-url="{{ theme_repository_url }}">
+                      {{ theme_repository_name }}
+                      <div class="d-flex justify-content-center" data-snftt-repo-metrics>
+                        <span class="pe-2 d-flex justify-content-center align-items-center">
+                          <i class="bi bi-tag size-14"></i>
+                          <span class="repo-metric" data-snftt-repo-tag></span>
+                        </span>
+                        <span class="pe-2 d-flex justify-content-center align-items-center">
+                          <i class="bi bi-star size-14"></i>
+                          <span class="repo-metric" data-snftt-repo-stars></span>
+                        </span>
+                        <span class="d-flex justify-content-center align-items-center">
+                          <i class="bi bi-diagram-2 size-14"></i>
+                          <span class="repo-metric" data-snftt-repo-forks></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item col-12 col-lg-auto h-100" aria-hidden="true">
+                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                <hr class="d-lg-none text-white-50">
+              </li>
+              {% endif %}
+              {% include "version-dropdown.html" %}
+              {% if show_colorset_choices %}
+                {% include "colorsets-dropdown.html" %}
+              {% endif %}
+              {% include "lightdark-dropdown.html" %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-xxl nftt-gutter nftt-layout">
+      <aside class="nftt-sidebar">
+        <div class="title d-none d-md-block">
+          <i class="bi bi-book"></i>&nbsp;&nbsp;<span>{{ _('Table of contents') }}</span>
+        </div>
+        <div id="sidebar" tabindex="-1" class="offcanvas-lg offcanvas-start" aria-labelledby="nfttSidebarOffcanvasLabel">
+          {%- for sidebartemplate in sidebars %}
+            <!-- danirus sidebartemplate: "{{ sidebartemplate }}" -->
+            {%- include sidebartemplate %}
+          {%- endfor %}
+        </div>
+      </aside>
+      <main class="{% if hidetoc %}nftt-main-wo-toc{% else %}nftt-main{% endif %}">
+        <article id="content" class="nftt-content" role="main">
+          {%- block body %}
+          {% endblock -%}
+        </article>
+        {% if display_toc and not hidetoc %}
+          <aside class="nftt-toc">
+            <div class="mt-3 mb-1 my-lg-0 ps-xl-3 text-muted">
+              <button class="btn btn-link link-dark p-md-0 mb-2 mb-md-0 text-decoration-none nftt-toc-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
+              >On this page <i class="ms-2 bi bi-chevron-expand"></i></button>
+              <div class="title d-none d-md-block">
+                <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">On this page</span>
+              </div>
+              <hr class="d-none d-md-block my-2">
+              <div class="collapse nftt-toc-collapse" id="tocContents">
+                <nav id="TableOfContents">
+                  {{ toc }}
+                </nav>
+              </div>
+            </div>
+          </aside>
+        {% endif %}
+      </main>
+    </div>
+
+    <footer class="nftt-footer">
+      {% include "pager.html" %}
+      {% include "footer.html" %}
+    </footer>
+
+    {%- if not embedded %}
+    {%- block scripts %}
+    {{- script() }}
+    {%- endblock %}
+    {%- endif %}
+
+    <script type="text/javascript" src="{{ pathto('_static/bootstrap.bundle.min.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto('_static/sphinx-nefertiti.min.js', 1) }}"></script>
+    {% if show_colorset_choices %}<script type="module" src="{{ pathto('_static/colorsets.js', 1) }}"></script>{% endif %}
+  </body>
+</html>

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling >= 1.13.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sphinx-nefertiti"
+description = "The theme Nefertiti for Sphinx"
+requires-python = ">3.7"
+authors = [
+    { name = "Daniela Rus Morales", email = "danirus@eml.cc" },
+]
+classifiers = [
+    "Framework :: Sphinx",
+    "Framework :: Sphinx :: Theme",
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Documentation",
+]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = "sphinx_nefertiti/__init__.py"
+
+[project.urls]
+Homepage = "https://sphinx-nefertiti.readthedocs.io/en/latest/"
+Repository = "https://github.com/danirus/sphinx-nefertiti"
+
+[tool.black]
+line-length = 80

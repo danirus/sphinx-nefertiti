@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-twbs-bootstrap",
+  "customSyntax": "postcss-scss",
+  "overrides": [
+    {
+      "files": "scss/*.scss",
+      "rules": {
+        "declaration-no-important": null,
+        "scss/at-function-named-arguments": [
+          "never", { "ignoreFunctions": ["color.scale"] }
+        ],
+        "color-named": [
+          "always-where-possible", { "ignoreProperties": "/./" }
+        ]
+      }
+    }
+  ]
+}

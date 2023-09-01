@@ -1,0 +1,32 @@
+{% if next or prev -%}
+  <nav id="paginator" class="py-4" aria-label="Documentation navigation">
+    <div class="container">
+      <ul class="pagination justify-content-between mb-0">
+        {%- if prev -%}
+          <li class="page-item">
+            <a href="{{ prev.link|e }}" class="d-flex px-5 align-items-end" rel="prev" aria-label="{{_('Previous page:')}} {{ prev.title }}">
+              <span class="prev-page"><i class="bi bi-caret-left"></i></span>
+              <div class="d-flex flex-column">
+                <span class="text-small text-start text-muted">{{ _('Previous') }}</span>
+                <span class="underline">{{ prev.title }}</span>
+              </div>
+            </a>
+          </li>
+        {% endif %}
+        {%- if next -%}
+          <li class="page-item ms-auto">
+            <a href="{{ next.link|e }}" class="d-flex px-5 align-items-end" rel="next" aria-label="{{_('Next page:')}} {{ next.title }}">
+              <div class="d-flex flex-column">
+                <span class="text-small text-end text-start text-muted">{{ _('Next') }}</span>
+                <span class="underline">{{ next.title }}</span>
+              </div>
+              <span class="next-page"><i class="bi bi-caret-right"></i></span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+{% else %}
+<nav id="paginator"></nav>
+{% endif %}

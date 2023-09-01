@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    - id: check-added-large-files
+    - id: check-case-conflict
+    - id: check-json
+    - id: check-yaml
+    - id: check-merge-conflict
+    - id: end-of-file-fixer
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+    - id: black
+  - repo: local
+    hooks:
+    - id: css-lint-stylelint
+      name: local-css-lint-stylelint
+      entry: npm run css-lint-stylelint --
+      language: node
+      types: [scss]
+    - id: js-lint
+      name: local-js-lint
+      entry: npm run js-lint --
+      language: node
+      types: [javascript]

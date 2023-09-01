@@ -1,0 +1,21 @@
+<div class="offcanvas-header border-bottom">
+  <h5 class="offcanvas-title" id="nfttSidebarOffcanvasLabel">
+    {{ _('Table of contents') }}
+  </h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar"></button>
+</div>
+
+<div class="offcanvas-body">
+  <nav class="toc" aria-label="{{ _('Main menu') }}">
+    <div class="mb-3 p-1 pt-3 pb-4 border-bottom">
+      <input id="sidebar-filter" type="text" name="filter" class="form-control form-control-sm" placeholder="{{ _('filter') }}" aria-label="filter">
+    </div>
+    {{ toctree(includehidden=False, collapse=False, maxdepth=8, titles_only=True) }}
+  </nav>
+  <template data-toggle-item-template>
+    <button class="btn btn-sm btn-link toctree-expand" type="button">
+      <i class="bi bi-caret-right"></i>
+      <span class="visually-hidden">{{ _('Toggle menu contents') }}</span>
+    </button>
+  </template>
+</div>

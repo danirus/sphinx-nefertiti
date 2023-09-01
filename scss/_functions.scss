@@ -1,0 +1,23 @@
+@use "sass:color";
+
+@function get-color-contrast($basecolor, $dim) {
+  $color-brightness: round(calc((red($basecolor) * 299) + (green($basecolor) * 587) + (blue($basecolor) * 114) / 1000));
+  $light-color: round(calc((red(#fff) * 299) + (green(#fff) * 587) + (blue(#fff) * 114) / 1000));
+
+  @if abs($color-brightness) < calc($light-color / 2) {
+    @if $dim > 0 {
+      @return color.adjust(white, $lightness: - $dim);
+    }
+    @else {
+      @return white;
+    }
+  }
+  @else {
+    @if $dim > 0 {
+      @return color.adjust(black, $lightness: $dim);
+    }
+    @else {
+      @return black;
+    }
+  }
+}
