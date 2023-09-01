@@ -36,6 +36,12 @@ nvm use --lts
 npm install
 ```
 
+Before contributing, please, install the pre-commit hook scripts:
+
+```shell
+pre-commit install
+```
+
 There are a comprehensive number of scripts in the package.json. Beyond them there is a Makefile that saves time when building the CSS and JavaScript bundles to deliver them within the Python package of the theme.
 
 Further read the following sections:
