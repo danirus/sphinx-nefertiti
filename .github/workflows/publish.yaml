@@ -8,9 +8,6 @@ jobs:
   publish:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
-    environment:
-      name: PyPI
-      url: https://pypi.org/p/sphinx-nefertiti
     permissions:
       id-token: write
     steps:
