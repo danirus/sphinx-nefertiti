@@ -4,15 +4,15 @@ on:
     types: [published]
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: write
-
 jobs:
   publish:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
-    environment: PyPI
+    environment:
+      name: PyPI
+      url: https://pypi.org/p/sphinx-nefertiti
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v3
@@ -23,7 +23,7 @@ jobs:
       - name: Build package
         run: python -m build
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.8.6
+        uses: pypa/gh-action-pypi-publish@release/v1.8
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
