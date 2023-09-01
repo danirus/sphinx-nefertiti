@@ -85,13 +85,9 @@ html_theme_options = {
     "repository_name": "danirus/sphinx-nefertiti",
 
     "current_version": f"v{release}",
-    # "versions": [
-    #     ("v%s" % item, release_pattern_url.format(release=item))
-    #     for item in releases
-    # ],
     "versions": [
-        ("v0.1.0", "http://localhost:9090"),
-        ("v0.0.3", "http://localhost:9093"),
+        ("v%s" % item, release_pattern_url.format(release=item))
+        for item in releases
     ],
 
     "footer_links": ",".join([
