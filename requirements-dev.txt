@@ -3,3 +3,4 @@
 black>=23.7,<23.8
 build
 pre-commit >=2.20.0,<4.0.0
+setuptools>=68.1.2,<68.2
