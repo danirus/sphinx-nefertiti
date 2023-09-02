@@ -27,22 +27,22 @@ export class ColorSetHandler {
   }
 
   applyColor(color) {
-    // Aquí, meter el código que sustituye una hoja de estilos
-    // por otra. O sea, sphinx-nefertiti-blue.css o
-    // sphinx-nefertiti-red.css, etc.
+    // This method replaces the current stylesheet by the new one,
+    // based on the given color.
     let stylesheet = color === DEFAULT
       ? `sphinx-nefertiti`
       : `sphinx-nefertiti-${color}`;
 
     const re = new RegExp("\/(?<name>sphinx\-nefertiti[\-]?[a-z]*)\.");
-
     for (const sheet of document.getElementsByTagName("link")) {
       if (sheet.href) {
-        const match = sheet.href.match(re);
+        const url = new URL(sheet.href);
+        const match = url.pathname.match(re);
         if (match) {
           const matching_name = match.groups['name'];
           if (matching_name !== stylesheet) {
-            sheet.href = sheet.href.replace(matching_name, stylesheet);
+            url.pathname = url.pathname.replace(matching_name, stylesheet);
+            sheet.href = url.toString();
           }
           break;
         }

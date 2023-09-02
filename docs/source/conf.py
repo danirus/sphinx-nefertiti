@@ -19,7 +19,6 @@ else:
 
 master_doc = 'index'
 project = 'Nefertiti for Sphinx'
-# copyright = '2022, MIT License'
 copyright = 'Code licensed MIT, docs CC BY 3.0.'
 
 
