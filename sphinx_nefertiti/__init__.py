@@ -1,12 +1,13 @@
 """sphinx-nefertiti theme"""
 
 from pathlib import Path
+import pkg_resources
 import sys
 
 from sphinx_nefertiti import colorsets, fonts, pygments
 
 
-__version__ = "0.1.8"
+__version__ = pkg_resources.require("sphinx_nefertiti")[0].version
 __version_full__ = __version__
 
 

@@ -81,7 +81,7 @@ html_theme_options = {
     "logo": "img/nefertiti.svg",
     "logo_alt": "Nefertiti-for-Sphinx",
 
-    "repository_url": "https://github.com/danirus/django-comments-xtd",
+    "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     "repository_name": "danirus/sphinx-nefertiti",
 
     "current_version": f"v{release}",
