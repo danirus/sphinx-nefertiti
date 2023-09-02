@@ -12,13 +12,29 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v2
+
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+            node-version: '18'
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - uses: actions/setup-python@v3
         with:
-          python-version: "3.11"
+            python-version: "3.11"
       - name: Install build
         run: pip install build
-      - name: Build package
-        run: python -m build
+
+      - run: npm install
+      - run: make build-ext
+
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1.8
         with:
