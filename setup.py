@@ -23,7 +23,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     license="MIT",
-    description="The customizable Sphinx theme with a feminine character.",
+    description="The Nefertiti for Sphinx theme.",
     long_description=readme,
     long_description_content_type="text/markdown",
     author="Daniela Rus Morales",
