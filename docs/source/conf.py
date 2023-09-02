@@ -1,15 +1,17 @@
+import os
 from pathlib import Path
 import sys
-
-# Add `sphinx_nefertiti` to the python path.
-PRJ_PATH = Path(__file__).parents[2]
-print("PRJ_PATH:", PRJ_PATH)
-sys.path.insert(0, str(PRJ_PATH))
-
 
 import sphinx_nefertiti
 
 
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+if on_rtd:
+    html_theme_path = [sphinx_nefertiti.get_html_theme_path()]
+else:
+    # Add `sphinx_nefertiti` to the python path.
+    PRJ_PATH = Path(__file__).parents[2]
+    sys.path.insert(0, str(PRJ_PATH))
 
 
 # -- Project information -----------------------------------------------------
