@@ -19,7 +19,7 @@ with open(BASE_DIR / "requirements.txt", "r") as req_file:
 
 setup(
     name="sphinx-nefertiti",
-    version="0.1.12",
+    version="0.1.13",
     packages=find_packages(),
     include_package_data=True,
     license="MIT",
