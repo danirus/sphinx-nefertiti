@@ -1,5 +1,12 @@
 /* stylelint-disable selector-no-qualifying-type */
+.navbar img {
+  margin-bottom: 0;
+}
+
 img {
+  max-width: 100%;
+  margin-bottom: 1rem;
+
   &.align-center {
     display: block;
     margin-right: auto;
@@ -18,6 +25,10 @@ img {
 }
 
 figure {
+  img {
+    margin-bottom: 0;
+  }
+
   figcaption {
     margin: 1rem .35rem .5rem;
     font-size: .85rem;

@@ -109,10 +109,6 @@ body {
   h6 {
     font-family: var(--#{$prefix}doc-headers-font);
   }
-
-  img {
-    max-width: 100%;
-  }
 }
 
 .nftt-footer {
@@ -220,4 +216,8 @@ body {
       }
     }
   }
+}
+
+.project-logo {
+  margin-right: 1rem;
 }
