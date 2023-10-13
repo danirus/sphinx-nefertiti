@@ -103,4 +103,13 @@ window.addEventListener('DOMContentLoaded', (_) => {
     // Add a title to each input element.
     element.setAttribute('title', `Is task done? ${element.checked}`);
   }
+
+  // Wrap tables with responsive container.
+  const tables = document.querySelectorAll('table.docutils');
+  for (const table of tables) {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("nftt-table");
+    table.before(wrapper);
+    wrapper.append(table);
+  }
 });
