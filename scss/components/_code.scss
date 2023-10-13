@@ -1,38 +1,38 @@
+/* stylelint-disable selector-no-qualifying-type */
 .sig:not(.sig-inline) {
-  // display: inline-block;
-  background: var(--#{$prefix}secondary-bg);
+  padding: .25rem .25rem .25rem 3rem;
+  margin-right: -.25rem;
+  margin-left: -.25rem;
   font-family: var(--#{$prefix}font-monospace);
   font-size: var(--#{$prefix}font-monospace-size);
   color: var(--#{$prefix}docapi-kw-color);
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
-  border-radius: 0.25rem;
-  padding: .25rem .25rem .25rem 3rem;
   text-indent: -2.5em;
+  background: var(--#{$prefix}secondary-bg);
+  border-radius: .25rem;
   transition: background 100ms ease-out;
 
   a.reference {
     .viewcode-link {
-      font-weight: normal;
       width: 3.5rem;
+      font-weight: 400;
     }
   }
 
   em.property {
     font-style: italic;
-    font-weight: normal;
+    font-weight: 400;
   }
 
   .sig-prename,
   .sig-name {
-    font-weight: bold;
+    font-weight: 700;
     color: var(--#{$prefix}body-color);
   }
 }
 
 .viewcode-link {
-  padding-left: 8px;
   float: right;
+  padding-left: 8px;
 }
 
 .viewcode-back {

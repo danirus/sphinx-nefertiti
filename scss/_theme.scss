@@ -1,3 +1,4 @@
+/* stylelint-disable selector-no-qualifying-type */
 @use "sass:color";
 
 
@@ -243,33 +244,33 @@ samp *,
 }
 
 blockquote {
-  margin: 2rem 1rem;
   padding: 1rem 2rem .5rem 3rem;
-  background-color: var(--#{$prefix}tertiary-bg);
-  border-radius: 0.25rem;
+  margin: 2rem 1rem;
   font-size: 1.2em;
   font-style: italic;
+  background-color: var(--#{$prefix}tertiary-bg);
+  border-radius: .25rem;
 
   .attribution {
     padding-top: .8rem;
-    font-size: 0.9em;
-    font-weight: normal;
+    font-size: .9em;
     font-style: normal;
+    font-weight: 400;
     text-align: right;
   }
 
   &.epigraph,
   &.pull-quote,
   &.highlights {
-    margin: 2rem 2rem 3rem;
     padding: 0;
+    margin: 2rem 2rem 3rem;
     background-color: var(--#{$prefix}body-bg);
   }
 }
 
 .line-block {
-  margin-left: 0;
   margin-bottom: 1rem;
+  margin-left: 0;
 
   & & {
     margin-left: 1rem;
@@ -278,17 +279,17 @@ blockquote {
 
 aside.sidebar {
   float: right;
-  margin: 0 0 .4rem 1.8rem;
-  padding: .8rem .9rem;
   width: 33%;
+  padding: .8rem .9rem;
+  margin: 0 0 .4rem 1.8rem;
   background-color: var(--#{$prefix}foot1-bg);
   border: 2px solid var(--#{$prefix}secondary-bg);
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 
   .sidebar-title {
     padding-bottom: .5rem;
-    border-bottom: 1px solid var(--#{$prefix}secondary-bg);
     font-size: 1.2em;
+    border-bottom: 1px solid var(--#{$prefix}secondary-bg);
   }
 
   .sidebar-subtitle {
@@ -296,8 +297,8 @@ aside.sidebar {
   }
 
   .rubric {
-    font-weight: 700;
     font-size: 1em;
+    font-weight: 700;
   }
 
   p:last-child {

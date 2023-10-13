@@ -1,3 +1,4 @@
+/* stylelint-disable selector-no-qualifying-type */
 .versionadded {
   padding: .7rem 1.2rem 1rem;
   margin: 2.5rem 2rem 2rem;
@@ -20,7 +21,7 @@
     background-color: var(--#{$prefix}admon-tip-color-bg);
   }
 
-  & > p:first-child {
+  > p:first-child {
     padding-top: 1.5rem;
   }
 }
@@ -47,7 +48,7 @@
     background-color: var(--#{$prefix}admon-caution-color-bg);
   }
 
-  & > p:first-child {
+  > p:first-child {
     padding-top: 1.5rem;
   }
 }
@@ -74,7 +75,7 @@ div.deprecated {
     background-color: var(--#{$prefix}admon-error-color-bg);
   }
 
-  & > p:first-child {
+  > p:first-child {
     padding-top: 1.5rem;
   }
 }
