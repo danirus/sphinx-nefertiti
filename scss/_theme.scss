@@ -241,3 +241,66 @@ samp *,
   color: black;
   background-color: $cyan;
 }
+
+blockquote {
+  margin: 2rem 1rem;
+  padding: 1rem 2rem .5rem 3rem;
+  background-color: var(--#{$prefix}tertiary-bg);
+  border-radius: 0.25rem;
+  font-size: 1.2em;
+  font-style: italic;
+
+  .attribution {
+    padding-top: .8rem;
+    font-size: 0.9em;
+    font-weight: normal;
+    font-style: normal;
+    text-align: right;
+  }
+
+  &.epigraph,
+  &.pull-quote,
+  &.highlights {
+    margin: 2rem 2rem 3rem;
+    padding: 0;
+    background-color: var(--#{$prefix}body-bg);
+  }
+}
+
+.line-block {
+  margin-left: 0;
+  margin-bottom: 1rem;
+
+  & & {
+    margin-left: 1rem;
+  }
+}
+
+aside.sidebar {
+  float: right;
+  margin: 0 0 .4rem 1.8rem;
+  padding: .8rem .9rem;
+  width: 33%;
+  background-color: var(--#{$prefix}foot1-bg);
+  border: 2px solid var(--#{$prefix}secondary-bg);
+  border-radius: 0.25rem;
+
+  .sidebar-title {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--#{$prefix}secondary-bg);
+    font-size: 1.2em;
+  }
+
+  .sidebar-subtitle {
+    font-size: 1.1em;
+  }
+
+  .rubric {
+    font-weight: 700;
+    font-size: 1em;
+  }
+
+  p:last-child {
+    margin-bottom: .5rem;
+  }
+}

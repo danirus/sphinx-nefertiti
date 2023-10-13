@@ -54,6 +54,8 @@
     }
   }
 
+  --#{$prefix}docapi-kw-color: #{$docapi-light-kw-color};
+
   @include color-scheme(light);
   color-scheme: light;
 }
@@ -106,6 +108,8 @@
   --#{$prefix}admon-important-color-bg: #{$scheme-dark-admon-important-color-bg};
   --#{$prefix}admon-note-color-bg: #{$scheme-dark-admon-note-color-bg};
   --#{$prefix}admon-tip-color-bg: #{$scheme-dark-admon-tip-color-bg};
+
+  --#{$prefix}docapi-kw-color: #{$docapi-dark-kw-color};
 
   .docutils {
     &:not(.field-list) {
