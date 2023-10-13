@@ -32,6 +32,13 @@ class PygmentsAsset:
             try:
                 pos = line.index("{")
                 sel, rest = (line[0:pos]).strip(), line[pos:]
+                # Fix: background applied to pre, instead of only .highlight.
+                #      This is due to possibly having right aligned sidebars
+                #      floating next to code blocks. In such case we want the
+                #      background applied to the pre element instead of the
+                #      .highlight. See: https://sphinx-themes.org/sample-sites/sphinx-nefertiti/kitchen-sink/generic/#code-with-sidebar
+                if sel == ".highlight":
+                    sel = ".highlight pre"
                 new_line = f"{self.prepend_selector} {sel} {rest}"
                 new_content.append(new_line)
             except ValueError:

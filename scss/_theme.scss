@@ -1,3 +1,4 @@
+/* stylelint-disable selector-no-qualifying-type */
 @use "sass:color";
 
 
@@ -240,4 +241,67 @@ samp *,
 .cyan-bg {
   color: black;
   background-color: $cyan;
+}
+
+blockquote {
+  padding: 1rem 2rem .5rem 3rem;
+  margin: 2rem 1rem;
+  font-size: 1.2em;
+  font-style: italic;
+  background-color: var(--#{$prefix}tertiary-bg);
+  border-radius: .25rem;
+
+  .attribution {
+    padding-top: .8rem;
+    font-size: .9em;
+    font-style: normal;
+    font-weight: 400;
+    text-align: right;
+  }
+
+  &.epigraph,
+  &.pull-quote,
+  &.highlights {
+    padding: 0;
+    margin: 2rem 2rem 3rem;
+    background-color: var(--#{$prefix}body-bg);
+  }
+}
+
+.line-block {
+  margin-bottom: 1rem;
+  margin-left: 0;
+
+  & & {
+    margin-left: 1rem;
+  }
+}
+
+aside.sidebar {
+  float: right;
+  width: 33%;
+  padding: .8rem .9rem;
+  margin: 0 0 .4rem 1.8rem;
+  background-color: var(--#{$prefix}foot1-bg);
+  border: 2px solid var(--#{$prefix}secondary-bg);
+  border-radius: .25rem;
+
+  .sidebar-title {
+    padding-bottom: .5rem;
+    font-size: 1.2em;
+    border-bottom: 1px solid var(--#{$prefix}secondary-bg);
+  }
+
+  .sidebar-subtitle {
+    font-size: 1.1em;
+  }
+
+  .rubric {
+    font-size: 1em;
+    font-weight: 700;
+  }
+
+  p:last-child {
+    margin-bottom: .5rem;
+  }
 }

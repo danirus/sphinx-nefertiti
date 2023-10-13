@@ -89,7 +89,7 @@ body {
 
   code,
   code * {
-    font-family: var(--#{$prefix}font-family-monospace);
+    font-family: var(--#{$prefix}font-monospace);
     font-size: .7rem;
   }
 }
@@ -108,10 +108,6 @@ body {
   h5,
   h6 {
     font-family: var(--#{$prefix}doc-headers-font);
-  }
-
-  img {
-    max-width: 100%;
   }
 }
 
@@ -220,4 +216,8 @@ body {
       }
     }
   }
+}
+
+.project-logo {
+  margin-right: 1rem;
 }

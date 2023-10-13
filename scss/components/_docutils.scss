@@ -24,6 +24,11 @@
  * Tables.
  */
 
+.nftt-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
 /* stylelint-disable-next-line */
 table th p:last-child,
 table td p:last-child {
@@ -151,9 +156,8 @@ div.math {
 
 .footnote-list {
   padding: 1rem .5rem .5rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   font-size: .9rem;
-  border-top: 1px solid var(--#{$prefix}border-color);
 
   .pre {
     font-size: 1rem;
@@ -169,11 +173,23 @@ div.math {
   }
 
   > .footnote.brackets {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    justify-content: flex-start;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
     color: var(--#{$prefix}tertiary-color);
+
+    .label {
+      float: left;
+      padding-right: 1.2rem;
+    }
+
+    .backrefs {
+      float: left;
+      padding-right: .5rem;
+    }
+
+    p {
+      margin-bottom: .2rem;
+    }
 
     &:target {
       color: var(--#{$prefix}body-color);
@@ -187,4 +203,24 @@ div.math {
       }
     }
   }
+}
+
+.code-block-caption {
+  padding-bottom: .5rem;
+  text-align: center;
+}
+
+.highlight pre .linenos {
+  padding-right: 1rem;
+  margin-right: 1rem;
+  border-right: 1px solid #ddd;
+}
+
+.rubric {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.centered {
+  text-align: center;
 }

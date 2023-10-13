@@ -123,6 +123,7 @@ This is the result
 
 Another efficient way, very popular nowadays, is to let black [3]_ do the formatting of your code. Most of the times it does not require customization as the default settings are good enough for most of the projects.
 
+-----
 
 .. [1] The `Human Rights <https://www.un.org/en/global-issues/human-rights>`_
     declaration of the UN refers to the rights inherent to all human beings, regardless of race, sex, nationality, ethnicity, language, religion, or any other status.

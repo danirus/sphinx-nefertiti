@@ -104,14 +104,14 @@ $scheme-light-table-striped-bg: tint-color($indigo, 90%);
 // scheme-color dark.
 $scheme-dark-body-color: $gray-100;
 $scheme-dark-body-hc-color: $white;
-$scheme-dark-body-bg: $gray-800;
+$scheme-dark-body-bg: $gray-900;
 $scheme-dark-body-secondary-color: rgba($scheme-dark-body-color, .75) !default;
 $scheme-dark-body-secondary-bg: $gray-800 !default;
 $scheme-dark-body-tertiary-color: rgba($scheme-dark-body-color, .5) !default;
 $scheme-dark-body-tertiary-bg: mix($gray-800, $gray-900, 50%) !default;
 $scheme-dark-body-emphasis-color: $white !default;
 $scheme-dark-pre-border-color: $gray-700;
-$scheme-dark-foot1-bg: $gray-900;
+$scheme-dark-foot1-bg: $gray-800;
 $scheme-dark-foot2-bg: $indigo-800;
 $scheme-dark-foot2-link1: get-color-contrast($scheme-dark-foot2-bg, 15%);
 $scheme-dark-foot2-link2: get-color-contrast($scheme-dark-foot2-bg, 30%);
@@ -149,3 +149,9 @@ $navbar-dark-disabled-color: $gray-500;
 $navbar-dark-active-color: $indigo-100;
 $navbar-dark-brand-color: $white;
 $navbar-dark-brand-hover-color: $white;
+
+// -------------------------
+// API docs
+
+$docapi-dark-kw-color: $blue-200;
+$docapi-light-kw-color: $blue-600;
