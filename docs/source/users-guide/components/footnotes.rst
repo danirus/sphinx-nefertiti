@@ -7,8 +7,8 @@ Footnotes are a way to include additional information to a word or sentence with
 
 This section shows how footnotes are displayed with Nefertiti for Sphinx. To know more about the syntax to include footnotes, checkout the docs:
 
- * When using `Markdown <https://myst-parser.readthedocs.io/en/latest/syntax/typography.html#footnotes>`_.
- * When using `reStructuredText <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#footnotes>`_.
+* When using `Markdown <https://myst-parser.readthedocs.io/en/latest/syntax/typography.html#footnotes>`_.
+* When using `reStructuredText <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#footnotes>`_.
 
 Example footnote 1
 ******************

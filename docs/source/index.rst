@@ -18,15 +18,15 @@ This documentation explains how to make use of the Nefertiti theme with Sphinx p
 Features
 ========
 
- * Responsive design, based on `Bootstrap 5.3 <https://getbootstrap.com/docs/5.3>`_.
- * Text input field to filter the table of contents.
- * Font configuration compliant with `EU's GDPR <https://gdpr.eu/>`_.
- * Different fonts can be used for different elements.
- * Light and dark color schemes, for normal text and code highlighted with Pygments styles.
- * Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
- * Optional highlighting of the project repository in the header.
- * Optional project version selector in the header.
- * Customizable footer links.
+* Responsive design, based on `Bootstrap 5.3 <https://getbootstrap.com/docs/5.3>`_.
+* Text input field to filter the table of contents.
+* Font configuration compliant with `EU's GDPR <https://gdpr.eu/>`_.
+* Different fonts can be used for different elements.
+* Light and dark color schemes, for normal text and code highlighted with Pygments styles.
+* Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
+* Optional highlighting of the project repository in the header.
+* Optional project version selector in the header.
+* Customizable footer links.
 
 Project background
 ==================

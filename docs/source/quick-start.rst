@@ -43,12 +43,12 @@ Customize the theme
 
 The following features of Nefertiti for Sphinx can be customized:
 
- 1. Fonts.
- 2. Color set: blue, indigo, purple, pink, red, ...
- 3. Pygments styles for light and dark color schemes.
- 4. Repository name and URL to display it in the header.
- 5. Project version dropdown selector.
- 6. Footer links.
+1. Fonts.
+2. Color set: blue, indigo, purple, pink, red, ...
+3. Pygments styles for light and dark color schemes.
+4. Repository name and URL to display it in the header.
+5. Project version dropdown selector.
+6. Footer links.
 
 
 1. Fonts
@@ -58,16 +58,16 @@ There are 5 options related to font face customization and 2 options related to 
 
 The font face options are:
 
- * ``sans_serif_font``: Default site font, defaults to `Nunito <https://www.fontsquirrel.com/fonts/nunito?q%5Bterm%5D=Nunito&q%5Bsearch_check%5D=Y>`_.
- * ``monospace_font``: Default monospace font, for code blocks, defaults to `Red Hat Mono <https://www.fontsquirrel.com/fonts/ubuntu-mono?q%5Bterm%5D=Ubuntu+Mono&q%5Bsearch_check%5D=Y>`_.
- * ``project_name_font``: The font for the Project's name. ``sans_serif_font`` otherwise.
- * ``documentation_font``: reStructuredText and Markdown content. ``sans_serif_font`` otherwise.
- * ``doc_headers_font``: To render documentation headers. ``documentation_font`` otherwise.
+* ``sans_serif_font``: Default site font, defaults to `Nunito <https://www.fontsquirrel.com/fonts/nunito?q%5Bterm%5D=Nunito&q%5Bsearch_check%5D=Y>`_.
+* ``monospace_font``: Default monospace font, for code blocks, defaults to `Red Hat Mono <https://www.fontsquirrel.com/fonts/ubuntu-mono?q%5Bterm%5D=Ubuntu+Mono&q%5Bsearch_check%5D=Y>`_.
+* ``project_name_font``: The font for the Project's name. ``sans_serif_font`` otherwise.
+* ``documentation_font``: reStructuredText and Markdown content. ``sans_serif_font`` otherwise.
+* ``doc_headers_font``: To render documentation headers. ``documentation_font`` otherwise.
 
 And the font size options:
 
- * ``monospace_font_size``: The CSS ``font-size`` for the ``monospace_font``. ie: ``"1rem"``.
- * ``documentation_font_size``: The CSS ``font-size`` for the ``documentation_font``. ie: ``"1.1rem"``.
+* ``monospace_font_size``: The CSS ``font-size`` for the ``monospace_font``. ie: ``"1rem"``.
+* ``documentation_font_size``: The CSS ``font-size`` for the ``documentation_font``. ie: ``"1.1rem"``.
 
 Edit your ``conf.py`` file and add or modify your ``html_theme_options`` setting with the following content. By the way, the fonts referred to in this example are part of the Nefertiti for Sphinx distribution. If you want to use other Open Source licensed fonts read the section "How to add more fonts" to include them with your project.
 
@@ -104,8 +104,8 @@ When ``style`` is not given the theme defaults to ``cyan``.
 
 Pygments_ is the package in charge of rendering code blocks. Sphinx supports two settings related with pygments:
 
- * ``pygments_style``, applied when browser's ``prefers-color-scheme`` returns **light**.
- * ``pygments_dark_style``, applied when browser's ``prefers-color-scheme`` returns **dark**.
+* ``pygments_style``, applied when browser's ``prefers-color-scheme`` returns **light**.
+* ``pygments_dark_style``, applied when browser's ``prefers-color-scheme`` returns **dark**.
 
 Nefertiti for Sphinx extends the use of these settings in a way that their styling is applied when the user selects the scheme in the light/dark dropdown, at the right side of the header.
 

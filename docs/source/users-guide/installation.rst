@@ -23,7 +23,7 @@ From GitHub
 
 Nefertiti for Sphinx can be installed directly from the GitHub_ repository. This is useful when you want to make changes in the theme or further develop it. Clone the repository and install it in your virtual environment.
 
- Assuming that you have a directory structure similar to the following:
+Assuming that you have a directory structure similar to the following:
 
 .. code-block:: bash
 
