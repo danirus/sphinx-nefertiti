@@ -8,9 +8,9 @@ How to contribute
 
 There are different ways to contribute:
 
- * If something is not working, or
- * if there is wrong or missing information in the documentation, or
- * if you would like to suggest an idea or improvement,
+* If something is not working, or
+* if there is wrong or missing information in the documentation, or
+* if you would like to suggest an idea or improvement,
 
 please, create an entry in the `issues page <https://github.com/danirus/sphinx-nefertiti/issues>`_ of Nefertiti's repository and explain the details.
 

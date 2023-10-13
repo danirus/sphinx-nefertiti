@@ -5,10 +5,10 @@ Footer links
 
 The footer of HTML pages built with Nefertiti for Sphinx is divided in 4 areas or strings, from top to bottom:
 
- * The area for the Nefertiti footer links.
- * The name of the project, provided by Sphinx ``project`` setting.
- * The copyright notice, provided by Sphinx ``copyright`` setting.
- * The powered by notice.
+* The area for the Nefertiti footer links.
+* The name of the project, provided by Sphinx ``project`` setting.
+* The copyright notice, provided by Sphinx ``copyright`` setting.
+* The powered by notice.
 
 The first and the last are theme specific and therefore they are represented by options within the ``html_theme_options`` setting.
 
@@ -17,8 +17,8 @@ Theme options
 
 The following two options can be customized in the ``html_theme_options``, in your project's ``conf.py`` file:
 
- #. ``footer_links``: Represents a list of strings and links.
- #. ``show_powered_by``: A boolean value.
+#. ``footer_links``: Represents a list of strings and links.
+#. ``show_powered_by``: A boolean value.
 
 1. ``footer_links``
 -------------------

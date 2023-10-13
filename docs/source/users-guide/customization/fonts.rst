@@ -19,16 +19,16 @@ Font settings
 
 There are 5 font face customization settings that can be added to ``html_theme_options``, in your ``conf.py``:
 
- * **sans_serif_font**: It is the default global site font used for everything except code blocks and inline code samples. It defaults to `Nunito`_.
- * **monospace_font**: It is the default monospace font used for code blocks and inline code samples. It defaults to `Red Hat Mono`_.
- * **project_name_font**: It is the font used to render the project's name in the header and the footer. When not given it default to the **sans_serif_font** option.
- * **documentation_font**: It is the font used to render the actual documentation contained in reStructuredText or Markdown files. It defaults to the **sans_serif_font**.
- * **doc_headers_font**: It is the font used to render documentation headers. When not given it defaults to the **Georgia** web safe font.
+* **sans_serif_font**: It is the default global site font used for everything except code blocks and inline code samples. It defaults to `Nunito`_.
+* **monospace_font**: It is the default monospace font used for code blocks and inline code samples. It defaults to `Red Hat Mono`_.
+* **project_name_font**: It is the font used to render the project's name in the header and the footer. When not given it default to the **sans_serif_font** option.
+* **documentation_font**: It is the font used to render the actual documentation contained in reStructuredText or Markdown files. It defaults to the **sans_serif_font**.
+* **doc_headers_font**: It is the font used to render documentation headers. When not given it defaults to the **Georgia** web safe font.
 
 Additionally there are two font size settings:
 
- * **documentation_font_size**: Specifies the default font size for the documentation contained in reStructuredText or Markdown files. It defaults to ``1.0rem``, which corresponds to ``16px``.
- * **monospace_font_size**: Specifies the default font size to use with code blocks and inline code samples. It defaults to ``1.0rem``, corresponding to ``16px``.
+* **documentation_font_size**: Specifies the default font size for the documentation contained in reStructuredText or Markdown files. It defaults to ``1.0rem``, which corresponds to ``16px``.
+* **monospace_font_size**: Specifies the default font size to use with code blocks and inline code samples. It defaults to ``1.0rem``, corresponding to ``16px``.
 
 You can ignore these settings and let Nefertiti for Sphinx use the default font settings, or you can customize them.
 
@@ -37,20 +37,20 @@ Fonts bundled with Nefertiti
 
 Nefertiti for Sphinx is bundled with a group of fonts with licenses open for free distribution:
 
- * Assistant_
- * Exo_
- * Montserrat_
- * Mulish_
- * Nunito_
- * `Open Sans`_
- * `Red Hat Display`_
- * `Sofia Sans`_
- * Ubuntu_
- * Varta_
- * `Work Sans`_
- * `Fira Code`_ (monospace)
- * `Red Hat Mono`_ (monospace)
- * `Ubuntu Mono`_ (monospace)
+* Assistant_
+* Exo_
+* Montserrat_
+* Mulish_
+* Nunito_
+* `Open Sans`_
+* `Red Hat Display`_
+* `Sofia Sans`_
+* Ubuntu_
+* Varta_
+* `Work Sans`_
+* `Fira Code`_ (monospace)
+* `Red Hat Mono`_ (monospace)
+* `Ubuntu Mono`_ (monospace)
 
 Web safe fonts
 **************
@@ -59,12 +59,12 @@ You can customize the font settings to use Web safe fonts. Unlike the previous f
 
 Here is a list of font categories and their web safe fonts provided by all major web browsers:
 
- * **Sans Serif**: Helvetica, Arial, Arial Black, Verdana, Tahoma, Trebuchet MS, Gill Sans
- * **Serif**: Times New Roman, Georgia, Palatino, Baskerville
- * **Monospace**: Andale Mono, Courier, Lucida, Monaco
- * **Calligraphy**: Bradley Hand
- * **Cursive**: Brush Script MT, Comic Sans MS
- * **Fantasy**: Impact, Luminari
+* **Sans Serif**: Helvetica, Arial, Arial Black, Verdana, Tahoma, Trebuchet MS, Gill Sans
+* **Serif**: Times New Roman, Georgia, Palatino, Baskerville
+* **Monospace**: Andale Mono, Courier, Lucida, Monaco
+* **Calligraphy**: Bradley Hand
+* **Cursive**: Brush Script MT, Comic Sans MS
+* **Fantasy**: Impact, Luminari
 
 Example configuration
 *********************
@@ -92,11 +92,11 @@ Adding fonts
 
 Using a font not distributed with Nefertiti for Sphinx requires to:
 
- #. Create a directory to keep the font files.
- #. Get the font family files.
- #. Write the ``font-face`` declaration.
- #. Modify ``conf.py`` to make use of the font.
- #. Rebuild the project.
+#. Create a directory to keep the font files.
+#. Get the font family files.
+#. Write the ``font-face`` declaration.
+#. Modify ``conf.py`` to make use of the font.
+#. Rebuild the project.
 
 The following 5 sections explain in detail the steps to make the font `Noto Sans`_ available to your Sphinx project using Nefertiti for Sphinx.
 
@@ -118,8 +118,8 @@ In the source directory of your project, where you have your reStructuredText or
 
 The Noto Sans font family has 18 font files of which Nefertiti will use only 2:
 
- * ``NotoSans-Regular.ttf``
- * ``NotoSans-Bold.ttf``
+* ``NotoSans-Regular.ttf``
+* ``NotoSans-Bold.ttf``
 
 Copy these two files inside the ``fonts/noto-sans`` directory.
 
@@ -172,9 +172,9 @@ Once the previous steps have been completed the project can be built. The font f
 
 Once the project has been built, take a look at the generated ``static`` directory, it can be in:
 
- * ``build/html/_static``, or
- * ``_build/html/_static``, or
- * ``_build/html/static``, or similar.
+* ``build/html/_static``, or
+* ``_build/html/_static``, or
+* ``_build/html/static``, or similar.
 
 An ``ls`` command should show the ``fonts`` directory containing the ``noto-sans`` directory and the files you created inside.
 

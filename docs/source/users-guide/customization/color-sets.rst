@@ -107,11 +107,11 @@ To apply custom style changes on top of Nefertiti you can create your own styles
 
 For example, if you wanted to use the color set **green** but using different colors in the header you would do the following:
 
- #. Create a new stylesheet, say a new ``custom.css`` file, inside your source ``_static`` directory with the style changes you want to apply to the header, and
- #. Update your ``conf.py`` file to change two entries:
+#. Create a new stylesheet, say a new ``custom.css`` file, inside your source ``_static`` directory with the style changes you want to apply to the header, and
+#. Update your ``conf.py`` file to change two entries:
 
-    * Set your ``html_style`` to ``["custom.css"]`` at module scope, to tell Sphinx to load the new stylesheet when building the site.
-    * Set ``"style"`` to ``"green"`` inside ``html_theme_options``.
+   + Set your ``html_style`` to ``["custom.css"]`` at module scope, to tell Sphinx to load the new stylesheet when building the site.
+   + Set ``"style"`` to ``"green"`` inside ``html_theme_options``.
 
 The next two sections implement the changes.
 
@@ -181,11 +181,11 @@ A color set is basically a complete new theme created out of the content given i
 
 To develop a new color set we need to go through the following steps:
 
- #. Create ``.scss`` files.
- #. Build the color set.
- #. Test the color set.
- #. Add the color set to the Sphinx theme.
- #. Use the color set.
+#. Create ``.scss`` files.
+#. Build the color set.
+#. Test the color set.
+#. Add the color set to the Sphinx theme.
+#. Use the color set.
 
 As an example the following sections show how to create a new color set called **django** that tries to resemble the colors used in the Django_ website.
 
@@ -277,8 +277,8 @@ If you had any other changes to apply specifically to the new ``django`` color s
 
 The ``package.json`` files offers two scripts to build style files:
 
- * ``css-compile``: to compile all the SASS files within the ``scss/`` directory.
- * ``watch-css``: to call ``css-compile`` when there are changes in the ``scss/`` directory.
+* ``css-compile``: to compile all the SASS files within the ``scss/`` directory.
+* ``watch-css``: to call ``css-compile`` when there are changes in the ``scss/`` directory.
 
 .. code-block:: shell
 

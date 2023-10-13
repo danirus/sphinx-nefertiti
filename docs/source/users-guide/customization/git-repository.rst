@@ -10,17 +10,17 @@ Theme options
 
 The two options to customize the Git repository are:
 
- #. ``repository_url``
- #. ``repository_name``
+#. ``repository_url``
+#. ``repository_name``
 
 1. ``repository_url``
 ---------------------
 
 Feed the ``repository_url`` with the HTTP URL of your repository. Using the ``git`` schema will not work:
 
- * Example to GitHub: ``https://github.com/torvalds/linux``
- * Example to GitLab: ``https://gitlab.com/inkscape/inkscape``
- * Example to GLib at GNOME's GitLab: ``https://gitlab.gnome.org/GNOME/glib``
+* Example to GitHub: ``https://github.com/torvalds/linux``
+* Example to GitLab: ``https://gitlab.com/inkscape/inkscape``
+* Example to GLib at GNOME's GitLab: ``https://gitlab.gnome.org/GNOME/glib``
 
 2. ``repository_name``
 ----------------------

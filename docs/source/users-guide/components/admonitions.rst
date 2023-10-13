@@ -6,9 +6,9 @@ Admonitions
 
 A Sphinx admonition consist of three elements:
 
- * the type of the admonition,
- * An optional title, and
- * the body, which is normally text.
+* the type of the admonition,
+* An optional title, and
+* the body, which is normally text.
 
 Sphinx supports the following types of admonitions: **attention**, **caution**, **danger**, **error**, **hint**, **important**, **note**, **tip**, **warning**.
 
