@@ -107,15 +107,15 @@
   text-transform: uppercase;
 }
 
-.nftt-sidebar-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
+// .nftt-sidebar-content {
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   height: 100%;
+// }
 
 .nftt-sidebar .toc {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     width: 100%;
     margin-right: 16px;
     overflow-y: auto;
@@ -208,7 +208,7 @@
     width: 100%;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     border: 1px solid $border-color;
     @include border-radius(.4rem);
 
@@ -229,7 +229,7 @@
 }
 
 .nftt-toc-collapse {
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     nav {
       padding: 1.25rem;
       background-color: $gray-100;
@@ -238,7 +238,7 @@
     }
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: block !important; // stylelint-disable-line declaration-no-important
     margin-top: 1.1rem;
   }

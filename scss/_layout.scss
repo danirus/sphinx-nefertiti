@@ -28,10 +28,10 @@ body {
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     display: grid;
     grid-template-areas: "sidebar main";
-    grid-template-columns: 1.6fr 5fr;
+    grid-template-columns: minmax(300px 2fr) 5fr;
     gap: 1.5rem;
   }
 }
@@ -39,7 +39,7 @@ body {
 .nftt-sidebar {
   grid-area: sidebar;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     position: sticky;
     top: 6rem;
     z-index: 2;
@@ -50,6 +50,12 @@ body {
     border-right: 1px solid var(--#{$prefix}border-color);
 
     @include scrollbars();
+
+    .nftt-sidebar-content {
+      // min-width: 240px;
+      max-width: 320px;
+      margin-left: auto;
+    }
   }
 }
 
@@ -59,7 +65,7 @@ body {
   grid-template-areas: "content";
   padding-right: 48px;
 
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     padding-right: 0;
   }
 }
@@ -73,14 +79,14 @@ body {
   grid-template-rows: 1fr auto;
   gap: inherit;
 
-  @include media-breakpoint-down(lg) {
-    max-width: 760px;
+  @include media-breakpoint-down(xl) {
+    max-width: 1100px;
     margin-inline: auto;
   }
 
   @include media-breakpoint-up(lg) {
     grid-template-areas: "content toc";
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: minmax(570px, 790px) minmax(190px, 1.3fr);
   }
 }
 
@@ -173,7 +179,7 @@ body {
         font-family: Verdana, Tahoma, sans-serif;
         content: "\002022";
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
           display: none;
         }
       }
@@ -194,7 +200,7 @@ body {
       background-color: var(--#{$prefix}foot2-link-bg);
     }
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
       padding: .2rem 1rem;
       margin: .2rem;
     }
