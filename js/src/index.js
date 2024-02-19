@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', (_) => {
   //
   updateScrollPaddingTop();
   resizeAsides(); // Resize just after DOM content is loaded.
+
   // And register the function for every height change of the body.
   const resize_observer = new ResizeObserver(entries => resizeAsides());
   resize_observer.observe(document.body);

@@ -140,6 +140,8 @@
     z-index: 2;
     padding-right: .25rem;
     overflow-y: auto;
+    // overflow-x: auto;
+    // white-space: nowrap;
 
     @include scrollbars();
   }

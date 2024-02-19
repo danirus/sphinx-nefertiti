@@ -31,8 +31,8 @@ body {
   @include media-breakpoint-up(xl) {
     display: grid;
     grid-template-areas: "sidebar main";
-    grid-template-columns: minmax(300px 2fr) 5fr;
-    gap: 1.5rem;
+    grid-template-columns: minmax(300px, 1.5fr) 5fr;
+    gap: 25px;
   }
 }
 
@@ -63,10 +63,12 @@ body {
   display: grid;
   grid-area: main;
   grid-template-areas: "content";
+  grid-template-columns: minmax(570px, 860px);
   padding-right: 48px;
 
   @include media-breakpoint-down(xl) {
     padding-right: 0;
+    grid-template-columns: none;
   }
 }
 
@@ -86,7 +88,7 @@ body {
 
   @include media-breakpoint-up(lg) {
     grid-template-areas: "content toc";
-    grid-template-columns: minmax(570px, 790px) minmax(190px, 1.3fr);
+    grid-template-columns: minmax(570px, 760px) minmax(190px, 1.3fr);
   }
 }
 
@@ -106,6 +108,11 @@ body {
   min-width: 1px;  // Fix width when nftt-content contains a `<pre>`. See https://github.com/twbs/bootstrap/issues/25410
   font-family: var(--#{$prefix}documentation-font);
   font-size: var(--#{$prefix}documentation-font-size);
+
+  @include media-breakpoint-down(xl) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 
   h1,
   h2,

@@ -2,8 +2,8 @@
 {% if READTHEDOCS or theme_versions %}
   {% if READTHEDOCS %}
     <li class="nav-item dropdown">
-      <a class="nav-link d-flex py-2 px-0 px-lg-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
-        <span id="snftt-version-text" class="d-lg-none small">{{ project|striptags|e }}</span>
+      <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
+        <span id="snftt-version-text" class="d-xl-none small">{{ project|striptags|e }}</span>
         <span class="small ms-2" data-snftt-version-active="{{ current_version }}">v: {{ current_version }}</span>
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text">
@@ -32,8 +32,8 @@
     </li>
   {% elif theme_versions %}
     <li class="nav-item dropdown">
-      <a class="nav-link d-flex py-2 px-0 px-lg-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
-        <span id="snftt-version-text" class="d-lg-none small">{{ project|striptags|e }}</span>
+      <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
+        <span id="snftt-version-text" class="d-xl-none small">{{ project|striptags|e }}</span>
         <span class="small ms-2" data-snftt-version-active="{{ theme_current_version }}">{{ theme_current_version }}</span>
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text">
@@ -52,8 +52,8 @@
     </li>
   {% endif %}
 
-  <li class="nav-item col-12 col-lg-auto h-100" aria-hidden="true">
-    <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-    <hr class="d-lg-none text-white-50">
+  <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">
+    <div class="vr d-none d-xl-flex h-100 mx-xl-2 text-white"></div>
+    <hr class="d-xl-none text-white-50">
   </li>
 {% endif %}
