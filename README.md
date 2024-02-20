@@ -22,9 +22,8 @@ To quickly find items use the input filter. The filter will display items that c
 
 <img align="left" width="315" height="333" src="docs/source/_static/img/index-filtering-2.png">
 
-In the 2nd sample image the user types `fo`, that matches `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections.While typing the index will show entries that match the input field.
+In the 2nd sample image the user types `fo`, that matches `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections. While typing the index will show the entries that match the input field.
 
-After clearing the input field the index displays itself again with the folded and unfolded items the user had selected.
 
 ##  The TOC on the right side
 
