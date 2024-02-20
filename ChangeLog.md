@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.2.2] - 2024-02-20
+## [0.2.3] - 2024-02-20
 
 - Use a fluid layout (Bootstrap's `container-fluid`) to allow expanding the TOC
 in the right side to the right border of the browser. The goal is to increase
