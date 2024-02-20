@@ -67,8 +67,8 @@ body {
   padding-right: 48px;
 
   @include media-breakpoint-down(xl) {
-    padding-right: 0;
     grid-template-columns: none;
+    padding-right: 0;
   }
 }
 
@@ -110,8 +110,8 @@ body {
   font-size: var(--#{$prefix}documentation-font-size);
 
   @include media-breakpoint-down(xl) {
-    padding-left: 2rem;
     padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   h1,
