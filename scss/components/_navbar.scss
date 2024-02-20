@@ -145,7 +145,7 @@
 
   @include media-breakpoint-up(md) {
     .form-control {
-      border: 0;
+      border: 1;
 
       &:focus,
       &:focus-visible {
@@ -168,7 +168,7 @@
   background-color: $primary;
   border-left: 0;
 
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     box-shadow: $box-shadow-lg;
   }
 }

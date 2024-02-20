@@ -1,10 +1,69 @@
 # Nefertiti for Sphinx
 
-Nefertiti for Sphinx is yet another Sphinx theme.
+Nefertiti is a theme for [Sphinx](https://www.sphinx-doc.org/en/master/) that features:
 
-Here is a screenshot, but visiting the [documentation site](https://sphinx-nefertiti.readthedocs.io/en/latest/) will give a more comprehensive idea.
+* Responsive design, based on [Bootstrap 5.3](https://getbootstrap.com/docs/5.3).
+* Text input field to filter the **index**.
+* Font configuration compliant with [EU's GDPR](https://gdpr.eu/).
+* Different fonts can be used for different elements.
+* Light and dark color schemes, for normal text and code highlighted with Pygments styles.
+* Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
+* Optional highlighting of the project repository in the header.
+* Optional project version selector in the header.
+* Customizable footer links.
 
-![screenshot](https://github.com/danirus/sphinx-nefertiti/raw/main/docs/source/_static/img/screenshot.png)
+See it in action in [sphinx-themes.org](https://sphinx-themes.org/#theme-sphinx-nefertiti).
+
+## Index filtering
+
+<p align="center"><img align="center" width="315" height="417" src="docs/source/_static/img/index-filtering-1.png"></p>
+
+By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation. To quickly find items use the input filter. The filter will display items that could be invisible within a folded item. When the user types in the input field, let us say `fo`, the index gets filtered with all the entries that match those two characters. So the index will display three matches: `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections:
+
+<p align="center"><img align="center" width="315" height="333" src="docs/source/_static/img/index-filtering-2.png"></p>
+
+
+##  The TOC on the right side
+
+The Table of Contents, displayed on the right side, spans itself to the right border of the browser to display long items, improving readability.
+
+<p align="center"><img width="412" height="306" src="docs/source/_static/img/toc.png"></p>
+
+## Other features
+
+Nefertiti for Sphinx comes with the following color sets. Change between them using the attribute `display` of the `html_theme_options` setting.
+
+<p align="center"><img width="768" height="462" src="docs/source/_static/img/colorsets.png"></p>
+
+In order to be compliant with [EU's GDPR](https://gdpr.eu/), Nefertiti for Sphinx comes bundled with a group of fonts licensed for free distribution. Adding more fonts is explained in the [User's Guide](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/customization/fonts.html#adding-fonts):
+
+* Assistant
+* Exo
+* Montserrat
+* Mulish
+* Nunito
+* Open Sans
+* Red Hat Display
+* Sofia Sans
+* Ubuntu
+* Varta
+* Work Sans
+* Fira Code (monospace)
+* Red Hat Mono (monospace)
+* Ubuntu Mono (monospace)
+
+Combine up to 5 different fonts:
+
+    html_theme_options = {
+        "sans_serif_font": "Nunito",
+        "documentation_font": "Open Sans",
+        "monospace_font": "Ubuntu Mono",
+        "project_name_font": "Nunito",
+        "doc_headers_font": "Georgia",
+
+        "documentation_font_size": "1.2rem",
+        "monospace_font_size": "1.1rem",
+    }
 
 ## To use it
 

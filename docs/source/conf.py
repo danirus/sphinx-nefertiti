@@ -76,8 +76,11 @@ pygments_dark_style = "dracula"
 
 html_theme_options = {
     "documentation_font": "Open Sans",
+    "documentation_font_size": "1.1rem",
     "monospace_font": "Ubuntu Mono",
-    "monospace_font_size": "1.1rem",
+    "monospace_font_size": "1.2rem",
+
+    "style": "default",
 
     "logo": "img/nefertiti.svg",
     "logo_alt": "Nefertiti-for-Sphinx",

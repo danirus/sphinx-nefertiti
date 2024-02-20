@@ -70,8 +70,8 @@ describe('resize', () => {
       }
     );
 
-    const resulting_height = resizeAsides();
-    expect(resulting_height).toEqual("height: calc(100vh - 7rem)");
+    const results = resizeAsides();
+    expect(results[0]).toEqual("height: calc(100vh - 7rem)");
   });
 
   it('checks resizeAsides when nftt_content shorter than body', () => {
@@ -90,7 +90,7 @@ describe('resize', () => {
       }
     );
 
-    const resulting_height = resizeAsides();
-    expect(resulting_height).toEqual(expected_height);
+    const results = resizeAsides();
+    expect(results[0]).toEqual(expected_height);
   });
 });
