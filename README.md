@@ -14,13 +14,15 @@ Nefertiti is a theme for [Sphinx](https://www.sphinx-doc.org/en/master/) that fe
 
 ## Index filtering
 
-<img align="left" width="329" height="694" src="docs/source/_static/img/index-filtering.gif">
+<img align="left" width="315" height="417" src="docs/source/_static/img/index-filtering-1.png">
 
 By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation.
 
 To quickly find items use the input filter. The filter will display items that could be unvisible within a folded item.
 
-In the sample animated image the user looks for the item "Architecture", which is folded within the "Advance topics" entry. While typing the index shows entries that match the input field.
+<img align="left" width="315" height="333" src="docs/source/_static/img/index-filtering-2.png">
+
+In the 2nd sample image the user types `fo`, that matches `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections.While typing the index will show entries that match the input field.
 
 After clearing the input field the index displays itself again with the folded and unfolded items the user had selected.
 
@@ -30,7 +32,7 @@ After clearing the input field the index displays itself again with the folded a
 
 The Table of Contents, displayed on the right side of the page, spans itself to the right border of the browser to display long items, improving readability.
 
-## Other features
+## Other features
 
 Nefertiti for Sphinx comes with the following color sets. Change between them using the attribute `display` of the `html_theme_options` setting.
 

@@ -108,9 +108,9 @@
 }
 
 .nftt-sidebar-content .caption-text {
-   padding: 0px 16px;
-   font-size: 1rem;
- }
+  padding: 0 16px;
+  font-size: 1rem;
+}
 
 .nftt-sidebar .toc {
   @include media-breakpoint-up(lg) {
