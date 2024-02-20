@@ -2,15 +2,17 @@
 
 Nefertiti is a theme for [Sphinx](https://www.sphinx-doc.org/en/master/) that features:
 
-* Responsive design, based on `Bootstrap 5.3 <https://getbootstrap.com/docs/5.3>`_.
+* Responsive design, based on [Bootstrap 5.3](https://getbootstrap.com/docs/5.3).
 * Text input field to filter the **index**.
-* Font configuration compliant with `EU's GDPR <https://gdpr.eu/>`_.
+* Font configuration compliant with [EU's GDPR](https://gdpr.eu/).
 * Different fonts can be used for different elements.
 * Light and dark color schemes, for normal text and code highlighted with Pygments styles.
 * Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
 * Optional highlighting of the project repository in the header.
 * Optional project version selector in the header.
 * Customizable footer links.
+
+See it in action in [sphinx-themes.org](https://sphinx-themes.org/#theme-sphinx-nefertiti).
 
 ## Index filtering
 
