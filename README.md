@@ -14,28 +14,24 @@ Nefertiti is a theme for [Sphinx](https://www.sphinx-doc.org/en/master/) that fe
 
 ## Index filtering
 
-<img align="left" width="315" height="417" src="docs/source/_static/img/index-filtering-1.png">
+<p align="center"><img align="center" width="315" height="417" src="docs/source/_static/img/index-filtering-1.png"></p>
 
-By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation.
+By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation. To quickly find items use the input filter. The filter will display items that could be unvisible within a folded item. When the user types in the input field, let us say `fo`, the index gets filtered with all the entries that match those two characters. So the index will display three matches: `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections:
 
-To quickly find items use the input filter. The filter will display items that could be unvisible within a folded item.
-
-<img align="left" width="315" height="333" src="docs/source/_static/img/index-filtering-2.png">
-
-In the 2nd sample image the user types `fo`, that matches `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections. While typing the index will show the entries that match the input field.
+<p align="center"><img align="center" width="315" height="333" src="docs/source/_static/img/index-filtering-2.png"></p>
 
 
 ##  The TOC on the right side
 
-<img align="right" width="393" height="327" src="docs/source/_static/img/toc.png">
+The Table of Contents, displayed on the right side, spans itself to the right border of the browser to display long items, improving readability.
 
-The Table of Contents, displayed on the right side of the page, spans itself to the right border of the browser to display long items, improving readability.
+<p align="center"><img align="right" width="393" height="327" src="docs/source/_static/img/toc.png"></p>
 
 ## Other features
 
 Nefertiti for Sphinx comes with the following color sets. Change between them using the attribute `display` of the `html_theme_options` setting.
 
-<img align="center" width="768" height="462" src="docs/source/_static/img/colorsets.png">
+<p align="center"><img align="center" width="768" height="462" src="docs/source/_static/img/colorsets.png"></p>
 
 In order to be compliant with [EU's GDPR](https://gdpr.eu/), Nefertiti for Sphinx comes bundled with a group of fonts licensed for free distribution. Adding more fonts is explained in the [User's Guide](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/customization/fonts.html#adding-fonts):
 
