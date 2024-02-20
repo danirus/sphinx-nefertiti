@@ -25,7 +25,7 @@ By default the **index** shows the content folded. Opening or closing items is r
 
 The Table of Contents, displayed on the right side, spans itself to the right border of the browser to display long items, improving readability.
 
-<p align="center"><img width="393" height="327" src="docs/source/_static/img/toc.png"></p>
+<p align="center"><img width="412" height="306" src="docs/source/_static/img/toc.png"></p>
 
 ## Other features
 
