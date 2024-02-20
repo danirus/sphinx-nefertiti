@@ -25,13 +25,13 @@ By default the **index** shows the content folded. Opening or closing items is r
 
 The Table of Contents, displayed on the right side, spans itself to the right border of the browser to display long items, improving readability.
 
-<p align="center"><img align="right" width="393" height="327" src="docs/source/_static/img/toc.png"></p>
+<p align="center"><img width="393" height="327" src="docs/source/_static/img/toc.png"></p>
 
 ## Other features
 
 Nefertiti for Sphinx comes with the following color sets. Change between them using the attribute `display` of the `html_theme_options` setting.
 
-<p align="center"><img align="center" width="768" height="462" src="docs/source/_static/img/colorsets.png"></p>
+<p align="center"><img width="768" height="462" src="docs/source/_static/img/colorsets.png"></p>
 
 In order to be compliant with [EU's GDPR](https://gdpr.eu/), Nefertiti for Sphinx comes bundled with a group of fonts licensed for free distribution. Adding more fonts is explained in the [User's Guide](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/customization/fonts.html#adding-fonts):
 
