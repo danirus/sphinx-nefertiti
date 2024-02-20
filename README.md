@@ -18,7 +18,7 @@ See it in action in [sphinx-themes.org](https://sphinx-themes.org/#theme-sphinx-
 
 <p align="center"><img align="center" width="315" height="417" src="docs/source/_static/img/index-filtering-1.png"></p>
 
-By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation. To quickly find items use the input filter. The filter will display items that could be unvisible within a folded item. When the user types in the input field, let us say `fo`, the index gets filtered with all the entries that match those two characters. So the index will display three matches: `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections:
+By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation. To quickly find items use the input filter. The filter will display items that could be invisible within a folded item. When the user types in the input field, let us say `fo`, the index gets filtered with all the entries that match those two characters. So the index will display three matches: `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections:
 
 <p align="center"><img align="center" width="315" height="333" src="docs/source/_static/img/index-filtering-2.png"></p>
 
