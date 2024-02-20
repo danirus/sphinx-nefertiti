@@ -1,8 +1,8 @@
 {
   "name": "sphinx-nefertiti",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
-  "description": "Private repository related with sphinx-nefertiti.",
+  "description": "Nefertiti is a theme for the Sphinx Documentation Generator.",
   "engines": {
     "node": ">=16"
   },
