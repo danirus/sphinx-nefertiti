@@ -4,7 +4,7 @@ import { MenuHandler } from "./menu.js";
 import { updateRepoMetrics } from "./repometrics.js";
 import { TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
-import { updateVersion } from "./versions.js";
+import { feedVersionsMenu, updateVersion } from "./versions.js";
 
 
 function agentHas(keyword) {
@@ -55,6 +55,9 @@ window.addEventListener('DOMContentLoaded', (_) => {
   // them.
   const luz_handler = new LuzHandler();
   luz_handler.registerClickEvents();
+
+  // Feed the versions dropdown element.
+  feedVersionsMenu();
 
   // The updateVersion function controls the display of the version
   // in the header, adding the CSS class "current" to display the

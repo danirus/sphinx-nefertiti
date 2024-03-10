@@ -32,3 +32,39 @@ export function updateVersion() {
     }
   }
 }
+
+export function feedVersionsMenu() {
+  const vermenu = document.getElementById("versions-dropdown-menu");
+  if (!vermenu) {
+    console.log("Did not find the versions dropdown menu.");
+    return;
+  }
+  // Use the variable 'doc_versions', loaded as a script in layout.html.
+  // The file doc_versions.js is produced by versions.py when building
+  // the site (make html).
+  console.log("Found the versions dropdown menu!");
+  console.log("doc_versions are:");
+  console.dir(doc_versions);
+
+  for (const item of doc_versions) {
+    const li = document.createElement("li");
+    const anchor = document.createElement("a");
+    anchor.classList.add(
+      "dropdown-item", "d-flex", "align-items-center",
+      "justify-content-between"
+    );
+    anchor.setAttribute("aria-pressed", "false");
+    anchor.setAttribute("href", item.url);
+    anchor.dataset.snfttVersionUrl = item.url;
+    anchor.dataset.snfttVersion = item.name;
+    const span = document.createElement("span");
+    span.classList.add("small", "ms-2");
+    span.textContent = item.name;
+    const i = document.createElement("i");
+    i.classList.add("bi", "bi-check", "ms-auto");
+    anchor.append(span);
+    anchor.append(i);
+    li.append(anchor);
+    vermenu.append(li);
+  }
+}

@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.3.0] - 2024-03-10
+
+- When producing the HTML static site, create a file called `doc_versions.js`, containing the list of versions (name and url) specified in the `version` entry of the `html_theme_options`.
+- Change the CSS layout so that the grid centers itself, regardless of whether the toc at the right side is visible or not.
+
 ## [0.2.3] - 2024-02-20
 
 - Use a fluid layout (Bootstrap's `container-fluid`) to allow expanding the TOC

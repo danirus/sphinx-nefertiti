@@ -36,18 +36,10 @@
         <span id="snftt-version-text" class="d-xl-none small">{{ project|striptags|e }}</span>
         <span class="small ms-2" data-snftt-version-active="{{ theme_current_version }}">{{ theme_current_version }}</span>
       </a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text">
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text" id="versions-dropdown-menu">
         <li>
           <h6 class="dropdown-header">{{ _('Versions') }}</h6>
         </li>
-        {% for version, version_url in theme_versions %}
-          <li>
-            <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="{{ version_url }}" data-snftt-version-url="{{ version_url }}" data-snftt-version="{{ version }}">
-              <span class="small ms-2">{{ version }}</span>
-              <i class="bi bi-check ms-auto"></i>
-            </a>
-          </li>
-        {% endfor %}
       </ul>
     </li>
   {% endif %}

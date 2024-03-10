@@ -30,21 +30,7 @@ export function resizeAsides() {
     nftt_toc?.setAttribute("style", height);
   }
 
-  // Compute new 'grid-template-columns' for nftt-layout.
-  const max = (window.innerWidth - nftt_content.offsetWidth);
-  const newmax = nftt_toc
-    ? Math.floor(max / 2)
-    : (
-      nftt_sidebar_content
-        ? Math.floor((max + nftt_sidebar_content.offsetWidth) / 2)
-        : undefined
-    );
-  if (newmax) {
-    const newgtcols = `minmax(300px, ${newmax}px) 5fr`;
-    nftt_layout?.setAttribute("style", `grid-template-columns: ${newgtcols}`);
-  }
-
-  return [height, newmax];
+  return height;
 }
 
 
