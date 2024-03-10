@@ -43,13 +43,13 @@ body {
   }
 
   @include media-breakpoint-down(lg) {
-    max-width: 892px;
-    margin-inline: auto;
     grid-template-areas:
       "toc"
       "content";
     grid-template-rows: 1fr auto;
     grid-template-columns: none;
+    max-width: 892px;
+    margin-inline: auto;
   }
 }
 
