@@ -1,10 +1,11 @@
 """sphinx-nefertiti theme"""
 
+import json
 from pathlib import Path
 import pkg_resources
 import sys
 
-from sphinx_nefertiti import colorsets, fonts, pygments
+from sphinx_nefertiti import colorsets, fonts, pygments, versions
 
 
 __version__ = pkg_resources.require("sphinx_nefertiti")[0].version
@@ -29,6 +30,9 @@ def initialize_theme(app):
         pygments_provider = pygments.PygmentsProvider(app)
         app.pygments_assets = [asset for asset in pygments_provider]
 
+        version_provider = versions.VersionProvider(app)
+        app.all_versions = [version for version in version_provider]
+
     except (fonts.FontNotSupportedException, Exception) as exc:
         print(exc)
         sys.exit(1)
@@ -47,6 +51,10 @@ def copy_nefertiti_files(app, exc):
 
     for asset in app.pygments_assets:
         asset.create_pygments_style_file(app.builder.outdir)
+
+    versions_json = Path(app.builder.outdir) / "_static" / "doc_versions.js"
+    with versions_json.open("w") as f:
+        f.write("const doc_versions = " + json.dumps(app.all_versions))
 
 
 def update_context(app, pagename, templatename, context, doctree):

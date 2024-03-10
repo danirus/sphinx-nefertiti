@@ -23,16 +23,51 @@ body {
   padding-top: 63px;
 }
 
-.nftt-layout {
+.nftt-page {
   flex: 1 0 auto;
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
 
   @include media-breakpoint-up(xl) {
     display: grid;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: minmax(300px, 1.5fr) 5fr;
+    grid-template-areas: "sidebar content toc";
+    grid-template-columns: minmax(300px, 1.5fr) minmax(570px, 760px) minmax(190px, 1.3fr);
     gap: 25px;
+  }
+
+  @include media-breakpoint-down(xl) {
+    display: grid;
+    grid-template-areas: "content toc";
+    grid-template-columns: minmax(570px, 5fr) minmax(190px, 1fr);
+    gap: 25px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    max-width: 892px;
+    margin-inline: auto;
+    grid-template-areas:
+      "toc"
+      "content";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: none;
+  }
+}
+
+.nftt-page-wo-toc {
+  flex: 1 0 auto;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+
+  @include media-breakpoint-up(xl) {
+    display: grid;
+    grid-template-areas: "sidebar content toc";
+    grid-template-columns: minmax(300px, 1.5fr) minmax(570px, 760px) minmax(190px, 1.3fr);
+    gap: 25px;
+  }
+
+  @include media-breakpoint-down(xl) {
+    max-width: 92%;
+    margin-inline: auto;
   }
 }
 
@@ -59,39 +94,6 @@ body {
   }
 }
 
-.nftt-main-wo-toc {
-  display: grid;
-  grid-area: main;
-  grid-template-areas: "content";
-  grid-template-columns: minmax(570px, 860px);
-  padding-right: 48px;
-
-  @include media-breakpoint-down(xl) {
-    grid-template-columns: none;
-    padding-right: 0;
-  }
-}
-
-.nftt-main {
-  display: grid;
-  grid-area: main;
-  grid-template-areas:
-    "toc"
-    "content";
-  grid-template-rows: 1fr auto;
-  gap: inherit;
-
-  @include media-breakpoint-down(xl) {
-    max-width: 1100px;
-    margin-inline: auto;
-  }
-
-  @include media-breakpoint-up(lg) {
-    grid-template-areas: "content toc";
-    grid-template-columns: minmax(570px, 760px) minmax(190px, 1.3fr);
-  }
-}
-
 .nftt-toc {
   grid-area: toc;
 
@@ -100,6 +102,12 @@ body {
     font-family: var(--#{$prefix}font-monospace);
     font-size: .7rem;
   }
+
+  @include media-breakpoint-down(lg) {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
 }
 
 
