@@ -9,7 +9,7 @@ class VersionProvider:
             return
 
         for name, url in theme_user_prefs["versions"]:
-            self._assets.append({ 'name': name, 'url': url })
+            self._assets.append({"name": name, "url": url})
 
     def __iter__(self):
         return self
