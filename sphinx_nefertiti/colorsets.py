@@ -3,6 +3,9 @@ from pathlib import Path
 import shutil
 
 
+from sphinx_nefertiti import utils
+
+
 colorsets_rel_path = Path("colorsets")
 colorsets_abs_path = Path(__file__).parent / "colorsets"
 static_abs_path = Path(__file__).parent / "static"
@@ -18,7 +21,7 @@ all_colorsets = [
     "yellow",
     "green",
     "teal",
-    "default",
+    "default",  # cyan.
 ]
 
 
@@ -35,23 +38,21 @@ class ColorSet:
             )
         self._name = _name
 
-    @property
-    def name(self):
-        if self._name == "default":
-            return f"sphinx-nefertiti.min.css"
-        else:
-            return f"sphinx-nefertiti-{self._name}.min.css"
+    def get_name(self, with_version=False):
+        version = f"-{utils.get_version()}" if with_version else ""
+        return f"sphinx-nefertiti-{self._name}{version}.min.css"
 
     @property
     def link_stylesheet(self):
-        return str(colorsets_rel_path / self.name)
+        return str(colorsets_rel_path / self.get_name(with_version=True))
 
     def copy_to_static(self, outdir: str, is_map_file=False):
         ext = ".map" if is_map_file else ""
-        filename = f"{self.name}{ext}"
+        filename = f"{self.get_name()}{ext}"
+        filename_with_version = f"{self.get_name(with_version=True)}{ext}"
         src_path = colorsets_abs_path / filename
         dest_dir = Path(outdir) / "_static" / "colorsets"
-        dest_path = dest_dir / filename
+        dest_path = dest_dir / filename_with_version
         if not dest_dir.exists():
             os.mkdir(dest_dir)
         shutil.copyfile(src_path, dest_path)

@@ -50,8 +50,10 @@
     {%- for css in css_files %}
       {%- if css not in ["_static/basic.css",] %}
         {%- if css|attr("filename") %}
+          <!-- add (1) pathto "{{ css }}" -->
           {{ css_tag(css) }}
         {%- else %}
+          <!-- add (2) pathto "{{ css }}" -->
           <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
         {%- endif %}
       {%- endif %}
@@ -238,8 +240,8 @@
     {%- endblock %}
     {%- endif %}
 
-    <script type="text/javascript" src="{{ pathto('_static/bootstrap.bundle.min.js', 1) }}"></script>
-    <script type="text/javascript" src="{{ pathto('_static/sphinx-nefertiti.min.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto(nefertiti_bundle, 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto(bootstrap_bundle, 1) }}"></script>
     {% if show_colorset_choices %}<script type="module" src="{{ pathto('_static/colorsets.js', 1) }}"></script>{% endif %}
     <script type="text/javascript" src="{{ pathto('_static/doc_versions.js', 1) }}"></script>
   </body>
