@@ -5,4 +5,4 @@ pygments>=2.15.1,<2.16
 sphinx-intl>=2.0,<2.2
 sphinx-design>=0.4,<0.5
 sphinx_copybutton>=0.5.0,<1.0.0
-sphinx-nefertiti>=0.1.11
+sphinx-nefertiti>=0.3.1
