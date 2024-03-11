@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.3.1] - 2024-03-11
+
+- Serve static files with the version number in the name.
+
 ## [0.3.0] - 2024-03-10
 
 - When producing the HTML static site, create a file called `doc_versions.js`, containing the list of versions (name and url) specified in the `version` entry of the `html_theme_options`.
