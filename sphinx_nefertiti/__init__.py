@@ -61,14 +61,16 @@ def copy_nefertiti_files(app, exc):
     rename_files = [  # Tuples: (orig_name, rename_to)
         (
             "sphinx-nefertiti.min.js",
-            f"sphinx-nefertiti-{utils.get_version()}.min.js"
-        ), (
+            f"sphinx-nefertiti-{utils.get_version()}.min.js",
+        ),
+        (
             "sphinx-nefertiti.min.js.map",
-            f"sphinx-nefertiti-{utils.get_version()}.min.js.map"
-        ), (
+            f"sphinx-nefertiti-{utils.get_version()}.min.js.map",
+        ),
+        (
             "bootstrap.bundle.min.js",
             f"bootstrap.bundle-{utils.get_version()}.min.js",
-        )
+        ),
     ]
     for orig_name, rename_to in rename_files:
         orig_path = static_path / orig_name
