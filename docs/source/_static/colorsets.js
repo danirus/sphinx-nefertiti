@@ -1,4 +1,4 @@
-const DEFAULT = "cyan";
+const DEFAULT = "default";
 
 export class ColorSetHandler {
   constructor() {
@@ -29,11 +29,9 @@ export class ColorSetHandler {
   applyColor(color) {
     // This method replaces the current stylesheet by the new one,
     // based on the given color.
-    let stylesheet = color === DEFAULT
-      ? `sphinx-nefertiti`
-      : `sphinx-nefertiti-${color}`;
+    let stylesheet = `sphinx-nefertiti-${color}`;
 
-    const re = new RegExp("\/(?<name>sphinx\-nefertiti[\-]?[a-z]*)\.");
+    const re = new RegExp("\/(?<name>sphinx\-nefertiti[\-]{1}[a-z]+)");
     for (const sheet of document.getElementsByTagName("link")) {
       if (sheet.href) {
         const url = new URL(sheet.href);

@@ -1,4 +1,4 @@
-class VersionProvider:
+class DocsVersionProvider:
     def __init__(self, app):
         theme_user_prefs = app.config.html_theme_options
 
