@@ -3,6 +3,9 @@ const DEFAULT = "default";
 export class ColorSetHandler {
   constructor() {
     this.stored_color = localStorage.getItem('snftt-color');
+    if (this.stored_color == "cyan") { // Fix for previos stored value 'cyan'.
+      this.stored_color = DEFAULT;
+    }
     this.applyColor(this.preferredColor);
     this.updateDropdown(this.preferredColor);
   }

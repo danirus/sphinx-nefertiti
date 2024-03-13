@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.3.2] - 2024-03-13
+
+- Use the directive `:hideindex: 1`, to hide the nftt-sidebar-content.
+- For compatibility with previous versions, rename stored color from cyan to default.
+- Move footer to the bottom of the page.
+
 ## [0.3.1] - 2024-03-11
 
 - Serve static files with the version number in the name.
