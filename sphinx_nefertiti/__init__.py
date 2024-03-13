@@ -10,6 +10,9 @@ from sphinx_nefertiti import colorsets, fonts, pygments, docsver, utils
 __version__ = utils.get_version()
 
 
+pages_wo_index = ["genindex", "search"]
+
+
 def get_html_theme_path():
     """Return absolute path to parent folder of installed theme."""
     return str(Path(__file__).parents[1].absolute)

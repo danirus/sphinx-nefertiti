@@ -6,8 +6,12 @@
 {%- else %}
     {%- set titlesuffix = "" -%}
 {%- endif -%}
+{%- set hideindex = '' %}
 {%- set hidetoc = '' %}
 {%- if meta is defined and meta %}
+    {%- if 'hideindex' in meta.keys() %}
+        {%- set hideindex = meta.get('hideindex') %}
+    {%- endif %}
     {%- if 'hidetoc' in meta.keys() %}
         {%- set hidetoc = meta.get('hidetoc') %}
     {%- endif %}
@@ -98,7 +102,7 @@
   </head>
   <body>
     <header class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
-      <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start">
+      <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start flex-grow-1">
         <div class="border-bottom mb-2 pb-2 w-100">
           <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">{{ _('Skip to docs navigation') }}</a>
           <a class="d-inline-flex p-2 m-1" href="#content">{{ _('Skip to main content') }}</a>
@@ -191,10 +195,11 @@
       </nav>
     </header>
 
-    <div class="container-fluid">
+    <div class="container-fluid flex-grow-1">
       <div class="nftt-gutter {% if hidetoc %}nftt-page-wo-toc{% else %}nftt-page{% endif %}">
-        <aside class="nftt-sidebar">
+        <aside class="nftt-sidebar {% if hideindex %}border-0{% endif %}">
           <div class="nftt-sidebar-content">
+            {% if not hideindex %}
             <div class="title d-none d-xl-block">
               <i class="bi bi-book"></i>&nbsp;&nbsp;<span>{{ _('Index') }}</span>
             </div>
@@ -204,6 +209,7 @@
                 {%- include sidebartemplate %}
               {%- endfor %}
             </div>
+            {% endif %}
           </div>
         </aside>
         <article id="content" class="nftt-content" role="main">
