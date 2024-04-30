@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.3.3] - 2024-04-30
+
+- Fix issue in `pygments.py` when building Sphinx docs with the theme.
+
 ## [0.3.2] - 2024-03-13
 
 - Use the directive `:hideindex: 1`, to hide the nftt-sidebar-content.
