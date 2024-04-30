@@ -64,7 +64,6 @@ class PygmentsAsset:
 
 class PygmentsProvider:
     def __init__(self, app):
-        config = app.builder.theme.config
         theme_defaults = app.builder.theme.get_options()
         theme_user_prefs = app.config.html_theme_options
 
@@ -72,6 +71,8 @@ class PygmentsProvider:
         self._assets = []
 
         for opt, filename, css in pygments_options:
+            asset = None
+
             if opt in theme_user_prefs and len(theme_user_prefs[opt]):
                 asset = PygmentsAsset(theme_user_prefs[opt], filename, css)
             elif opt in theme_defaults and len(theme_defaults[opt]):
@@ -79,9 +80,9 @@ class PygmentsProvider:
             elif getattr(app.config, opt, False):
                 style_name = getattr(app.config, opt)
                 asset = PygmentsAsset(style_name, filename, css)
-            else:
-                asset = PygmentsAsset(config.get("theme", opt), filename, css)
-            self._assets.append(asset)
+
+            if asset:
+                self._assets.append(asset)
 
     def __iter__(self):
         return self

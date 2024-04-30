@@ -166,6 +166,8 @@ Enable the version dropdown by adding the ``versions`` key to your ``html_theme_
         ]
     }
 
+The ``versions`` key in your ``html_theme_options`` is ignored if you use readthedocs_ to host your project (the template ``version-dropdown.html`` renders differently depending on whether the project is hosted in readthedocs_ or not).
+
 
 6. Footer links
 ===============
