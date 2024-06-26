@@ -6,7 +6,7 @@ export function resizeAsides() {
   const nftt_toc = document.querySelector(".nftt-toc");
 
   // If min-width is not >= 992px, don't do anything.
-  if (window.matchMedia('(min-width: 992px)').matches == false) {
+  if (window.matchMedia('(min-width: 1200px)').matches == false) {
     nftt_sidebar?.setAttribute("style", "");
     nftt_toc?.setAttribute("style", "");
     return "";
