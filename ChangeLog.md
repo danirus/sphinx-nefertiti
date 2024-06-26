@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.3.4] - 2024-06-26
+
+- Fix in `js/src/tocresize.py` to avoid setting the height of the sidebars when they are not part of the grid.
+
 ## [0.3.3] - 2024-04-30
 
 - Fix issue in `pygments.py` when building Sphinx docs with the theme.
