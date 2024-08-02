@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.3.5] - 2024-08-02
+
+- Provide better for version-change directives (`versionadded`, `versionchanged`, `deprecated`, and `versionremoved`) when they only get a version number and no optional explanatory text.
+- Increment the font size for monospace font to match normal font.
+
 ## [0.3.4] - 2024-06-26
 
 - Fix in `js/src/tocresize.py` to avoid setting the height of the sidebars when they are not part of the grid.
