@@ -13,6 +13,7 @@ The following pages contain examples of visual elements that can be included in 
    :maxdepth: 1
 
    admonitions
+   version-changes
    code-blocks
    headings
    images

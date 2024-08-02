@@ -1,4 +1,5 @@
 /* stylelint-disable selector-no-qualifying-type */
+
 .versionadded {
   padding: .7rem 1.2rem 1rem;
   margin: 2.5rem 2rem 2rem;
@@ -33,7 +34,7 @@
   border: 2px solid var(--#{$prefix}admon-caution-color-bg);
   border-radius: $border-radius;
 
-  .changeded,
+  .changed,
   .versionmodified {
     position: relative;
     top: -34px;
@@ -80,6 +81,128 @@ div.deprecated {
   }
 }
 
+div.versionremoved {
+  padding: .7rem 1.2rem 1rem;
+  margin: 2.5rem 2rem 2rem;
+  background-color: var(--#{$prefix}foot1-bg);
+  border: 2px solid var(--#{$prefix}admon-attention-color-bg);
+  border-radius: $border-radius;
+
+  span.removed,
+  span.versionmodified {
+    position: relative;
+    top: -34px;
+    left: 16px;
+    display: block;
+    min-width: 100px;
+    max-width: 318px;
+    padding: .3rem 1rem;
+    margin: -1rem;
+    font-weight: $font-weight-bold;
+    color: var(--#{$prefix}body-hc-color);
+    background-color: var(--#{$prefix}admon-attention-color-bg);
+  }
+
+  > p:first-child {
+    padding-top: 1.5rem;
+  }
+}
+
+.versionadded-title-only {
+  padding: 0 1.2rem;
+  margin: 2.5rem 2rem;
+  border: 2px solid transparent;
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  .added,
+  .versionmodified {
+    position: relative;
+    top: 0;
+    left: 16px;
+    display: block;
+    min-width: 100px;
+    max-width: 318px;
+    padding: .3rem 1rem;
+    margin: -1rem;
+    font-weight: $font-weight-bold;
+    background-color: var(--#{$prefix}admon-tip-color-bg);
+  }
+}
+
+.versionchanged-title-only {
+  padding: 0 1.2rem;
+  margin: 2.5rem 2rem;
+  border: 2px solid transparent;
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  .changed,
+  .versionmodified {
+    position: relative;
+    top: 0;
+    left: 16px;
+    display: block;
+    min-width: 100px;
+    max-width: 318px;
+    padding: .3rem 1rem;
+    margin: -1rem;
+    font-weight: $font-weight-bold;
+    background-color: var(--#{$prefix}admon-caution-color-bg);
+  }
+}
+
+div.deprecated-title-only {
+  padding: 0 1.2rem;
+  margin: 2.5rem 2rem;
+  border: 2px solid transparent;
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  .deprecated,
+  .versionmodified {
+    position: relative;
+    top: 0;
+    left: 16px;
+    display: block;
+    min-width: 100px;
+    max-width: 318px;
+    padding: .3rem 1rem;
+    margin: -1rem;
+    font-weight: $font-weight-bold;
+    background-color: var(--#{$prefix}admon-error-color-bg);
+  }
+}
+
+.versionremoved-title-only {
+  padding: 0 1.2rem;
+  margin: 2.5rem 2rem;
+  border: 2px solid transparent;
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  .removed,
+  .versionmodified {
+    position: relative;
+    top: 0;
+    left: 16px;
+    display: block;
+    min-width: 100px;
+    max-width: 318px;
+    padding: .3rem 1rem;
+    margin: -1rem;
+    font-weight: $font-weight-bold;
+    background-color: var(--#{$prefix}admon-attention-color-bg);
+  }
+}
 
 .admonition-title,
 aside.topic > .topic-title {

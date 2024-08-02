@@ -188,7 +188,7 @@ As an example, the 4 links of the current Nefertiti for Sphinx documentation loo
         ])
     }
 
-In addition you can remove the **Built with Sphinx and Nefertiti** notice by setting the ``show_powered_by`` key to False. It is ``True`` by default:
+In addition you can remove the **Built with Sphinx and Nefertiti** notice by setting the ``show_powered_by`` key to ``False``. It is ``True`` by default:
 
 .. code-block:: python
 

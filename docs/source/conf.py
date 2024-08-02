@@ -33,7 +33,6 @@ release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/en/{release}/"
 
 releases = [
     release,
-    "0.0.3",
 ]
 
 # -- General configuration ---------------------------------------------------
@@ -76,11 +75,11 @@ pygments_dark_style = "dracula"
 
 html_theme_options = {
     "documentation_font": "Open Sans",
-    "documentation_font_size": "1.1rem",
+    "documentation_font_size": "1.0rem",
     "monospace_font": "Ubuntu Mono",
-    "monospace_font_size": "1.2rem",
+    "monospace_font_size": "1.1rem",
 
-    "style": "default",
+    "style": "orange",
 
     "logo": "img/nefertiti.svg",
     "logo_alt": "Nefertiti-for-Sphinx",
