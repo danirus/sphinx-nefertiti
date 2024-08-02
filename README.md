@@ -16,24 +16,24 @@ See it in action in [sphinx-themes.org](https://sphinx-themes.org/#theme-sphinx-
 
 ## Index filtering
 
-<p align="center"><img align="center" width="315" height="417" src="https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/_static/img/index-filtering-1.png"></p>
+<p align="center"><img align="center" width="315" height="417" src="https://github.com/danirus/sphinx-nefertiti/raw/main/docs/source/_static/img/index-filtering-1.png"></p>
 
 By default the **index** shows the content folded. Opening or closing items is remembered while browsing the documentation. To quickly find items use the input filter. The filter will display items that could be invisible within a folded item. When the user types in the input field, let us say `fo`, the index gets filtered with all the entries that match those two characters. So the index will display three matches: `Fonts`, `Footer links` and `Footnotes`. Those three entries were all folded within their sections:
 
-<p align="center"><img align="center" width="315" height="333" src="https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/_static/img/index-filtering-2.png"></p>
+<p align="center"><img align="center" width="315" height="333" src="https://github.com/danirus/sphinx-nefertiti/raw/main/docs/source/_static/img/index-filtering-2.png"></p>
 
 
 ##  The TOC on the right side
 
 The Table of Contents, displayed on the right side, spans itself to the right border of the browser to display long items, improving readability.
 
-<p align="center"><img width="412" height="306" src="https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/_static/img/toc.png"></p>
+<p align="center"><img width="412" height="306" src="https://github.com/danirus/sphinx-nefertiti/raw/main/docs/source/_static/img/toc.png"></p>
 
 ## Other features
 
 Nefertiti for Sphinx comes with the following color sets. Change between them using the attribute `display` of the `html_theme_options` setting.
 
-<p align="center"><img width="768" height="462" src="https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/_static/img/colorsets.png"></p>
+<p align="center"><img width="768" height="462" src="https://github.com/danirus/sphinx-nefertiti/raw/main/docs/source/_static/img/colorsets.png"></p>
 
 In order to be compliant with [EU's GDPR](https://gdpr.eu/), Nefertiti for Sphinx comes bundled with a group of fonts licensed for free distribution. Adding more fonts is explained in the [User's Guide](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/customization/fonts.html#adding-fonts):
 
@@ -88,7 +88,7 @@ Clone the Git repository, create a Python virtual environment, and install the N
 ```shell
 git clone git@github.com:danirus/sphinx-nefertiti.git
 cd sphinx-nefertiti
-python3.11 -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate
 pip install -r requirements-dev.txt
 nvm use --lts
