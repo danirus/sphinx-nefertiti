@@ -1,4 +1,4 @@
-_CURRENT_VERSION = (0, 3, 5, "f", 0)  # following PEP 440
+_CURRENT_VERSION = (0, 3, 6, "f", 0)  # following PEP 440
 
 
 def get_version():
