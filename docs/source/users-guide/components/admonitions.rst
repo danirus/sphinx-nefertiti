@@ -1,8 +1,8 @@
 .. _admonitions:
 
-===========
+###########
 Admonitions
-===========
+###########
 
 A Sphinx admonition consist of three elements:
 
@@ -34,7 +34,7 @@ In both cases replace the ``type`` with any of the possible type of admonitions:
 
 
 Type: admonition
-================
+****************
 
 A custom admonition displayed as a **note** and with a title:
 
@@ -68,7 +68,7 @@ A custom admonition displayed as a **note** and with a title:
 
 
 Type: attention
-===============
+***************
 
 A sample **attention** admonition:
 
@@ -100,7 +100,7 @@ A sample **attention** admonition:
     Please, restart your computer.
 
 Type: caution
-=============
+*************
 
 A sample **caution** admonition:
 
@@ -129,7 +129,7 @@ A sample **caution** admonition:
     I have not had my coffee yet.
 
 Type: danger
-============
+************
 
 A sample **danger** admonition:
 
@@ -161,7 +161,7 @@ A sample **danger** admonition:
     Be aware that there is no way to recover them.
 
 Type: error
-===========
+***********
 
 A sample **error** admonition:
 
@@ -194,7 +194,7 @@ A sample **error** admonition:
     Your computer has been running for 10h 37m 23s. Microsoft does not allow a windows system to run longer than that. Your computer will now crash.
 
 Type: important
-===============
+***************
 
 A sample **important** admonition:
 
@@ -224,7 +224,7 @@ A sample **important** admonition:
 
 
 Type: note
-==========
+**********
 
 A sample **note** admonition:
 
@@ -254,7 +254,7 @@ A sample **note** admonition:
     just 8.752.239.254 seconds.
 
 Type: tip
-=========
+*********
 
 A sample **tip** admonition:
 
@@ -285,7 +285,7 @@ A sample **tip** admonition:
     Windows 95 was unable to detect your keyboard. Press F1 to retry or F2 to abort.
 
 Type: warning
-=============
+*************
 
 A sample **warning** admonition:
 

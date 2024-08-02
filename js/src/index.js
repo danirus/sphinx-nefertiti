@@ -116,4 +116,38 @@ window.addEventListener('DOMContentLoaded', (_) => {
     table.before(wrapper);
     wrapper.append(table);
   }
+
+  // Fix admonitions-like blocks used in Sphinx to display version
+  // changes. Such directives are: versionadded, versionchanged,
+  // deprecated, and versionremoved.
+  const vchanges_selectors = [
+    ["div.versionadded", "versionadded", "versionadded-title-only"],
+    ["div.versionchanged", "versionchanged", "versionchanged-title-only"],
+    ["div.deprecated", "deprecated", "deprecated-title-only"],
+    ["div.versionremoved", "versionremoved", "versionremoved-title-only"],
+  ];
+  for (const lst of vchanges_selectors) {
+    const [ selector, src_class, tgt_class ] = lst;
+    const elems = document.querySelectorAll(selector);
+    if (elems.length > 0) {
+      console.log(`I found ${elems.length} elements of selector ${selector}`);
+    } else {
+      console.log(`I didn't find any ${selector} element.`)
+    }
+
+    for (const div of elems) {
+      // The 'p' contained in the div might contain just a <span>, or
+      // a <span> and a text node. The 2nd case is when the versionadded
+      // directive receives additional text, right below the directive.
+      // If the directive only gets the version number, without
+      // additional text below, then I the selector should
+      // change to .versionadded-title-only, so that it
+      // does not display an empty block below.
+
+      if (div.querySelector("p").childNodes.length == 1) {
+        console.log(`Replacing ${selector} selector...`);
+        div.classList.replace(src_class, tgt_class);
+      }
+    }
+  }
 });

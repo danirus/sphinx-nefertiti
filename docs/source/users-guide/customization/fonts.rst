@@ -3,7 +3,7 @@
 Fonts
 #####
 
-This document explains how you can customize your Sphinx project to use one of the fonts bundled with Nefertiti for Sphinx. It also explains how to add other fonts to your project.
+This document explains how you can customize your Sphinx project to use the fonts bundled with Nefertiti for Sphinx. It also explains how to add other fonts to your project.
 
 About EU's GDPR
 ***************
@@ -12,7 +12,7 @@ Nefertiti for Sphinx does not redirect HTTP font requests to 3rd party providers
 
 When serving EU based users, so long as you get the user's consent, you can still redirect font requests to a 3rd party font service provider. But Nefertiti for Sphinx does not provide the consent modal window, nor the logic in the case the user does not consent.
 
-Instead, add your preferred fonts and use them with your Sphinx project. The section :ref:`adding-fonts` below explains the details.
+You can instead, as explained below, use one of the fonts distributed with Nefertiti for Sphinx, or otherwise add your preferred fonts. The section :ref:`adding-fonts` below explains the details.
 
 Font settings
 *************

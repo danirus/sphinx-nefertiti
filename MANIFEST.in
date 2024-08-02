@@ -1,6 +1,8 @@
 include README.md
 include requirements.txt
 
-recursive-include sphinx_nefertiti *.*
+recursive-include sphinx_nefertiti/colorsets *.*
+recursive-include sphinx_nefertiti/fonts **/*.*
+recursive-include sphinx_nefertiti/static/ *.*
 
 recursive-exclude sphinx_nefertiti *.pyc
