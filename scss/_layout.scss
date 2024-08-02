@@ -101,7 +101,7 @@ body {
   code,
   code * {
     font-family: var(--#{$prefix}font-monospace);
-    font-size: .7rem;
+    font-size: .8rem;
   }
 
   @include media-breakpoint-down(lg) {
