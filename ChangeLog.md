@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.3.6] - 2024-08-02
+
+- Small fix: include missing non-python files in the package.
+
 ## [0.3.5] - 2024-08-02
 
 - Provide better for version-change directives (`versionadded`, `versionchanged`, `deprecated`, and `versionremoved`) when they only get a version number and no optional explanatory text.
