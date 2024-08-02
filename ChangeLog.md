@@ -1,12 +1,17 @@
 # Change Log
 
+## [0.3.7] - 2024-08-02
+
+- Fix highlighting foldable items in the left-side TOC when they are the current selected item.
+- Update actions in `publish.yml` GH action workflow.
+
 ## [0.3.6] - 2024-08-02
 
 - Small fix: include missing non-python files in the package.
 
 ## [0.3.5] - 2024-08-02
 
-- Provide better for version-change directives (`versionadded`, `versionchanged`, `deprecated`, and `versionremoved`) when they only get a version number and no optional explanatory text.
+- Provide better support for version-change directives (`versionadded`, `versionchanged`, `deprecated`, and `versionremoved`) when they only get a version number and no optional explanatory text.
 - Increment the font size for monospace font to match normal font.
 
 ## [0.3.4] - 2024-06-26

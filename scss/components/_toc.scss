@@ -27,6 +27,12 @@
 
       > a {
         padding-left: 2.1rem;
+
+        &.current {
+          color: var(--#{$prefix}body-color);
+          text-decoration: none;
+          background-color: var(--#{$prefix}foot2-bg);
+        }
       }
     }
   }
