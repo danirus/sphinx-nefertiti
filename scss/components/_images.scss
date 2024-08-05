@@ -41,6 +41,10 @@ figure {
     figcaption {
       margin: 1rem auto .5rem;
     }
+
+    p {
+      text-align: center;
+    }
   }
 
   &.align-left {
@@ -51,5 +55,9 @@ figure {
   &.align-right {
     float: right;
     margin: .4rem 0 .4rem 1.8rem;
+
+    p {
+      text-align: right;
+    }
   }
 }

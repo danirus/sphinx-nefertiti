@@ -5,7 +5,7 @@ from sphinx.highlighting import PygmentsBridge
 
 # To keep the name used in the Sphinx sources.
 pygments_options = [
-    ("pygments_style", "pygments.css", ".light"),
+    ("pygments_light_style", "pygments.css", ".light"),
     ("pygments_dark_style", "pygments_dark.css", ".dark"),
 ]
 

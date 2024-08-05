@@ -26,6 +26,7 @@
 
 .nftt-table {
   width: 100%;
+  margin-bottom: $spacer;
   overflow-x: auto;
 }
 
@@ -37,10 +38,10 @@ table td p:last-child {
 
 table.docutils {
   &:not(.field-list) {
-    width: 96%;
+    width: 100%;
     margin-top: $spacer;
     margin-right: auto;
-    margin-bottom: $spacer * 1.5;
+    margin-bottom: $spacer;
     margin-left: auto;
     border: 0;
     border-color: var(--#{$prefix}pre-border-color);
