@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.4.0] - 2024-08-05
+
+- Move `pygments_light_style` and `pygments_dark_style` options inside theme options (`html_theme_options`), as `pygments_dark_style` is no longer a valid config setting in `app.config` by Sphinx. Update docs accordingly.
+- Change CSS margins for table element.
+- Use text-align in paragraphs included inside figures, so that they are aligned conform to the figure alignment.
+
 ## [0.3.7] - 2024-08-02
 
 - Fix highlighting foldable items in the left-side TOC when they are the current selected item.

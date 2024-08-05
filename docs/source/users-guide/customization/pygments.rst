@@ -34,74 +34,82 @@ List all available Pygments styles using the following code (extracted from `her
 
 .. note::
 
-    The following code uses Pygments version 2.13.0.
+    The following code uses Pygments version 2.18.0.
 
 .. code-block:: python
 
+    import pprint
     from pygments.styles import get_all_styles
     styles = list(get_all_styles())
-    print(styles)
-
+    pprint.pprint(styles)
     [
-        'default',
-        'emacs',
-        'friendly',
-        'friendly_grayscale',
-        'colorful',
-        'autumn',
-        'murphy',
-        'manni',
-        'material',
-        'monokai',
-        'perldoc',
-        'pastie',
-        'borland',
-        'trac',
-        'native',
-        'fruity',
-        'bw',
-        'vim',
-        'vs',
-        'tango',
-        'rrt',
-        'xcode',
-        'igor',
-        'paraiso-light',
-        'paraiso-dark',
-        'lovelace',
+        'abap',
         'algol',
         'algol_nu',
         'arduino',
-        'rainbow_dash',
-        'abap',
-        'solarized-dark',
-        'solarized-light',
-        'sas',
-        'staroffice',
-        'stata',
-        'stata-light',
-        'stata-dark',
-        'inkpot',
-        'zenburn',
+        'autumn',
+        'bw',
+        'borland',
+        'coffee',
+        'colorful',
+        'default',
+        'dracula',
+        'emacs',
+        'friendly_grayscale',
+        'friendly',
+        'fruity',
+        'github-dark',
         'gruvbox-dark',
         'gruvbox-light',
-        'dracula',
-        'one-dark',
+        'igor',
+        'inkpot',
+        'lightbulb',
         'lilypond',
-        'nord',
+        'lovelace',
+        'manni',
+        'material',
+        'monokai',
+        'murphy',
+        'native',
         'nord-darker',
-        'github-dark'
+        'nord',
+        'one-dark',
+        'paraiso-dark',
+        'paraiso-light',
+        'pastie',
+        'perldoc',
+        'rainbow_dash',
+        'rrt',
+        'sas',
+        'solarized-dark',
+        'solarized-light',
+        'staroffice',
+        'stata-dark',
+        'stata-light',
+        'tango',
+        'trac',
+        'vim',
+        'vs',
+        'xcode',
+        'zenburn'
     ]
 
 Customize Pygments
 ==================
 
-Change the default Pygments styles by modifying the ``pygments_style`` and ``pygments_dark_style`` settings in your **conf.py** module. They are global settings like ``html_theme`` (they do not go inside ``html_theme_options``):
+.. versionchanged:: 0.4.0
+
+Customize Pygments styles by modifying the ``pygments_light_style`` and ``pygments_dark_style`` settings in your **conf.py** module, in your ``html_theme_options``:
 
 .. code-block:: python
 
-    pygments_style = "pastie"
-    pygments_dark_style = "dracula"
+    html_theme_options = {
+        # <other options here>
+        "pygments_light_style": "pastie",
+        "pygments_dark_style": "dracula",
+    }
+
+Should your ``conf.py`` provide the global setting ``pygments_style``, it will be overrided by this configuration.
 
 Then save the changes and rebuild your Sphinx site:
 

@@ -70,8 +70,6 @@ html_theme = "sphinx_nefertiti"
 
 html_style = ["custom.css", "nftt-pygments.min.css"]
 
-pygments_style = "pastie"
-pygments_dark_style = "dracula"
 
 html_theme_options = {
     "documentation_font": "Open Sans",
@@ -80,6 +78,8 @@ html_theme_options = {
     "monospace_font_size": "1.1rem",
 
     "style": "orange",
+    "pygments_light_style": "pastie",
+    "pygments_dark_style": "dracula",
 
     "logo": "img/nefertiti.svg",
     "logo_alt": "Nefertiti-for-Sphinx",
