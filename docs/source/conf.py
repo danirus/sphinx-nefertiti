@@ -105,6 +105,8 @@ html_theme_options = {
 
 html_static_path = ['_static']
 
+html_favicon = "_static/img/nefertiti.ico"
+
 # -- Options for HTMLHelp output ---------------------------------------
 
 htmlhelp_basename = 'sphinx_nefertitidoc'
