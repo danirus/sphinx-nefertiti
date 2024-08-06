@@ -102,19 +102,22 @@ When ``style`` is not given the theme defaults to ``cyan``.
 3. Pygments styles
 ==================
 
-Pygments_ is the package in charge of rendering code blocks. Sphinx supports two settings related with pygments:
+Pygments_ is the package that renders code blocks. Sphinx supports two settings related with pygments:
 
-* ``pygments_style``, applied when browser's ``prefers-color-scheme`` returns **light**.
+* ``pygments_light_style``, applied when browser's ``prefers-color-scheme`` returns **light**.
 * ``pygments_dark_style``, applied when browser's ``prefers-color-scheme`` returns **dark**.
 
 Nefertiti for Sphinx extends the use of these settings in a way that their styling is applied when the user selects the scheme in the light/dark dropdown, at the right side of the header.
 
-If your Sphinx project has code-blocks, try changing the pygments style settings and see how they are applied when switching between light and dark schemes in the header. Update your ``conf.py`` module:
+If your Sphinx project has code-blocks, try changing the pygments style settings and see how they are applied when switching between light and dark schemes in the header. To customize Pygments in your Sphinx project add both entries, ``pygments_light_style`` and ``pygments_dark_style``, to the ``html_theme_options`` setting in your ``conf.py`` module:
 
 .. code-block:: python
 
-    pygments_style = "solarized-light"
-    pygments_dark_style = "solarized-dark"
+    html_theme_options = {
+        # ... other options ...
+        'pygments_style': 'solarized-light',
+        'pygments_dark_style': 'solarized-dark'
+    }
 
 See more code blocks rendered with Pygments in the :ref:`code-blocks` document in Nefertiti User's Guide.
 

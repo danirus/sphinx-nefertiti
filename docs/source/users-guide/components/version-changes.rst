@@ -16,8 +16,8 @@ To read about them, follow `this link <https://www.sphinx-doc.org/en/master/usag
 Examples
 ********
 
-Directive examples without text
-===============================
+Without text
+============
 
 Examples of ``versionadded``, ``versionchanged``, ``deprecated`` and ``versionremoved`` getting only the version parameter.
 
@@ -122,8 +122,8 @@ Examples of ``versionadded``, ``versionchanged``, ``deprecated`` and ``versionre
         |br|
 
 
-Directive examples with text
-============================
+With text
+=========
 
 Examples of ``versionadded``, ``versionchanged``, ``deprecated`` and ``versionremoved`` getting the version parameter and an explanatory text.
 
