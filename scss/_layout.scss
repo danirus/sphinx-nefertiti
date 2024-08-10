@@ -39,7 +39,7 @@ body {
     display: grid;
     grid-template-areas: "content toc";
     grid-template-columns: minmax(570px, 5fr) minmax(190px, 1fr);
-    gap: 25px;
+    gap: 18px;
   }
 
   @include media-breakpoint-down(lg) {
@@ -51,6 +51,13 @@ body {
     grid-template-columns: 100%;
     max-width: 892px;
     margin-inline: auto;
+    margin-top: 1.5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    row-gap: 0;
+    column-gap: 18px;
+    margin-top: 0;
   }
 }
 
@@ -69,6 +76,11 @@ body {
   @include media-breakpoint-down(xl) {
     max-width: 92%;
     margin-inline: auto;
+  }
+
+  @include media-breakpoint-down(sm) {
+    max-width: 100%;
+    margin-top: 1.5rem;
   }
 }
 

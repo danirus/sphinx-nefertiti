@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.4.1] - 2024-08-10
+
+- Fix various UI/CSS issues in small form factors.
+
 ## [0.4.0] - 2024-08-05
 
 - Move `pygments_light_style` and `pygments_dark_style` options inside theme options (`html_theme_options`), as `pygments_dark_style` is no longer a valid config setting in `app.config` by Sphinx. Update docs accordingly.

@@ -7,6 +7,10 @@
   border: 2px solid var(--#{$prefix}admon-tip-color-bg);
   border-radius: $border-radius;
 
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem 2rem;
+  }
+
   .added,
   .versionmodified {
     position: relative;
@@ -20,6 +24,12 @@
     font-weight: $font-weight-bold;
     color: var(--#{$prefix}body-hc-color);
     background-color: var(--#{$prefix}admon-tip-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      margin: -1rem 0;
+      border-radius: $border-radius;
+    }
   }
 
   > p:first-child {
@@ -34,6 +44,10 @@
   border: 2px solid var(--#{$prefix}admon-caution-color-bg);
   border-radius: $border-radius;
 
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem 2rem;
+  }
+
   .changed,
   .versionmodified {
     position: relative;
@@ -47,6 +61,12 @@
     font-weight: $font-weight-bold;
     color: var(--#{$prefix}body-hc-color);
     background-color: var(--#{$prefix}admon-caution-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      margin: -1rem 0;
+      border-radius: $border-radius;
+    }
   }
 
   > p:first-child {
@@ -61,6 +81,10 @@ div.deprecated {
   border: 2px solid var(--#{$prefix}admon-error-color-bg);
   border-radius: $border-radius;
 
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem 2rem;
+  }
+
   span.deprecated,
   span.versionmodified {
     position: relative;
@@ -74,6 +98,12 @@ div.deprecated {
     font-weight: $font-weight-bold;
     color: var(--#{$prefix}body-hc-color);
     background-color: var(--#{$prefix}admon-error-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      margin: -1rem 0;
+      border-radius: $border-radius;
+    }
   }
 
   > p:first-child {
@@ -88,6 +118,10 @@ div.versionremoved {
   border: 2px solid var(--#{$prefix}admon-attention-color-bg);
   border-radius: $border-radius;
 
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem 2rem;
+  }
+
   span.removed,
   span.versionmodified {
     position: relative;
@@ -101,6 +135,12 @@ div.versionremoved {
     font-weight: $font-weight-bold;
     color: var(--#{$prefix}body-hc-color);
     background-color: var(--#{$prefix}admon-attention-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      margin: -1rem 0;
+      border-radius: $border-radius;
+    }
   }
 
   > p:first-child {
@@ -112,6 +152,10 @@ div.versionremoved {
   padding: 0 1.2rem;
   margin: 2.5rem 2rem;
   border: 2px solid transparent;
+
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem;
+  }
 
   > p {
     margin-bottom: 0;
@@ -129,6 +173,11 @@ div.versionremoved {
     margin: -1rem;
     font-weight: $font-weight-bold;
     background-color: var(--#{$prefix}admon-tip-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      border-radius: $border-radius;
+    }
   }
 }
 
@@ -136,6 +185,10 @@ div.versionremoved {
   padding: 0 1.2rem;
   margin: 2.5rem 2rem;
   border: 2px solid transparent;
+
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem;
+  }
 
   > p {
     margin-bottom: 0;
@@ -153,6 +206,11 @@ div.versionremoved {
     margin: -1rem;
     font-weight: $font-weight-bold;
     background-color: var(--#{$prefix}admon-caution-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      border-radius: $border-radius;
+    }
   }
 }
 
@@ -160,6 +218,10 @@ div.deprecated-title-only {
   padding: 0 1.2rem;
   margin: 2.5rem 2rem;
   border: 2px solid transparent;
+
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem;
+  }
 
   > p {
     margin-bottom: 0;
@@ -177,6 +239,11 @@ div.deprecated-title-only {
     margin: -1rem;
     font-weight: $font-weight-bold;
     background-color: var(--#{$prefix}admon-error-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      border-radius: $border-radius;
+    }
   }
 }
 
@@ -184,6 +251,10 @@ div.deprecated-title-only {
   padding: 0 1.2rem;
   margin: 2.5rem 2rem;
   border: 2px solid transparent;
+
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem;
+  }
 
   > p {
     margin-bottom: 0;
@@ -201,6 +272,11 @@ div.deprecated-title-only {
     margin: -1rem;
     font-weight: $font-weight-bold;
     background-color: var(--#{$prefix}admon-attention-color-bg);
+
+    @include media-breakpoint-down(sm) {
+      left: 0;
+      border-radius: $border-radius;
+    }
   }
 }
 
@@ -217,6 +293,11 @@ aside.topic > .topic-title {
   font-weight: $font-weight-bold;
   color: var(--#{$prefix}body-hc-color);
   background-color: var(--#{$prefix}admon-note-color-bg);
+
+  @include media-breakpoint-down(sm) {
+    left: 6px;
+    border-radius: $border-radius;
+  }
 
   &::before {
     display: inline-block;
@@ -239,6 +320,10 @@ aside.topic {
   background-color: var(--#{$prefix}foot1-bg);
   border: 2px solid var(--#{$prefix}admon-note-color-bg);
   border-radius: $border-radius;
+
+  @include media-breakpoint-down(sm) {
+    margin: 2.5rem .6rem 2rem;
+  }
 
   .admonition-title,
   .topic-title {
