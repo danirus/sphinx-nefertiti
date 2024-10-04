@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.5.0] - Unreleased
+
+- Add 'back-to-top' button.
+- Limit height of version dropdown.
+- Reset the colorset picked with the dropdown 24 hours after it has been selected, in sphinx-nefertiti docs.
+- Use smooth scrolling.
+
 ## [0.4.2] - 2024-10-15
 
 - Remove version constrain for Sphinx 8 in Nefertiti's dependencies.

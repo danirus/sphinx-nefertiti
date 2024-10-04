@@ -1,3 +1,4 @@
+import { BackToTop } from "./backtotop.js";
 import { fixFigureStyle } from "./figures.js";
 import { LuzHandler } from "./lightdark.js";
 import { MenuHandler } from "./menu.js";
@@ -150,4 +151,7 @@ window.addEventListener('DOMContentLoaded', (_) => {
       }
     }
   }
+
+  const back_to_top = new BackToTop();
+  back_to_top.init();
 });

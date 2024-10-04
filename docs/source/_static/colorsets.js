@@ -1,13 +1,31 @@
 const DEFAULT = "default";
 
+const RESET_AFTER_MS = 1000 * 60 * 60 * 24;  // 1 day.
+
 export class ColorSetHandler {
   constructor() {
-    this.stored_color = localStorage.getItem('snftt-color');
-    if (this.stored_color == "cyan") { // Fix for previos stored value 'cyan'.
-      this.stored_color = DEFAULT;
+    // reset_epoch is the epoch after which the user selected
+    // colorset has to be ignored.
+    const now_epoch = Date.now();
+    const reset_epoch = Number.parseInt(
+      localStorage.getItem('snftt-color-reset-after')
+    );
+
+    if (!reset_epoch || now_epoch < reset_epoch) {
+      this.stored_color = localStorage.getItem('snftt-color');
+      if (this.stored_color == "cyan") { // Fix for previos stored value 'cyan'.
+        this.stored_color = DEFAULT;
+      }
+      this.applyColor(this.preferredColor);
+      this.updateDropdown(this.preferredColor);
     }
-    this.applyColor(this.preferredColor);
-    this.updateDropdown(this.preferredColor);
+
+    // Set timer to reset to default if the timer does not exist yet.
+    if (!reset_epoch) {
+      localStorage.setItem(
+        'snftt-color-reset-after', Date.now() + RESET_AFTER_MS
+      );
+    }
   }
 
   registerClickEvents() {
@@ -18,12 +36,16 @@ export class ColorSetHandler {
         localStorage.setItem('snftt-color', color);
         this.applyColor(color);
         this.updateDropdown(color, true);
+        localStorage.setItem(
+          'snftt-color-reset-after', Date.now() + RESET_AFTER_MS
+        );
       });
     };
   }
 
   get preferredColor() {
     if (this.stored_color) {
+      console.log(`this.stored_color: ${this.stored_color}`);
       return this.stored_color;
     }
     return DEFAULT;

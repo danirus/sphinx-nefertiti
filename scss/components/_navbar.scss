@@ -172,3 +172,9 @@
     box-shadow: $box-shadow-lg;
   }
 }
+
+.dropdown-limit-max-height {
+  max-height: calc(100vh - 70px);
+  overflow: hidden;
+  overflow-y: auto;
+}

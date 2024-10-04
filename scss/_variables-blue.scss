@@ -96,6 +96,7 @@ $scheme-light-admon-tip-color-bg: $teal-300;
 $scheme-light-table-bg: white;
 $scheme-light-table-striped-bg: tint-color($blue, 90%);
 
+
 // scheme-color dark.
 $scheme-dark-body-color: $gray-100;
 $scheme-dark-body-hc-color: $white;
@@ -151,3 +152,7 @@ $navbar-dark-brand-hover-color: $white;
 
 $docapi-dark-kw-color: $blue-200;
 $docapi-light-kw-color: $blue-600;
+
+// -------------------------
+// shadow for light and dark.
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);

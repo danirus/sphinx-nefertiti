@@ -77,7 +77,7 @@ html_theme_options = {
     "monospace_font": "Ubuntu Mono",
     "monospace_font_size": "1.1rem",
 
-    "style": "orange",
+    "style": "default",
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 

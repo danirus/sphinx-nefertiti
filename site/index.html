@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/bootstrap-icons.css">
-  <link rel="stylesheet" href="/css/sphinx-nefertiti-cyan.css">
+  <link rel="stylesheet" href="/css/sphinx-nefertiti-default.css">
   <link rel="stylesheet" type="text/css" href="/css/pygments.css">
   <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="/css/pygments_dark.css">
   <link rel="stylesheet" type="text/css" href="/css/pygments_dark.css">
@@ -30,9 +30,11 @@
   }
 </style>
 </head>
-
 <body>
-  <header class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
+  <div id="back-to-top-container" class="position-fixed start-50 translate-middle-x">
+    <button id="back-to-top" type="button" class="d-none btn btn-neutral btn-sm shadow px-4" data-bs-toggle="button">Back to top</button>
+  </div>
+  <header id="snftt-nav-bar" class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
     <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start">
       <div class="border-bottom mb-2 pb-2 w-100">
         <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">Skip to docs navigation</a>
@@ -48,6 +50,7 @@
       <a class="navbar-brand me-0 md-lg-2" href="/" aria-label="Nefertiti for Sphinx">
         <img src="img/nefertiti.svg" width="36" height="36" class="nefertiti-bg" alt="Nefertiti for Sphinx"><span class="brand-text">Nefertiti for Sphinx</span>
       </a>
+
       <div class="d-flex d-xl-none">
         <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
           <i class="bi bi-search"></i>
