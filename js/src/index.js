@@ -2,6 +2,7 @@ import { BackToTop } from "./backtotop.js";
 import { fixFigureStyle } from "./figures.js";
 import { LuzHandler } from "./lightdark.js";
 import { MenuHandler } from "./menu.js";
+import { changeNavbarItemsOrder } from "./navbar.js";
 import { updateRepoMetrics } from "./repometrics.js";
 import { TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
@@ -43,13 +44,30 @@ window.addEventListener('DOMContentLoaded', (_) => {
   // On every page load, adjust height of nftt-sidebar
   // and nftt-toc, based on height of nftt-content.
   //
+  changeNavbarItemsOrder();
   updateScrollPaddingTop();
   resizeAsides(); // Resize just after DOM content is loaded.
 
   // And register the function for every height change of the body.
-  const resize_observer = new ResizeObserver(entries => resizeAsides());
-  resize_observer.observe(document.body);
-  window.addEventListener("resize", resizeAsides);
+  const body_observer = new ResizeObserver(entries => {
+    // Use the ResizeObserver to modify the order of the elements
+    // in the element "header navbar". If the element wraps, then
+    // the links in the ".nftt-header-links-large" have to be placed
+    // last inside the "header navbar" element.
+    changeNavbarItemsOrder();
+
+    // Find out header's height.
+    const header_h = document.querySelector("header")?.offsetHeight;
+    document.body.style.paddingTop = `${header_h + 4}px`;
+    console.log("height of navbar:", header_h);
+
+    updateScrollPaddingTop();
+    resizeAsides();
+  });
+  body_observer.observe(document.body);
+  window.addEventListener("resize", [
+    changeNavbarItemsOrder, updateScrollPaddingTop, resizeAsides,
+  ]);
 
   // The LuzHandler controls the selection of the 3 possible
   // options (light, dark, default) and the switching between
@@ -130,11 +148,6 @@ window.addEventListener('DOMContentLoaded', (_) => {
   for (const lst of vchanges_selectors) {
     const [ selector, src_class, tgt_class ] = lst;
     const elems = document.querySelectorAll(selector);
-    if (elems.length > 0) {
-      console.log(`I found ${elems.length} elements of selector ${selector}`);
-    } else {
-      console.log(`I didn't find any ${selector} element.`)
-    }
 
     for (const div of elems) {
       // The 'p' contained in the div might contain just a <span>, or
@@ -146,7 +159,6 @@ window.addEventListener('DOMContentLoaded', (_) => {
       // does not display an empty block below.
 
       if (div.querySelector("p").childNodes.length == 1) {
-        console.log(`Replacing ${selector} selector...`);
         div.classList.replace(src_class, tgt_class);
       }
     }

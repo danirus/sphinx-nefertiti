@@ -34,8 +34,8 @@
   --#{$prefix}border-color-translucent: #{$scheme-light-border-color-translucent};
   --#{$prefix}link-color: #{$scheme-light-link-color};
   --#{$prefix}link-hover-color: #{$scheme-light-link-hover-color};
-  --#{$prefix}link-border-color: lighten(#{$scheme-light-link-color}, 45%);
-  --#{$prefix}link-active-color: shade-color(#{$scheme-light-link-color}, 75%);
+  --#{$prefix}link-border-color: #{$scheme-light-link-border-color};
+  --#{$prefix}link-active-color: #{$scheme-light-link-active-color};
   --#{$prefix}link-decoration-color: #{$scheme-light-link-decoration-color};
   --#{$prefix}link-decoration-color-rgb: #{$scheme-light-link-decoration-color-rgb};
 
@@ -112,8 +112,8 @@
   --#{$prefix}border-color-translucent: #{$scheme-dark-border-color-translucent};
   --#{$prefix}link-color: #{$scheme-dark-link-color};
   --#{$prefix}link-hover-color: #{$scheme-dark-link-hover-color};
-  --#{$prefix}link-border-color: lighten(#{$scheme-dark-link-color}, 45%);
-  --#{$prefix}link-active-color: shade-color(#{$scheme-dark-link-color}, 75%);
+  --#{$prefix}link-border-color: #{$scheme-dark-link-border-color};
+  --#{$prefix}link-active-color: #{$scheme-dark-link-active-color};
   --#{$prefix}link-decoration-color: #{$scheme-dark-link-decoration-color};
   --#{$prefix}link-decoration-color-rgb: #{$scheme-dark-link-decoration-color-rgb};
 
@@ -264,4 +264,5 @@
   --#{$prefix}tertiary-bg: rgba(var(--#{$prefix}primary-rgb), .1);
 
   --#{$prefix}box-shadow: #{$box-shadow};
+  --#{$prefix}breadcrumb-font-size: .85rem;
 }

@@ -33,6 +33,12 @@ release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/en/{release}/"
 
 releases = [
     release,
+    '0.4.0',
+    '0.3.4',
+    '0.3.3',
+    '0.3.2',
+    '0.2.4',
+    '0.1.3',
 ]
 
 # -- General configuration ---------------------------------------------------
@@ -85,12 +91,53 @@ html_theme_options = {
     "logo_alt": "Nefertiti-for-Sphinx",
 
     "repository_url": "https://github.com/danirus/sphinx-nefertiti",
-    "repository_name": "danirus/sphinx-nefertiti",
+    "repository_name": "sphinx-nefertiti",
 
     "current_version": f"v{release}",
     "versions": [
         ("v%s" % item, release_pattern_url.format(release=item))
         for item in releases
+    ],
+
+    "header_links": [
+        {
+            "text" : "Code",
+            "link": "https://github.com/danirus/sphinx-nefertiti",
+        }, {
+            "text": "Components",
+            "dropdown": (
+                {
+                    "text": "Admonitions",
+                    "link": "/users-guide/components/admonitions.html",
+                }, {
+                    "text": "Version changes",
+                    "link": "/users-guide/components/version-changes.html",
+                }, {
+                    "text": "Code blocks",
+                    "link": "/users-guide/components/code-blocks.html",
+                }, {
+                    "text": "Headings",
+                    "link": "/users-guide/components/headings.html",
+                }, {
+                    "text": "Images",
+                    "link": "/users-guide/components/images.html",
+                }, {
+                    "divider": True
+                }, {
+                    "text": "Separated link",
+                    "link": "https://tralari.page/SeparatedLink",
+                }
+            )
+        },
+        {
+            "text": "Examples",
+            "link": "/examples/index.html",
+            "reg_exps": ["^/examples/*", "^/users-guide/example/*"]
+         },
+        {
+            "text": "Change Log",
+            "link": "/changelog.html",
+        }
     ],
 
     "footer_links": ",".join([

@@ -55,12 +55,12 @@ export class LuzHandler {
 
     const elements = document.querySelectorAll(`[${prefix}]`);
     for (const element of elements) {
-      element.classList.remove('current');
+      element.classList.remove('active', 'current');
       element.setAttribute('aria-pressed', 'false');
     };
 
     if (luz_item != undefined) {
-      luz_item.classList.add('current');
+      luz_item.classList.add('active', 'current');
       luz_item.setAttribute('aria-pressed', 'true');
     }
 

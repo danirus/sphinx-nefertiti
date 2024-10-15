@@ -2,9 +2,12 @@
 
 ## [0.5.0] - Unreleased
 
+- Add customizable header links.
 - Add 'back-to-top' button.
+- Add breadcrumbs.
 - Limit height of version dropdown.
-- Reset the colorset picked with the dropdown 24 hours after it has been selected, in sphinx-nefertiti docs.
+- Scroll the left sidebar to show the link corresponding to the current page.
+- In the sphinx-nefertiti docs, reset the colorset selected using the dropdown in the navigation bar 24 hours after it has been selected.
 - Use smooth scrolling.
 
 ## [0.4.2] - 2024-10-15

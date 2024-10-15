@@ -2,7 +2,7 @@
 <li class="nav-item dropdown">
   <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-color" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle color set">
     <i class="bi bi-palette"></i>
-    <span id="snftt-color-text" class="d-xl-none small ms-2">{{ _('Change color set') }}</span>
+    <span id="snftt-color-text" class="d-xl-none ms-2">{{ _('Change color set') }}</span>
   </a>
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-color-text">
     <li>
@@ -11,10 +11,10 @@
     {% for item in all_colorsets %}
     <li>
       <a class="dropdown-item d-flex align-items-center" data-snftt-color="{{ item }}" href="#" aria-pressed="false">
-        <span class="{% if item=='default' %}cyan{% else %}{{ item }}{% endif %} small">
+        <span class="{% if item=='default' %}cyan{% else %}{{ item }}{% endif %}">
           <i class="bi bi-circle-fill"></i>
         </span>
-        <span class="small ms-3">{% if item == "default" %}Cyan{% else %}{{ _(item|capitalize) }}{% endif %}</span>
+        <span class="ms-3">{% if item == "default" %}Cyan{% else %}{{ _(item|capitalize) }}{% endif %}</span>
         <i class="bi bi-check ms-auto"></i>
       </a>
     </li>

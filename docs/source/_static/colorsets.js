@@ -80,12 +80,12 @@ export class ColorSetHandler {
 
     const elements = document.querySelectorAll(`[${prefix}]`);
     for (const element of elements) {
-      element.classList.remove('current');
+      element.classList.remove('active', 'current');
       element.setAttribute('aria-pressed', 'false');
     };
 
     if (sch_item != undefined) {
-      sch_item.classList.add('current');
+      sch_item.classList.add('active', 'current');
       sch_item.setAttribute('aria-pressed', 'true');
     }
 

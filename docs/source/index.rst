@@ -52,3 +52,8 @@ User's guide
    :maxdepth: 2
 
    users-guide/index
+
+.. toctree::
+   :maxdepth: 1
+
+   examples/index.rst

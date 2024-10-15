@@ -111,7 +111,7 @@
           <a class="d-inline-flex p-2 m-1" href="#content">{{ _('Skip to main content') }}</a>
         </div>
       </div>
-      <nav class="container-xxl nftt-gutter flex-wrap flex-xl-nowrap" aria-label="Main navigation">
+      <nav class="container-xxl nftt-gutter flex-wrap" aria-label="Main navigation">
         <div class="nftt-navbar-toggler">
           <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle documentation navigation">
             <i class="bi bi-list"></i>
@@ -121,7 +121,7 @@
           <a
             href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
             {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-            class="navbar-brand me-0 md-lg-2"
+            class="navbar-brand me-0 md-lg-2 pe-lg-4"
           >
             <img src="{{ pathto('_static/' + theme_logo, 1) }}"
               {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
@@ -138,6 +138,16 @@
               class="navbar-brand p-0 me-0 md-lg-2"
           ><span class="brand-text">{{ project }}</span></a>
         {% endif %}
+        {% if theme_header_links %}
+          <ul class="nftt-header-links-large navbar-nav">
+          {% with %}
+            {% set link_list=theme_header_links %}
+            {% set li_class="nav-item" %}
+            {% set a_class="nav-link" %}
+            {% include "header-links.html" %}
+          {% endwith %}
+          </ul>
+        {% endif %}
         <div class="d-flex d-xl-none">
           <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
             <i class="bi bi-search"></i>
@@ -149,12 +159,28 @@
         {% include "searchbox.html" %}
         <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
           <div class="offcanvas-header px-4 pb-0">
-            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">Nefertiti for Sphinx</span></div>
+            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">{{ project }}</span></div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttNavbar"></button>
           </div>
           <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
             <hr class="d-xl-none text-white-50">
             <ul class="navbar-nav flex-row align-items-center flex-wrap ms-lg-auto">
+              {% if theme_header_links %}
+                <div class="nftt-header-links-small">
+                  {% with %}
+                    {% set link_list=theme_header_links %}
+                    {% set li_class="nav-item" %}
+                    {% set a_class="nav-link" %}
+                    <div class="d-inline-block">
+                      {% include "header-links.html" %}
+                    </div>
+                  {% endwith %}
+                  <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">
+                    <div class="vr d-none d-xl-flex h-100 mx-xl-2 text-white"></div>
+                    <hr class="d-xl-none text-white-50">
+                  </li>
+                </div>
+              {% endif %}
               {% if theme_repository_url and theme_repository_name %}
               <li class="nav-item col-12 col-xl-auto">
                 <a class="nav-link py-2 py-xl-0 px-0 px-xl-2" href="{{ theme_repository_url }}" target="_blank" rel="noopener">
@@ -216,6 +242,7 @@
           </div>
         </aside>
         <article id="content" class="nftt-content" role="main">
+          {% include "breadcrumbs.html" %}
           {%- block body %}
           {% endblock -%}
         </article>

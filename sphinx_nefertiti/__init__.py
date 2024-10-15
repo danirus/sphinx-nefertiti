@@ -4,7 +4,7 @@ import json
 import sys
 from pathlib import Path
 
-from sphinx_nefertiti import colorsets, fonts, pygments, docsver, utils
+from sphinx_nefertiti import colorsets, fonts, pygments, docsver, links, utils
 
 
 __version__ = utils.get_version()
@@ -33,6 +33,9 @@ def initialize_theme(app):
 
         docsver_provider = docsver.DocsVersionProvider(app)
         app.all_docs_versions = [version for version in docsver_provider]
+
+        header_links_provider = links.HeaderLinksProvider(app)
+        app.header_links = [link for link in header_links_provider]
 
     except (fonts.FontNotSupportedException, Exception) as exc:
         print(exc)

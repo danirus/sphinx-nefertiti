@@ -220,10 +220,15 @@
 
     &:hover,
     &:focus,
-    &:active,
-    &[aria-expanded="true"] {
+    &:active {
       color: $link-color;
-      background-color: $white;
+      background-color: transparent;
+      border-color: var(--#{$prefix}link-decoration-color);
+    }
+
+    &[aria-expanded="true"] {
+      color: var(--#{$prefix}link-color);
+      background-color: transparent;
       border-color: var(--#{$prefix}link-decoration-color);
     }
 
@@ -238,7 +243,7 @@
   @include media-breakpoint-down(lg) {
     nav {
       padding: 1.25rem;
-      background-color: $gray-100;
+      background-color: var(--#{$prefix}body-bg);
       border: 1px solid var(--#{$prefix}link-border-color);
       @include border-radius(.25rem);
     }

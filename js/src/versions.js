@@ -20,12 +20,12 @@ export function updateVersion() {
   const version_item = document.querySelector(qs_version_item);
 
   for (const element of document.querySelectorAll('[data-snftt-version]')) {
-    element.classList.remove('current');
+    element.classList.remove('active', 'current');
     element.setAttribute('aria-pressed', 'false');
   }
 
   if (version_item != undefined) {
-    version_item.classList.add('current');
+    version_item.classList.add('active', 'current');
     version_item.setAttribute('aria-pressed', 'true');
     if (version_active != undefined) {
       version_active.textContent = version_item.dataset.snfttVersion;
@@ -42,10 +42,6 @@ export function feedVersionsMenu() {
   // Use the variable 'doc_versions', loaded as a script in layout.html.
   // The file doc_versions.js is produced by versions.py when building
   // the site (make html).
-  console.log("Found the versions dropdown menu!");
-  console.log("doc_versions are:");
-  console.dir(doc_versions);
-
   for (const item of doc_versions) {
     const li = document.createElement("li");
     const anchor = document.createElement("a");

@@ -4,13 +4,13 @@
     <h5 class="offcanvas-title fw-bold" id="nfttSearchOffcanvasLabel">Search the documentation</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttSearch"></button>
   </div>
-  <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
+  <div class="offcanvas-body p-4 pt-0 p-xl-0 ps-xl-4">
     <hr class="d-xl-none text-white-50">
     <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
       <li class="nav-item col-12 col-xl-auto">
         <form id="nftt-search-form" action="{{ pathto('search') }}" method="get">
           <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="{{ _('Search docs') }}" aria-label="Search" aria-describedby="button-search">
+            <input type="text" name="q" class="form-control search-input" placeholder="{{ _('Search docs') }}" aria-label="Search" aria-describedby="button-search">
             <input type="hidden" name="check_keywords" value="yes" />
             <input type="hidden" name="area" value="default" />
             <button class="btn btn-primary" type="submit" id="button-search" aria-label="Search"><i class="bi bi-search"></i></button>
