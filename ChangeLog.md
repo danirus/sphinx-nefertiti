@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.4.2] - 2024-10-15
+
+- Remove version constrain for Sphinx 8 in Nefertiti's dependencies.
+
 ## [0.4.1] - 2024-08-10
 
 - Fix various UI/CSS issues in small form factors.
