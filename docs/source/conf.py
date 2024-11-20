@@ -123,7 +123,7 @@ html_theme_options = {
                     "link": "/examples/self-hosting-multiple-versions.html"
                 },
                 {
-                    "text": "A blog with ABlog and Nefertiti",
+                    "text": "A blog with ABlog",
                     "link": "/examples/a-blog-with-ablog.html"
                 }
             )

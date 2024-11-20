@@ -1,3 +1,3 @@
-# A blog with ABlog and Nefertiti
+# A blog with ABlog
 
 Blah blah blah...
