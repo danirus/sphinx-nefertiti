@@ -465,7 +465,7 @@ def test_prj2_current_version_and_versions(test_app):
     Test ``current_version`` and ``versions`` key in ``html_theme_options``.
 
     Check that module ``docsver.py`` works as expected.
-    There should be a file ``doc_versions.js`` in ``_build/html/_static``
+    There should be a file ``docs-versions.js`` in ``_build/html/_static``
     with tuples representing the versions of the docs.
     """
     sample_prj2 = test_app(
@@ -488,18 +488,18 @@ def test_prj2_current_version_and_versions(test_app):
 
     # Check that ``colorsets.js`` file (allows the user to switch between
     # colorsets using the selector in the header) is also in the _static dir.
-    doc_versions_js = outdir / "_static" / "doc_versions.js"
-    assert doc_versions_js.exists()
+    docs_versions_js = outdir / "_static" / "docs-versions.js"
+    assert docs_versions_js.exists()
 
     expected = (
-        "const doc_versions = ["
+        "const docs_versions = ["
         '{"name": "0.9.9", "url": "https://sphinx-nefertiti/0.9.9"}, '
         '{"name": "1.0.5", "url": "https://sphinx-nefertiti/1.0.5"}, '
         '{"name": "1.1.8", "url": "https://sphinx-nefertiti/1.1.8"}, '
         '{"name": "2.0.5", "url": "localhost:7998/"}'
         "]"
     )
-    f = doc_versions_js.open()
+    f = docs_versions_js.open()
     content = f.read()
 
     assert expected.strip() == content

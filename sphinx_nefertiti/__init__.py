@@ -63,7 +63,7 @@ def initialize_theme(app):
     docs_versions_script = "docs-versions.js"
     docs_versions_path = dest_dir / docs_versions_script
     with docs_versions_path.open("w") as f:
-        f.write("const doc_versions = " + json.dumps(app.all_docs_versions))
+        f.write("const docs_versions = " + json.dumps(app.all_docs_versions))
     app.add_js_file(docs_versions_script)
     app.add_js_file("sphinx-nefertiti.min.js")
     app.add_js_file("bootstrap.bundle.min.js")
