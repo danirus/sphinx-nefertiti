@@ -1,3 +1,0 @@
-# Customized header links
-
-Blah blah blah...

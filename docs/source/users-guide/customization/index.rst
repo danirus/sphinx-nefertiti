@@ -15,4 +15,5 @@ The following features can be customized:
     pygments
     git-repository
     version-dropdown
+    header-links
     footer-links

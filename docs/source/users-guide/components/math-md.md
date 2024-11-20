@@ -69,5 +69,3 @@ H_c&=\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}
 &\quad\cdot[(n-l )-(n_i-l _i)]^{n_i-l _i}\cdot
 \Bigl[(n-l )^2-\sum^p_{j=1}(n_i-l _i)^2\Bigr].
 \end{split}\end{equation}
-
-

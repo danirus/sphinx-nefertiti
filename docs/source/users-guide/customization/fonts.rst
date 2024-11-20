@@ -103,12 +103,12 @@ The following 5 sections explain in detail the steps to make the font `Noto Sans
 1. Create font directory
 ========================
 
-In the source directory of your project, where you have your reStructuredText or Markdown files, create a directory called ``fonts``, and inside it create another one called ``noto-sans``:
+In the static source directory of your project (either the ``static`` directory inside your source directory or the directory passed in the setting ``html_static_path``, in your ``conf.py``), create a directory called ``fonts``, and inside it create another one called ``noto-sans``. If your static source:
 
 .. code-block:: shell
 
     cd my-sphinx-project
-    mkdir -p fonts/noto-sans
+    mkdir -p static/fonts/noto-sans
 
 
 2. Get font family
@@ -121,12 +121,12 @@ The Noto Sans font family has 18 font files of which Nefertiti will use only 2:
 * ``NotoSans-Regular.ttf``
 * ``NotoSans-Bold.ttf``
 
-Copy these two files inside the ``fonts/noto-sans`` directory.
+Copy these two files inside the ``static/fonts/noto-sans`` directory.
 
 3. Write ``font-face``
 ======================
 
-Create a file ``stylesheet.css`` inside ``fonts/noto-sans``, add the ``font-face`` declaration, and save it:
+Create a file ``stylesheet.css`` inside ``static/fonts/noto-sans``, add the ``font-face`` declaration, and save it:
 
 .. code-block:: css
 
@@ -158,6 +158,11 @@ Edit your ``conf.py`` file and modify the ``html_theme_options`` setting to add 
         # ... Other options here ...
         documentation_font: "Noto Sans",
     }
+
+Be sure that your ``static`` directory is listed in the setting ``html_static_path``, otherwise Sphinx will fail to copy the font:
+
+    html_static_path = ['static']
+
 
 5. Build the project
 ====================

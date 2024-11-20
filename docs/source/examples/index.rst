@@ -4,8 +4,8 @@ Examples
 Here you will find examples of using Nefertiti for Sphinx.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
-    example_1
-    example_2
-    example_3
+    hosting-in-readthedocs
+    self-hosting-multiple-versions
+    a-blog-with-ablog

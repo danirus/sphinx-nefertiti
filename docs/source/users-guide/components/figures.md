@@ -24,7 +24,7 @@ An example of a figure without optional arguments (no change of dimensions, no c
 :class-content: only-code-tab
 
 ``````markdown
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 
 This is the caption of the figure.
 
@@ -39,7 +39,7 @@ And this is also part of the legend.
 :class-content: only-code-tab
 
 ``````reStructuredText
-.. figure:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. figure:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 
     This is the caption of the figure.
 
@@ -50,7 +50,7 @@ And this is also part of the legend.
 :::
 ::::
 
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 
 This is the caption of the figure.
 
@@ -74,7 +74,7 @@ The following example displays a figure at half of its width, and aligned to the
 :class-content: only-code-tab
 
 ``````markdown
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: center
@@ -88,7 +88,7 @@ Watercolor painting by *Mong kyaw sing marma*.
 :class-content: only-code-tab
 
 ``````reStructuredText
-.. figure:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. figure:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
     :alt: Watercolour painting by Mong kyaw sing marma
     :width: 50%
     :align: center
@@ -98,7 +98,7 @@ Watercolor painting by *Mong kyaw sing marma*.
 :::
 ::::
 
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: center
@@ -146,7 +146,7 @@ No attribution required.
 :::
 ::::
 
-```{figure} /_static/img/landscape-nature-trees-house-sunset-painting.jpg
+```{figure} img/landscape-nature-trees-house-sunset-painting.jpg
 :alt: Landscape nature trees house sunset painting
 :height: 500px
 :align: center
@@ -169,7 +169,7 @@ The previous examples show how to display figures scaled and centered. Alignment
 :class-content: only-code-tab
 
 ``````markdown
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: left
@@ -200,7 +200,7 @@ vel. Cras egestas diam vel massa vestibulum, ut faucibus elit porta.
 :class-content: only-code-tab
 
 ``````reStructuredText
-.. figure:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. figure:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
     :alt: Watercolour painting by Mong kyaw sing marma
     :width: 50%
     :align: left
@@ -226,7 +226,7 @@ Cras egestas diam vel massa vestibulum, ut faucibus elit porta.
 :::
 ::::
 
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: left
@@ -260,7 +260,7 @@ vel. Cras egestas diam vel massa vestibulum, ut faucibus elit porta.
 :class-content: only-code-tab
 
 ``````markdown
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: right
@@ -292,7 +292,7 @@ vel. Cras egestas diam vel massa vestibulum, ut faucibus elit porta.
 :class-content: only-code-tab
 
 ``````reStructuredText
-.. figure:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. figure:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
     :alt: Watercolour painting by Mong kyaw sing marma
     :width: 50%
     :align: right
@@ -319,7 +319,7 @@ vel. Cras egestas diam vel massa vestibulum, ut faucibus elit porta.
 :::
 ::::
 
-```{figure} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{figure} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: right

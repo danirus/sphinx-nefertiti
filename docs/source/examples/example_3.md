@@ -1,3 +1,0 @@
-# Self-hosted multiple versions
-
-Blah blah blah...

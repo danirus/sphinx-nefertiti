@@ -15,20 +15,20 @@ An example of the simplest way to insert an image:
 :sync: md
 
 ```markdown
-![great_sphinx_of_giza](/_static/img/great_sphinx_of_giza.jpeg)
+![great_sphinx_of_giza](img/great_sphinx_of_giza.jpeg)
 ```
 
-![great_sphinx_of_giza](/_static/img/great_sphinx_of_giza.jpeg)
+![great_sphinx_of_giza](img/great_sphinx_of_giza.jpeg)
 :::
 
 :::{tab-item} reStructuredText
 :sync: rst
 
 ```reStructuredText
-.. image:: /_static/img/great_sphinx_of_giza.jpeg
+.. image:: img/great_sphinx_of_giza.jpeg
 ```
 
-![great_sphinx_of_giza](/_static/img/great_sphinx_of_giza.jpeg)
+![great_sphinx_of_giza](img/great_sphinx_of_giza.jpeg)
 :::
 ::::
 
@@ -49,14 +49,14 @@ The following example adds an image at half of its width, and display it aligned
 :sync: md
 
 ``````markdown
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 75%
 :align: center
 ```
 ``````
 
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 75%
 :align: center
@@ -67,12 +67,12 @@ The following example adds an image at half of its width, and display it aligned
 :sync: rst
 
 ```reStructuredText
-.. image:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. image:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
     :width: 75%
     :align: center
 ```
 
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 75%
 :align: center
@@ -89,13 +89,13 @@ The following example displays an image centered and with a height of `350px`. T
 :sync: md
 
 ``````markdown
-```{image} /_static/img/landscape-nature-trees-house-sunset-painting.jpg
+```{image} img/landscape-nature-trees-house-sunset-painting.jpg
 :height: 500px
 :align: center
 ```
 ``````
 
-```{image} /_static/img/landscape-nature-trees-house-sunset-painting.jpg
+```{image} img/landscape-nature-trees-house-sunset-painting.jpg
 :height: 500px
 :align: center
 ```
@@ -105,12 +105,12 @@ The following example displays an image centered and with a height of `350px`. T
 :sync: rst
 
 ```reStructuredText
-.. image:: /_static/img/landscape-nature-trees-house-sunset-painting.jpg
+.. image:: img/landscape-nature-trees-house-sunset-painting.jpg
     :height: 500px
     :align: center
 ```
 
-```{image} /_static/img/landscape-nature-trees-house-sunset-painting.jpg
+```{image} img/landscape-nature-trees-house-sunset-painting.jpg
 :height: 500px
 :align: center
 ```
@@ -130,7 +130,7 @@ The following example in Markdown and reStructuredText inserts an image left ali
 :sync: md
 
 ``````markdown
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: left
@@ -149,7 +149,7 @@ purus. Duis viverra, ante quis lobortis fermentum, lectus tortor
 fermentum justo, a finibus lectus ipsum a leo.
 ``````
 
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: left
@@ -172,7 +172,7 @@ fermentum justo, a finibus lectus ipsum a leo.
 :sync: rst
 
 ```reStructuredText
-.. image:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. image:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
     :width: 50%
     :align: left
 
@@ -191,7 +191,7 @@ fermentum, lectus tortor fermentum justo, a finibus lectus ipsum a
 leo.
 ```
 
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: left
@@ -220,7 +220,7 @@ The following example in Markdown and reStructuredText inserts an image right al
 :sync: md
 
 ``````markdown
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: right
@@ -241,7 +241,7 @@ fermentum, lectus tortor fermentum justo, a finibus lectus ipsum
 a leo.
 ``````
 
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: right
@@ -265,7 +265,7 @@ a leo.
 :sync: rst
 
 ``````reStructuredText
-.. image:: /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+.. image:: img/Watercolour_by_Mong_kyaw_sing_marma.jpg
     :width: 50%
     :align: right
 
@@ -284,7 +284,7 @@ fermentum, lectus tortor fermentum justo, a finibus lectus ipsum
 a leo.
 ``````
 
-```{image} /_static/img/Watercolour_by_Mong_kyaw_sing_marma.jpg
+```{image} img/Watercolour_by_Mong_kyaw_sing_marma.jpg
 :alt: Watercolour painting by Mong kyaw sing marma
 :width: 50%
 :align: right

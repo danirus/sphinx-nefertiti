@@ -31,15 +31,15 @@ release = ".".join(_ver_list[:3])
 
 release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/en/{release}/"
 
-releases = [
-    release,
-    '0.4.0',
-    '0.3.4',
-    '0.3.3',
-    '0.3.2',
-    '0.2.4',
-    '0.1.3',
-]
+# releases = [
+#     release,
+#     '0.4.0',
+#     '0.3.4',
+#     '0.3.3',
+#     '0.3.2',
+#     '0.2.4',
+#     '0.1.3',
+# ]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -50,6 +50,7 @@ extensions = [
     'myst_parser',
     'sphinx_design',
     'sphinx_copybutton',
+    'sphinx_colorschemed_images',
 ]
 
 myst_enable_extensions = [
@@ -76,6 +77,7 @@ html_theme = "sphinx_nefertiti"
 
 html_style = ["custom.css", "nftt-pygments.min.css"]
 
+figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
     "documentation_font": "Open Sans",
@@ -83,76 +85,79 @@ html_theme_options = {
     "monospace_font": "Ubuntu Mono",
     "monospace_font_size": "1.1rem",
 
-    "style": "default",
+    "style": "orange",
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 
-    "logo": "img/nefertiti.svg",
+    "logo": "nefertiti.svg",
+    "logo_width": 36,
+    "logo_height": 36,
     "logo_alt": "Nefertiti-for-Sphinx",
 
     "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     "repository_name": "sphinx-nefertiti",
 
-    "current_version": f"v{release}",
-    "versions": [
-        ("v%s" % item, release_pattern_url.format(release=item))
-        for item in releases
-    ],
+    # "current_version": f"v{release}",
+    # "versions": [
+    #     ("v%s" % item, release_pattern_url.format(release=item))
+    #     for item in releases
+    # ],
 
+    # "header_links_in_2nd_row": False,
     "header_links": [
         {
-            "text" : "Code",
-            "link": "https://github.com/danirus/sphinx-nefertiti",
-        }, {
-            "text": "Components",
-            "dropdown": (
-                {
-                    "text": "Admonitions",
-                    "link": "/users-guide/components/admonitions.html",
-                }, {
-                    "text": "Version changes",
-                    "link": "/users-guide/components/version-changes.html",
-                }, {
-                    "text": "Code blocks",
-                    "link": "/users-guide/components/code-blocks.html",
-                }, {
-                    "text": "Headings",
-                    "link": "/users-guide/components/headings.html",
-                }, {
-                    "text": "Images",
-                    "link": "/users-guide/components/images.html",
-                }, {
-                    "divider": True
-                }, {
-                    "text": "Separated link",
-                    "link": "https://tralari.page/SeparatedLink",
-                }
-            )
+            "text" : "Quick Start",
+            "link": "/quick-start.html",
         },
         {
             "text": "Examples",
             "link": "/examples/index.html",
-            "reg_exps": ["^/examples/*", "^/users-guide/example/*"]
-         },
+            "match": "^/examples/*",
+            "dropdown": (
+                {
+                    "text": "Hosting in ReadTheDocs",
+                    "link": "/examples/hosting-in-readthedocs.html"
+                },
+                {
+                    "text": "Self-hosting multiple versions",
+                    "link": "/examples/self-hosting-multiple-versions.html"
+                },
+                {
+                    "text": "A blog with ABlog and Nefertiti",
+                    "link": "/examples/a-blog-with-ablog.html"
+                }
+            )
+        },
         {
             "text": "Change Log",
             "link": "/changelog.html",
         }
     ],
 
-    "footer_links": ",".join([
-        "Documentation|https://sphinx-nefertiti.readthedocs.com",
-        "Package|https://pypi.com/sphinx-nefertiti",
-        "Repository|https://github.com/danirus/sphinx-nefertiti",
-        "Issues|https://github.com/danirus/sphinx-nefertiti/issues",
-    ]),
+    "footer_links": [
+        {
+            "text": "Documentation",
+            "link": "https://sphinx-nefertiti.readthedocs.com",
+        }, {
+            "text": "Package",
+            "link": "https://pypi.com/sphinx-nefertiti",
+        }, {
+            "text": "Repository",
+            "link": "https://github.com/danirus/sphinx-nefertiti",
+        }, {
+            "text": "Issues",
+            "link": "https://github.com/danirus/sphinx-nefertiti/issues",
+        },
+    ],
 
-    "show_colorset_choices": True
+    "show_colorset_choices": True,
 }
+# End of settings specific for sphinx-nefertiti.
+# ---------------------------------------------------------------------
 
-html_static_path = ['_static']
+html_static_path = ['_static',]
 
-html_favicon = "_static/img/nefertiti.ico"
+html_favicon = "_static/nefertico.ico"
 
 # -- Options for HTMLHelp output ---------------------------------------
 
@@ -174,3 +179,5 @@ man_pages = [
      'Nefertiti for Sphinx - Documentation',
      ['Daniela Rus Morales'], 1)
 ]
+
+csi_add_script_to_html_output = False
