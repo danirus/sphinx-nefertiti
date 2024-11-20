@@ -18,9 +18,6 @@ site/css/sphinx-nefertiti*
 site/css/nftt-pygments*
 site/js/
 site/karma/
-sphinx_nefertiti/static/**/*.min.js*
-sphinx_nefertiti/colorsets/**/sphinx-nefertiti*.min.css*
 tests/sample_prj_?/_build/
 docs/source/_static/sphinx-nefertiti-*.css
 docs/source/_static/sphinx-nefertiti-*.css.map
-sphinx_nefertiti/colorsets/*

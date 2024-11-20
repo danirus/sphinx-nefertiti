@@ -142,7 +142,7 @@ describe('versions', () => {
   });
 
   it('checks feedVersionsMenu add content to element', () => {
-    globalThis.doc_versions = [
+    globalThis.docs_versions = [
       {
         "name": "v0.5.0",
         "url": "https://sphinx-nefertiti.readthedocs.io/en/0.5.0/"

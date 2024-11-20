@@ -1,5 +1,11 @@
 ---
-exclude: 'dist/'
+exclude: |
+  (?x)(
+    ^dist|
+    ^sphinx_nefertiti/colorsets|
+    ^sphinx_nefertiti/static
+  )
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0

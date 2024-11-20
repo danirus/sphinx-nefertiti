@@ -39,10 +39,10 @@ export function feedVersionsMenu() {
     console.log("Did not find the versions dropdown menu.");
     return false;
   }
-  // Use the variable 'doc_versions', loaded as a script in layout.html.
-  // The file doc_versions.js is produced by versions.py when building
+  // Use the variable 'docs_versions' loaded as a script in layout.html.
+  // The file docs_versions.js is produced by versions.py when building
   // the site (make html).
-  for (const item of doc_versions) {
+  for (const item of docs_versions) {
     const li = document.createElement("li");
     const anchor = document.createElement("a");
     anchor.classList.add(

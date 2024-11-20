@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-twbs-bootstrap",
   "customSyntax": "postcss-scss",
+  "ignoreFiles": ["**.*.min.css*"],
   "rules": {
     "selector-max-type": [2, {"ignore": ["descendant"]}]
   },
