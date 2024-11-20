@@ -252,9 +252,11 @@
 }
 
 
+/* stylelint-disable selector-id-pattern */
 #nfttSearch .search-input {
   font-size: .875rem;
 }
+/* stylelint-enable selector-id-pattern */
 
 // The #button-search in the navbar seems to exceed in 1px
 // the size of the button-group.

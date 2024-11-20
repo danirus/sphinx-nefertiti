@@ -97,11 +97,11 @@ body {
     margin-left: -.25rem;
     overflow-y: scroll;
     border-right: 1px solid var(--#{$prefix}border-color);
+    scroll-snap-type: y mandatory !important;
 
     @include scrollbars();
 
     .nftt-sidebar-content {
-      // min-width: 240px;
       max-width: 320px;
       margin-left: auto;
     }
@@ -257,7 +257,7 @@ body {
   margin-right: 1rem;
 }
 
-#back-to-top-container {
+#back-to-top-container {  // stylelint-disable-line selector-max-id
   top: 84px;  // default, changed in backtotop.js.
   z-index: 1;
 }

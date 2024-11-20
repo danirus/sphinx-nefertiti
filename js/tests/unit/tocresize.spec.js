@@ -56,7 +56,7 @@ describe('resize', () => {
   });
 
   it('checks resizeAsides when nftt_content higher than body', () => {
-    fixtureEl.innerHTML = nftt_template.join('');
+    fixtureEl.innerHTML = html_template_1.join('') + nftt_template.join('');
     const body = document.querySelector("body");
     const nftt_content = document.querySelector(".nftt-content");
 
@@ -71,14 +71,16 @@ describe('resize', () => {
     );
 
     const result = resizeAsides();
-    expect(result).toEqual("height: calc(100vh - 7rem)");
+    expect(result).toEqual("height: calc(100vh - 104px); top: 104px;");
   });
 
   it('checks resizeAsides when nftt_content shorter than body', () => {
-    fixtureEl.innerHTML = nftt_template.join('');
+    fixtureEl.innerHTML = html_template_1.join('') + nftt_template.join('');
     const body = document.querySelector("body");
     const nftt_content = document.querySelector(".nftt-content");
-    const expected_height = `height: ${nftt_content.clientHeight}px`;
+    const expected_height = (
+      `height: ${nftt_content.clientHeight}px; top: 104px;`
+    );
 
     // Make body height greater than the body's.
     body.setAttribute("style", `height: ${nftt_content.clientHeight + 10}px`);

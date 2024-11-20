@@ -1,14 +1,12 @@
 {%- block footer -%}
 <div class="py-5 px-4 px-md-3">
   <div class="container">
-    {% if theme_footer_links %}
+    {% if footer_links %}
     <div class="row">
-      <ul class="list-unstyled list-separator col-lg-12 pb-2 text-center">
-        {% for link in theme_footer_links.split(',') %}
-          {% set link_text=link.split("|")[0] %}
-          {% set link_url=link.split("|")[1] %}
+      <ul id="nftt-footer-links" class="list-unstyled list-separator col-lg-12 pb-2 text-center">
+        {% for item in footer_links %}
           <li class="d-inline">
-            <a href="{{ link_url }}" class="list-item">{{ link_text }}</a>
+            <a href="{{ item.link }}" class="list-item">{{ item.text }}</a>
           </li>
         {% endfor %}
       </ul>

@@ -47,3 +47,15 @@ dd {
 .task-list-item-checkbox {
   @extend .form-check-input;
 }
+
+.border-radius-1 {
+  border-radius: 4px;
+}
+
+.border-radius-2 {
+  border-radius: 8px;
+}
+
+.border-radius-3 {
+  border-radius: 12px;
+}

@@ -1,4 +1,4 @@
-/* stylelint-disable selector-max-id, selector-max-type, selector-max-compound-selectors, selector-no-qualifying-type */
+/* stylelint-disable selector-max-id, selector-max-compound-selectors, selector-no-qualifying-type */
 .toc {
   a {
     display: inline-block;
@@ -20,6 +20,8 @@
 
   li {
     margin: ($font-size-base * .25) 0;
+    scroll-snap-align: end;
+    scroll-margin-bottom: 24px;
 
     &[class^="toctree-"] {
       // Ensure the toctree-expand button can be positioned.
@@ -280,5 +282,5 @@
 }
 
 li > p {
-  margin-bottom: .5rem;
+  margin-bottom: 0;
 }

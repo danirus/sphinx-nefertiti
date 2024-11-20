@@ -1,8 +1,8 @@
 import { BackToTop } from "./backtotop.js";
 import { fixFigureStyle } from "./figures.js";
-import { LuzHandler } from "./lightdark.js";
+import { CSchemeHandler } from "./cschemes.js";
 import { MenuHandler } from "./menu.js";
-import { changeNavbarItemsOrder } from "./navbar.js";
+import { selectActiveHeaderLink } from "./navbar.js";
 import { updateRepoMetrics } from "./repometrics.js";
 import { TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
@@ -44,36 +44,25 @@ window.addEventListener('DOMContentLoaded', (_) => {
   // On every page load, adjust height of nftt-sidebar
   // and nftt-toc, based on height of nftt-content.
   //
-  changeNavbarItemsOrder();
   updateScrollPaddingTop();
   resizeAsides(); // Resize just after DOM content is loaded.
 
   // And register the function for every height change of the body.
   const body_observer = new ResizeObserver(entries => {
-    // Use the ResizeObserver to modify the order of the elements
-    // in the element "header navbar". If the element wraps, then
-    // the links in the ".nftt-header-links-large" have to be placed
-    // last inside the "header navbar" element.
-    changeNavbarItemsOrder();
-
-    // Find out header's height.
     const header_h = document.querySelector("header")?.offsetHeight;
     document.body.style.paddingTop = `${header_h + 4}px`;
-    console.log("height of navbar:", header_h);
 
     updateScrollPaddingTop();
     resizeAsides();
   });
   body_observer.observe(document.body);
-  window.addEventListener("resize", [
-    changeNavbarItemsOrder, updateScrollPaddingTop, resizeAsides,
-  ]);
+  window.addEventListener("resize", [updateScrollPaddingTop, resizeAsides,]);
 
-  // The LuzHandler controls the selection of the 3 possible
+  // The CSchemeHandler controls the selection of the 3 possible
   // options (light, dark, default) and the switching between
   // them.
-  const luz_handler = new LuzHandler();
-  luz_handler.registerClickEvents();
+  const cscheme_handler = new CSchemeHandler();
+  cscheme_handler.registerClickEvents();
 
   // Feed the versions dropdown element.
   feedVersionsMenu();
@@ -121,7 +110,6 @@ window.addEventListener('DOMContentLoaded', (_) => {
   // with class 'task-list-item-checkbox'.
   const task_list_elems_qs = "input.task-list-item-checkbox";
   const task_list_elems = document.querySelectorAll(task_list_elems_qs);
-  console.log(`Found ${task_list_elems.length} elements to update!`);
   for (const element of task_list_elems) {
     // Add a title to each input element.
     element.setAttribute('title', `Is task done? ${element.checked}`);
@@ -166,4 +154,17 @@ window.addEventListener('DOMContentLoaded', (_) => {
 
   const back_to_top = new BackToTop();
   back_to_top.init();
+
+  // In case there were Header Links (.snftt-hl) add the class
+  // 'active' to the one corresponding to the current URL.
+  selectActiveHeaderLink();
+
+  // Scroll the item from the left sidebar into view:
+  const sidebar_elem = document.querySelector(".nftt-sidebar a.current");
+  if (sidebar_elem) {
+    const parent = sidebar_elem.closest(".toc li");
+    if (parent) {
+      parent.scrollIntoView({behavior: "smooth", block: "end"});
+    }
+  }
 });

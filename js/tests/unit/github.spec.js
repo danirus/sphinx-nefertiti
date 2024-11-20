@@ -36,17 +36,17 @@ describe('github', () => {
       error_msg = error.message;
     }
     expect(error_msg).toBe('Rate limit reached.');
-    expect(localStorage.getItem('user:repo:stars')).toBe('24');
-    expect(localStorage.getItem('user:repo:forks')).toBe('12');
+    expect(localStorage.getItem('user:repo:stars')).toBe('65.54K');
+    expect(localStorage.getItem('user:repo:forks')).toBe('1.43K');
   });
 
   it('works and returns {tag, stars, forks} object', async () => {
     spyOn(window, 'fetch').and.callFake(mock_v2_fetch_github);
 
     const result = await readFromGitHub("user", "repo");
-    expect(result).toEqual({tag: '1.0', stars: 24, forks: 12});
-    expect(localStorage.getItem('user:repo:stars')).toBe('24');
-    expect(localStorage.getItem('user:repo:forks')).toBe('12');
+    expect(result).toEqual({tag: '1.0', stars: '65.54K', forks: '1.43K'});
+    expect(localStorage.getItem('user:repo:stars')).toBe('65.54K');
+    expect(localStorage.getItem('user:repo:forks')).toBe('1.43K');
     expect(localStorage.getItem('user:repo:tag')).toBe('1.0');
   });
 });

@@ -98,10 +98,7 @@ table.docutils {
 
 // Separate headings excluding the first.
 .nftt-content {
-  h1 {
-    margin-bottom: $headings-margin-bottom * 4;
-  }
-
+  h1,
   h2,
   h3,
   h4,

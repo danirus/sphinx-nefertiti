@@ -23,7 +23,6 @@
     {{ js_tag(js) }}
     {%- endfor %}
 {%- endmacro %}
-
 <!DOCTYPE html>
 <html class="no-js" {% if language is not none %}lang="{{ language }}"{% endif %}>
   <head>
@@ -32,6 +31,7 @@
       {{ metatags }}
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="docsearch:name" content="{{ project|striptags|e }}" />
     <meta name="docsearch:package_type" content="{{ package_type|striptags|e }}" />
     <meta name="docsearch:release" content="{{ release|striptags|e }}" />
@@ -39,9 +39,7 @@
     {% block htmltitle %}
       <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% endblock %}
-    {%- if pageurl %}
-    <link rel="canonical" href="{{ pageurl|e }}" />
-    {%- endif %}
+    <link rel="canonical" href="{{ pagename }}" />
     {%- if favicon_url %}
       <link rel="icon" href="{{ favicon_url|e }}" />
     {%- endif %}
@@ -52,13 +50,11 @@
     {%- endif %}
     <link rel="stylesheet" href="{{ pathto('_static/bootstrap-icons.css', 1)|e }}" type="text/css" />
     {%- for css in css_files %}
-      {%- if css not in ["_static/basic.css",] %}
-        {%- if css|attr("filename") %}
-          <!-- add (1) pathto "{{ css }}" -->
-          {{ css_tag(css) }}
+      {%- if css.filename not in ["_static/basic.css",] %}
+        {%- if css.filename is not none %}
+          {{ css_tag(css) }}<!-- add (1) -->
         {%- else %}
-          <!-- add (2) pathto "{{ css }}" -->
-          <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+          <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" /><!-- add (2) -->
         {%- endif %}
       {%- endif %}
     {%- endfor %}
@@ -111,7 +107,7 @@
           <a class="d-inline-flex p-2 m-1" href="#content">{{ _('Skip to main content') }}</a>
         </div>
       </div>
-      <nav class="container-xxl nftt-gutter flex-wrap" aria-label="Main navigation">
+      <nav class="container-xxl nftt-gutter flex-wrap flex-xl-nowrap" aria-label="Main navigation">
         <div class="nftt-navbar-toggler">
           <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle documentation navigation">
             <i class="bi bi-list"></i>
@@ -135,13 +131,13 @@
         {% else %}
           <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
               {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-              class="navbar-brand p-0 me-0 md-lg-2"
+              class="navbar-brand p-0 me-0 md-lg-2 pe-lg-4"
           ><span class="brand-text">{{ project }}</span></a>
         {% endif %}
-        {% if theme_header_links %}
+        {% if header_links and theme_header_links_in_2nd_row != true %}
           <ul class="nftt-header-links-large navbar-nav">
           {% with %}
-            {% set link_list=theme_header_links %}
+            {% set link_list=header_links %}
             {% set li_class="nav-item" %}
             {% set a_class="nav-link" %}
             {% include "header-links.html" %}
@@ -165,10 +161,10 @@
           <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
             <hr class="d-xl-none text-white-50">
             <ul class="navbar-nav flex-row align-items-center flex-wrap ms-lg-auto">
-              {% if theme_header_links %}
+              {% if header_links %}
                 <div class="nftt-header-links-small">
                   {% with %}
-                    {% set link_list=theme_header_links %}
+                    {% set link_list=header_links %}
                     {% set li_class="nav-item" %}
                     {% set a_class="nav-link" %}
                     <div class="d-inline-block">
@@ -222,6 +218,18 @@
           </div>
         </div>
       </nav>
+      {% if header_links and theme_header_links_in_2nd_row == true %}
+        <nav class="container-xxl nftt-gutter flex-no-wrap">
+          <ul class="nftt-header-links-large navbar-nav">
+          {% with %}
+            {% set link_list=header_links %}
+            {% set li_class="nav-item" %}
+            {% set a_class="nav-link" %}
+            {% include "header-links.html" %}
+          {% endwith %}
+          </ul>
+        </nav>
+      {% endif %}
     </header>
 
     <div class="container-fluid flex-grow-1">
@@ -234,7 +242,7 @@
             </div>
             <div id="sidebar" tabindex="-1" class="offcanvas-xl offcanvas-start" aria-labelledby="nfttSidebarOffcanvasLabel">
               {%- for sidebartemplate in sidebars %}
-                <!-- danirus sidebartemplate: "{{ sidebartemplate }}" -->
+                <!-- sidebartemplate: "{{ sidebartemplate }}" -->
                 {%- include sidebartemplate %}
               {%- endfor %}
             </div>
@@ -275,10 +283,5 @@
     {{- script() }}
     {%- endblock %}
     {%- endif %}
-
-    <script type="text/javascript" src="{{ pathto(nefertiti_bundle, 1) }}"></script>
-    <script type="text/javascript" src="{{ pathto(bootstrap_bundle, 1) }}"></script>
-    {% if show_colorset_choices %}<script type="module" src="{{ pathto('_static/colorsets.js', 1) }}"></script>{% endif %}
-    <script type="text/javascript" src="{{ pathto('_static/doc_versions.js', 1) }}"></script>
   </body>
 </html>

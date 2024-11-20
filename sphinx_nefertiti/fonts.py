@@ -1,14 +1,13 @@
-from pathlib import Path
 import shutil
+from pathlib import Path
 
+from sphinx_nefertiti.exceptions import SphinxNefertitiError
 
 default_text_font = "Verdana"
 default_monospace_font = "Monaco"
 
 
-fonts_rel_path = Path("fonts")
-fonts_abs_path = Path(__file__).parent / "fonts"
-static_abs_path = Path(__file__).parent / "static"
+fonts_path = Path(__file__).parent / "fonts"
 
 
 font_options = [
@@ -69,57 +68,51 @@ extra_fonts = [
 ]
 
 
-class FontNotSupportedException(Exception):
-    pass
-
-
 class Font:
-    def __init__(self, name):
+    def __init__(self, name, app):
+        self.app = app
         _name = name.lower()
         self._name = _name
         self._slug = self._name.replace(" ", "-")
+        self.src_font_path = self.get_source_font_path()
 
         if (
             _name not in web_safe_fonts
             and _name not in extra_fonts
-            and not self.is_local_font
+            and not self.src_font_path
         ):
-            raise FontNotSupportedException(
-                f"Font '{name}' is either not known as a web safe font, or "
-                f"sphinx-nefertiti does not have the corresponding "
-                f"font-face resources."
+            raise SphinxNefertitiError(
+                f"Font '{_name}' could not be found."
                 f"\n Available fonts: {', '.join(extra_fonts)}. "
                 f"\n Web safe fonts: {', '.join(web_safe_fonts)}."
             )
 
-    @property
-    def name(self):
-        return self._name
-
-    @property
-    def is_local_font(self):
-        if not fonts_rel_path.exists():
-            return False
-        for path in fonts_rel_path.iterdir():
+    def get_source_font_path(self):
+        # Check in Nefertiti's own fonts directory.
+        for path in fonts_path.iterdir():
             if path.is_dir() and path.parts[-1] == self._slug:
                 stylesheet_css = path / "stylesheet.css"
-                return stylesheet_css.exists()
-        return False
+                if stylesheet_css.exists():
+                    return fonts_path / path
+
+        # Check in static project's directory (listed in 'html_static_path').
+        for dir in self.app.config.html_static_path:
+            src_font_path = Path(self.app.srcdir) / dir / "fonts" / self._slug
+            if (src_font_path / "stylesheet.css").exists():
+                return src_font_path
+
+        return None
 
     @property
     def link_stylesheet(self):
         if self._name in web_safe_fonts:
             return None
-        return str(fonts_rel_path / self._slug / "stylesheet.css")
+        return str(Path("fonts") / self._slug / "stylesheet.css")
 
-    def copy_to_static(self, outdir: str):
-        if self.is_local_font:
-            font_dir = fonts_rel_path / self._slug
-        else:
-            font_dir = fonts_abs_path / self._slug
-        dest_dir = Path(outdir) / "_static" / fonts_rel_path / self._slug
-        if not dest_dir.exists():
-            shutil.copytree(font_dir, dest_dir)
+    def copy_to_static(self):
+        dest_font_path = self.app.outdir / "_static" / "fonts" / self._slug
+        if not dest_font_path.exists():
+            shutil.copytree(self.src_font_path, dest_font_path)
 
 
 class FontProvider:
@@ -133,11 +126,11 @@ class FontProvider:
 
         for option in font_options:
             if len(self.theme_customized.get(option, "")) > 0:
-                font = Font(self.theme_customized[option])
+                font = Font(self.theme_customized[option], app)
                 if font.link_stylesheet:
                     self._fonts.append(font)
             elif len(self.theme_defaults.get(option, "")):
-                font = Font(self.theme_defaults[option])
+                font = Font(self.theme_defaults[option], app)
                 if font.link_stylesheet:
                     self._fonts.append(font)
 

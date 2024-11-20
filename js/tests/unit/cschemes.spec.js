@@ -1,4 +1,4 @@
-import { LuzHandler } from "../../src/lightdark.js";
+import { CSchemeHandler } from "../../src/cschemes.js";
 import { getFixture, clearFixture } from '../helpers/fixture.js';
 
 const dropdown = [
@@ -55,54 +55,60 @@ describe('lightdark', () => {
     clearFixture();
   });
 
-  it('checks preferredLuz to be default', () => {
-    const color_scheme_handler = new LuzHandler();
+  it('checks stored (getter) to be default', () => {
+    const color_scheme_handler = new CSchemeHandler({auto: false});
 
-    // Checks that 'getter' preferredLuz method returns
+    // Checks that 'getter' preferred method returns
     // either 'light' or 'dark' (ultimately depends on OS prefs).
-    const preferred = color_scheme_handler.preferredLuz;
-    expect(preferred).toBeDefined;
-    expect(preferred).toEqual('default');
+    const stored = color_scheme_handler.stored;
+    expect(stored).toBeDefined;
+    expect(stored).toEqual('default');
 
     // Checks that applyScheme does work.
-    expect(document.documentElement.classList.contains(preferred));
+    expect(document.documentElement.classList.contains(stored));
   });
 
-  it('checks preferredLuz loads default and applies light', () => {
+  it('checks stored (getter) loads "default" and applies "light"', () => {
     // Force 'default' scheme.
-    localStorage.setItem('snftt-luz', 'default');
+    localStorage.setItem('snftt-color-scheme', 'default');
     spyOn(window, 'matchMedia').and.callFake(
       (_) => {
-        return { matches: false };  // prefers-color-scheme: light
+        return {
+          matches: false,    // prefers-color-scheme: light
+          addEventListener: (evt_name, evt_obj) => {},
+        };
       }
     );
 
-    const color_scheme_handler = new LuzHandler();
+    const color_scheme_handler = new CSchemeHandler({auto: false});
 
-    // And so, preferredLuz should return 'default'.
-    const preferred = color_scheme_handler.preferredLuz;
-    expect(preferred).toBeDefined;
-    expect(preferred).toBe('default');
+    // And so, 'stored' (getter) should return 'default'.
+    const stored = color_scheme_handler.stored;
+    expect(stored).toBeDefined;
+    expect(stored).toBe('default');
 
     // Check that applyScheme applied 'light'.
     expect(document.documentElement.classList.contains('light'));
   });
 
-  it('checks preferredLuz loads default and applies dark', () => {
+  it('checks stored (getter) loads default and applies dark', () => {
     // Force 'default' scheme.
-    localStorage.setItem('snftt-luz', 'default');
+    localStorage.setItem('snftt-color-scheme', 'default');
     spyOn(window, 'matchMedia').and.callFake(
       (_) => {
-        return { matches: true };  // prefers-color-scheme: dark
+        return {
+          matches: true,  // prefers-color-scheme: dark
+          addEventListener: (evt_name, evt_obj) => {},
+        };
       }
     );
 
-    const color_scheme_handler = new LuzHandler();
+    const color_scheme_handler = new CSchemeHandler({auto: false});
 
-    // And so, preferredLuz should return 'default'.
-    const preferred = color_scheme_handler.preferredLuz;
-    expect(preferred).toBeDefined;
-    expect(preferred).toBe('default');
+    // And so, stored should return 'default'.
+    const stored = color_scheme_handler.stored;
+    expect(stored).toBeDefined;
+    expect(stored).toBe('default');
 
     // Check that applyScheme applied 'dark'.
     expect(document.documentElement.classList.contains('dark'));
@@ -111,9 +117,9 @@ describe('lightdark', () => {
   it('checks that updateDropdown does update elements', () => {
     const scheme = "dark";
     fixtureEl.innerHTML = dropdown.join('');
-    localStorage.setItem('snftt-luz', scheme);
+    localStorage.setItem('snftt-color-scheme', scheme);
 
-    const color_scheme_handler = new LuzHandler();
+    const color_scheme_handler = new CSchemeHandler({auto: false});
     color_scheme_handler.updateDropdown(scheme, focus=true);
 
     const prefix = "data-snftt-luz";
@@ -130,9 +136,17 @@ describe('lightdark', () => {
     // localStorage as the preferred color-scheme.
     const scheme = "light";
     fixtureEl.innerHTML = dropdown.join('');
-    localStorage.setItem('snftt-luz', scheme);
+    localStorage.setItem('snftt-color-scheme', scheme);
+    spyOn(window, 'matchMedia').and.callFake(
+      (_) => {
+        return {
+          matches: true,
+          addEventListener: (evt_name, evt_obj) => {},
+        };
+      }
+    );
 
-    const color_scheme_handler = new LuzHandler();
+    const color_scheme_handler = new CSchemeHandler({auto: false});
     color_scheme_handler.registerClickEvents();
 
     const prefix = "data-snftt-luz";

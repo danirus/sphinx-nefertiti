@@ -64,12 +64,12 @@
   --#{$prefix}btn-neutral-border-color: #fff;
   --#{$prefix}btn-neutral-hover-color: #000;
   --#{$prefix}btn-neutral-hover-bg: #d9d9d9;
-  --#{$prefix}btn-neutral-hover-border-color: #cccccc;
+  --#{$prefix}btn-neutral-hover-border-color: #ccc;
   --#{$prefix}btn-neutral-focus-shadow-rgb: 217, 217, 217;
   --#{$prefix}btn-neutral-active-color: #000;
-  --#{$prefix}btn-neutral-active-bg: #cccccc;
+  --#{$prefix}btn-neutral-active-bg: #ccc;
   --#{$prefix}btn-neutral-active-border-color: #bfbfbf;
-  --#{$prefix}btn-neutral-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --#{$prefix}btn-neutral-active-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
   --#{$prefix}btn-neutral-disable-color: #000;
   --#{$prefix}btn-neutral-disable-bg: #fff;
   --#{$prefix}btn-neutral-disable-border-color: #fff;
@@ -140,7 +140,7 @@
   --#{$prefix}btn-neutral-active-color: #fff;
   --#{$prefix}btn-neutral-active-bg: #5d6166;
   --#{$prefix}btn-neutral-active-border-color: #484e53;
-  --#{$prefix}btn-neutral-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --#{$prefix}btn-neutral-active-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
   --#{$prefix}btn-neutral-disable-color: #fff;
   --#{$prefix}btn-neutral-disable-bg: #343a40;
   --#{$prefix}btn-neutral-disable-border-color: #343a40;

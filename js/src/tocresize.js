@@ -9,7 +9,7 @@ export function resizeAsides() {
   const nftt_toc = document.querySelector(".nftt-toc");
   const header_h = document.querySelector("header")?.offsetHeight;
 
-  // If min-width is not >= 992px, don't do anything.
+  // If min-width is not >= 1200px, don't do anything.
   if (window.matchMedia('(min-width: 1200px)').matches == false) {
     nftt_sidebar?.setAttribute("style", "");
     nftt_toc?.setAttribute("style", "");
@@ -18,8 +18,8 @@ export function resizeAsides() {
 
   if (nftt_content != undefined) {
     height = nftt_content.clientHeight > document.body.clientHeight
-      ? `height: calc(100vh - ${header_h + 40}px);`
-      : `height: ${nftt_content.clientHeight}px;`;
+      ? `height: calc(100vh - ${header_h + 40}px)`
+      : `height: ${nftt_content.clientHeight}px`;
     top = `top: ${header_h + 40}px`;
 
     style = `${height}; ${top};`

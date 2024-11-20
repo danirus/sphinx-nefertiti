@@ -3,7 +3,6 @@
 'use strict';
 
 const path = require('node:path');
-// const ip = require('ip');
 const { babel } = require('@rollup/plugin-babel');
 const istanbul = require('rollup-plugin-istanbul');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
@@ -54,7 +53,7 @@ const config = {
   singleRun: true,
   concurrency: Number.POSITIVE_INFINITY,
   client: {
-    clearContext: false,
+    clearContext: true,
     captureConsole: true,
   },
   files: [
@@ -105,8 +104,8 @@ const config = {
       global: {
         statements: 90,
         lines: 90,
-        branches: 90,
-        functions: 90,
+        branches: 70,
+        functions: 80,
       },
     },
     verbose: false

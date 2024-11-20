@@ -12,8 +12,22 @@ clean:  ## Clean up built files.
 	rm -f sphinx_nefertiti/static/snftt-*.*
 	make -C docs clean
 
+lint:  ## Run pre-commit hook checks.
+	npm run css-lint-vars
+	pre-commit run --all-files --show-diff-on-failure
+
+py-tests:  ## Run Python tests with coverage.
+	coverage erase
+	coverage run --source=sphinx_nefertiti -m pytest -ra
+	coverage report -m
+	@sh ./ccsvg.sh ||:
+
+js-tests:  ## Run JavaScript tests.
+	npm run test
+
 build-ext:  ## Build Sphinx extension.
 	npm run build
+	mkdir -p sphinx_nefertiti/static/
 	mkdir -p sphinx_nefertiti/colorsets/
 	cp site/css/bootstrap-icons.css   			sphinx_nefertiti/static/
 	cp site/css/bootstrap-icons.woff2 			sphinx_nefertiti/static/

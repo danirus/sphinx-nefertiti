@@ -26,16 +26,16 @@ function _updateFactsComponent(metrics) {
     tag_element.parentElement.classList.add("d-none");
   }
 
-  if (metrics.stars > -1) {
-    stars_element.textContent = `${metrics.stars}`;
+  if (metrics.stars != undefined && metrics.stars.length > 0) {
+    stars_element.textContent = metrics.stars;
     num_updated_facts++;
   } else {
     stars_element.parentElement.classList.remove("d-flex");
     stars_element.parentElement.classList.add("d-none");
   }
 
-  if (metrics.forks > -1) {
-    forks_element.textContent = `${metrics.forks}`;
+  if (metrics.forks != undefined && metrics.forks.length > 0) {
+    forks_element.textContent = metrics.forks;
     num_updated_facts++;
   } else {
     forks_element.parentElement.classList.remove("d-flex");
@@ -49,10 +49,10 @@ function _updateFactsComponent(metrics) {
 
 function _readFromLocalStorage(p1, p2) {
   const tag = ls.getItem(`${p1}:${p2}:tag`);
-  const stars = Number.parseInt(ls.getItem(`${p1}:${p2}:stars`));
-  const forks = Number.parseInt(ls.getItem(`${p1}:${p2}:forks`));
+  const stars = ls.getItem(`${p1}:${p2}:stars`);
+  const forks = ls.getItem(`${p1}:${p2}:forks`);
   if (!stars || !forks) {
-    return {tag: "", stars: -1, forks: -1};
+    return {tag: "", stars: "", forks: ""};
   }
   return {tag, stars, forks};
 }

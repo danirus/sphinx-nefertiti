@@ -30,9 +30,14 @@ figure {
   }
 
   figcaption {
-    margin: 1rem .35rem .5rem;
+    padding: 0 .35rem;
+    margin: 1rem 0 .5rem;
     font-size: .85rem;
     text-align: center;
+
+    code * {
+      font-size: .85rem;
+    }
   }
 
   &.align-center {
@@ -55,9 +60,5 @@ figure {
   &.align-right {
     float: right;
     margin: .4rem 0 .4rem 1.8rem;
-
-    p {
-      text-align: right;
-    }
   }
 }

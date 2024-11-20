@@ -37,7 +37,7 @@ export function feedVersionsMenu() {
   const vermenu = document.getElementById("versions-dropdown-menu");
   if (!vermenu) {
     console.log("Did not find the versions dropdown menu.");
-    return;
+    return false;
   }
   // Use the variable 'doc_versions', loaded as a script in layout.html.
   // The file doc_versions.js is produced by versions.py when building
@@ -63,4 +63,6 @@ export function feedVersionsMenu() {
     li.append(anchor);
     vermenu.append(li);
   }
+
+  return true;
 }
