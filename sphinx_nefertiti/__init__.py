@@ -26,51 +26,47 @@ def initialize_theme(app):
     dest_dir = Path(app.builder.outdir) / "_static"
     dest_dir.mkdir(exist_ok=True)
 
-    try:
-        colorset_provider = colorsets.ColorsetProvider(app)
-        app.show_colorset_choices = colorset_provider.multiple
-        app.active_colorset = colorset_provider.colorset
-        if app.show_colorset_choices:
-            shutil.copyfile(
-                colorsets_path / "colorsets.js",
-                Path(app.builder.outdir) / "_static" / "colorsets.js",
-            )
-            app.add_js_file("colorsets.js")
-            for colorset in colorset_provider:
-                colorset.copy_to_static()
-        else:
-            app.active_colorset.copy_to_static()
-        app.add_css_file(app.active_colorset.link_stylesheet)
+    colorset_provider = colorsets.ColorsetProvider(app)
+    app.show_colorset_choices = colorset_provider.multiple
+    app.active_colorset = colorset_provider.colorset
+    if app.show_colorset_choices:
+        shutil.copyfile(
+            colorsets_path / "colorsets.js",
+            Path(app.builder.outdir) / "_static" / "colorsets.js",
+        )
+        app.add_js_file("colorsets.js")
+        for colorset in colorset_provider:
+            colorset.copy_to_static()
+    else:
+        app.active_colorset.copy_to_static()
+    app.add_css_file(app.active_colorset.link_stylesheet)
 
-        font_provider = fonts.FontProvider(app)
-        for font in font_provider:
-            font.copy_to_static()
-            app.add_css_file(font.link_stylesheet)
+    font_provider = fonts.FontProvider(app)
+    for font in font_provider:
+        font.copy_to_static()
+        app.add_css_file(font.link_stylesheet)
 
-        pygments_provider = pygments.PygmentsProvider(app)
-        for asset in pygments_provider:
-            dest_file = asset.create_pygments_style_file(app.builder.srcdir)
-            app.add_css_file(dest_file.name)
+    pygments_provider = pygments.PygmentsProvider(app)
+    for asset in pygments_provider:
+        dest_file = asset.create_pygments_style_file(app.builder.srcdir)
+        app.add_css_file(dest_file.name)
 
-        docsver_provider = docsver.DocsVersionProvider(app)
-        app.all_docs_versions = list(docsver_provider)
+    docsver_provider = docsver.DocsVersionProvider(app)
+    app.all_docs_versions = list(docsver_provider)
 
-        header_links_provider = links.HeaderLinksProvider(app)
-        app.header_links = list(header_links_provider)
+    header_links_provider = links.HeaderLinksProvider(app)
+    app.header_links = list(header_links_provider)
 
-        footer_links_provider = links.FooterLinksProvider(app)
-        app.footer_links = list(footer_links_provider)
+    footer_links_provider = links.FooterLinksProvider(app)
+    app.footer_links = list(footer_links_provider)
 
-        doc_versions_script = "doc_versions.js"
-        doc_versions_path = dest_dir / doc_versions_script
-        with doc_versions_path.open("w") as f:
-            f.write("const doc_versions = " + json.dumps(app.all_docs_versions))
-        app.add_js_file(doc_versions_script)
-        app.add_js_file("sphinx-nefertiti.min.js")
-        app.add_js_file("bootstrap.bundle.min.js")
-
-    except (fonts.FontNotSupportedException, Exception):
-        raise
+    doc_versions_script = "doc_versions.js"
+    doc_versions_path = dest_dir / doc_versions_script
+    with doc_versions_path.open("w") as f:
+        f.write("const doc_versions = " + json.dumps(app.all_docs_versions))
+    app.add_js_file(doc_versions_script)
+    app.add_js_file("sphinx-nefertiti.min.js")
+    app.add_js_file("bootstrap.bundle.min.js")
 
 
 def update_context(app, pagename, templatename, context, doctree):
