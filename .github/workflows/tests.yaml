@@ -49,7 +49,7 @@ jobs:
       - name: Run unit tests
         run: tox -e py3.13-sphinx${{ matrix.sphinx }}
 
-  javascript:
+  javascript-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
