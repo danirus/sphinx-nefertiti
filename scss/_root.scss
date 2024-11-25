@@ -49,12 +49,6 @@
   --#{$prefix}admon-note-color-bg: #{$scheme-light-admon-note-color-bg};
   --#{$prefix}admon-tip-color-bg: #{$scheme-light-admon-tip-color-bg};
 
-  .docutils {
-    &:not(.field-list) {
-      --#{$prefix}table-bg: #{$scheme-light-table-bg};
-      --#{$prefix}table-striped-bg: #{$scheme-light-table-striped-bg};
-    }
-  }
 
   --#{$prefix}docapi-kw-color: #{$docapi-light-kw-color};
 
@@ -74,8 +68,16 @@
   --#{$prefix}btn-neutral-disable-bg: #fff;
   --#{$prefix}btn-neutral-disable-border-color: #fff;
 
-  @include color-scheme(light);
   color-scheme: light;
+
+  .docutils {
+    &:not(.field-list) {
+      --#{$prefix}table-bg: #{$scheme-light-table-bg};
+      --#{$prefix}table-striped-bg: #{$scheme-light-table-striped-bg};
+    }
+  }
+
+  @include color-scheme(light);
 }
 
 @mixin dark-theme {
@@ -145,6 +147,8 @@
   --#{$prefix}btn-neutral-disable-bg: #343a40;
   --#{$prefix}btn-neutral-disable-border-color: #343a40;
 
+  color-scheme: dark;
+
   .docutils {
     &:not(.field-list) {
       --#{$prefix}table-bg: #{$scheme-dark-table-bg};
@@ -153,7 +157,6 @@
   }
 
   @include color-scheme(dark);
-  color-scheme: dark;
 }
 
 :root:not(.light):not(.dark) {
