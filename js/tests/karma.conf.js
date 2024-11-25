@@ -117,7 +117,9 @@ config.frameworks = frameworks;
 config.plugins = plugins;
 config.reporters = reporters;
 
-module.exports = (karmaConfig) => {
+const getKarmaConfig = (karmaConfig) => {
   config.logLevel = karmaConfig.LOG_ERROR;
   karmaConfig.set(config);
 };
+
+module.exports = getKarmaConfig;

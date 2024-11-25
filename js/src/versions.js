@@ -4,7 +4,7 @@ function _getCurrentVersion() {
   const all_version_elems = document.querySelectorAll(qs_version_url);
   for (const version_elem of all_version_elems) {
     let version_url = version_elem.dataset?.snfttVersionUrl;
-    version_url = version_url.replace("?", "\\?");
+    version_url = version_url.replace("?", String.raw`\?`);
     if (new RegExp(version_url).test(window.location.href)) {
       return version_elem.dataset?.snfttVersion;
     };
