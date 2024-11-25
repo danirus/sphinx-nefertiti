@@ -1,21 +1,14 @@
 /* stylelint-disable selector-no-qualifying-type */
 @use "sass:color";
 
-
-@mixin btn-shadow($color) {
-  @include gradient-y-three-colors(tint-color($color, 6%), $color, 6%, shade-color($color, 6%));
-  filter: none;
-  border: 1px solid shade-color($color, 13%);
-}
-
 .btn-primary,
 .btn-primary:hover {
-  @include btn-shadow($primary);
+  @include box-shadow($primary);
 }
 
 .btn-secondary,
 .btn-secondary:hover {
-  @include btn-shadow($secondary);
+  @include box-shadow($secondary);
 }
 
 .btn-secondary:focus,
@@ -26,32 +19,32 @@
 
 .btn-success,
 .btn-success:hover {
-  @include btn-shadow($success);
+  @include box-shadow($success);
 }
 
 .btn-info,
 .btn-info:hover {
-  @include btn-shadow($info);
+  @include box-shadow($info);
 }
 
 .btn-warning,
 .btn-warning:hover {
-  @include btn-shadow($warning);
+  @include box-shadow($warning);
 }
 
 .btn-danger,
 .btn-danger:hover {
-  @include btn-shadow($danger);
+  @include box-shadow($danger);
 }
 
 .btn-dark,
 .btn-dark:hover {
-  @include btn-shadow($dark);
+  @include box-shadow($dark);
 }
 
 .btn-light,
 .btn-light:hover {
-  @include btn-shadow($light);
+  @include box-shadow($light);
 }
 
 .btn-outline-secondary {
@@ -64,6 +57,22 @@
   }
 }
 
+.btn-neutral {
+  --#{$prefix}btn-color: var(--#{$prefix}btn-neutral-color);
+  --#{$prefix}btn-bg: var(--#{$prefix}btn-neutral-bg);
+  --#{$prefix}btn-border-color: var(--#{$prefix}btn-neutral-border-color);
+  --#{$prefix}btn-hover-color: var(--#{$prefix}btn-neutral-hover-color);
+  --#{$prefix}btn-hover-bg: var(--#{$prefix}btn-neutral-hover-bg);
+  --#{$prefix}btn-hover-border-color: var(--#{$prefix}btn-neutral-hover-border-color);
+  --#{$prefix}btn-focus-shadow-rgb: var(--#{$prefix}btn-neutral-focus-shadow-rgb);
+  --#{$prefix}btn-active-color: var(--#{$prefix}btn-neutral-active-color);
+  --#{$prefix}btn-active-bg: var(--#{$prefix}btn-neutral-active-bg);
+  --#{$prefix}btn-active-border-color: var(--#{$prefix}btn-neutral-active-border-color);
+  --#{$prefix}btn-active-shadow: var(--#{$prefix}btn-neutral-active-shadow);
+  --#{$prefix}btn-disable-color: var(--#{$prefix}btn-neutral-disable-color);
+  --#{$prefix}btn-disable-bg: var(--#{$prefix}btn-neutral-disable-bg);
+  --#{$prefix}btn-disable-border-color: var(--#{$prefix}btn-neutral-disable-border-color);
+}
 
 h1,
 h2,
@@ -89,8 +98,32 @@ label {
 }
 
 
-.breadcrumb {
-  border: 1px solid shade-color($white, 13%);
+// -------------------------
+// breadcrumb dividers for light and dark color schemes.
+// Given that the need to be preprocess in sass with escave-svg,
+// css variables can't be used.
+
+$scheme-light-breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8'><path d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='#{$scheme-light-body-color}'/></svg>");
+$scheme-dark-breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8'><path d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='#{$scheme-dark-body-color}'/></svg>");
+
+.breadcrumb-item {
+  + .breadcrumb-item {
+    padding-left: var(--#{$prefix}breadcrumb-item-padding-x);
+
+    .light &::before {
+      float: left; // Suppress inline spacings and underlining of the separator
+      padding-right: var(--#{$prefix}breadcrumb-item-padding-x);
+      color: var(--#{$prefix}body-color);
+      content: var(--#{$prefix}breadcrumb-divider, escape-svg($scheme-light-breadcrumb-divider));
+    }
+
+    .dark &::before {
+      float: left; // Suppress inline spacings and underlining of the separator
+      padding-right: var(--#{$prefix}breadcrumb-item-padding-x);
+      color: var(--#{$prefix}body-color);
+      content: var(--#{$prefix}breadcrumb-divider, escape-svg($scheme-dark-breadcrumb-divider));
+    }
+  }
 }
 
 .pagination {
@@ -304,4 +337,8 @@ aside.sidebar {
   p:last-child {
     margin-bottom: .5rem;
   }
+}
+
+.search-input {
+  max-width: 10rem;
 }

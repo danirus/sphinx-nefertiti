@@ -35,15 +35,15 @@ describe('gitlab', () => {
       status: 200,
       json: () => {
         return {
-          star_count: 24,
-          forks_count: 12
+          star_count: 65_535,
+          forks_count: 1427
         }
       }
     }));
 
     const result = await readFromGitLab(base, project);
-    expect(result).toEqual({tag: '', stars: 24, forks: 12});
-    expect(localStorage.getItem(`${base}:${project}:stars`)).toBe('24');
-    expect(localStorage.getItem(`${base}:${project}:forks`)).toBe('12');
+    expect(result).toEqual({tag: "", stars: "65.54K", forks: "1.43K"});
+    expect(localStorage.getItem(`${base}:${project}:stars`)).toBe("65.54K");
+    expect(localStorage.getItem(`${base}:${project}:forks`)).toBe("1.43K");
   });
 });

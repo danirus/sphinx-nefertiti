@@ -13,8 +13,8 @@ export function mock_v1_fetch_github(url) {
       status: 200,
       json: function() {
         return {
-          stargazers_count: 24,
-          forks_count: 12
+          stargazers_count: 65_535,
+          forks_count: 1427
         };
       }
     });
@@ -30,8 +30,8 @@ export function mock_v2_fetch_github(url) {
       status: 200,
       json: function() {
         return {
-          stargazers_count: 24,
-          forks_count: 12
+          stargazers_count: 65_535,
+          forks_count: 1427
         };
       }
     });

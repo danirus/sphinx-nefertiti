@@ -23,10 +23,12 @@ Features
 * Font configuration compliant with `EU's GDPR <https://gdpr.eu/>`_.
 * Different fonts can be used for different elements.
 * Light and dark color schemes, for normal text and code highlighted with Pygments styles.
+* Images that switch between color schemes. Released as `sphinx-colorschemed-images <https://pypi.org/project/sphinx-colorschemed-images/>`_.
 * Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
+* Header and footer links. Header links can be grouped in dropdown elements.
 * Optional highlighting of the project repository in the header.
 * Optional project version selector in the header.
-* Customizable footer links.
+* Back-to-top button.
 
 Project background
 ==================

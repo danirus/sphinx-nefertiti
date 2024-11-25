@@ -1,5 +1,18 @@
 # Change Log
 
+## [0.5.0] - Unreleased
+
+- Add breadcrumbs.
+- Use smooth scrolling.
+- Add **back-to-top** button.
+- Add customizable header links.
+- Limit height of version dropdown.
+- Use compact notation to display number of stars, and forks, in header's repository widget.
+- Scroll the left sidebar to show the link corresponding to the current page.
+- In the sphinx-nefertiti documentation website, reset the colorset selected by the user 24 hours after it has been selected.
+- Migrate from `setup.py` and multiple requirements files, to `pyproject.toml`.
+- Use tox to run verify that tests pass against multiple versions of Sphinx.
+
 ## [0.4.2] - 2024-10-15
 
 - Remove version constrain for Sphinx 8 in Nefertiti's dependencies.

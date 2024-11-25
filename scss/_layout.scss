@@ -8,6 +8,7 @@ html {
   margin: 0 auto;
   font-size: $font-size-base;
   color: var(--#{$prefix}body-color);
+  scroll-behavior: smooth;
 }
 
 *,
@@ -95,12 +96,12 @@ body {
     padding-left: .25rem;
     margin-left: -.25rem;
     overflow-y: scroll;
+    scroll-snap-type: y mandatory !important;
     border-right: 1px solid var(--#{$prefix}border-color);
 
     @include scrollbars();
 
     .nftt-sidebar-content {
-      // min-width: 240px;
       max-width: 320px;
       margin-left: auto;
     }
@@ -254,4 +255,9 @@ body {
 
 .project-logo {
   margin-right: 1rem;
+}
+
+#back-to-top-container {  // stylelint-disable-line selector-max-id
+  top: 84px;  // default, changed in backtotop.js.
+  z-index: 1;
 }

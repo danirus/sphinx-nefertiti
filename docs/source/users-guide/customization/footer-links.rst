@@ -8,16 +8,16 @@ The footer of HTML pages built with Nefertiti for Sphinx is divided in 4 areas o
 * The area for the Nefertiti footer links.
 * The name of the project, provided by Sphinx ``project`` setting.
 * The copyright notice, provided by Sphinx ``copyright`` setting.
-* The powered by notice.
+* The powered-by notice.
 
-The first and the last are theme specific and therefore they are represented by options within the ``html_theme_options`` setting.
+The first and the last are theme specific and can be customized using the ``html_theme_options`` setting.
 
 Theme options
 =============
 
-The following two options can be customized in the ``html_theme_options``, in your project's ``conf.py`` file:
+The following two options related with the footer can be customized in the ``html_theme_options``:
 
-#. ``footer_links``: Represents a list of strings and links.
+#. ``footer_links``: Represents a list of dictionaries with text and links.
 #. ``show_powered_by``: A boolean value.
 
 1. ``footer_links``
@@ -25,7 +25,25 @@ The following two options can be customized in the ``html_theme_options``, in yo
 
 The footer links can be used to lead the user to other relevant pages related with your project, like a project's homepage, a code repository, a forum or similar.
 
-The content for the ``footer_links`` is a comma separated list of links with the format ``<label>|<url>``. Each link has a ``<label>``, which represents the text for the link, and a ``<url>``, which is the URL the user will visit when clicking on the link.
+.. versionchanged:: 0.5
+
+    Previous to v0.5 ``footer_links`` were a comma separated list of links with the format ``<label>|<url>``. From version 0.5 on ``footer_links`` has to be a list of dictionaries with keys ``text`` and ``link``.
+
+The content for the ``footer_links`` is a list of dictionaries with the format:
+
+.. code-block::
+
+    [
+        {
+            'text': '<the label to display>',
+            'link': '<the target URL>',
+        },
+    ]
+
+Each dictionary has two keys:
+
+#. ``text``: represents the label for the link, and
+#. ``link``: represents the target URL the user will visit when clicking on the link.
 
 A valid footer links could be:
 
@@ -33,52 +51,23 @@ A valid footer links could be:
 
     html_theme_options = {
         # ... other options ...
-        "footer_links": "Home|/,Documentation|/docs,Code|/code"
+        "footer_links": [
+            {
+                'text': 'Home',
+                'link': '/',
+            }, {
+                'text': 'Documentation',
+                'link': '/docs',
+            }, {
+                'text': 'Code',
+                'link': '/code',
+            },
+        ],
+
     }
 
-If the list of links is longer you can separate the links in multiple lines. Here is an example of a multi line string in Python nested within parenthesys for clarity:
+Here is the `link <https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/conf.py#L96>`_ to the source code for the ``footer_links`` displayed at the bottom of this documentation.
 
-.. code-block:: python
-
-    html_theme_options = {
-        # ... other options ...
-        "footer_links": (
-            "Home|https://myproject.org,"
-            "Documentation|https://myproject.org/docs,"
-            "Code|https://myproject.org/code"
-        )
-    }
-
-Be aware that the last character in each string is the comma: ``,``.
-
-You could also use Python's String ``join`` method, and provide one link per line, like this:
-
-.. code-block:: python
-
-    html_theme_options = {
-        # ... other options ...
-        "footer_links": ",".join([
-            "Home|/",
-            "Documentation|/docs",
-            "Code|/code"
-        ])
-    }
-
-In this case, the comma separates each string within the list delimited by ``[]``.
-
-As an example, the footer links available at the bottom of this documentation have been provided as a Python list and joined with a comma, like this:
-
-.. code-block:: python
-
-    html_theme_options = {
-        # ... other options ...
-        "footer_links": ",".join([
-            "Documentation|https://sphinx-nefertiti.readthedocs.com",
-            "Package|https://pypi.com/sphinx-nefertiti",
-            "Repository|https://github.com/danirus/sphinx-nefertiti",
-            "Issues|https://github.com/danirus/sphinx-nefertiti/issues",
-        ])
-    }
 
 2. ``show_powered_by``
 ----------------------
@@ -95,7 +84,7 @@ The powered by notice is a static string with the value **Built with Sphinx and 
 Rebuild the theme
 =================
 
-With all the previous changes in place, save the content, clean up the build directory, build it and serve it again:
+With the previous changes in place, save the content, clean, build and serve your project again:
 
 .. code-block:: shell
 

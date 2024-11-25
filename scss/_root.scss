@@ -18,6 +18,8 @@
   --#{$prefix}emphasis-color: #{$scheme-light-body-emphasis-color};
   --#{$prefix}emphasis-color-rgb: #{to-rgb($scheme-light-body-emphasis-color)};
 
+  --#{$prefix}default-color: #{$light};
+
   --#{$prefix}pre-border-color: #{$scheme-light-pre-border-color};
 
   --#{$prefix}foot1-bg: #{$scheme-light-foot1-bg};
@@ -32,8 +34,8 @@
   --#{$prefix}border-color-translucent: #{$scheme-light-border-color-translucent};
   --#{$prefix}link-color: #{$scheme-light-link-color};
   --#{$prefix}link-hover-color: #{$scheme-light-link-hover-color};
-  --#{$prefix}link-border-color: lighten(#{$scheme-light-link-color}, 45%);
-  --#{$prefix}link-active-color: shade-color(#{$scheme-light-link-color}, 75%);
+  --#{$prefix}link-border-color: #{$scheme-light-link-border-color};
+  --#{$prefix}link-active-color: #{$scheme-light-link-active-color};
   --#{$prefix}link-decoration-color: #{$scheme-light-link-decoration-color};
   --#{$prefix}link-decoration-color-rgb: #{$scheme-light-link-decoration-color-rgb};
 
@@ -47,6 +49,27 @@
   --#{$prefix}admon-note-color-bg: #{$scheme-light-admon-note-color-bg};
   --#{$prefix}admon-tip-color-bg: #{$scheme-light-admon-tip-color-bg};
 
+
+  --#{$prefix}docapi-kw-color: #{$docapi-light-kw-color};
+
+  // btn-neutral variables:
+  --#{$prefix}btn-neutral-color: #000;
+  --#{$prefix}btn-neutral-bg: #fff;
+  --#{$prefix}btn-neutral-border-color: #fff;
+  --#{$prefix}btn-neutral-hover-color: #000;
+  --#{$prefix}btn-neutral-hover-bg: #d9d9d9;
+  --#{$prefix}btn-neutral-hover-border-color: #ccc;
+  --#{$prefix}btn-neutral-focus-shadow-rgb: 217, 217, 217;
+  --#{$prefix}btn-neutral-active-color: #000;
+  --#{$prefix}btn-neutral-active-bg: #ccc;
+  --#{$prefix}btn-neutral-active-border-color: #bfbfbf;
+  --#{$prefix}btn-neutral-active-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  --#{$prefix}btn-neutral-disable-color: #000;
+  --#{$prefix}btn-neutral-disable-bg: #fff;
+  --#{$prefix}btn-neutral-disable-border-color: #fff;
+
+  color-scheme: light;
+
   .docutils {
     &:not(.field-list) {
       --#{$prefix}table-bg: #{$scheme-light-table-bg};
@@ -54,10 +77,7 @@
     }
   }
 
-  --#{$prefix}docapi-kw-color: #{$docapi-light-kw-color};
-
   @include color-scheme(light);
-  color-scheme: light;
 }
 
 @mixin dark-theme {
@@ -94,8 +114,8 @@
   --#{$prefix}border-color-translucent: #{$scheme-dark-border-color-translucent};
   --#{$prefix}link-color: #{$scheme-dark-link-color};
   --#{$prefix}link-hover-color: #{$scheme-dark-link-hover-color};
-  --#{$prefix}link-border-color: lighten(#{$scheme-dark-link-color}, 45%);
-  --#{$prefix}link-active-color: shade-color(#{$scheme-dark-link-color}, 75%);
+  --#{$prefix}link-border-color: #{$scheme-dark-link-border-color};
+  --#{$prefix}link-active-color: #{$scheme-dark-link-active-color};
   --#{$prefix}link-decoration-color: #{$scheme-dark-link-decoration-color};
   --#{$prefix}link-decoration-color-rgb: #{$scheme-dark-link-decoration-color-rgb};
 
@@ -111,6 +131,24 @@
 
   --#{$prefix}docapi-kw-color: #{$docapi-dark-kw-color};
 
+  // btn-neutral variables:
+  --#{$prefix}btn-neutral-color: #fff;
+  --#{$prefix}btn-neutral-bg: #343a40;
+  --#{$prefix}btn-neutral-border-color: #343a40;
+  --#{$prefix}btn-neutral-hover-color: #fff;
+  --#{$prefix}btn-neutral-hover-bg: #52585d;
+  --#{$prefix}btn-neutral-hover-border-color: #484a53;
+  --#{$prefix}btn-neutral-focus-shadow-rgb: 82, 88, 93;
+  --#{$prefix}btn-neutral-active-color: #fff;
+  --#{$prefix}btn-neutral-active-bg: #5d6166;
+  --#{$prefix}btn-neutral-active-border-color: #484e53;
+  --#{$prefix}btn-neutral-active-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  --#{$prefix}btn-neutral-disable-color: #fff;
+  --#{$prefix}btn-neutral-disable-bg: #343a40;
+  --#{$prefix}btn-neutral-disable-border-color: #343a40;
+
+  color-scheme: dark;
+
   .docutils {
     &:not(.field-list) {
       --#{$prefix}table-bg: #{$scheme-dark-table-bg};
@@ -119,7 +157,6 @@
   }
 
   @include color-scheme(dark);
-  color-scheme: dark;
 }
 
 :root:not(.light):not(.dark) {
@@ -228,4 +265,7 @@
 
   --#{$prefix}highlight-bg: #{$mark-bg};
   --#{$prefix}tertiary-bg: rgba(var(--#{$prefix}primary-rgb), .1);
+
+  --#{$prefix}box-shadow: #{$box-shadow};
+  --#{$prefix}breadcrumb-font-size: .85rem;
 }

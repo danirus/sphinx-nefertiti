@@ -1,10 +1,7 @@
-import os
-from pathlib import Path
 import shutil
+from pathlib import Path
 
-
-from sphinx_nefertiti import utils
-
+from .exceptions import SphinxNefertitiError
 
 colorsets_rel_path = Path("colorsets")
 colorsets_abs_path = Path(__file__).parent / "colorsets"
@@ -25,37 +22,28 @@ all_colorsets = [
 ]
 
 
-class ColorSetNotSupportedException(Exception):
-    pass
-
-
 class ColorSet:
-    def __init__(self, name):
+    def __init__(self, name, app):
+        self.app = app
         _name = name.lower()
         if _name not in all_colorsets:
-            raise ColorSetNotSupportedException(
-                f"Style '{name}' is not known as a color set."
+            raise SphinxNefertitiError(
+                f"Style 'hl({name})' is not known as a color set."
             )
         self._name = _name
 
-    def get_name(self, with_version=False):
-        version = f"-{utils.get_version()}" if with_version else ""
-        return f"sphinx-nefertiti-{self._name}{version}.min.css"
-
     @property
     def link_stylesheet(self):
-        return str(colorsets_rel_path / self.get_name(with_version=True))
+        return f"sphinx-nefertiti-{self._name}.min.css"
 
-    def copy_to_static(self, outdir: str, is_map_file=False):
-        ext = ".map" if is_map_file else ""
-        filename = f"{self.get_name()}{ext}"
-        filename_with_version = f"{self.get_name(with_version=True)}{ext}"
-        src_path = colorsets_abs_path / filename
-        dest_dir = Path(outdir) / "_static" / "colorsets"
-        dest_path = dest_dir / filename_with_version
-        if not dest_dir.exists():
-            os.mkdir(dest_dir)
-        shutil.copyfile(src_path, dest_path)
+    def copy_to_static(self):
+        dest_dir = Path(self.app.builder.outdir) / "_static"
+
+        for ext in ["", ".map"]:
+            filename = f"sphinx-nefertiti-{self._name}.min.css{ext}"
+            src_path = colorsets_abs_path / filename
+            dest_path = dest_dir / filename
+            shutil.copyfile(src_path, dest_path)
 
 
 class ColorsetProvider:
@@ -69,11 +57,11 @@ class ColorsetProvider:
         self.multiple = self.theme_custom.get("show_colorset_choices", False)
         self.default = self.theme_defaults["style"]
         self.selected = self.theme_custom.get("style", self.default)
-        self.colorset = ColorSet(self.selected)
+        self.colorset = ColorSet(self.selected, app)
 
         if self.multiple:
             for choice in all_colorsets:
-                self._csets.append(ColorSet(choice))
+                self._csets.append(ColorSet(choice, app))
         else:
             self._csets.append(self.colorset)
 

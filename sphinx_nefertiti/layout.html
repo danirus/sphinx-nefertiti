@@ -23,7 +23,6 @@
     {{ js_tag(js) }}
     {%- endfor %}
 {%- endmacro %}
-
 <!DOCTYPE html>
 <html class="no-js" {% if language is not none %}lang="{{ language }}"{% endif %}>
   <head>
@@ -32,6 +31,8 @@
       {{ metatags }}
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    {% if show_colorset_choices %}<meta name="colorset-reset" content="{{ theme_reset_colorset_choice_after_ms }}" />{% endif %}
     <meta name="docsearch:name" content="{{ project|striptags|e }}" />
     <meta name="docsearch:package_type" content="{{ package_type|striptags|e }}" />
     <meta name="docsearch:release" content="{{ release|striptags|e }}" />
@@ -39,9 +40,7 @@
     {% block htmltitle %}
       <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% endblock %}
-    {%- if pageurl %}
-    <link rel="canonical" href="{{ pageurl|e }}" />
-    {%- endif %}
+    <link rel="canonical" href="{{ pagename }}" />
     {%- if favicon_url %}
       <link rel="icon" href="{{ favicon_url|e }}" />
     {%- endif %}
@@ -52,13 +51,11 @@
     {%- endif %}
     <link rel="stylesheet" href="{{ pathto('_static/bootstrap-icons.css', 1)|e }}" type="text/css" />
     {%- for css in css_files %}
-      {%- if css not in ["_static/basic.css",] %}
-        {%- if css|attr("filename") %}
-          <!-- add (1) pathto "{{ css }}" -->
-          {{ css_tag(css) }}
+      {%- if css.filename not in ["_static/basic.css",] %}
+        {%- if css.filename is not none %}
+          {{ css_tag(css) }}<!-- add (1) -->
         {%- else %}
-          <!-- add (2) pathto "{{ css }}" -->
-          <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+          <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" /><!-- add (2) -->
         {%- endif %}
       {%- endif %}
     {%- endfor %}
@@ -101,7 +98,10 @@
     </style>
   </head>
   <body>
-    <header class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
+    <div id="back-to-top-container" class="position-fixed start-50 translate-middle-x">
+      <button id="back-to-top" type="button" class="d-none btn btn-neutral btn-sm shadow px-4" data-bs-toggle="button">Back to top</button>
+    </div>
+    <header id="snftt-nav-bar" class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
       <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start flex-grow-1">
         <div class="border-bottom mb-2 pb-2 w-100">
           <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">{{ _('Skip to docs navigation') }}</a>
@@ -118,7 +118,7 @@
           <a
             href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
             {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-            class="navbar-brand me-0 md-lg-2"
+            class="navbar-brand me-0 md-lg-2 pe-lg-4"
           >
             <img src="{{ pathto('_static/' + theme_logo, 1) }}"
               {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
@@ -132,8 +132,18 @@
         {% else %}
           <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
               {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-              class="navbar-brand p-0 me-0 md-lg-2"
+              class="navbar-brand p-0 me-0 md-lg-2 pe-lg-4"
           ><span class="brand-text">{{ project }}</span></a>
+        {% endif %}
+        {% if header_links and theme_header_links_in_2nd_row != true %}
+          <ul class="nftt-header-links-large navbar-nav">
+          {% with %}
+            {% set link_list=header_links %}
+            {% set li_class="nav-item" %}
+            {% set a_class="nav-link" %}
+            {% include "header-links.html" %}
+          {% endwith %}
+          </ul>
         {% endif %}
         <div class="d-flex d-xl-none">
           <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
@@ -146,12 +156,28 @@
         {% include "searchbox.html" %}
         <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
           <div class="offcanvas-header px-4 pb-0">
-            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">Nefertiti for Sphinx</span></div>
+            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">{{ project }}</span></div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttNavbar"></button>
           </div>
           <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
             <hr class="d-xl-none text-white-50">
             <ul class="navbar-nav flex-row align-items-center flex-wrap ms-lg-auto">
+              {% if header_links %}
+                <div class="nftt-header-links-small">
+                  {% with %}
+                    {% set link_list=header_links %}
+                    {% set li_class="nav-item" %}
+                    {% set a_class="nav-link" %}
+                    <div class="d-inline-block">
+                      {% include "header-links.html" %}
+                    </div>
+                  {% endwith %}
+                  <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">
+                    <div class="vr d-none d-xl-flex h-100 mx-xl-2 text-white"></div>
+                    <hr class="d-xl-none text-white-50">
+                  </li>
+                </div>
+              {% endif %}
               {% if theme_repository_url and theme_repository_name %}
               <li class="nav-item col-12 col-xl-auto">
                 <a class="nav-link py-2 py-xl-0 px-0 px-xl-2" href="{{ theme_repository_url }}" target="_blank" rel="noopener">
@@ -193,6 +219,18 @@
           </div>
         </div>
       </nav>
+      {% if header_links and theme_header_links_in_2nd_row == true %}
+        <nav class="container-xxl nftt-gutter flex-no-wrap nftt-long-header-links-margins">
+          <ul class="nftt-header-links-large navbar-nav">
+          {% with %}
+            {% set link_list=header_links %}
+            {% set li_class="nav-item" %}
+            {% set a_class="nav-link" %}
+            {% include "header-links.html" %}
+          {% endwith %}
+          </ul>
+        </nav>
+      {% endif %}
     </header>
 
     <div class="container-fluid flex-grow-1">
@@ -205,7 +243,7 @@
             </div>
             <div id="sidebar" tabindex="-1" class="offcanvas-xl offcanvas-start" aria-labelledby="nfttSidebarOffcanvasLabel">
               {%- for sidebartemplate in sidebars %}
-                <!-- danirus sidebartemplate: "{{ sidebartemplate }}" -->
+                <!-- sidebartemplate: "{{ sidebartemplate }}" -->
                 {%- include sidebartemplate %}
               {%- endfor %}
             </div>
@@ -213,6 +251,7 @@
           </div>
         </aside>
         <article id="content" class="nftt-content" role="main">
+          {% include "breadcrumbs.html" %}
           {%- block body %}
           {% endblock -%}
         </article>
@@ -245,10 +284,5 @@
     {{- script() }}
     {%- endblock %}
     {%- endif %}
-
-    <script type="text/javascript" src="{{ pathto(nefertiti_bundle, 1) }}"></script>
-    <script type="text/javascript" src="{{ pathto(bootstrap_bundle, 1) }}"></script>
-    {% if show_colorset_choices %}<script type="module" src="{{ pathto('_static/colorsets.js', 1) }}"></script>{% endif %}
-    <script type="text/javascript" src="{{ pathto('_static/doc_versions.js', 1) }}"></script>
   </body>
 </html>

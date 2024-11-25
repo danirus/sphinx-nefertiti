@@ -172,3 +172,103 @@
     box-shadow: $box-shadow-lg;
   }
 }
+
+.dropdown-limit-max-height {
+  max-height: calc(100vh - 70px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.nftt-long-header-links-margins {
+  margin-top: 4px;
+  margin-bottom: -6px;
+
+  .dropdown-menu.show {
+    margin-top: -2px;
+  }
+}
+
+.nftt-header-links-large {
+  @include media-breakpoint-up(xl) {
+    display: flex;
+    flex-direction: row;
+    // order: 5;
+    margin-right: auto;
+    // padding-right: 1rem;
+    // padding-left: 1rem;
+  }
+
+  @include media-breakpoint-down(xl) {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: .9rem;
+    white-space: nowrap;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: solid;
+    text-decoration-color: var(--#{$prefix}navbar-active-color);
+    text-underline-offset: 5px;
+  }
+
+  .nav-link:hover {
+    text-decoration-color: var(--#{$prefix}navbar-active-color);
+  }
+}
+
+.order-100 {
+  order: 100;
+}
+
+.nftt-header-links-small {
+  @include media-breakpoint-up(xl) {
+    display: none;
+  }
+
+  @include media-breakpoint-down(xl) {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: solid;
+    text-decoration-color: var(--#{$prefix}navbar-active-color);
+    text-underline-offset: 5px;
+  }
+
+  .nav-link:hover {
+    text-decoration-color: var(--#{$prefix}navbar-active-color);
+  }
+}
+
+.dropdown-menu,
+.nav-link {
+  font-size: .875rem;
+}
+
+.dropdown-menu a.dropdown-item.active,
+.dropdown-menu a.dropdown-item:active {
+  color: var(--#{$prefix}dropdown-link-color);
+  background-color: var(--#{$prefix}foot2-bg);
+}
+
+
+/* stylelint-disable selector-id-pattern */
+#nfttSearch .search-input {
+  font-size: .875rem;
+}
+/* stylelint-enable selector-id-pattern */
+
+// The #button-search in the navbar seems to exceed in 1px
+// the size of the button-group.
+#button-search {
+  margin-bottom: 1px;
+}

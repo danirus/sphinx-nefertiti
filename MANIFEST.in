@@ -1,5 +1,6 @@
 include README.md
 include requirements.txt
+include version.txt
 
 recursive-include sphinx_nefertiti *.*
 recursive-include sphinx_nefertiti/colorsets *.*

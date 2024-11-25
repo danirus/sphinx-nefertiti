@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/bootstrap-icons.css">
-  <link rel="stylesheet" href="/css/sphinx-nefertiti-cyan.css">
+  <link rel="stylesheet" href="/css/sphinx-nefertiti-default.css">
   <link rel="stylesheet" type="text/css" href="/css/pygments.css">
   <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="/css/pygments_dark.css">
   <link rel="stylesheet" type="text/css" href="/css/pygments_dark.css">
@@ -30,9 +30,11 @@
   }
 </style>
 </head>
-
 <body>
-  <header class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
+  <div id="back-to-top-container" class="position-fixed start-50 translate-middle-x">
+    <button id="back-to-top" type="button" class="d-none btn btn-neutral btn-sm shadow px-4" data-bs-toggle="button">Back to top</button>
+  </div>
+  <header id="snftt-nav-bar" class="navbar navbar-expand-xl navbar-dark nftt-navbar flex-column fixed-top">
     <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start">
       <div class="border-bottom mb-2 pb-2 w-100">
         <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">Skip to docs navigation</a>
@@ -45,9 +47,35 @@
           <i class="bi bi-list"></i>
         </button>
       </div>
-      <a class="navbar-brand me-0 md-lg-2" href="/" aria-label="Nefertiti for Sphinx">
+      <a class="navbar-brand me-0 md-lg-2 pe-lg-4" href="/" aria-label="Nefertiti for Sphinx">
         <img src="img/nefertiti.svg" width="36" height="36" class="nefertiti-bg" alt="Nefertiti for Sphinx"><span class="brand-text">Nefertiti for Sphinx</span>
       </a>
+
+      <ul class="nftt-header-links-large navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/index-2-row-header.html">Two-rows header</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Docs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">This One</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">That Other</a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" href="#">Examples</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item active" href="#" aria-current="true">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+
       <div class="d-flex d-xl-none">
         <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
           <i class="bi bi-search"></i>
@@ -67,7 +95,7 @@
           <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
             <li class="nav-item col-12 col-xl-auto">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-search">
+                <input type="text" class="form-control search-input" placeholder="Search" aria-label="Search" aria-describedby="button-search">
                 <button class="btn btn-primary" type="button" id="button-search" aria-label="Submit seatch">
                   <i class="bi bi-search"></i>
                 </button>
@@ -86,14 +114,37 @@
           <hr class="d-xl-none text-white-50">
           <ul class="navbar-nav flex-row align-items-center flex-wrap ms-md-auto">
 
+            <div class="nftt-header-links-small">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index-2-row-index.html">Two-row index</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Docs</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" href="#">Examples</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+              </li>
+              <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">
+                <div class="vr d-none d-xl-flex h-100 mx-xl-2 text-white"></div>
+                <hr class="d-xl-none text-white-50">
+              </li>
+            </div>
+
             <li class="nav-item col-12 col-xl-auto">
               <a class="nav-link py-2 py-xl-0 px-0 px-xl-2" href="https://example.com" target="_blank" rel="noopener" aria-label="Visit repository https://example.com">
                 <div class="d-flex align-items-center">
                   <div class="me-2">
                     <i class="bi bi-git size-24"></i>
                   </div>
-                  <div class="repo d-flex flex-column" data-snftt-repo-url="https://github.com/danirus/django-comments-xtd">
-                    danirus/django-comments-xtd
+                  <div class="repo d-flex flex-column align-items-center" data-snftt-repo-url="https://github.com/danirus/sphinx-nefertiti">
+                    sphinx-nefertiti
                     <div class="d-flex justify-content-center" data-snftt-repo-metrics>
                       <span class="pe-2 d-flex justify-content-center align-items-center">
                         <i class="bi bi-tag size-14"></i>
@@ -121,8 +172,8 @@
             <!-- versions -->
             <li class="nav-item dropdown">
               <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
-                <span id="snftt-version-text" class="d-xl-none small">Select version</span>
-                <span class="small ms-2" data-snftt-version-active>v1.0.0</span>
+                <span id="snftt-version-text" class="d-xl-none">Select version</span>
+                <span class="ms-2" data-snftt-version-active>v1.0.0</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text">
                 <li>
@@ -130,13 +181,13 @@
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="index.html?v=1.0.0" data-snftt-version-url="index.html?v=1.0.0" data-snftt-version="v1.0.0">
-                    <span class="small ms-2">v1.0.0</span>
+                    <span class="ms-2">v1.0.0</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="index.html?v=0.4.0" data-snftt-version-url="index.html?v=0.4.0" data-snftt-version="v0.4.0">
-                    <span class="small ms-2">v0.4.0</span>
+                    <span class="ms-2">v0.4.0</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
@@ -151,7 +202,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-color" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle color set">
                 <i class="bi bi-palette"></i>
-                <span id="snftt-color-text" class="d-xl-none small ms-2">Change color set</span>
+                <span id="snftt-color-text" class="d-xl-none ms-2">Change color set</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-color-text">
                 <li>
@@ -159,91 +210,91 @@
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="blue" href="#" aria-pressed="false">
-                    <span class="blue small">
+                    <span class="blue">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Blue</span>
+                    <span class="ms-3">Blue</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="indigo" href="#" aria-pressed="false">
-                    <span class="indigo small">
+                    <span class="indigo">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Indigo</span>
+                    <span class="ms-3">Indigo</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="purple" href="#" aria-pressed="false">
-                    <span class="purple small">
+                    <span class="purple">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Purple</span>
+                    <span class="ms-3">Purple</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="pink" href="#" aria-pressed="false">
-                    <span class="pink small">
+                    <span class="pink">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Pink</span>
+                    <span class="ms-3">Pink</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="red" href="#" aria-pressed="false">
-                    <span class="red small">
+                    <span class="red">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Red</span>
+                    <span class="ms-3">Red</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="orange" href="#" aria-pressed="false">
-                    <span class="orange small">
+                    <span class="orange">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Orange</span>
+                    <span class="ms-3">Orange</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="yellow" href="#" aria-pressed="false">
-                    <span class="yellow small">
+                    <span class="yellow">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Yellow</span>
+                    <span class="ms-3">Yellow</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="green" href="#" aria-pressed="false">
-                    <span class="green small">
+                    <span class="green">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Green</span>
+                    <span class="ms-3">Green</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-color="teal" href="#" aria-pressed="false">
-                    <span class="teal small">
+                    <span class="teal">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Teal</span>
+                    <span class="ms-3">Teal</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item current d-flex align-items-center" data-snftt-color="cyan" href="#" aria-pressed="false">
-                    <span class="cyan small">
+                  <a class="dropdown-item active current d-flex align-items-center" data-snftt-color="cyan" href="#" aria-pressed="false">
+                    <span class="cyan">
                       <i class="bi bi-circle-fill"></i>
                     </span>
-                    <span class="small ms-3">Cyan</span>
+                    <span class="ms-3">Cyan</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
@@ -258,7 +309,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-luz" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle light/dark">
                 <i class="bi bi-circle-half" data-snftt-luz-icon-active></i>
-                <span id="snftt-luz-text" class="d-xl-none small ms-2">Toggle light/dark</span>
+                <span id="snftt-luz-text" class="d-xl-none ms-2">Toggle light/dark</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-luz-text">
                 <li>
@@ -266,28 +317,28 @@
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-luz="light" href="#" aria-pressed="false">
-                    <span class="small">
+                    <span>
                       <i class="bi bi-sun" data-snftt-luz-icon="light"></i>
                     </span>
-                    <span class="small ms-3">Light</span>
+                    <span class="ms-3">Light</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
                   <a class="dropdown-item d-flex align-items-center" data-snftt-luz="dark" href="#" aria-pressed="false">
-                    <span class="small">
+                    <span>
                       <i class="bi bi-moon-stars"  data-snftt-luz-icon="dark"></i>
                     </span>
-                    <span class="small ms-3">Dark</span>
+                    <span class="ms-3">Dark</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item current d-flex align-items-center" data-snftt-luz="default" href="#" aria-pressed="false">
-                    <span class="small">
+                  <a class="dropdown-item active current d-flex align-items-center" data-snftt-luz="default" href="#" aria-pressed="false">
+                    <span>
                       <i class="bi bi-circle-half" data-snftt-luz-icon="default"></i>
                     </span>
-                    <span class="small ms-3">Default</span>
+                    <span class="ms-3">Default</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
                 </li>
@@ -365,6 +416,13 @@
         </div>
       </aside>
       <article id="content" class="nftt-content" role="main">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+          </ol>
+        </nav>
+
         <section id="quick-start">
     <span id="id1"></span><h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h1>
     <p>Nefertiti for Sphinx can be setup and running in a blink of an eye. Follow this quick start guide to go through the minimal steps to use it with your project.</p>
@@ -550,7 +608,7 @@ $ python -m http.server -d build/html</pre></div>
       </article>
       <aside class="nftt-toc">
         <div class="mt-3 mb-1 my-lg-0 ps-xl-3 text-muted">
-          <button class="btn btn-link link-dark p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+          <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
             On this page
             <i class="ms-2 bi bi-chevron-expand"></i>
           </button>

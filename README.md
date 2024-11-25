@@ -1,4 +1,4 @@
-# Nefertiti for Sphinx
+# Nefertiti for Sphinx [![tests](https://github.com/danirus/sphinx-nefertiti/workflows/tests/badge.svg)](https://github.com/danirus/sphinx-nefertiti/actions/workflows/tests.yml)
 
 Nefertiti is a theme for [Sphinx](https://www.sphinx-doc.org/en/master/) that features:
 
@@ -7,12 +7,19 @@ Nefertiti is a theme for [Sphinx](https://www.sphinx-doc.org/en/master/) that fe
 * Font configuration compliant with [EU's GDPR](https://gdpr.eu/).
 * Different fonts can be used for different elements.
 * Light and dark color schemes, for normal text and code highlighted with Pygments styles.
+* Images that switch between color schemes. Released as [sphinx-colorschemed-images](https://pypi.org/project/sphinx-colorschemed-images/).
 * Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
+* Header and footer links. Header links can be grouped in dropdown elements.
 * Optional highlighting of the project repository in the header.
 * Optional project version selector in the header.
-* Customizable footer links.
+* Back-to-top button.
 
 See it in action in [sphinx-themes.org](https://sphinx-themes.org/#theme-sphinx-nefertiti).
+
+## Tested
+
+* [Tested against Sphinx 7.3, 7.4, 8.0 and 8.1](https://github.com/danirus/sphinx-nefertiti/actions/workflows/tests.yml), see matrix python-sphinx.
+* [Tested with NodeJS v20](https://github.com/danirus/sphinx-nefertiti/actions/workflows/tests.yml), see javascript-tests.
 
 ## Index filtering
 

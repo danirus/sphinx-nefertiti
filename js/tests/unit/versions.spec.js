@@ -1,4 +1,4 @@
-import { updateVersion } from "../../src/versions.js";
+import { feedVersionsMenu, updateVersion } from "../../src/versions.js";
 import { getFixture, clearFixture } from '../helpers/fixture.js';
 
 // This template is missing an element with the attribute
@@ -79,6 +79,16 @@ const template_3 = [
   '</li>',
 ];
 
+// This template is used with the function feedVersionsMenu.
+const template_4 = [
+  '<ul id="versions-dropdown-menu">',
+  '  <li>',
+  '    <h6 class="dropdown-header">Versions</h6>',
+  '  </li>',
+  '</ul>'
+];
+
+
 describe('versions', () => {
   let fixtureEl;
 
@@ -124,5 +134,26 @@ describe('versions', () => {
     // Call updateVersion and check that the title didn't change.
     updateVersion();
     expect(version_title.textContent).toEqual("latest");
+  });
+
+  it('checks feedVersionsMenu returns if element not found', () => {
+    const did_it_work = feedVersionsMenu();
+    expect(did_it_work).toEqual(false);
+  });
+
+  it('checks feedVersionsMenu add content to element', () => {
+    globalThis.docs_versions = [
+      {
+        "name": "v0.5.0",
+        "url": "https://sphinx-nefertiti.readthedocs.io/en/0.5.0/"
+      }, {
+        "name": "v0.4.0",
+        "url": "https://sphinx-nefertiti.readthedocs.io/en/0.4.0/"
+      }
+    ];
+    fixtureEl.innerHTML = template_4.join('');
+    const did_it_work = feedVersionsMenu();
+    expect(did_it_work).toEqual(true);
+
   });
 });

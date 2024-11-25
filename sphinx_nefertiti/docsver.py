@@ -5,7 +5,7 @@ class DocsVersionProvider:
         self._index = -1
         self._assets = []
 
-        if not "versions" in theme_user_prefs:
+        if "versions" not in theme_user_prefs:
             return
 
         for name, url in theme_user_prefs["versions"]:

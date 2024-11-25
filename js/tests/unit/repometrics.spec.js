@@ -57,8 +57,8 @@ describe('repometrics', () => {
     const stars = fixtureEl.querySelector("[data-snftt-repo-stars]");
     const forks = fixtureEl.querySelector("[data-snftt-repo-forks]");
     expect(tag.textContent).toEqual("1.0");
-    expect(stars.textContent).toEqual("24");
-    expect(forks.textContent).toEqual("12");
+    expect(stars.textContent).toEqual("65.54K");
+    expect(forks.textContent).toEqual("1.43K");
   });
 
   it('gets data from a GitLab URL, with a mocked fetch', async () => {
@@ -67,8 +67,8 @@ describe('repometrics', () => {
       status: 200,
       json: () => {
         return {
-          star_count: 24,
-          forks_count: 12
+          star_count: 65_535,
+          forks_count: 1427
         }
       }
     }));
@@ -81,8 +81,8 @@ describe('repometrics', () => {
     const forks = fixtureEl.querySelector("[data-snftt-repo-forks]");
     expect(tag.textContent).toEqual("");
     expect(tag.parentNode).toHaveClass("d-none");
-    expect(stars.textContent).toEqual("24");
-    expect(forks.textContent).toEqual("12");
+    expect(stars.textContent).toEqual("65.54K");
+    expect(forks.textContent).toEqual("1.43K");
   });
 
   it('gets data from localStorage after GitHub fetch failed', async () => {
@@ -95,8 +95,8 @@ describe('repometrics', () => {
 
     // The catch branch of _getRepoMetrics will read
     // the metrics from the localStorage.
-    localStorage.setItem('user:repo:stars', '2400');
-    localStorage.setItem('user:repo:forks', '1200');
+    localStorage.setItem('user:repo:stars', '65.54K');
+    localStorage.setItem('user:repo:forks', '1.43K');
 
     const result = await updateRepoMetrics();
     expect(result).toBe(2);
@@ -106,11 +106,11 @@ describe('repometrics', () => {
     const forks = fixtureEl.querySelector("[data-snftt-repo-forks]");
     expect(tag.textContent).toEqual("");
     expect(tag.parentNode).toHaveClass("d-none");
-    expect(stars.textContent).toEqual("2400");
-    expect(forks.textContent).toEqual("1200");
+    expect(stars.textContent).toEqual("65.54K");
+    expect(forks.textContent).toEqual("1.43K");
   });
 
-  it("gets non-valid stars from localStorage", async () => {
+  it("gets no content for stars from localStorage", async () => {
     fixtureEl.innerHTML = repo_github_widget_template.join('');
     // Calling fetch will fail, and will cause _getRepoMetrics to
     // process the 'catch' branch of the try..catch.
@@ -120,7 +120,7 @@ describe('repometrics', () => {
 
     // Bad number of stars.
     localStorage.setItem('user:repo:tag', '1.0');
-    localStorage.setItem('user:repo:stars', 'not a number');
+    localStorage.setItem('user:repo:stars', '');
     localStorage.setItem('user:repo:forks', '1200');
 
     const result = await updateRepoMetrics();
@@ -137,7 +137,7 @@ describe('repometrics', () => {
     expect(forks.parentNode).toHaveClass("d-none");
   });
 
-  it("gets non-valid forks from localStorage", async () => {
+  it("gets no content for forks from localStorage", async () => {
     fixtureEl.innerHTML = repo_github_widget_template.join('');
     // Calling fetch will fail, and will cause _getRepoMetrics to
     // process the 'catch' branch of the try..catch.
@@ -145,10 +145,10 @@ describe('repometrics', () => {
       Promise.resolve({status: 404})
     );
 
-    // Bad number of stars.
+    // No content for forks.
     localStorage.setItem('user:repo:tag', '1.0');
     localStorage.setItem('user:repo:stars', '2400');
-    localStorage.setItem('user:repo:forks', 'not a number');
+    localStorage.setItem('user:repo:forks', '');
 
     const result = await updateRepoMetrics();
     expect(result).toBe(0);
@@ -215,7 +215,7 @@ describe('repometrics', () => {
     const stars = fixtureEl.querySelector("[data-snftt-repo-stars]");
     const forks = fixtureEl.querySelector("[data-snftt-repo-forks]");
     expect(tag.textContent).toEqual("1.0");
-    expect(stars.textContent).toEqual("24");
-    expect(forks.textContent).toEqual("12");
+    expect(stars.textContent).toEqual("65.54K");
+    expect(forks.textContent).toEqual("1.43K");
   });
 });

@@ -3,8 +3,8 @@
   {% if READTHEDOCS %}
     <li class="nav-item dropdown">
       <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
-        <span id="snftt-version-text" class="d-xl-none small">{{ project|striptags|e }}</span>
-        <span class="small ms-2" data-snftt-version-active="{{ current_version }}">v: {{ current_version }}</span>
+        <span id="snftt-version-text" class="d-xl-none">{{ project|striptags|e }}</span>
+        <span class="ms-2" data-snftt-version-active="{{ current_version }}">v: {{ current_version }}</span>
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text">
         <li>
@@ -13,7 +13,7 @@
         {% for slug, url in versions %}
           <li>
             <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="{{ url }}" data-snftt-version-url="{{ url }}" data-snftt-version="{{ slug }}">
-              <span class="small ms-2">{{ slug }}</span>
+              <span class="ms-2">{{ slug }}</span>
               <i class="bi bi-check ms-auto"></i>
             </a>
           </li>
@@ -23,20 +23,21 @@
           <h6 class="dropdown-header">On Read the Docs</h6>
         </li>
         <li>
-          <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="//{{ PRODUCTION_DOMAIN }}/projects/{{ slug }}/?fromdocs={{ slug }}"><span class="small ms-2">{{ _('Project Home') }}</span></a>
+          <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="//{{ PRODUCTION_DOMAIN }}/projects/{{ slug }}/?fromdocs={{ slug }}"><span class="ms-2">{{ _('Project Home') }}</span></a>
         </li>
         <li>
-          <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="//{{ PRODUCTION_DOMAIN }}/builds/{{ slug }}/?fromdocs={{ slug }}"><span class="small ms-2">{{ _('Builds') }}</span></a>
+          <a class="dropdown-item d-flex align-items-center justify-content-between" aria-pressed="false" href="//{{ PRODUCTION_DOMAIN }}/builds/{{ slug }}/?fromdocs={{ slug }}"><span class="ms-2">{{ _('Builds') }}</span></a>
         </li>
       </ul>
     </li>
   {% elif theme_versions %}
     <li class="nav-item dropdown">
       <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
-        <span id="snftt-version-text" class="d-xl-none small">{{ project|striptags|e }}</span>
-        <span class="small ms-2" data-snftt-version-active="{{ theme_current_version }}">{{ theme_current_version }}</span>
+        <span id="snftt-version-text" class="d-xl-none">{{ project|striptags|e }}</span>
+        <span class="ms-2" data-snftt-version-active="{{ theme_current_version }}">{{ theme_current_version }}</span>
       </a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-version-text" id="versions-dropdown-menu">
+      {# Feeding the elements takes place via the versions.js #}
+      <ul class="dropdown-menu dropdown-menu-end dropdown-limit-max-height" aria-labelledby="snftt-version-text" id="versions-dropdown-menu">
         <li>
           <h6 class="dropdown-header">{{ _('Versions') }}</h6>
         </li>

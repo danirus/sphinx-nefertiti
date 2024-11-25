@@ -86,6 +86,8 @@ $scheme-light-border-color: $gray-200;
 $scheme-light-border-color-translucent: rgba($black, .175) !default;
 $scheme-light-link-color: $red-600;
 $scheme-light-link-hover-color: $red-800;
+$scheme-light-link-border-color: lighten($scheme-light-link-color, 45%);
+$scheme-light-link-active-color: shade-color($scheme-light-link-color, 75%);
 $scheme-light-link-decoration-color: $red-200;
 $scheme-light-link-decoration-color-rgb: #{to-rgb($red-200)};
 $scheme-light-code-color: #c63477;
@@ -121,6 +123,8 @@ $scheme-dark-border-color: rgba($gray-500, .175);
 $scheme-dark-border-color-translucent: rgba($white, .15) !default;
 $scheme-dark-link-color: $red-100;
 $scheme-dark-link-hover-color: color.scale($red-400, $lightness: 30%, $saturation: 30%);
+$scheme-dark-link-border-color: lighten($scheme-dark-link-color, 45%);
+$scheme-dark-link-active-color: shade-color($scheme-dark-link-color, 75%);
 $scheme-dark-link-decoration-color: $red-500;
 $scheme-dark-link-decoration-color-rgb: #{to-rgb($red-500)};
 $scheme-dark-code-color: #ff65f7;
@@ -154,3 +158,7 @@ $navbar-dark-brand-hover-color: $white;
 
 $docapi-dark-kw-color: $blue-200;
 $docapi-light-kw-color: $blue-600;
+
+// -------------------------
+// shadow for light and dark.
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);

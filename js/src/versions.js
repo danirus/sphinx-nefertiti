@@ -4,7 +4,7 @@ function _getCurrentVersion() {
   const all_version_elems = document.querySelectorAll(qs_version_url);
   for (const version_elem of all_version_elems) {
     let version_url = version_elem.dataset?.snfttVersionUrl;
-    version_url = version_url.replace("?", "\\?");
+    version_url = version_url.replace("?", String.raw`\?`);
     if (new RegExp(version_url).test(window.location.href)) {
       return version_elem.dataset?.snfttVersion;
     };
@@ -20,12 +20,12 @@ export function updateVersion() {
   const version_item = document.querySelector(qs_version_item);
 
   for (const element of document.querySelectorAll('[data-snftt-version]')) {
-    element.classList.remove('current');
+    element.classList.remove('active', 'current');
     element.setAttribute('aria-pressed', 'false');
   }
 
   if (version_item != undefined) {
-    version_item.classList.add('current');
+    version_item.classList.add('active', 'current');
     version_item.setAttribute('aria-pressed', 'true');
     if (version_active != undefined) {
       version_active.textContent = version_item.dataset.snfttVersion;
@@ -37,16 +37,12 @@ export function feedVersionsMenu() {
   const vermenu = document.getElementById("versions-dropdown-menu");
   if (!vermenu) {
     console.log("Did not find the versions dropdown menu.");
-    return;
+    return false;
   }
-  // Use the variable 'doc_versions', loaded as a script in layout.html.
-  // The file doc_versions.js is produced by versions.py when building
+  // Use the variable 'docs_versions' loaded as a script in layout.html.
+  // The file docs_versions.js is produced by versions.py when building
   // the site (make html).
-  console.log("Found the versions dropdown menu!");
-  console.log("doc_versions are:");
-  console.dir(doc_versions);
-
-  for (const item of doc_versions) {
+  for (const item of docs_versions) {
     const li = document.createElement("li");
     const anchor = document.createElement("a");
     anchor.classList.add(
@@ -67,4 +63,6 @@ export function feedVersionsMenu() {
     li.append(anchor);
     vermenu.append(li);
   }
+
+  return true;
 }

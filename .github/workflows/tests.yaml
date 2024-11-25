@@ -5,21 +5,59 @@ on:
       - main
   pull_request:
 
+env:
+  FORCE_COLOR: true
+  NODE: 20
+  PYTHON: 3.13
+
+permissions:
+  contents: read
+
 jobs:
-  tests:
+  syntax-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-            node-version: '18'
-      - name: Cache dependencies
-        uses: actions/cache@v4
+          node-version: "${{ env.NODE }}"
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - uses: actions/setup-python@v5
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm install
-      - run: npm run js-test
+          python-version: "${{ env.PYTHON }}"
+          cache: pip
+      - name: Install pip dependencies
+        run: pip install .[dev]
+      - name: Run make lint
+        run: make lint
+
+  python-sphinx:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sphinx: ["7.3", "7.4", "8.0", "8.1"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "${{ env.PYTHON }}"
+          cache: pip
+      - name: Install deps
+        run: pip install tox
+      - name: Run unit tests
+        run: tox -e py3.13-sphinx${{ matrix.sphinx }}
+
+  javascript-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "${{ env.NODE }}"
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Run unit tests
+        run: npm run test

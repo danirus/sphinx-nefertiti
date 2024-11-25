@@ -44,6 +44,7 @@ extensions = [
     'myst_parser',
     'sphinx_design',
     'sphinx_copybutton',
+    'sphinx_colorschemed_images',
 ]
 
 myst_enable_extensions = [
@@ -70,6 +71,7 @@ html_theme = "sphinx_nefertiti"
 
 html_style = ["custom.css", "nftt-pygments.min.css"]
 
+figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
     "documentation_font": "Open Sans",
@@ -77,15 +79,17 @@ html_theme_options = {
     "monospace_font": "Ubuntu Mono",
     "monospace_font_size": "1.1rem",
 
-    "style": "orange",
+    "style": "blue",
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 
-    "logo": "img/nefertiti.svg",
+    "logo": "nefertiti.svg",
+    "logo_width": 36,
+    "logo_height": 36,
     "logo_alt": "Nefertiti-for-Sphinx",
 
     "repository_url": "https://github.com/danirus/sphinx-nefertiti",
-    "repository_name": "danirus/sphinx-nefertiti",
+    "repository_name": "sphinx-nefertiti",
 
     "current_version": f"v{release}",
     "versions": [
@@ -93,19 +97,85 @@ html_theme_options = {
         for item in releases
     ],
 
-    "footer_links": ",".join([
-        "Documentation|https://sphinx-nefertiti.readthedocs.com",
-        "Package|https://pypi.com/sphinx-nefertiti",
-        "Repository|https://github.com/danirus/sphinx-nefertiti",
-        "Issues|https://github.com/danirus/sphinx-nefertiti/issues",
-    ]),
+    # "header_links_in_2nd_row": False,
+    "header_links": [
+        {
+            "text" : "Quick Start",
+            "link": "/quick-start.html",
+        },
+        {
+            "text": "Customize",
+            "match": "^/users-guide/customization/*",
+            "dropdown": (
+                {
+                    "text": "Fonts",
+                    "link": "/users-guide/customization/fonts.html"
+                },
+                {
+                    "text": "Colorsets",
+                    "link": "/users-guide/customization/colorsets.html"
+                },
+                {
+                    "text": "Header Links",
+                    "link": "/users-guide/customization/header-links.html"
+                },
+                {
+                    "text": "Footer Links",
+                    "link": "/users-guide/customization/footer-links.html"
+                },
+                {
+                    "text": "Version Dropdown",
+                    "link": "/users-guide/customization/version-dropdown.html"
+                },
+                {
+                    "text": "Git Repository",
+                    "link": "/users-guide/customization/git-repository.html"
+                },
+                {
+                    "text": "Pygments",
+                    "link": "/users-guide/customization/pygments.html"
+                },
+                {
+                    "divider": True
+                },
+                {
+                    "text": "Color-schemed Images",
+                    "link": "https://sphinx-colorschemed-images.readthedocs.io"
+                },
+            )
+        },
+        {
+            "text": "Release Notes",
+            "link": "/release-notes.html",
+        }
+    ],
 
-    "show_colorset_choices": True
+    "footer_links": [
+        {
+            "text": "Documentation",
+            "link": "https://sphinx-nefertiti.readthedocs.com",
+        }, {
+            "text": "Package",
+            "link": "https://pypi.com/sphinx-nefertiti",
+        }, {
+            "text": "Repository",
+            "link": "https://github.com/danirus/sphinx-nefertiti",
+        }, {
+            "text": "Issues",
+            "link": "https://github.com/danirus/sphinx-nefertiti/issues",
+        },
+    ],
+
+    "show_colorset_choices": True,
+    # Return user's to 'blue' after a day since color was picked.
+    "reset_colorset_choice_after_ms": 1000 * 60 * 60 * 24,
 }
+# End of settings specific for sphinx-nefertiti.
+# ---------------------------------------------------------------------
 
-html_static_path = ['_static']
+html_static_path = ['static',]
 
-html_favicon = "_static/img/nefertiti.ico"
+html_favicon = "static/nefertico.ico"
 
 # -- Options for HTMLHelp output ---------------------------------------
 
@@ -127,3 +197,5 @@ man_pages = [
      'Nefertiti for Sphinx - Documentation',
      ['Daniela Rus Morales'], 1)
 ]
+
+csi_add_script_to_html_output = False

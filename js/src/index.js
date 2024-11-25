@@ -1,6 +1,8 @@
+import { BackToTop } from "./backtotop.js";
 import { fixFigureStyle } from "./figures.js";
-import { LuzHandler } from "./lightdark.js";
+import { CSchemeHandler } from "./cschemes.js";
 import { MenuHandler } from "./menu.js";
+import { selectActiveHeaderLink } from "./navbar.js";
 import { updateRepoMetrics } from "./repometrics.js";
 import { TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
@@ -22,8 +24,19 @@ function isSafari() {
   ) && agentHas("Safari") && !agentHas("Chrome") && !agentHas("CriOS");
 }
 
+function runWhenDOMContentLoaded(cb) {
+  if (document.readyState != 'loading') {
+    cb();
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb);
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb();
+    });
+  }
+}
 
-window.addEventListener('DOMContentLoaded', (_) => {
+function loadSphinxNefertiti() {
   // docutils figures that receive specific dimension styling
   // (basically: width or height) apply the styling to the <img> element
   // instead of to the <figure>. That makes the <figcaption> to have
@@ -46,15 +59,21 @@ window.addEventListener('DOMContentLoaded', (_) => {
   resizeAsides(); // Resize just after DOM content is loaded.
 
   // And register the function for every height change of the body.
-  const resize_observer = new ResizeObserver(entries => resizeAsides());
-  resize_observer.observe(document.body);
-  window.addEventListener("resize", resizeAsides);
+  const body_observer = new ResizeObserver(entries => {
+    const header_h = document.querySelector("header")?.offsetHeight;
+    document.body.style.paddingTop = `${header_h + 4}px`;
 
-  // The LuzHandler controls the selection of the 3 possible
+    updateScrollPaddingTop();
+    resizeAsides();
+  });
+  body_observer.observe(document.body);
+  window.addEventListener("resize", [updateScrollPaddingTop, resizeAsides,]);
+
+  // The CSchemeHandler controls the selection of the 3 possible
   // options (light, dark, default) and the switching between
   // them.
-  const luz_handler = new LuzHandler();
-  luz_handler.registerClickEvents();
+  const cscheme_handler = new CSchemeHandler();
+  cscheme_handler.registerClickEvents();
 
   // Feed the versions dropdown element.
   feedVersionsMenu();
@@ -102,7 +121,6 @@ window.addEventListener('DOMContentLoaded', (_) => {
   // with class 'task-list-item-checkbox'.
   const task_list_elems_qs = "input.task-list-item-checkbox";
   const task_list_elems = document.querySelectorAll(task_list_elems_qs);
-  console.log(`Found ${task_list_elems.length} elements to update!`);
   for (const element of task_list_elems) {
     // Add a title to each input element.
     element.setAttribute('title', `Is task done? ${element.checked}`);
@@ -129,11 +147,6 @@ window.addEventListener('DOMContentLoaded', (_) => {
   for (const lst of vchanges_selectors) {
     const [ selector, src_class, tgt_class ] = lst;
     const elems = document.querySelectorAll(selector);
-    if (elems.length > 0) {
-      console.log(`I found ${elems.length} elements of selector ${selector}`);
-    } else {
-      console.log(`I didn't find any ${selector} element.`)
-    }
 
     for (const div of elems) {
       // The 'p' contained in the div might contain just a <span>, or
@@ -145,9 +158,26 @@ window.addEventListener('DOMContentLoaded', (_) => {
       // does not display an empty block below.
 
       if (div.querySelector("p").childNodes.length == 1) {
-        console.log(`Replacing ${selector} selector...`);
         div.classList.replace(src_class, tgt_class);
       }
     }
   }
-});
+
+  const back_to_top = new BackToTop();
+  back_to_top.init();
+
+  // In case there were Header Links (.snftt-hl) add the class
+  // 'active' to the one corresponding to the current URL.
+  selectActiveHeaderLink();
+
+  // Scroll the item from the left sidebar into view:
+  const sidebar_elem = document.querySelector(".nftt-sidebar a.current");
+  if (sidebar_elem) {
+    const parent = sidebar_elem.closest(".toc li");
+    if (parent) {
+      parent.scrollIntoView({behavior: "smooth", block: "end"});
+    }
+  }
+}
+
+runWhenDOMContentLoaded(loadSphinxNefertiti);

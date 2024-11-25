@@ -10,17 +10,19 @@ To further extend Nefertiti for Sphinx, for your personal or professional intere
 Development environment setup
 *****************************
 
-Clone the Git repository, create a Python virtual environment, and install the NodeJS packages:
+Clone the Git repository, create a Python virtual environment, install the Python package and its dependencies, install pre-commit hook scripts, setup NodeJS environment, and install the NodeJS packages:
 
 .. code-block:: shell
 
     git clone git@github.com:danirus/sphinx-nefertiti.git
     cd sphinx-nefertiti
-    python3.11 -m venv venv
+    python3.13 -m venv venv
     source venv/bin/activate
-    pip install -r requirements-dev.txt
+    pip install -e .[dev]
+    pre-commit install
     nvm use --lts
     npm install
+
 
 .. _style-development:
 
@@ -44,7 +46,7 @@ As with Style development, it is recommended to use the ``serve-site`` Makefile 
 
 In the ``js/tests/`` directory there are tests to cover all the funcionality provided by the JavaScript plugin of Nefertiti for Sphinx. When fixing bugs or extending the functionality, please, consider to cover the changes with new or updated tests.
 
-The ``serve-lcov`` Makefile target serves the coverage results after running the JavaScript tests with ``npm run js-test``.
+The ``serve-lcov`` Makefile target serves the coverage results after running the JavaScript tests with ``npm run test``.
 
 .. _python-development:
 
@@ -57,8 +59,7 @@ Be sure to install the package in its own virtual environment, so that you can t
 
 .. code-block:: bash
 
-    pip install -e .
-    pip install -r requirements-docs.txt
+    pip install -e .[dev,docs]
 
 Then, once you are ready to test your Python changes, use the ``build-ext`` Makefile target and the ``serve-docs`` target:
 

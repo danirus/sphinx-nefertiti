@@ -30,7 +30,6 @@
   overflow-x: auto;
 }
 
-/* stylelint-disable-next-line */
 table th p:last-child,
 table td p:last-child {
   margin-bottom: 0;
@@ -98,10 +97,7 @@ table.docutils {
 
 // Separate headings excluding the first.
 .nftt-content {
-  h1 {
-    margin-bottom: $headings-margin-bottom * 4;
-  }
-
+  h1,
   h2,
   h3,
   h4,
