@@ -166,7 +166,7 @@ html_theme_options = {
         },
     ],
 
-    "show_colorset_choices": True,
+    "show_colorset_choices": False,
     # Return user's to 'blue' after a day since color was picked.
     "reset_colorset_choice_after_ms": 1000 * 60 * 60 * 24,
 }
