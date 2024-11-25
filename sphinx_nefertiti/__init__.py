@@ -77,9 +77,17 @@ def update_context(app, pagename, templatename, context, doctree):
     context["all_colorsets"] = colorsets.all_colorsets
 
 
+def build_finished(app, exc):
+    print(f"Files in {app.builder.outdir}")  # noqa: T201
+    static_dir = Path(app.builder.outdir) / "_static"
+    for item in static_dir.iterdir():
+        print(f"\t{item}")  # noqa: T201
+
+
 def setup(app):
     app.connect("builder-inited", initialize_theme)
     app.connect("html-page-context", update_context)
+    app.connect("build-finished", build_finished)
 
     if hasattr(app, "add_html_theme"):
         theme_path = str(Path(__file__).parent)
