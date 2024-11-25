@@ -11,9 +11,9 @@ The following features can be customized:
     :maxdepth: 1
 
     fonts
-    color-sets
-    pygments
-    git-repository
-    version-dropdown
+    colorsets
     header-links
     footer-links
+    version-dropdown
+    git-repository
+    pygments

@@ -1,3 +1,0 @@
-# A blog with ABlog
-
-Blah blah blah...

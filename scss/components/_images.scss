@@ -50,6 +50,12 @@ figure {
     p {
       text-align: center;
     }
+
+    img {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   &.align-left {

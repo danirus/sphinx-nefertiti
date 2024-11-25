@@ -179,6 +179,15 @@
   overflow-y: auto;
 }
 
+.nftt-long-header-links-margins {
+  margin-top: 4px;
+  margin-bottom: -6px;
+
+  .dropdown-menu.show {
+    margin-top: -2px;
+  }
+}
+
 .nftt-header-links-large {
   @include media-breakpoint-up(xl) {
     display: flex;

@@ -35,8 +35,8 @@ build-ext:  ## Build Sphinx extension.
 	cp site/js/*.min.js.map           		  	sphinx_nefertiti/static/
 	cp site/css/sphinx-nefertiti*.min.css     	sphinx_nefertiti/colorsets/
 	cp site/css/sphinx-nefertiti*.min.css.map 	sphinx_nefertiti/colorsets/
-	cp site/css/nftt-pygments.min.css 			docs/source/_static
-	cp site/css/nftt-pygments.min.css.map		docs/source/_static
+	cp site/css/nftt-pygments.min.css 			docs/source/static
+	cp site/css/nftt-pygments.min.css.map		docs/source/static
 	python -m build
 
 build-docs:  ## Create sphinx-nefertiti documentation.

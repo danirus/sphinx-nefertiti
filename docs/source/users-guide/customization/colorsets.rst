@@ -1,16 +1,16 @@
-.. _color-sets:
+.. _colorsets:
 
-Color sets
-##########
+Colorsets
+#########
 
-Nefertiti uses the default color palette provided by Bootstrap_ to implement different color sets. You can select any of these color sets using the ``style`` setting.
+Nefertiti uses the default color palette provided by Bootstrap_ to implement different colorsets. You can select any of these colorsets using the ``style`` setting.
 
-If you need specific colors you can customize them by overriding CSS variables in your own ``custom.css`` file or extending Nefertiti with your own color set.
+If you need specific colors you can customize them by overriding CSS variables in your own ``custom.css`` file or extending Nefertiti with your own colorset.
 
-Color set palette
-*****************
+Colorset palette
+****************
 
-Based on the Bootstrap palette Nefertiti for Sphinx offers the following color set choices:
+Based on the Bootstrap palette Nefertiti for Sphinx offers the following colorsets:
 
 .. grid:: 1 2 3 3
     :class-container: py-2
@@ -76,18 +76,29 @@ Based on the Bootstrap palette Nefertiti for Sphinx offers the following color s
 
         #0dcaf0
 
-Test the different color sets using the palette dropdown in the header. The colors listed in the dropdown represent the available color sets.
-
-The ``style`` setting
-*********************
-
-To customize the color set in your project add an entry ``style`` to the ``html_theme_options`` setting of your ``conf.py`` file and pass any of the color sets given above. When ``style`` is not given the color set applied is **cyan**:
+Test the different colorsets using the palette dropdown in the header. You can also add the colorset selection widget to your project by declaring ``show_colorset_choices`` inside the ``html_theme_options`` setting of your ``conf.py``:
 
 .. code-block:: python
 
     html_theme_options = {
         # ... other options ...
-        "style": "pink"
+        "show_colorset_choices": True,
+
+        # Reset the user selected choice after milliseconds.
+        # "reset_colorset_choice_after_ms": 0,
+    }
+
+
+The ``style`` setting
+*********************
+
+To customize the colorset in your project add an entry ``style`` to the ``html_theme_options`` setting of your ``conf.py`` file and pass any of the colorsets given above. When ``style`` is not given the colorset applied is **cyan**:
+
+.. code-block:: python
+
+    html_theme_options = {
+        # ... other options ...
+        "style": "pink",
     }
 
 Save the changes and rebuild the site:
@@ -103,22 +114,20 @@ Visit http://localhost:8000 to take a look at the changes.
 Custom CSS file
 ***************
 
-To apply custom style changes on top of Nefertiti you can create your own stylesheet and pass it in Sphinx' ``html_style`` setting.
+To apply custom style changes on top of Nefertiti create your own stylesheet, say ``custom.css``, and add it to the ``html_style`` setting. For example, if you wanted to use the colorset **green** for your site but changing the color of the header you would do the following:
 
-For example, if you wanted to use the color set **green** but using different colors in the header you would do the following:
+#. Create a new stylesheet, i.e: ``custom.css``, inside your source ``static`` directory with the style changes for the header.
+#. Update your ``conf.py`` file:
 
-#. Create a new stylesheet, say a new ``custom.css`` file, inside your source ``_static`` directory with the style changes you want to apply to the header, and
-#. Update your ``conf.py`` file to change two entries:
-
-   + Set your ``html_style`` to ``["custom.css"]`` at module scope, to tell Sphinx to load the new stylesheet when building the site.
+   + Set ``html_style`` to ``["custom.css"]`` (that tells Sphinx to load ``custom.css``).
    + Set ``"style"`` to ``"green"`` inside ``html_theme_options``.
 
-The next two sections implement the changes.
+The next two sections detail the steps.
 
 1. Create the ``custom.css`` stylesheet
 =======================================
 
-Create a ``custom.css`` file in the ``_static`` directory next to your source documentation files. Add the following content to give the header a darker green tone with lighter green buttons, as in the Django_ website:
+Create a ``custom.css`` file in the ``static`` directory next to your source documentation files. Add the following content to give the header a darker green tone with lighter green buttons, as in the Django_ website:
 
 .. code-block:: css
 
@@ -158,6 +167,12 @@ Next, edit your ``conf.py`` file and modify the following entries:
     # in html_static_path.
     html_style = ["custom.css"]
 
+    # Add any paths that contain custom static files (such as style sheets)
+    # here, relative to this directory. They are copied after the builtin
+    # static files, so a file named "default.css" will overwrite the builtin
+    # "default.css".
+    html_static_path = ["static"]  # Sphinx will find here your custom.css.
+
 Save the changes and rebuild your docs:
 
 .. code-block:: shell
@@ -166,33 +181,32 @@ Save the changes and rebuild your docs:
     make html
     python -m http.server -d build/html
 
-Now your Sphinx project should present a dark green navigation bar with a light green search button. The site colors resemble those of the Django website, however the colors of the links are different, and the footer too.
+Now your Sphinx project should present a dark green navigation bar with a light green search button.
 
-To make more style changes it is worth considering to create a new color set.
 
-Create a new color set
-**********************
+Create a new colorset
+*********************
 
-Creating a new color set allows for fine-grained theme changes and higher level of control.
+Creating a new colorset allows for fine-grained theme changes and higher level of control.
 
-To create a new color set clone the Nefertiti for Sphinx code repository, as explained in :ref:`dev-env-setup`. Also read the :ref:`style-development` section, the :ref:`python-development` section, and do the ``pip install`` commands.
+To create a new colorset clone the Nefertiti for Sphinx code repository, as explained in :ref:`dev-env-setup`. Also read the :ref:`style-development` section, the :ref:`python-development` section, and do the ``pip install`` commands.
 
-A color set is basically a complete new theme created out of the content given in the file named after the color set: ``scss/sphinx-nefertiti-<colorset>.scss``.
+A colorset is basically a complete new theme created out of the content given in the file named after the colorset: ``scss/sphinx-nefertiti-<colorset>.scss``.
 
-To develop a new color set we need to go through the following steps:
+To develop a new colorset go through the following steps:
 
 #. Create ``.scss`` files.
-#. Build the color set.
-#. Test the color set.
-#. Add the color set to the Sphinx theme.
-#. Use the color set.
+#. Build the colorset.
+#. Test the colorset.
+#. Add the colorset to the Sphinx theme.
+#. Use the colorset.
 
-As an example the following sections show how to create a new color set called **django** that tries to resemble the colors used in the Django_ website.
+As an example the following sections show how to create a new colorset called **django** that tries to resemble the colors used in the Django_ website.
 
 1. Create ``.scss`` files
 =========================
 
-Once completed the :ref:`dev-env-setup`, cd into the ``scss/`` directory of the Nefertiti for Sphinx code repository and create 3 new files. We will copy two of them from the **green** color set:
+Once completed the :ref:`dev-env-setup`, cd into the ``scss/`` directory of the Nefertiti for Sphinx code repository and create 3 new files. We will copy two of them from the **green** colorset:
 
 .. code-block:: shell
 
@@ -270,9 +284,9 @@ Finally, add the following content to ``scss/_theme-django.scss``:
       }
     }
 
-If you had any other changes to apply specifically to the new ``django`` color set, you would apply them here, in ``scss/_theme-django.scss``, as this file is included only when building ``sphinx-nefertiti-django.css``.
+If you had any other changes to apply specifically to the new ``django`` colorset, you would apply them here, in ``scss/_theme-django.scss``, as this file is included only when building ``sphinx-nefertiti-django.css``.
 
-2. Build the color set
+2. Build the colorset
 ======================
 
 The ``package.json`` files offers two scripts to build style files:
@@ -285,10 +299,10 @@ The ``package.json`` files offers two scripts to build style files:
     npm run css-compile
 
 
-3. Test the color set
+3. Test the colorset
 =====================
 
-Use the ``site/index.html`` file to test the new color set. This file helps on testing new styles and new JavaScript functionality developed before it is integrated with the Sphinx theme.
+Use the ``site/index.html`` file to test the new colorset. This file helps on testing new styles and new JavaScript functionality developed before it is integrated with the Sphinx theme.
 
 By default ``site/index.html`` loads the ``css/sphinx-nefertiti.css`` file. Edit ``site/index.html`` to load instead ``css/sphinx-nefertiti-django.css``, in line 8:
 
@@ -302,21 +316,21 @@ Now use the ``serve-site`` Makefile target to serve the content of the ``site/``
 
     make serve-site
 
-And finally visit http://localhost:8192 to see the new color set in action.
+And finally visit http://localhost:8192 to see the new colorset in action.
 
 If you want to continue changing your ``.scss`` files, let the ``npm run watch-css`` rebuild your style files and reload the content at http://localhost:8192 to see the changes.
 
-4. Add the color set to the Sphinx theme
+4. Add the colorset to the Sphinx theme
 ========================================
 
-Once the color set is finished it has to be minified and copied inside the ``sphinx_nefertiti/colorsets/`` directory. The ``build-ext`` Makefile target helps with that.
+Once the colorset is finished it has to be minified and copied inside the ``sphinx_nefertiti/colorsets/`` directory. The ``build-ext`` Makefile target helps with that.
 
-Before the color set can be used in the ``conf.py`` file of our Sphinx project, the name has to be added to the variable ``all_colorsets`` inside the ``sphinx_nefertiti/colorsets.py`` module:
+Before the colorset can be used in the ``conf.py`` file the name has to be added to the variable ``all_colorsets`` inside the ``sphinx_nefertiti/colorsets.py`` module (update the tests to get extra points):
 
 .. code-block: python
 
     all_colorsets = [
-        "django",  // Add the new color set.
+        "django",  // Add the new colorset.
         "blue",
         "indigo",
         "purple",
@@ -335,18 +349,26 @@ Then run ``build-ext`` to minify and copy the frontend assets to the Sphinx them
 
     make build-ext
 
-5. Use the color set
+5. Use the colorset
 ====================
 
-The last step consist of using the new color set with a Sphinx project. If you have run the ``pip install`` commands of the :ref:`python-development` section, you can use your new color set with the documentation of Nefertiti for Sphinx:
+The last step consist of using the new colorset with a Sphinx project. If you have run the ``pip install`` commands of the :ref:`python-development` section, you can use your new colorset with the documentation of Nefertiti for Sphinx:
 
 .. code-block:: shell
 
     make serve-docs
 
-It will build the documentation and serve it in http://localhost:8194. The **django** color set has to be displayed in the dropdown at the top navigation bar.
+It will build the documentation and serve it in http://localhost:8194. The **django** colorset has to be displayed in the dropdown at the top navigation bar.
 
-If you rather want to use the new color set in your own Sphinx project, edit the ``conf.py`` file, and add the ``style`` attribute to the ``html_theme_options``:
+To use the new colorset in your own Sphinx project, install the ``dist/`` file you prefer (either the ``.whl`` or the ``tar.gz`` will work) in the Python environment of your Sphinx project (replace ``x.y.z`` in the below command with the version in your filename):
+
+.. code-block:: python
+
+    cd my-sphinx-project
+    source venv/bin/activate
+    pip install ../sphinx-nefertiti/dist/sphinx_nefertiti-x.y.z.tar.gz
+
+Then, as usual, edit the ``conf.py`` file of your Sphinx project, and add the ``style`` attribute to the ``html_theme_options``:
 
 .. code-block:: python
 

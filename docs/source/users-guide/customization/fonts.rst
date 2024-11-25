@@ -3,39 +3,41 @@
 Fonts
 #####
 
-This document explains how you can customize your Sphinx project to use the fonts bundled with Nefertiti for Sphinx. It also explains how to add other fonts to your project.
+Nefertiti for Sphinx comes bundled with 14 fonts and allows you to easily add more if your prefer so. This document explains how you can do it. First, a note about EU's GDPR.
 
 About EU's GDPR
 ***************
 
-Nefertiti for Sphinx does not redirect HTTP font requests to 3rd party providers. Instead, it comes with a set of fonts licensed for free distribution.
+Nefertiti for Sphinx does not redirect HTTP font requests to 3rd party providers. Instead, it serves fonts directly from your site.
 
-When serving EU based users, so long as you get the user's consent, you can still redirect font requests to a 3rd party font service provider. But Nefertiti for Sphinx does not provide the consent modal window, nor the logic in the case the user does not consent.
+An Sphinx project is allowed, when attending EU based users, and so long as users' consent is given, to redirect font requests to a 3rd party font service provider. Nefertiti for Sphinx does not provide the consent modal window, nor the logic in the case the user does not consent.
 
-You can instead, as explained below, use one of the fonts distributed with Nefertiti for Sphinx, or otherwise add your preferred fonts. The section :ref:`adding-fonts` below explains the details.
+However, you can instead use one of the fonts distributed with Nefertiti for Sphinx or otherwise add your preferred fonts. The section :ref:`adding-fonts` below explains the details.
 
 Font settings
 *************
 
-There are 5 font face customization settings that can be added to ``html_theme_options``, in your ``conf.py``:
+There can be up to 5 different fonts in use in a web page produced using Nefertiti for Sphinx. These 5 different fonts can be customized in the ``html_theme_options`` setting of your ``conf.py``.
 
-* **sans_serif_font**: It is the default global site font used for everything except code blocks and inline code samples. It defaults to `Nunito`_.
-* **monospace_font**: It is the default monospace font used for code blocks and inline code samples. It defaults to `Red Hat Mono`_.
-* **project_name_font**: It is the font used to render the project's name in the header and the footer. When not given it default to the **sans_serif_font** option.
-* **documentation_font**: It is the font used to render the actual documentation contained in reStructuredText or Markdown files. It defaults to the **sans_serif_font**.
-* **doc_headers_font**: It is the font used to render documentation headers. When not given it defaults to the **Georgia** web safe font.
+The font options are:
+
+* ``sans_serif_font``: Default font for everything except code. Defaults to `Nunito`_.
+* ``monospace_font``: Default monospace font, for code. Defaults to `Red Hat Mono`_.
+* ``project_name_font``: For project's name in header and footer. Defaults to ``sans_serif_font``.
+* ``documentation_font``: Renders the body. Defaults to ``sans_serif_font``.
+* ``doc_headers_font``: Renders body's headers. Defaults to ``Georgia``, the web safe font.
 
 Additionally there are two font size settings:
 
-* **documentation_font_size**: Specifies the default font size for the documentation contained in reStructuredText or Markdown files. It defaults to ``1.0rem``, which corresponds to ``16px``.
-* **monospace_font_size**: Specifies the default font size to use with code blocks and inline code samples. It defaults to ``1.0rem``, corresponding to ``16px``.
+* ``documentation_font_size``: Font size for the body. Defaults to ``1.0rem``.
+* ``monospace_font_size``: Font size for code. Defaults to ``1.0rem``.
 
-You can ignore these settings and let Nefertiti for Sphinx use the default font settings, or you can customize them.
+The size ``1.0rem`` in Nefertiti for Sphinx is equivalent to ``16px``. You can ignore these settings and let Nefertiti for Sphinx use the defaults, or you can customize them.
 
 Fonts bundled with Nefertiti
 ****************************
 
-Nefertiti for Sphinx is bundled with a group of fonts with licenses open for free distribution:
+The list of fonts licensed for free distribution that are bundled with Nefertiti for Sphinx are:
 
 * Assistant_
 * Exo_
@@ -55,32 +57,32 @@ Nefertiti for Sphinx is bundled with a group of fonts with licenses open for fre
 Web safe fonts
 **************
 
-You can customize the font settings to use Web safe fonts. Unlike the previous fonts, web safe fonts are provided directly by the web browser, and therefore do not require to load additional resources to be rendered, making your Sphinx project lighter.
+It is possible to customize the font settings to use Web safe fonts. Unlike the previous list, web safe fonts are available directly in the web browser, and do not require loading additional resources making your site to load faster.
 
-Here is a list of font categories and their web safe fonts provided by all major web browsers:
+A list of web safe fonts provided by all major web browsers:
 
-* **Sans Serif**: Helvetica, Arial, Arial Black, Verdana, Tahoma, Trebuchet MS, Gill Sans
-* **Serif**: Times New Roman, Georgia, Palatino, Baskerville
-* **Monospace**: Andale Mono, Courier, Lucida, Monaco
-* **Calligraphy**: Bradley Hand
-* **Cursive**: Brush Script MT, Comic Sans MS
-* **Fantasy**: Impact, Luminari
+* Helvetica, Arial, Arial Black, Verdana, Tahoma, Trebuchet MS, Gill Sans (category: Sans Serif).
+* Times New Roman, Georgia, Palatino, Baskerville (category: Serif).
+* Andale Mono, Courier, Lucida, Monaco (category: Monospace).
+* Bradley Hand (category: Calligraphy).
+* Brush Script MT, Comic Sans MS (category: Cursive).
+* Impact, Luminari (category: Fantasy).
 
 Example configuration
 *********************
 
-Customize the font settings by editing your ``conf.py`` module and updating the ``html_theme_options`` entry. These are the values used by the Nefertiti for Sphinx documentation:
+To customize font settings, edit your ``conf.py`` module and update the ``html_theme_options``. These are the values used by the Nefertiti for Sphinx documentation:
 
 .. code-block:: python
 
     html_theme_options = {
-        # "sans_serif_font": "Nunito",  # Default value, no need to provide.
+        # "sans_serif_font": "Nunito",  # Default value.
         "documentation_font": "Open Sans",
         "monospace_font": "Ubuntu Mono",
         "monospace_font_size": "1.1rem",
-        # "project_name_font": "Nunito",  # Default value, no need to provide.
-        # "documentation_font_size": "1.0rem",  # Default value, no need to provide.
-        # "doc_headers_font": "Georgia",  # Default value, no need to provide.
+        # "project_name_font": "Nunito",  # Default value.
+        # "documentation_font_size": "1.0rem",  # Default value.
+        # "doc_headers_font": "Georgia",  # Default value.
     }
 
 Try the rest of the settings to find a combination of fonts that suits you. Or keep reading to find out how to add your preferred fonts.
@@ -90,7 +92,7 @@ Try the rest of the settings to find a combination of fonts that suits you. Or k
 Adding fonts
 ************
 
-Using a font not distributed with Nefertiti for Sphinx requires to:
+Using a font not distributed with Nefertiti for Sphinx is as easy as pie:
 
 #. Create a directory to keep the font files.
 #. Get the font family files.
@@ -98,12 +100,14 @@ Using a font not distributed with Nefertiti for Sphinx requires to:
 #. Modify ``conf.py`` to make use of the font.
 #. Rebuild the project.
 
-The following 5 sections explain in detail the steps to make the font `Noto Sans`_ available to your Sphinx project using Nefertiti for Sphinx.
+The following sections explains it step by step. The goal is to make the font `Noto Sans`_ available to your Sphinx project.
 
 1. Create font directory
 ========================
 
-In the static source directory of your project (either the ``static`` directory inside your source directory or the directory passed in the setting ``html_static_path``, in your ``conf.py``), create a directory called ``fonts``, and inside it create another one called ``noto-sans``. If your static source:
+In the ``static/`` source directory of your project, create the directory ``fonts``, and inside it create another one called ``noto-sans``. The ``static/`` directory has to be listed in ``html_static_path``, in your ``conf.py``. If you have it already, or it has another name, adapt the following command to it.
+
+Cd into your source directory (where the ``index.md`` or ``index.rst`` are) and create the directories:
 
 .. code-block:: shell
 
@@ -111,8 +115,8 @@ In the static source directory of your project (either the ``static`` directory 
     mkdir -p static/fonts/noto-sans
 
 
-2. Get font family
-==================
+2. Get the font family
+======================
 
 `Noto Sans`_ has an OFL, Open Font License, which allows you to use the font with your project. Follow the previous link to visit Google Fonts and click on the "Download family" button.
 
@@ -123,10 +127,10 @@ The Noto Sans font family has 18 font files of which Nefertiti will use only 2:
 
 Copy these two files inside the ``static/fonts/noto-sans`` directory.
 
-3. Write ``font-face``
-======================
+3. Write the ``font-face`` declaration
+======================================
 
-Create a file ``stylesheet.css`` inside ``static/fonts/noto-sans``, add the ``font-face`` declaration, and save it:
+Create a file ``stylesheet.css`` inside ``static/fonts/noto-sans``, add the following ``font-face`` declaration, and save it:
 
 .. code-block:: css
 
@@ -150,7 +154,7 @@ Create a file ``stylesheet.css`` inside ``static/fonts/noto-sans``, add the ``fo
 4. Update ``conf.py``
 =====================
 
-Edit your ``conf.py`` file and modify the ``html_theme_options`` setting to add the Noto Sans font as the ``documentation_font``:
+Now edit your ``conf.py`` file, modify the ``html_theme_options`` setting to add ``Noto Sans`` as the value for the option ``documentation_font``:
 
 .. code-block:: python
 
@@ -159,7 +163,9 @@ Edit your ``conf.py`` file and modify the ``html_theme_options`` setting to add 
         documentation_font: "Noto Sans",
     }
 
-Be sure that your ``static`` directory is listed in the setting ``html_static_path``, otherwise Sphinx will fail to copy the font:
+Also, be sure that your ``static`` directory is listed in the ``html_static_path`` setting, otherwise Sphinx will fail to copy the font to the build directory:
+
+.. code-block:: python
 
     html_static_path = ['static']
 
@@ -167,21 +173,12 @@ Be sure that your ``static`` directory is listed in the setting ``html_static_pa
 5. Build the project
 ====================
 
-Once the previous steps have been completed the project can be built. The font files will be copied to the ``static`` directory ready to be served:
+Once the previous steps have been completed the project can be built. The font files will be copied to the build directory. Serve your site to see that the body of your pages are now rendered with **Noto Sans**:
 
 .. code-block:: shell
 
-    $ make clean
-    $ make html
-    $ python -m http.server -d build/html
-
-Once the project has been built, take a look at the generated ``static`` directory, it can be in:
-
-* ``build/html/_static``, or
-* ``_build/html/_static``, or
-* ``_build/html/static``, or similar.
-
-An ``ls`` command should show the ``fonts`` directory containing the ``noto-sans`` directory and the files you created inside.
+    $ make clean; make html
+    $ python -m http.server -d _build/html
 
 Visit http://localhost:8000 to take a look at the changes.
 

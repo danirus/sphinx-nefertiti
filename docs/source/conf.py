@@ -31,15 +31,9 @@ release = ".".join(_ver_list[:3])
 
 release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/en/{release}/"
 
-# releases = [
-#     release,
-#     '0.4.0',
-#     '0.3.4',
-#     '0.3.3',
-#     '0.3.2',
-#     '0.2.4',
-#     '0.1.3',
-# ]
+releases = [
+    release,
+]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -85,7 +79,7 @@ html_theme_options = {
     "monospace_font": "Ubuntu Mono",
     "monospace_font_size": "1.1rem",
 
-    "style": "orange",
+    "style": "blue",
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 
@@ -97,11 +91,11 @@ html_theme_options = {
     "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     "repository_name": "sphinx-nefertiti",
 
-    # "current_version": f"v{release}",
-    # "versions": [
-    #     ("v%s" % item, release_pattern_url.format(release=item))
-    #     for item in releases
-    # ],
+    "current_version": f"v{release}",
+    "versions": [
+        ("v%s" % item, release_pattern_url.format(release=item))
+        for item in releases
+    ],
 
     # "header_links_in_2nd_row": False,
     "header_links": [
@@ -110,27 +104,49 @@ html_theme_options = {
             "link": "/quick-start.html",
         },
         {
-            "text": "Examples",
-            "link": "/examples/index.html",
-            "match": "^/examples/*",
+            "text": "Customize",
+            "match": "^/users-guide/customization/*",
             "dropdown": (
                 {
-                    "text": "Hosting in ReadTheDocs",
-                    "link": "/examples/hosting-in-readthedocs.html"
+                    "text": "Fonts",
+                    "link": "/users-guide/customization/fonts.html"
                 },
                 {
-                    "text": "Self-hosting multiple versions",
-                    "link": "/examples/self-hosting-multiple-versions.html"
+                    "text": "Colorsets",
+                    "link": "/users-guide/customization/colorsets.html"
                 },
                 {
-                    "text": "A blog with ABlog",
-                    "link": "/examples/a-blog-with-ablog.html"
-                }
+                    "text": "Header Links",
+                    "link": "/users-guide/customization/header-links.html"
+                },
+                {
+                    "text": "Footer Links",
+                    "link": "/users-guide/customization/footer-links.html"
+                },
+                {
+                    "text": "Version Dropdown",
+                    "link": "/users-guide/customization/version-dropdown.html"
+                },
+                {
+                    "text": "Git Repository",
+                    "link": "/users-guide/customization/git-repository.html"
+                },
+                {
+                    "text": "Pygments",
+                    "link": "/users-guide/customization/pygments.html"
+                },
+                {
+                    "divider": True
+                },
+                {
+                    "text": "Color-schemed Images",
+                    "link": "https://sphinx-colorschemed-images.readthedocs.io"
+                },
             )
         },
         {
-            "text": "Change Log",
-            "link": "/changelog.html",
+            "text": "Release Notes",
+            "link": "/release-notes.html",
         }
     ],
 
@@ -151,13 +167,15 @@ html_theme_options = {
     ],
 
     "show_colorset_choices": True,
+    # Return user's to 'blue' after a day since color was picked.
+    "reset_colorset_choice_after_ms": 1000 * 60 * 60 * 24,
 }
 # End of settings specific for sphinx-nefertiti.
 # ---------------------------------------------------------------------
 
-html_static_path = ['_static',]
+html_static_path = ['static',]
 
-html_favicon = "_static/nefertico.ico"
+html_favicon = "static/nefertico.ico"
 
 # -- Options for HTMLHelp output ---------------------------------------
 

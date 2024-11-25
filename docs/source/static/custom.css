@@ -1,0 +1,13 @@
+.project-logo {
+  margin-right: 1rem;
+  background: white;
+  border: 0;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+html.dark {
+  --sd-color-tabs-overline: rgba(173, 181, 189, 0.175);
+  --sd-color-tabs-underline: rgba(173, 181, 189, 0.175);
+}

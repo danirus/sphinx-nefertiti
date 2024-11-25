@@ -24,8 +24,19 @@ function isSafari() {
   ) && agentHas("Safari") && !agentHas("Chrome") && !agentHas("CriOS");
 }
 
+function runWhenDOMContentLoaded(cb) {
+  if (document.readyState != 'loading') {
+    cb();
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb);
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb();
+    });
+  }
+}
 
-window.addEventListener('DOMContentLoaded', (_) => {
+function loadSphinxNefertiti() {
   // docutils figures that receive specific dimension styling
   // (basically: width or height) apply the styling to the <img> element
   // instead of to the <figure>. That makes the <figcaption> to have
@@ -167,4 +178,6 @@ window.addEventListener('DOMContentLoaded', (_) => {
       parent.scrollIntoView({behavior: "smooth", block: "end"});
     }
   }
-});
+}
+
+runWhenDOMContentLoaded(loadSphinxNefertiti);

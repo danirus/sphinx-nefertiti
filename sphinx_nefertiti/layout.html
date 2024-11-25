@@ -32,6 +32,7 @@
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
+    {% if show_colorset_choices %}<meta name="colorset-reset" content="{{ theme_reset_colorset_choice_after_ms }}" />{% endif %}
     <meta name="docsearch:name" content="{{ project|striptags|e }}" />
     <meta name="docsearch:package_type" content="{{ package_type|striptags|e }}" />
     <meta name="docsearch:release" content="{{ release|striptags|e }}" />
@@ -219,7 +220,7 @@
         </div>
       </nav>
       {% if header_links and theme_header_links_in_2nd_row == true %}
-        <nav class="container-xxl nftt-gutter flex-no-wrap">
+        <nav class="container-xxl nftt-gutter flex-no-wrap nftt-long-header-links-margins">
           <ul class="nftt-header-links-large navbar-nav">
           {% with %}
             {% set link_list=header_links %}

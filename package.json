@@ -71,13 +71,14 @@
     "rollup": "^3.17.2",
     "rollup-plugin-istanbul": "^4.0.0",
     "sass": "^1.56.1",
-    "sphinx-colorschemed-images": "^0.1.2",
+    "sphinx-colorschemed-images": "^0.2.0",
     "stylelint": "^14.16.1",
     "stylelint-config-twbs-bootstrap": "^7.0.0",
     "terser": "^5.18.0"
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
-    "bootstrap": "5.3.3"
+    "bootstrap": "5.3.3",
+    "package.json": "^2.0.1"
   }
 }

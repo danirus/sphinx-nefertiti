@@ -25,7 +25,7 @@ Or like this in Markdown:
 
 Being ``<language>`` the name of the programming language.
 
-The list of programming languages supported by depends on the lexers provided by Pygments. Get the list using ``pygmentize -L lexers`` in the command line.
+The list of programming languages supported depends on the lexers provided by Pygments. Get the list using ``pygmentize -L lexers`` in the command line.
 
 Available styles
 ================

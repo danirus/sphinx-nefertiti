@@ -3,7 +3,8 @@ exclude: |
   (?x)(
     ^dist|
     ^sphinx_nefertiti/colorsets|
-    ^sphinx_nefertiti/static
+    ^sphinx_nefertiti/static|
+    ^docs/source/static/
   )
 
 repos:
