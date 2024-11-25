@@ -96,8 +96,8 @@ body {
     padding-left: .25rem;
     margin-left: -.25rem;
     overflow-y: scroll;
-    border-right: 1px solid var(--#{$prefix}border-color);
     scroll-snap-type: y mandatory !important;
+    border-right: 1px solid var(--#{$prefix}border-color);
 
     @include scrollbars();
 

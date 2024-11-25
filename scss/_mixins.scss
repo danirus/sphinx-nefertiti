@@ -5,8 +5,8 @@
   }
 
   &::-webkit-scrollbar {
-    scrollbar-gutter: auto;
     width: 4px;
+    scrollbar-gutter: auto;
   }
 
   &:hover::-webkit-scrollbar-thumb {
