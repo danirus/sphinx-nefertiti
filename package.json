@@ -1,6 +1,6 @@
 {
   "name": "sphinx-nefertiti",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": true,
   "description": "Nefertiti is a theme for the Sphinx Documentation Generator.",
   "engines": {
@@ -70,7 +70,7 @@
     "rollup": "^4.24.4",
     "rollup-plugin-istanbul": "^5.0.0",
     "sass": "1.78.0",
-    "sphinx-colorschemed-images": "^0.2.0",
+    "sphinx-colorschemed-images": "^0.2.2",
     "stylelint": "^16.10.0",
     "stylelint-config-twbs-bootstrap": "^15.1.0",
     "terser": "^5.36.0"
