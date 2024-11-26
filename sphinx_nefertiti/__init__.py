@@ -4,15 +4,11 @@ import json
 import shutil
 from pathlib import Path
 
-from sphinx.util import logging
-
 from sphinx_nefertiti import colorsets, docsver, fonts, links, pygments
 
-__version__ = "0.5.0"
+__version__ = "0.5.1"
 
 pages_wo_index = ["genindex", "search"]
-
-logger = logging.getLogger(__name__)
 
 
 def get_html_theme_path():
@@ -80,17 +76,9 @@ def update_context(app, pagename, templatename, context, doctree):
     context["all_colorsets"] = colorsets.all_colorsets
 
 
-def build_finished(app, exc):
-    logger.info(f"Files in {app.builder.outdir}")
-    static_dir = Path(app.builder.outdir) / "_static"
-    for item in static_dir.iterdir():
-        logger.info(f" - {item}")
-
-
 def setup(app):
     app.connect("builder-inited", initialize_theme)
     app.connect("html-page-context", update_context)
-    app.connect("build-finished", build_finished)
 
     if hasattr(app, "add_html_theme"):
         theme_path = str(Path(__file__).parent)

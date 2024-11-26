@@ -1,6 +1,11 @@
 # Change Log
 
-## [0.5.0] - Unreleased
+## [0.5.1] - Unreleased
+
+- Header and footer links can be references to internal documents or URLs.
+- Fix issue in Nefertiti when building the docs in ReadTheDocs.
+
+## [0.5.0] - 2024-11-25
 
 - Add breadcrumbs.
 - Use smooth scrolling.

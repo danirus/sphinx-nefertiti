@@ -100,6 +100,10 @@ class HeaderLinksProvider:
             self._urls.add(dd_item["link"])
             self._hlid += 1
             dd_item["hlid"] = self._hlid
+            if "://" in dd_item["link"]:
+                dd_item["resource"] = True
+            else:
+                dd_item["resource"] = False
         self._links.append(dropdown_elem)
 
     def _validate(self):
@@ -144,6 +148,10 @@ class HeaderLinksProvider:
             self._urls.add(item["link"])
             self._hlid += 1
             item["hlid"] = self._hlid
+            if "://" in item["link"]:
+                item["resource"] = True
+            else:
+                item["resource"] = False
             self._links.append(item)
 
     def __iter__(self):
@@ -202,6 +210,10 @@ class FooterLinksProvider:
                 )
 
             self._urls.add(item["link"])
+            if "://" in item["link"]:
+                item["resource"] = True
+            else:
+                item["resource"] = False
             self._links.append(item)
 
     def __iter__(self):

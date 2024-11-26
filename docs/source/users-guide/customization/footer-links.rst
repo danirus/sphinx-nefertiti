@@ -36,7 +36,7 @@ The content for the ``footer_links`` is a list of dictionaries with the format:
     [
         {
             'text': '<the label to display>',
-            'link': '<the target URL>',
+            'link': '<toctree-doc-path | URL>',
         },
     ]
 
@@ -54,13 +54,13 @@ A valid footer links could be:
         "footer_links": [
             {
                 'text': 'Home',
-                'link': '/',
+                'link': 'index',
             }, {
                 'text': 'Documentation',
-                'link': '/docs',
+                'link': 'https://myproject.org/docs',
             }, {
                 'text': 'Code',
-                'link': '/code',
+                'link': 'https://your.git.host/code',
             },
         ],
 
