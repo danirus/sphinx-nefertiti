@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.5.2] - 2024-11-26
+
+- Increate contrast for body-bg, pre-border-color, and border-color for the light color scheme, in all colorsets.
+- Fix colorset selector. Data attributes do not match between JS and HTML.
+- Fix light/dark selector. When not 'default', reloading brings back 'default'.
+- Update required version of sphinx-colorschemed-images.
+- Update `colorsets.rst` in the docs.
+
 ## [0.5.1] - 2024-11-26
 
 - Header and footer links can be references to internal documents or URLs.

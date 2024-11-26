@@ -3,9 +3,9 @@ let RESET_AFTER_MS = 0;
 
 class ColorSetHandler {
   constructor() {
-    const def_elem = document.querySelector(".active[data-snftt-color]");
+    const def_elem = document.querySelector(".active[data-snftt-colorset]");
     if (def_elem != undefined) {
-      DEFAULT = def_elem.dataset?.snfttColor || "default";
+      DEFAULT = def_elem.dataset?.snfttColorset || "default";
     }
 
     const meta_prop = document.querySelector('meta[name="colorset-reset"]');
@@ -38,10 +38,10 @@ class ColorSetHandler {
   }
 
   registerClickEvents() {
-    for (const item of document.querySelectorAll('[data-snftt-color]')) {
+    for (const item of document.querySelectorAll('[data-snftt-colorset]')) {
       item.addEventListener('click', (event) => {
         event.preventDefault();
-        const color = item.dataset.snfttColor;
+        const color = item.dataset.snfttColorset;
         localStorage.setItem('snftt-colorset', color);
         this.applyColorset(color);
         this.updateDropdown(color, true);

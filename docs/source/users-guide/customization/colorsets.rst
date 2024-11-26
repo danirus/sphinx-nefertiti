@@ -90,7 +90,7 @@ Test the different colorsets using the palette dropdown in the header. You can a
 
 .. important::
 
-    When adding ``"show_colorset_choices": True`` and building in ReadTheDocs, be sure to add ``sphinx_nefertiti`` as an extension.
+    When adding ``"show_colorset_choices": True`` and building in ReadTheDocs, be sure to add ``sphinx_nefertiti`` as an extension to your ``extensions`` setting in ``conf.py``.
 
 
 The ``style`` setting

@@ -4,10 +4,9 @@ export class CSchemeHandler {
   constructor() {
     this.stored = localStorage.getItem('snftt-color-scheme') || "default";
     this._cshdl = new SphinxColorschemeImageHandler({auto: false});
-
     for (const scheme of ['dark', 'light']) {
       const q = globalThis.matchMedia(`(prefers-color-scheme: ${scheme})`);
-      if (q.matches && ['default', scheme].includes(this.stored)) {
+      if (q.matches && this.stored == 'default') {
         this.apply(scheme);
         this.updateDropdown(this.stored);
         this._cshdl.activate(scheme);
@@ -18,6 +17,11 @@ export class CSchemeHandler {
           this._cshdl.activate(scheme);
         }
       });
+    }
+    if (this.stored != "default") {
+      this.apply(this.stored);
+      this.updateDropdown(this.stored);
+      this._cshdl.activate(this.stored);
     }
   }
 
