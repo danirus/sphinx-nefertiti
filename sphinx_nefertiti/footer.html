@@ -6,7 +6,7 @@
       <ul id="nftt-footer-links" class="list-unstyled list-separator col-lg-12 pb-2 text-center">
         {% for item in footer_links %}
           <li class="d-inline">
-            <a href="{{ item.link }}" class="list-item">{{ item.text }}</a>
+            <a href="{{ pathto(item.link, item.resource) }}" class="list-item">{{ item.text }}</a>
           </li>
         {% endfor %}
       </ul>

@@ -55,6 +55,12 @@ The ``html_theme_options`` setting in Nefertiti for Sphinx can have two entries 
 
 Header links can be either actual links or dropdown elements. Each header link may contain a ``text``, a ``link`` and an optional ``match``:
 
+* ``text``: a string.
+* ``link``: a document path in Sphinx or a URL.
+* ``match``: a string or list or strings, used as JavaScript Regular Expressions.
+
+An example:
+
 .. code-block:: python
 
     html_theme_options = {
@@ -62,8 +68,8 @@ Header links can be either actual links or dropdown elements. Each header link m
         "header_links": [
             {
                 "text": "Examples",
-                "link": "/examples/index.html",
-                "match": "^/examples/*",
+                "link": "examples/index",
+                "match": "/examples/*",
             },
         ],
     }
@@ -97,11 +103,11 @@ The following ``header_links``, added to the ``html_theme_options`` setting of a
     'header_links': [
         {
             'text': 'Home',
-            'link': '/',
+            'link': 'index',
         },
         {
             'text': 'Tutorial',
-            'link': '/tutorial.html',
+            'link': 'tutorial',
         },
         {
             'text': 'Blog',
@@ -151,7 +157,7 @@ You could add an entry **Learn** to your header with a header link like:
         # ... other header links ...
         {
             'text': 'Learn',
-            'link': '/learn/index.html',
+            'link': 'learn/index',
             'match': [
                 '/learn/*',
                 '/python-types.html',
@@ -182,21 +188,21 @@ If you wanted to reproduced the previous ``toctree`` as a dropdown menu in the h
             "dropwdown": (
                 {
                     "text": "Learn",
-                    "link": "/learn/index.html",
+                    "link": "learn/index",
                 }, {
                     "text": "Python Types Intro",
-                    "link": "/python-types.html",
+                    "link": "python-types",
                 }, {
                     "text": "Concurrency and async/await",
-                    "link": "async.html",
+                    "link": "async",
                 }, {
                     "divider": True,
                 }, {
                     "text": "Tutorial - User Guide",
-                    "link": "/tutorial/index.html",
+                    "link": "tutorial/index",
                 }, {
                     "text": "Advanced User Guide",
-                    "link": "/advanced/index.html",
+                    "link": "advanced/index",
                 }
             )
         }
@@ -216,7 +222,7 @@ If you wanted to reproduced the previous ``toctree`` as a dropdown menu in the h
 
 Dropdowns can also include Regular Expressions by adding a ``match`` to the item inside the dropdown.
 
-Following up on the previous example, if the tutorial had more documents, we would be able to paginate following the links at the bottom of the page. However, by doing so, the dropdown "Learn" would lose the active state, as the URL of the documents inside the tutorial would not match the ``"link": "/tutorial/index.html"``:
+Following up on the previous example, if the tutorial had more documents, we would be able to paginate following the links at the bottom of the page. However, by doing so, the dropdown "Learn" would lose the active state, as the URL of the documents inside the tutorial would not match the ``"link": "tutorial/index"``:
 
 .. cs_figure:: img/rhythm-header-learn-dropdown-loses-active.*
     :alt: The dropdown loses the active state.
@@ -237,22 +243,22 @@ Adding the following ``match`` to the Tutorial item inside the dropdown will hav
             "dropwdown": (
                 {
                     "text": "Learn",
-                    "link": "/learn/index.html",
+                    "link": "learn/index",
                 }, {
                     "text": "Python Types Intro",
-                    "link": "/python-types.html",
+                    "link": "python-types",
                 }, {
                     "text": "Concurrency and async/await",
-                    "link": "async.html",
+                    "link": "async",
                 }, {
                     "divider": True,
                 }, {
                     "text": "Tutorial - User Guide",
-                    "link": "/tutorial/index.html",
-                    "match": "^/tutorial/*",
+                    "link": "tutorial/index",
+                    "match": "/tutorial/*",
                 }, {
                     "text": "Advanced User Guide",
-                    "link": "/advanced/index.html",
+                    "link": "advanced/index",
                 }
             )
         }

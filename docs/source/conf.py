@@ -45,6 +45,7 @@ extensions = [
     'sphinx_design',
     'sphinx_copybutton',
     'sphinx_colorschemed_images',
+    'sphinx_nefertiti'
 ]
 
 myst_enable_extensions = [
@@ -101,39 +102,39 @@ html_theme_options = {
     "header_links": [
         {
             "text" : "Quick Start",
-            "link": "/quick-start.html",
+            "link": "quick-start",
         },
         {
             "text": "Customize",
-            "match": "^/users-guide/customization/*",
+            "match": "/users-guide/customization/*",
             "dropdown": (
                 {
                     "text": "Fonts",
-                    "link": "/users-guide/customization/fonts.html"
+                    "link": "users-guide/customization/fonts"
                 },
                 {
                     "text": "Colorsets",
-                    "link": "/users-guide/customization/colorsets.html"
+                    "link": "users-guide/customization/colorsets"
                 },
                 {
                     "text": "Header Links",
-                    "link": "/users-guide/customization/header-links.html"
+                    "link": "users-guide/customization/header-links"
                 },
                 {
                     "text": "Footer Links",
-                    "link": "/users-guide/customization/footer-links.html"
+                    "link": "users-guide/customization/footer-links"
                 },
                 {
                     "text": "Version Dropdown",
-                    "link": "/users-guide/customization/version-dropdown.html"
+                    "link": "users-guide/customization/version-dropdown"
                 },
                 {
                     "text": "Git Repository",
-                    "link": "/users-guide/customization/git-repository.html"
+                    "link": "users-guide/customization/git-repository"
                 },
                 {
                     "text": "Pygments",
-                    "link": "/users-guide/customization/pygments.html"
+                    "link": "users-guide/customization/pygments"
                 },
                 {
                     "divider": True
@@ -146,7 +147,7 @@ html_theme_options = {
         },
         {
             "text": "Release Notes",
-            "link": "/release-notes.html",
+            "link": "release-notes",
         }
     ],
 
