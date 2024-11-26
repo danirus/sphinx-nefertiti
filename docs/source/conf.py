@@ -45,7 +45,7 @@ extensions = [
     'sphinx_design',
     'sphinx_copybutton',
     'sphinx_colorschemed_images',
-    # 'sphinx_nefertiti'
+    'sphinx_nefertiti'
 ]
 
 myst_enable_extensions = [
