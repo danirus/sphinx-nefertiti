@@ -29,7 +29,7 @@ version = ".".join(_ver_list[:2])
 # The X.Y.Z number.
 release = ".".join(_ver_list[:3])
 
-release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/en/{release}/"
+release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/{release}/"
 
 releases = [
     release,
