@@ -23,18 +23,13 @@ export function selectActiveHeaderLink() {
     elem.ariaCurrent = false;
   }
 
-  let qs = `.snftt-hl[href='${curl.pathname}']`;
-  let elements = document.querySelectorAll(qs);
-  for (const elem of elements) {
-    _addActiveCssClass(elem);
+  // Activate the current link:
+  let qs = `.snftt-hl[href='#']`;
+  for (const elem of document.querySelectorAll(qs)) {
+    if (!elem.classList.contains("dropdown-toggle")) {
+      _addActiveCssClass(elem);
+    }
   }
-
-  // If there are elements, it means a header-link has been found with
-  // the exact same pathname as the one the user is browsing. There has
-  // to be several elements because the header-links are in two HTML
-  // classes, nftt-header-links-large and nftt-header-links-small.
-  if (elements.length > 0)
-    return;
 
   // Find header-link element (.snftt-hl) with regexps, and
   // check whether the current pathname matches the regexp.
