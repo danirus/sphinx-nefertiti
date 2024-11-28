@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.5.3] - 2024-11-28
+
+- ReadTheDocs no longer provides versions in the context of the template.
+- Update quick-start and version-dropdown documents.
+- Update `versions.js` to display the `current_version` given in `conf.py`.
+
 ## [0.5.2] - 2024-11-26
 
 - Increase contrast for body-bg, pre-border-color, and border-color for the light color scheme, in all colorsets.

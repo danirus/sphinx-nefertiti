@@ -9,7 +9,7 @@ function _getCurrentVersion() {
       return version_elem.dataset?.snfttVersion;
     };
   }
-  return "";
+  return globalThis.def_ver || "";
 }
 
 export function updateVersion() {
@@ -42,7 +42,7 @@ export function feedVersionsMenu() {
   // Use the variable 'docs_versions' loaded as a script in layout.html.
   // The file docs_versions.js is produced by versions.py when building
   // the site (make html).
-  for (const item of docs_versions) {
+  for (const item of globalThis.docs_versions) {
     const li = document.createElement("li");
     const anchor = document.createElement("a");
     anchor.classList.add(

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from sphinx_nefertiti import colorsets, docsver, fonts, links, pygments
 
-__version__ = "0.5.2"
+__version__ = "0.5.3"
 
 pages_wo_index = ["genindex", "search"]
 
@@ -62,7 +62,10 @@ def initialize_theme(app):
     docs_versions_script = "docs-versions.js"
     docs_versions_path = dest_dir / docs_versions_script
     with docs_versions_path.open("w") as f:
-        f.write("const docs_versions = " + json.dumps(app.all_docs_versions))
+        versions_value = json.dumps(app.all_docs_versions)
+        f.write(f"window.docs_versions = {versions_value};\n")
+        if docsver_provider.current_version is not None:
+            f.write(f"window.def_ver = '{docsver_provider.current_version}';")
     app.add_js_file(docs_versions_script)
     app.add_js_file("sphinx-nefertiti.min.js")
     app.add_js_file("bootstrap.bundle.min.js")

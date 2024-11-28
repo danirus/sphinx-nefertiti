@@ -492,12 +492,12 @@ def test_prj2_current_version_and_versions(test_app):
     assert docs_versions_js.exists()
 
     expected = (
-        "const docs_versions = ["
+        "window.docs_versions = ["
         '{"name": "0.9.9", "url": "https://sphinx-nefertiti/0.9.9"}, '
         '{"name": "1.0.5", "url": "https://sphinx-nefertiti/1.0.5"}, '
         '{"name": "1.1.8", "url": "https://sphinx-nefertiti/1.1.8"}, '
         '{"name": "2.0.5", "url": "localhost:7998/"}'
-        "]"
+        "];\nwindow.def_ver = '2.0.5';"
     )
     f = docs_versions_js.open()
     content = f.read()

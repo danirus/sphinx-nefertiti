@@ -5,13 +5,13 @@ import sys
 import sphinx_nefertiti
 
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-if on_rtd:
-    html_theme_path = [sphinx_nefertiti.get_html_theme_path()]
-else:
-    # Add `sphinx_nefertiti` to the python path.
-    PRJ_PATH = Path(__file__).parents[2]
-    sys.path.insert(0, str(PRJ_PATH))
+# on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+# if on_rtd:
+#     html_theme_path = [sphinx_nefertiti.get_html_theme_path()]
+# else:
+#     # Add `sphinx_nefertiti` to the python path.
+#     PRJ_PATH = Path(__file__).parents[2]
+#     sys.path.insert(0, str(PRJ_PATH))
 
 
 # -- Project information -----------------------------------------------------
@@ -29,10 +29,15 @@ version = ".".join(_ver_list[:2])
 # The X.Y.Z number.
 release = ".".join(_ver_list[:3])
 
-release_pattern_url = "https://sphinx-nefertiti.readthedocs.io/{release}/"
+docs_fmt_url = "https://sphinx-nefertiti.readthedocs.io/{release}/"
 
 releases = [
+    "latest",
     release,
+    "0.4.2",
+    "0.3.7",
+    "0.2.3",
+    "0.1.13",
 ]
 
 # -- General configuration ---------------------------------------------------
@@ -45,7 +50,7 @@ extensions = [
     'sphinx_design',
     'sphinx_copybutton',
     'sphinx_colorschemed_images',
-    'sphinx_nefertiti'
+    'sphinx_nefertiti',
 ]
 
 myst_enable_extensions = [
@@ -92,10 +97,9 @@ html_theme_options = {
     "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     "repository_name": "sphinx-nefertiti",
 
-    "current_version": f"v{release}",
+    "current_version": "latest",
     "versions": [
-        ("v%s" % item, release_pattern_url.format(release=item))
-        for item in releases
+        (item, docs_fmt_url.format(release=item)) for item in releases
     ],
 
     # "header_links_in_2nd_row": False,
