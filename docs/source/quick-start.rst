@@ -44,11 +44,12 @@ Customize the theme
 The following features of Nefertiti for Sphinx can be customized:
 
 1. Fonts.
-2. Color set: blue, indigo, purple, pink, red, ...
-3. Pygments styles for light and dark color schemes.
-4. Repository name and URL to display it in the header.
-5. Project version dropdown selector.
-6. Footer links.
+2. Header links
+3. Color set: blue, indigo, purple, pink, red, ...
+4. Pygments styles for light and dark color schemes.
+5. Repository name and URL to display it in the header.
+6. Project version dropdown selector.
+7. Footer links.
 
 
 1. Fonts
@@ -83,8 +84,71 @@ Edit your ``conf.py`` file and add or modify your ``html_theme_options`` setting
         "doc_headers_font": "Georgia",
     }
 
-2. Color sets
-=============
+2. Header links
+===============
+
+Add links to the header of your Sphinx project using header links. They can be mere links or dropdown lists. The user will see an underline below the link whenever it corresponds to the page loaded in the browser.
+
+Header links can be displayed in a second row in the header.
+
+The following content will produced the header of the image below:
+
+.. code-block:: python
+
+    html_theme_options = {
+        # ... other options ...
+        "header_links_in_2nd_row": True,
+        "header_links": [
+            {
+                'text': 'Features',
+                'link': '/features.html',
+            },
+            {
+                "text": "Learn",
+                "dropdown": (
+                    {
+                        "text": "Learn",
+                        "link": "/learn/index.html",
+                    }, {
+                        "text": "Python Types Intro",
+                        "link": "/python-types.html",
+                    }, {
+                        "text": "Concurrency and async/await",
+                        "link": "/async.html",
+                    }, {
+                        "divider": True,
+                    }, {
+                        "text": "Tutorial - User Guide",
+                        "link": "/tutorial/index.html",
+                        "match": "^/tutorial/*",
+                    }, {
+                        "text": "Advanced User Guide",
+                        "link": "/advanced/index.html",
+                        "match": "^/advanced/*"
+                    }
+                )
+            },
+            {
+                'text': 'Release Notes',
+                'link': '/release-notes.html',
+            },
+            {
+                'text': 'Blog',
+                'link': 'https://example.com/blog',
+            },
+        ]
+    }
+
+.. cs_figure:: users-guide/customization/img/rhythm-header-in-2-rows.*
+    :alt: Header links can be displayed in the second row of the header.
+    :width: 90%
+    :align: center
+    :class: border-radius-2
+
+    Read more about customizing the header links in :ref:`header-links`.
+
+3. Colorsets
+============
 
 Another customizable feature of the theme is the color set. In the header of this documentation you can see a dropdown with a palette icon. The colors listed in the dropdown represent the available color sets. Try them to apply the selected color set to this documentation.
 
@@ -99,7 +163,7 @@ To customize the color set in your project add an entry ``style`` to the ``html_
 
 When ``style`` is not given the theme defaults to ``cyan``.
 
-3. Pygments styles
+4. Pygments styles
 ==================
 
 Pygments_ is the package that renders code blocks. Sphinx supports two settings related with pygments:
@@ -115,13 +179,13 @@ If your Sphinx project has code-blocks, try changing the pygments style settings
 
     html_theme_options = {
         # ... other options ...
-        'pygments_style': 'solarized-light',
+        'pygments_light_style': 'solarized-light',
         'pygments_dark_style': 'solarized-dark'
     }
 
 See more code blocks rendered with Pygments in the :ref:`code-blocks` document in Nefertiti User's Guide.
 
-4. Repository data
+5. Repository data
 ==================
 
 If your Sphinx project is about a source code product, and it resides in a Git repository, in GitHub or GitLab, Nefertiti can display information relative to your repository in the header.
@@ -136,7 +200,7 @@ Just add the ``repository_name`` and ``repository_url`` keys to your ``html_them
         "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     }
 
-5. Version dropdown
+6. Version dropdown
 ===================
 
 If your project is available in different versions Nefertiti for Sphinx can display a dropdown in the header to switch between them.
@@ -149,11 +213,11 @@ If you host different versions in different URLs, like:
     * - Version
       - URL
     * - v2.9.9
-      - https://sample-project.readthedocs.io/en/latest/
+      - https://sample-project.org/latest/
     * - v2.8.5
-      - https://sample-project.readthedocs.io/en/2.8.5/
+      - https://sample-project.org/2.8.5/
     * - v2.7.2
-      - https://sample-project.readthedocs.io/en/2.7.2/
+      - https://sample-project.org/2.7.2/
 
 
 Enable the version dropdown by adding the ``versions`` key to your ``html_theme_options`` setting:
@@ -163,19 +227,17 @@ Enable the version dropdown by adding the ``versions`` key to your ``html_theme_
     html_theme_options = {
         # ... other options ...
         "versions": [
-            ("v2.9.9", "https://sample-project.readthedocs.io/en/latest/"),
-            ("v2.8.5", "https://sample-project.readthedocs.io/en/2.8.5/"),
-            ("v2.7.2", "https://sample-project.readthedocs.io/en/2.7.2/"),
+            ("v2.9.9", "https://sample-project.org/latest/"),
+            ("v2.8.5", "https://sample-project.org/2.8.5/"),
+            ("v2.7.2", "https://sample-project.org/2.7.2/"),
         ]
     }
 
-The ``versions`` key in your ``html_theme_options`` is ignored if you use readthedocs_ to host your project (the template ``version-dropdown.html`` renders differently depending on whether the project is hosted in readthedocs_ or not).
 
-
-6. Footer links
+7. Footer links
 ===============
 
-In addition to the copyright notice, configurable with the ``copyright`` Sphinx setting, you can add links that are important to your project, like a link to your company website or a link to your code repository. Footer links are added via the ``footer_links`` key in the ``html_theme_options``. This entry has to be a comma separated list of strings with the format: ``"<link title>|<URL>"``.
+In addition to the copyright notice, configurable with the ``copyright`` Sphinx setting, you can add links that are important to your project, like a link to your company website or a link to your code repository. Footer links are added via the ``footer_links`` key in the ``html_theme_options``. This entry has to be a list of dictionaries.
 
 As an example, the 4 links of the current Nefertiti for Sphinx documentation look like this in the ``html_theme_options`` setting:
 
@@ -183,12 +245,21 @@ As an example, the 4 links of the current Nefertiti for Sphinx documentation loo
 
     html_theme_options = {
         # ... other options ...
-        "footer_links": ",".join([
-            "Documentation|https://sphinx-nefertiti.readthedocs.com",
-            "Package|https://pypi.com/sphinx-nefertiti",
-            "Repository|https://github.com/danirus/sphinx-nefertiti",
-            "Issues|https://github.com/danirus/sphinx-nefertiti/issues",
-        ])
+        "footer_links": [
+            {
+                "text": "Documentation",
+                "link": "https://sphinx-nefertiti.readthedocs.com",
+            }, {
+                "text": "Package",
+                "link": "https://pypi.com/sphinx-nefertiti",
+            }, {
+                "text": "Repository",
+                "link": "https://github.com/danirus/sphinx-nefertiti",
+            }, {
+                "text": "Issues",
+                "link": "https://github.com/danirus/sphinx-nefertiti/issues",
+            }
+        ]
     }
 
 In addition you can remove the **Built with Sphinx and Nefertiti** notice by setting the ``show_powered_by`` key to ``False``. It is ``True`` by default:
