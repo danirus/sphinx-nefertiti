@@ -1,5 +1,6 @@
 class DocsVersionProvider:
     def __init__(self, app):
+        self.current_version = None
         theme_user_prefs = app.config.html_theme_options
 
         self._index = -1
@@ -7,6 +8,8 @@ class DocsVersionProvider:
 
         if "versions" not in theme_user_prefs:
             return
+
+        self.current_version = theme_user_prefs.get("current_version", None)
 
         for name, url in theme_user_prefs["versions"]:
             self._assets.append({"name": name, "url": url})

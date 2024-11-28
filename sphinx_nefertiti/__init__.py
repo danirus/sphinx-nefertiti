@@ -1,7 +1,6 @@
 """sphinx-nefertiti theme"""
 
 import json
-import os
 import shutil
 from pathlib import Path
 
@@ -63,7 +62,10 @@ def initialize_theme(app):
     docs_versions_script = "docs-versions.js"
     docs_versions_path = dest_dir / docs_versions_script
     with docs_versions_path.open("w") as f:
-        f.write("const docs_versions = " + json.dumps(app.all_docs_versions))
+        versions_value = json.dumps(app.all_docs_versions)
+        f.write(f"window.docs_versions = {versions_value};\n")
+        if docsver_provider.current_version is not None:
+            f.write(f"window.def_ver = '{docsver_provider.current_version}';")
     app.add_js_file(docs_versions_script)
     app.add_js_file("sphinx-nefertiti.min.js")
     app.add_js_file("bootstrap.bundle.min.js")
@@ -75,8 +77,6 @@ def update_context(app, pagename, templatename, context, doctree):
     context["footer_links"] = app.footer_links
     context["show_colorset_choices"] = app.show_colorset_choices
     context["all_colorsets"] = colorsets.all_colorsets
-    if os.environ.get("READTHEDOCS", None) == "True":
-        context["READTHEDOCS"] = True
 
 
 def setup(app):
