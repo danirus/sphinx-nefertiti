@@ -1,6 +1,7 @@
 """sphinx-nefertiti theme"""
 
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -74,6 +75,8 @@ def update_context(app, pagename, templatename, context, doctree):
     context["footer_links"] = app.footer_links
     context["show_colorset_choices"] = app.show_colorset_choices
     context["all_colorsets"] = colorsets.all_colorsets
+    if os.environ.get("READTHEDOCS", None) == "True":
+        context["READTHEDOCS"] = True
 
 
 def setup(app):
