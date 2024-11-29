@@ -146,9 +146,8 @@
     right: 0;
     z-index: 2;
     padding-right: .25rem;
-    overflow-y: auto;
-    // overflow-x: auto;
-    // white-space: nowrap;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 
     @include scrollbars();
   }
@@ -179,6 +178,10 @@
         list-style-position: outside;
         list-style-type: circle;
         border-left: 1px solid var(--#{$prefix}border-color);
+
+        li {
+          scroll-margin-bottom: 24px;
+        }
       }
     }
 
@@ -191,6 +194,12 @@
 
       &:not(:hover) {
         text-decoration: none;
+      }
+
+      &.active {
+        padding-left: 7px;
+        scroll-margin-bottom: 24px;
+        background-color: var(--#{$prefix}foot2-bg);
       }
 
       code {

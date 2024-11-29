@@ -4,7 +4,7 @@ import { CSchemeHandler } from "./cschemes.js";
 import { MenuHandler } from "./menu.js";
 import { selectActiveHeaderLink } from "./navbar.js";
 import { updateRepoMetrics } from "./repometrics.js";
-import { TocObserver } from "./pagetoc.js";
+import { LocationHashHandler, TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
 import { feedVersionsMenu, updateVersion } from "./versions.js";
 
@@ -170,6 +170,7 @@ function loadSphinxNefertiti() {
   // 'active' to the one corresponding to the current URL.
   selectActiveHeaderLink();
 
+  // -------------------------------------------------------------------
   // Scroll the item from the left sidebar into view:
   const sidebar_elem = document.querySelector(".nftt-sidebar a.current");
   if (sidebar_elem) {
@@ -178,6 +179,8 @@ function loadSphinxNefertiti() {
       parent.scrollIntoView({behavior: "smooth", block: "end"});
     }
   }
+  // And scroll down to the anchor name referred in the URL in the TOC.
+  const location_hash_handler = new LocationHashHandler();
 }
 
 runWhenDOMContentLoaded(loadSphinxNefertiti);

@@ -68,3 +68,47 @@ export class TocObserver {
     return 0;
   }
 }
+
+
+export class LocationHashHandler {
+  constructor() {
+    this.toc = document.querySelector("#TableOfContents");
+    window.addEventListener("hashchange", this.hashChanged);
+    this.hashChanged();
+  }
+
+  isInViewport = (element) => {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (
+        window.innerHeight || document.documentElement.clientHeight
+      ) &&
+      rect.right <= (
+        window.innerWidth || document.documentElement.clientWidth
+      )
+    );
+  }
+
+  hashChanged = (_) => {
+    const anchors = this.toc.querySelectorAll("a.reference.internal");
+    for (const anchor of anchors) {
+      anchor.classList.remove("active");
+    }
+
+    const ubits = window.location.href.split("#");
+    if (ubits.length > 1) {
+      const toc_ref = `a.reference.internal[href='#${ubits[1]}']`;
+      const toc_ref_elem = this.toc.querySelector(toc_ref);
+      if (toc_ref_elem) {
+        toc_ref_elem.classList.add("active");
+        if (!this.isInViewport(toc_ref_elem)) {
+          toc_ref_elem.scrollIntoView({
+            behavior: "smooth", block: "center"
+          });
+        }
+      }
+    }
+  }
+}
