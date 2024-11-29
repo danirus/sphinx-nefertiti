@@ -310,35 +310,6 @@ blockquote {
   }
 }
 
-aside.sidebar {
-  float: right;
-  width: 33%;
-  padding: .8rem .9rem;
-  margin: 0 0 .4rem 1.8rem;
-  background-color: var(--#{$prefix}foot1-bg);
-  border: 2px solid var(--#{$prefix}secondary-bg);
-  border-radius: .25rem;
-
-  .sidebar-title {
-    padding-bottom: .5rem;
-    font-size: 1.2em;
-    border-bottom: 1px solid var(--#{$prefix}secondary-bg);
-  }
-
-  .sidebar-subtitle {
-    font-size: 1.1em;
-  }
-
-  .rubric {
-    font-size: 1em;
-    font-weight: 700;
-  }
-
-  p:last-child {
-    margin-bottom: .5rem;
-  }
-}
-
 .search-input {
   max-width: 10rem;
 }

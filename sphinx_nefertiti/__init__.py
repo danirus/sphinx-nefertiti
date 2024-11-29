@@ -6,7 +6,7 @@ from pathlib import Path
 
 from sphinx_nefertiti import colorsets, docsver, fonts, links, pygments
 
-__version__ = "0.5.3"
+__version__ = "0.6.0"
 
 pages_wo_index = ["genindex", "search"]
 

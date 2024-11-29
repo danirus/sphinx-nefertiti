@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.6.0] - 2024-11-29
+
+- New: Highlight the item in the TOC at the right side ('on this page' column) when the location bar refers to an anchor that is part of the TOC.
+- Change: Lighten body background in light color-scheme for all colorsets.
+
 ## [0.5.3] - 2024-11-28
 
 - ReadTheDocs no longer provides versions in the context of the template.
