@@ -34,6 +34,7 @@ docs_fmt_url = "https://sphinx-nefertiti.readthedocs.io/{release}/"
 releases = [
     "latest",
     release,
+    "0.5.3",
     "0.4.2",
     "0.3.7",
     "0.2.3",
