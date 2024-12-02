@@ -29,7 +29,7 @@ build-ext:  ## Build Sphinx extension.
 	npm run build
 	mkdir -p sphinx_nefertiti/static/
 	mkdir -p sphinx_nefertiti/colorsets/
-	cp site/css/bootstrap-icons.css   			sphinx_nefertiti/static/
+	cp site/css/bootstrap-icons.min.css			sphinx_nefertiti/static/
 	cp site/css/bootstrap-icons.woff2 			sphinx_nefertiti/static/
 	cp site/js/*.min.js               		  	sphinx_nefertiti/static/
 	cp site/js/*.min.js.map           		  	sphinx_nefertiti/static/

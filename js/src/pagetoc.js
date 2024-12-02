@@ -92,7 +92,7 @@ export class LocationHashHandler {
   }
 
   hashChanged = (_) => {
-    const anchors = this.toc.querySelectorAll("a.reference.internal");
+    const anchors = this.toc?.querySelectorAll("a.reference.internal") || [];
     for (const anchor of anchors) {
       anchor.classList.remove("active");
     }

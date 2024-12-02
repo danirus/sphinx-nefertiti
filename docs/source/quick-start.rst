@@ -150,7 +150,7 @@ The following content will produced the header of the image below:
 3. Colorsets
 ============
 
-Another customizable feature of the theme is the color set. In the header of this documentation you can see a dropdown with a palette icon. The colors listed in the dropdown represent the available color sets. Try them to apply the selected color set to this documentation.
+Another customizable feature of the theme is the colorset. In the header of this documentation you can see a dropdown with a palette icon. The colors listed in the dropdown represent the available color sets. Try them to apply the selected color set to this documentation.
 
 To customize the color set in your project add an entry ``style`` to the ``html_theme_options`` setting in your ``conf.py`` module:
 
@@ -161,7 +161,9 @@ To customize the color set in your project add an entry ``style`` to the ``html_
         "style": "pink",
     }
 
-When ``style`` is not given the theme defaults to ``cyan``.
+When ``style`` is not given the theme defaults to ``default``, which is cyan.
+
+Another available setting is ``style_header_neutral``, that when is set to ``True``, makes the header color to adapt to the light or dark color-scheme setting. To test it here, use the colorset dropdown at the top right side of the header.
 
 4. Pygments styles
 ==================
