@@ -100,7 +100,7 @@
     <div id="back-to-top-container" class="position-fixed start-50 translate-middle-x">
       <button id="back-to-top" type="button" class="d-none btn btn-neutral btn-sm shadow px-4" data-bs-toggle="button">Back to top</button>
     </div>
-    <header id="snftt-nav-bar" class="navbar navbar-expand-xl {% if theme_style_header_neutral %}neutral{% else %}navbar-dark{% endif %} nftt-navbar flex-column fixed-top">
+    <header id="snftt-nav-bar" class="navbar navbar-expand-xl {% if theme_style_header_neutral is true %}neutral{% else %}navbar-dark{% endif %} nftt-navbar flex-column fixed-top">
       <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start flex-grow-1">
         <div class="border-bottom mb-2 pb-2 w-100">
           <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">{{ _('Skip to docs navigation') }}</a>
