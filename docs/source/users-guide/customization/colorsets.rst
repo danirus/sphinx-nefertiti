@@ -105,15 +105,21 @@ To customize the colorset in your project add an entry ``style`` to the ``html_t
         "style": "pink",
     }
 
-Save the changes and rebuild the site:
+Possible values are: ``blue``, ``indigo``, ``purple``, ``pink``, ``red``, ``orange``, ``yellow``, ``green``, ``tail`` and ``default`` (which is cyan).
 
-.. code-block:: shell
 
-    $ make clean
-    $ make html
-    $ python -m http.server -d build/html
+The ``style_header_neutral`` setting
+************************************
 
-Visit http://localhost:8000 to take a look at the changes.
+By default the header's background color does not change when switching between light and dark schemes. If you want it to adapt to light and dark schemes, turn on the ``style_header_neutral`` setting:
+
+.. code-block:: python
+
+    html_theme_options = {
+        # ... other options ...
+        "style_header_neutral": True,
+    }
+
 
 Custom CSS file
 ***************

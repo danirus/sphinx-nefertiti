@@ -423,7 +423,7 @@ def test_prj2_show_colorset_choices(test_app):
     # with the class 'ms-3'. So fetch them from the ul_list and
     # verify that each element matches each entry in all_colorsets.
     spans = ul_list.xpath('.//span[@class="ms-3"]')
-    expected_number_of_colorsets = 10
+    expected_number_of_colorsets = 10 + 1  # 10 colorset + the neutral option.
     assert len(spans) == expected_number_of_colorsets
     for index, colorset in enumerate(all_colorsets):
         if colorset == "default":

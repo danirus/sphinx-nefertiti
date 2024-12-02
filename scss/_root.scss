@@ -52,7 +52,9 @@
 
   --#{$prefix}docapi-kw-color: #{$docapi-light-kw-color};
 
-  // btn-neutral variables:
+  // neutral variables:
+  // --#{$prefix}-neutral-bg-rgb: 255, 255, 255;
+  --#{$prefix}neutral-bg-rgb: #{to-rgb($scheme-light-neutral-bg)};
   --#{$prefix}btn-neutral-color: #000;
   --#{$prefix}btn-neutral-bg: #fff;
   --#{$prefix}btn-neutral-border-color: #fff;
@@ -131,7 +133,8 @@
 
   --#{$prefix}docapi-kw-color: #{$docapi-dark-kw-color};
 
-  // btn-neutral variables:
+  // neutral variables:
+  --#{$prefix}neutral-bg-rgb: #{to-rgb($scheme-dark-neutral-bg)};
   --#{$prefix}btn-neutral-color: #fff;
   --#{$prefix}btn-neutral-bg: #343a40;
   --#{$prefix}btn-neutral-border-color: #343a40;

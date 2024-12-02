@@ -1,7 +1,8 @@
 let DEFAULT = "default";
+let IS_HS_NEUTRAL = false;
 let RESET_AFTER_MS = 0;
 
-class ColorSetHandler {
+class ColorsetHandler {
   constructor() {
     const def_elem = document.querySelector(".active[data-snftt-colorset]");
     if (def_elem != undefined) {
@@ -26,6 +27,7 @@ class ColorSetHandler {
       )
     ) {
       localStorage.removeItem('snftt-colorset');
+      localStorage.removeItem('snftt-is-header-neutral');
     }
 
     this.applyColorset(localStorage.getItem('snftt-colorset') || DEFAULT);
@@ -48,6 +50,16 @@ class ColorSetHandler {
         localStorage.setItem('snftt-colorset-changed-epoch', Date.now());
       });
     };
+
+    const neutral_sel = document.querySelector('[data-snftt-colorset-neutral]');
+    neutral_sel.addEventListener('click', (event) => {
+      event.preventDefault();
+      const state = neutral_sel.dataset.snfttColorsetNeutral;
+      const is_on = (state == "on") ? true : false;
+      localStorage.setItem('snftt-is-header-neutral', !is_on);
+      this.applyHeaderNeutral(!is_on);
+      this.updateHeaderNeutralDropdown(!is_on, true);
+    });
   }
 
   applyColorset(color) {
@@ -72,6 +84,17 @@ class ColorSetHandler {
     }
   }
 
+  applyHeaderNeutral(is_neutral) {
+    const header_elem = document.getElementById("snftt-nav-bar");
+    if (is_neutral) {
+      header_elem.classList.remove("navbar-dark");
+      header_elem.classList.add("neutral");
+    } else {
+      header_elem.classList.remove("neutral");
+      header_elem.classList.add("navbar-dark");
+    }
+  }
+
   updateDropdown(color, focus = false) {
     const prefix = "data-snftt-colorset";
     const selector = document.querySelector("#snftt-color");
@@ -92,6 +115,28 @@ class ColorSetHandler {
       selector.focus();
     }
   }
+
+  updateHeaderNeutralDropdown(is_neutral, focus = false) {
+    const selector = document.querySelector("#snftt-color");
+    const qs = `[data-snftt-colorset-neutral]`;
+    const element = document.querySelector(qs);
+    const value = is_neutral ? "on" : "off";
+
+    if (element != undefined) {
+      if (is_neutral) {
+        element.classList.add('active', 'current');
+        element.setAttribute('aria-pressed', 'true');
+      } else {
+        element.classList.remove('active', 'current');
+        element.setAttribute('aria-pressed', 'true');
+      }
+      element.dataset.snfttColorsetNeutral = value;
+    }
+
+    if (focus) {
+      selector.focus();
+    }
+  }
 }
 
 function runWhenDOMContentLoaded(cb) {
@@ -106,7 +151,9 @@ function runWhenDOMContentLoaded(cb) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', (_) => {
-  const colorset_handler = new ColorSetHandler();
+function loadSphinxNefertitiColorsetSelector() {
+  const colorset_handler = new ColorsetHandler();
   colorset_handler.registerClickEvents();
-});
+};
+
+runWhenDOMContentLoaded(loadSphinxNefertitiColorsetSelector);

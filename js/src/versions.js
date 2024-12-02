@@ -54,7 +54,7 @@ export function feedVersionsMenu() {
     anchor.dataset.snfttVersionUrl = item.url;
     anchor.dataset.snfttVersion = item.name;
     const span = document.createElement("span");
-    span.classList.add("small", "ms-2");
+    span.classList.add("ms-2");
     span.textContent = item.name;
     const i = document.createElement("i");
     i.classList.add("bi", "bi-check", "ms-auto");

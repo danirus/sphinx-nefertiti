@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.7.0] - 2024-12-02
+
+- New: Theme option `style_header_neutral` (boolean) to integrate header background color with light/dark color-schemes. Update docs and tests accordingly.
+
 ## [0.6.0] - 2024-11-29
 
 - New: Highlight the item in the TOC at the right side ('on this page' column) when the location bar refers to an anchor that is part of the TOC.

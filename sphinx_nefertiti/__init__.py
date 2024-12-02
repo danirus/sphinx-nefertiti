@@ -6,7 +6,7 @@ from pathlib import Path
 
 from sphinx_nefertiti import colorsets, docsver, fonts, links, pygments
 
-__version__ = "0.6.0"
+__version__ = "0.7.0"
 
 pages_wo_index = ["genindex", "search"]
 
@@ -69,6 +69,7 @@ def initialize_theme(app):
     app.add_js_file(docs_versions_script)
     app.add_js_file("sphinx-nefertiti.min.js")
     app.add_js_file("bootstrap.bundle.min.js")
+    app.add_css_file("bootstrap-icons.min.css")
 
 
 def update_context(app, pagename, templatename, context, doctree):
@@ -79,9 +80,23 @@ def update_context(app, pagename, templatename, context, doctree):
     context["all_colorsets"] = colorsets.all_colorsets
 
 
+def build_finished(app, exc):
+    # Move bootstrap-icons.woff2 to _static/fonts/.
+    static_outdir = Path(app.builder.outdir) / "_static"
+    fonts_outdir = static_outdir / "fonts"
+    if not fonts_outdir.exists():
+        fonts_outdir.mkdir()
+
+    src_path = static_outdir / "bootstrap-icons.woff2"
+    dest_path = fonts_outdir / "bootstrap-icons.woff2"
+    if src_path.exists() and not dest_path.exists():
+        shutil.move(src_path, dest_path)
+
+
 def setup(app):
     app.connect("builder-inited", initialize_theme)
     app.connect("html-page-context", update_context)
+    app.connect("build-finished", build_finished)
 
     if hasattr(app, "add_html_theme"):
         theme_path = str(Path(__file__).parent)
