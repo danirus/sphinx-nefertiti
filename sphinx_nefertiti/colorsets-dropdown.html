@@ -24,7 +24,7 @@
       <h6 class="dropdown-header">{{ _('Neutral header') }}</h6>
     </li>
     <li>
-      <a class="dropdown-item d-flex align-items-center {% if theme_style_header_neutral %}active current{% endif %}" data-snftt-colorset-neutral="{% if theme_style_header_neutral %}on{% else %}off{% endif %}" href="#" aria-pressed="false">
+      <a class="dropdown-item d-flex align-items-center {% if theme_style_header_neutral is true %}active current{% endif %}" data-snftt-colorset-neutral="{% if theme_style_header_neutral is true %}on{% else %}off{% endif %}" href="#" aria-pressed="false">
         <i class="bi bi-noise-reduction"></i>
         <span class="ms-3">{{ _('Neutral') }}</span>
         <i class="bi bi-check ms-auto"></i>

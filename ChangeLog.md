@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.7.1] - 2024-12-02
+
+- Fix issue about the use of `style_header_neutral` in the `layout.html` and the `colorsets-dropdown.html` templates.
+
 ## [0.7.0] - 2024-12-02
 
 - New: Theme option `style_header_neutral` (boolean) to integrate header background color with light/dark color-schemes. Update docs and tests accordingly.
