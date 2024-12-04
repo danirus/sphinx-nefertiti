@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.7.3] - 2024-12-04
+
+- Increment font color contrast in light color-scheme.
+
 ## [0.7.2] - 2024-12-04
 
 - Raise exception when using sphinx-nefertiti with Sphinx<7.0.0.
