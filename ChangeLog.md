@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.7.2] - 2024-12-04
+
+- Raise exception when using sphinx-nefertiti with Sphinx<7.0.0.
+
 ## [0.7.1] - 2024-12-02
 
 - Fix issue about the use of `style_header_neutral` in the `layout.html` and the `colorsets-dropdown.html` templates.
