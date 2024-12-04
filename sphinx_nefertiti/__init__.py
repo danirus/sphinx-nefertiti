@@ -8,7 +8,7 @@ import sphinx
 
 from sphinx_nefertiti import colorsets, docsver, fonts, links, pygments
 
-__version__ = "0.7.2"
+__version__ = "0.7.3"
 
 pages_wo_index = ["genindex", "search"]
 

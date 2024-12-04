@@ -66,7 +66,7 @@ $dark:          $gray-800 !default;
 // Body ----------------------------------------------------------------
 
 // scheme-color light.
-$scheme-light-body-color: $gray-700;
+$scheme-light-body-color: $black;
 $scheme-light-body-hc-color: $gray-800;
 $scheme-light-body-bg: $gray-200;
 $scheme-light-neutral-bg: $teal-100;
@@ -82,7 +82,7 @@ $scheme-light-foot2-link1: get-color-contrast($scheme-light-foot2-bg, 15%);
 $scheme-light-foot2-link2: get-color-contrast($scheme-light-foot2-bg, 30%);
 $scheme-light-foot2-link-bg: color.scale($scheme-light-foot2-bg, $lightness: -10%, $saturation: 30%);
 $scheme-light-foot2-link-hover: get-color-contrast($scheme-light-foot2-bg, 0%);
-$scheme-light-headings-color: $gray-700;
+$scheme-light-headings-color: $black;
 $scheme-light-border-color: $gray-400;
 $scheme-light-border-color-translucent: rgba($black, .175) !default;
 $scheme-light-link-color: $teal-600;
