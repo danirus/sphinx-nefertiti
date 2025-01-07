@@ -311,5 +311,11 @@ blockquote {
 }
 
 .search-input {
-  max-width: 10rem;
+  @include media-breakpoint-up(xl) {
+    max-width: 10rem;
+  }
+
+  @include media-breakpoint-down(xl) {
+    max-width: none;
+  }
 }
