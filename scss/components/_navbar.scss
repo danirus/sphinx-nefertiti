@@ -178,6 +178,12 @@
   }
 }
 
+/* stylelint-disable selector-id-pattern */
+.neutral #nfttNavbar {
+  background-color: rgba(var(--#{$prefix}neutral-bg-rgb), 1);
+}
+/* stylelint-enable selector-id-pattern */
+
 .dropdown-limit-max-height {
   max-height: calc(100vh - 70px);
   overflow: hidden;

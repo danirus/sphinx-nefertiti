@@ -46,8 +46,9 @@ export class CSchemeHandler {
     return q.matches ? 'dark' : 'light';
   }
 
-  apply(option) {
-    switch(option) {
+  apply(cscheme) {
+    this.updateExplicitElements(cscheme);
+    switch(cscheme) {
       case "default": {
         document.documentElement.classList.remove("light");
         document.documentElement.classList.remove("dark");
@@ -63,6 +64,35 @@ export class CSchemeHandler {
         document.documentElement.classList.remove('dark');
         document.documentElement.classList.add('light');
         return;
+      }
+    }
+  }
+
+  updateExplicitElements(cscheme) {
+    // Update all close button elements (class 'btn-close') adding the
+    // class btn-close-white when cscheme is dark, as the close button
+    // is a SVG element and it doesn't listen to the usual CSS changes.
+    // Also toggle between 'text-white-50' and 'text-black-50'.
+    let prefer = (cscheme == "default") ? this.preferred : cscheme;
+    const closeBtns = document.querySelectorAll(".btn-close");
+    const textSel = prefer == "dark" ? ".text-black-50" : ".text-white-50";
+    const textElems = document.querySelectorAll(textSel);
+
+    if (prefer == "dark") {
+      for (const btn of closeBtns) {
+        btn.classList.add("btn-close-white");
+      }
+      for (const txtElem of textElems) {
+        txtElem.classList.remove("text-black-50");
+        txtElem.classList.add("text-white-50");
+      }
+    } else {
+      for (const btn of closeBtns) {
+        btn.classList.remove("btn-close-white");
+      }
+      for (const txtElem of textElems) {
+        txtElem.classList.remove("text-white-50");
+        txtElem.classList.add("text-black-50");
       }
     }
   }

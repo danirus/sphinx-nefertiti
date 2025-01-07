@@ -100,7 +100,7 @@ export class LocationHashHandler {
     const ubits = window.location.href.split("#");
     if (ubits.length > 1) {
       const toc_ref = `a.reference.internal[href='#${ubits[1]}']`;
-      const toc_ref_elem = this.toc.querySelector(toc_ref);
+      const toc_ref_elem = this.toc?.querySelector(toc_ref);
       if (toc_ref_elem) {
         toc_ref_elem.classList.add("active");
         if (!this.isInViewport(toc_ref_elem)) {

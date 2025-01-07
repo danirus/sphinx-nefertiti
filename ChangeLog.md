@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.7.4] - 2025-01-07
+
+- Change close button color when switching between dark/light color schemes.
+- Change dividers color when switching between dark/light color themes.
+- Make search field full width when in small form factor view.
+
 ## [0.7.3] - 2024-12-04
 
 - Increment font color contrast in light color-scheme.
