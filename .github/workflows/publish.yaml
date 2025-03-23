@@ -2,7 +2,7 @@ name: publish
 on:
   release:
     types: [published]
-  workflow_dispatch:
+  # workflow_dispatch:
 
 env:
   FORCE_COLOR: true
@@ -11,7 +11,6 @@ env:
 
 jobs:
   publish:
-    # if: github.event_name == 'release'
     runs-on: ubuntu-latest
     permissions:
       id-token: write
