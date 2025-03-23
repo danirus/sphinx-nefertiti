@@ -21,3 +21,4 @@ site/karma/
 tests/sample_prj_?/_build/
 docs/source/_static/sphinx-nefertiti-*.css
 docs/source/_static/sphinx-nefertiti-*.css.map
+sphinx_nefertiti/colorsets/sphinx-nefertiti-*

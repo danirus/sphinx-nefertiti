@@ -240,7 +240,7 @@
   }
   // --#{$prefix}body-font-family: #{$font-family-base};
   @include rfs($font-size-base, --#{$prefix}body-font-size);
-  --#{$prefix}body-font-weight: #{$font-weight-base};
+  --#{$prefix}body-font-weight: #{$font-weight-light};
   --#{$prefix}body-line-height: #{$line-height-base};
   // --#{$prefix}body-color: #{$body-color};
   @if $body-text-align != null {
