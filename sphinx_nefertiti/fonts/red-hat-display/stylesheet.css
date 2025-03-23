@@ -8,7 +8,7 @@
     font-family: 'Red Hat Display';
     src: url('RedHatDisplay-VariableFont_wght.ttf') format("woff2-variations"),
          url('RedHatDisplay-VariableFont_wght.ttf') format("woff2");
-    font-weight: 400 700;
+    font-weight: 300 400 700;
   }
 }
 

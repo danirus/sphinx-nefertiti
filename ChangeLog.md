@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.7.5] - 2025-03-23
+
+- Use 300 font-weight when there is browser support for variable font-weight.
+- Lighten background from $gray-200 to $gray-100 in light theme.
+- Use default fonts for the docs.
+
 ## [0.7.4] - 2025-01-07
 
 - Change close button color when switching between dark/light color schemes.

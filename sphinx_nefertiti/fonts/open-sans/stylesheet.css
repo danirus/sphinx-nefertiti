@@ -8,7 +8,7 @@
     font-family: 'Open Sans';
     src: url('OpenSans-VariableFont_wdth,wght.ttf') format("woff2-variations"),
          url('OpenSans-VariableFont_wdth,wght.ttf') format("woff2");
-    font-weight: 400 700;
+    font-weight: 300 400 700;
   }
 }
 
