@@ -46,6 +46,8 @@ jobs:
           cache: pip
       - name: Install deps
         run: pip install tox
+      - name: Create CSS bundles
+        run: make build-ext
       - name: Run unit tests
         run: tox -e py3.13-sphinx${{ matrix.sphinx }}
 
