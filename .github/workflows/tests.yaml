@@ -51,7 +51,7 @@ jobs:
           python-version: "${{ env.PYTHON }}"
           cache: pip
       - name: Install deps
-        run: pip install tox
+        run: pip install tox build
       - name: Create CSS bundles
         run: make build-ext
       - name: Run unit tests
