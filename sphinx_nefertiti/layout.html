@@ -93,7 +93,20 @@
         {%- if theme_documentation_font_size %}--nftt-documentation-font-size: {{ theme_documentation_font_size }};{% endif -%}
         {%- if theme_monospace_font_size %}--nftt-monospace-font-size: {{ theme_monospace_font_size }};{% endif -%}
       }
-      h1 *, h2 *, h3 *, h4 *, h5 *, h6 * { font-size: inherit; }
+
+      h1 *,
+      h2 *,
+      h3 *,
+      h4 *,
+      h5 *,
+      h6 * {
+        font-size: inherit;
+      }
+
+      .light pre,
+      .dark pre {
+        line-height: var(--nftt-pre-line-height, 140%);
+      }
     </style>
   </head>
   <body>

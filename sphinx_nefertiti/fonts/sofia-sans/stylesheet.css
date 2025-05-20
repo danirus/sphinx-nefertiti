@@ -8,11 +8,28 @@
     font-family: 'Sofia Sans';
     src: url('SofiaSans-VariableFont_wght.ttf') format("woff2-variations"),
          url('SofiaSans-VariableFont_wght.ttf') format("woff2");
-    font-weight: 300 400 700;
   }
 }
 
 @supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Sofia Sans';
+    src: url('SofiaSans-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Sofia Sans';
+    src: url('SofiaSans-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Sofia Sans';
+    src: url('SofiaSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Sofia Sans';
     src: url('SofiaSans-Regular.ttf') format('truetype');
@@ -21,8 +38,32 @@
   }
   @font-face {
     font-family: 'Sofia Sans';
+    src: url('SofiaSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Sofia Sans';
+    src: url('SofiaSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Sofia Sans';
     src: url('SofiaSans-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Sofia Sans';
+    src: url('SofiaSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Sofia Sans';
+    src: url('SofiaSans-Black.ttf') format('truetype');
+    font-weight: 900;
     font-style: normal;
   }
 }

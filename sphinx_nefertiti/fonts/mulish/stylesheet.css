@@ -8,11 +8,22 @@
     font-family: 'Mulish';
     src: url('Mulish-VariableFont_wght.ttf') format("woff2-variations"),
          url('Mulish-VariableFont_wght.ttf') format("woff2");
-    font-weight: 300 400 700;
   }
 }
 
 @supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Mulish';
+    src: url('Mulish-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Mulish';
+    src: url('Mulish-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Mulish';
     src: url('Mulish-Regular.ttf') format('truetype');
@@ -21,8 +32,32 @@
   }
   @font-face {
     font-family: 'Mulish';
+    src: url('Mulish-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Mulish';
+    src: url('Mulish-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Mulish';
     src: url('Mulish-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Mulish';
+    src: url('Mulish-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Mulish';
+    src: url('Mulish-Black.ttf') format('truetype');
+    font-weight: 900;
     font-style: normal;
   }
 }

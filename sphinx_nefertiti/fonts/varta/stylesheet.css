@@ -8,15 +8,32 @@
     font-family: 'Varta';
     src: url('Varta-VariableFont_wght.ttf') format("woff2-variations"),
          url('Varta-VariableFont_wght.ttf') format("woff2");
-    font-weight: 300 400 700;
   }
 }
 
 @supports not (font-variation-settings: normal) {
   @font-face {
     font-family: 'Varta';
+    src: url('Varta-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Varta';
     src: url('Varta-Regular.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Varta';
+    src: url('Varta-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Varta';
+    src: url('Varta-SemiBold.ttf') format('truetype');
+    font-weight: 600;
     font-style: normal;
   }
   @font-face {

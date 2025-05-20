@@ -8,11 +8,16 @@
     font-family: 'Red Hat Display';
     src: url('RedHatDisplay-VariableFont_wght.ttf') format("woff2-variations"),
          url('RedHatDisplay-VariableFont_wght.ttf') format("woff2");
-    font-weight: 300 400 700;
   }
 }
 
 @supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Red Hat Display';
+    src: url('RedHatDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Red Hat Display';
     src: url('RedHatDisplay-Regular.ttf') format('truetype');
@@ -21,8 +26,32 @@
   }
   @font-face {
     font-family: 'Red Hat Display';
+    src: url('RedHatDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Display';
+    src: url('RedHatDisplay-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Display';
     src: url('RedHatDisplay-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Display';
+    src: url('RedHatDisplay-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Display';
+    src: url('RedHatDisplay-Black.ttf') format('truetype');
+    font-weight: 900;
     font-style: normal;
   }
 }

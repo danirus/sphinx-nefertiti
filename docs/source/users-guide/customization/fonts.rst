@@ -40,6 +40,7 @@ Fonts bundled with Nefertiti
 The list of fonts licensed for free distribution that are bundled with Nefertiti for Sphinx are:
 
 * Assistant_
+* Comme_
 * Exo_
 * Montserrat_
 * Mulish_
@@ -47,12 +48,12 @@ The list of fonts licensed for free distribution that are bundled with Nefertiti
 * `Open Sans`_
 * `Red Hat Display`_
 * `Sofia Sans`_
-* Ubuntu_
+* `Ubuntu Sans`_
 * Varta_
 * `Work Sans`_
 * `Fira Code`_ (monospace)
 * `Red Hat Mono`_ (monospace)
-* `Ubuntu Mono`_ (monospace)
+* `Ubuntu Sans Mono`_ (monospace)
 
 Web safe fonts
 **************
@@ -77,9 +78,10 @@ To customize font settings, edit your ``conf.py`` module and update the ``html_t
 
     html_theme_options = {
         # "sans_serif_font": "Nunito",  # Default value.
-        "documentation_font": "Open Sans",
-        "monospace_font": "Ubuntu Mono",
-        "monospace_font_size": "1.1rem",
+        # "documentation_font": "Ubuntu Sans",
+        # "documentation_font_size": ".95rem",
+        "monospace_font": "Ubuntu Sans Mono",
+        "monospace_font_size": ".90rem",
         # "project_name_font": "Nunito",  # Default value.
         # "documentation_font_size": "1.0rem",  # Default value.
         # "doc_headers_font": "Georgia",  # Default value.
@@ -183,18 +185,19 @@ Once the previous steps have been completed the project can be built. The font f
 Visit http://localhost:8000 to take a look at the changes.
 
 
-.. _Assistant: https://fonts.google.com/specimen/Assistant?query=assistant
-.. _Exo: https://fonts.google.com/specimen/Exo?query=Exo
-.. _Montserrat: https://fonts.google.com/specimen/Montserrat?query=Montserrat
-.. _Mulish: https://fonts.google.com/specimen/Mulish?query=Mulish
+.. _Assistant: https://fonts.google.com/specimen/Assistant
+.. _Comme: https://fonts.google.com/specimen/Comme
+.. _Exo: https://fonts.google.com/specimen/Exo
+.. _Montserrat: https://fonts.google.com/specimen/Montserrat
+.. _Mulish: https://fonts.google.com/specimen/Mulish
 .. _Noto Sans: https://fonts.google.com/noto/specimen/Noto+Sans
-.. _Nunito: https://fonts.google.com/specimen/Nunito?query=Nunito
-.. _Ubuntu Mono: https://fonts.google.com/specimen/Ubuntu+Mono?query=Ubuntu+Mono
-.. _Open Sans: https://fonts.google.com/specimen/Open+Sans?query=Open+Sans
-.. _Red Hat Display: https://fonts.google.com/specimen/Red+Hat+Display?query=Red+Hat+Display
-.. _Sofia Sans: https://fonts.google.com/specimen/Sofia+Sans?query=Sofia+Sans
-.. _Ubuntu: https://fonts.google.com/specimen/Ubuntu?query=Ubuntu
-.. _Varta: https://fonts.google.com/specimen/Varta?query=Varta
-.. _Work Sans: https://fonts.google.com/specimen/Work+Sans?query=Work+Sans
-.. _Fira Code: https://fonts.google.com/specimen/Fira+Code?query=Fira+Code
-.. _Red Hat Mono: https://fonts.google.com/specimen/Red+Hat+Mono?query=Red+Hat+Mono
+.. _Nunito: https://fonts.google.com/specimen/Nunito
+.. _Ubuntu Sans Mono: https://fonts.google.com/specimen/Ubuntu+Sans+Mono
+.. _Open Sans: https://fonts.google.com/specimen/Open+Sans
+.. _Red Hat Display: https://fonts.google.com/specimen/Red+Hat+Display
+.. _Sofia Sans: https://fonts.google.com/specimen/Sofia+Sans
+.. _Ubuntu Sans: https://fonts.google.com/specimen/Ubuntu+Sans
+.. _Varta: https://fonts.google.com/specimen/Varta
+.. _Work Sans: https://fonts.google.com/specimen/Work+Sans
+.. _Fira Code: https://fonts.google.com/specimen/Fira+Code
+.. _Red Hat Mono: https://fonts.google.com/specimen/Red+Hat+Mono
