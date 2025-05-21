@@ -8,6 +8,13 @@
     font-family: 'Red Hat Mono';
     src: url('RedHatMono-VariableFont_wght.ttf') format("woff2-variations"),
          url('RedHatMono-VariableFont_wght.ttf') format("woff2");
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Mono';
+    src: url('RedHatMono-Italic-VariableFont_wght.ttf') format("woff2-variations"),
+         url('RedHatMono-Italic-VariableFont_wght.ttf') format("woff2");
+    font-style: italic;
   }
 }
 

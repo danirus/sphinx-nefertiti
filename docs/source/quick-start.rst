@@ -285,7 +285,7 @@ From the directory of your ``conf.py`` file, create a new directory ``static`` i
     mkdir static
     touch static/custom.css
 
-Add the following example CSS code to it:
+Add the following example CSS code to ``custom.css``:
 
 .. code-block:: css
 
