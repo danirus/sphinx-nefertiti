@@ -58,13 +58,13 @@ extra_fonts = [
     "open sans",  # Steve Matteson.
     "red hat display",  # MCKL.
     "sofia sans",  # Lettersoup, Botio Nikoltchev, Ani Petrova.
-    "ubuntu",  # Dalton Maag.
+    "ubuntu sans",  # Dalton Maag.
     "varta",  # Joana Correia, Viktoriya Grabowska, Eben Sorkin.
     "work sans",  # Wei Huang.
     # Monospace fonts.
     "fira code",  # The Mozilla Foundation, Telefonica SA, Nikita Prokopov.
     "red hat mono",  # MCKL.
-    "ubuntu mono",  # Dalton Maag.
+    "ubuntu sans mono",  # Dalton Maag.
 ]
 
 

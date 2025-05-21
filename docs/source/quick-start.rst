@@ -59,8 +59,8 @@ There are 5 options related to font face customization and 2 options related to 
 
 The font face options are:
 
-* ``sans_serif_font``: Default site font, defaults to `Nunito <https://www.fontsquirrel.com/fonts/nunito?q%5Bterm%5D=Nunito&q%5Bsearch_check%5D=Y>`_.
-* ``monospace_font``: Default monospace font, for code blocks, defaults to `Red Hat Mono <https://www.fontsquirrel.com/fonts/ubuntu-mono?q%5Bterm%5D=Ubuntu+Mono&q%5Bsearch_check%5D=Y>`_.
+* ``sans_serif_font``: Default site font, defaults to `Nunito <https://fonts.google.com/specimen/Nunito>`_.
+* ``monospace_font``: Default monospace font, for code blocks, defaults to `Red Hat Mono <https://fonts.google.com/specimen/Red+Hat+Mono>`_.
 * ``project_name_font``: The font for the Project's name. ``sans_serif_font`` otherwise.
 * ``documentation_font``: reStructuredText and Markdown content. ``sans_serif_font`` otherwise.
 * ``doc_headers_font``: To render documentation headers. ``documentation_font`` otherwise.
@@ -76,7 +76,7 @@ Edit your ``conf.py`` file and add or modify your ``html_theme_options`` setting
 
     html_theme_options = {
         "sans_serif_font": "Mulish",
-        "monospace_font": "Ubuntu Mono",
+        "monospace_font": "Ubuntu Sans Mono",
         "monospace_font_size": "1.1rem",
         "project_name_font": "Montserrat",
         "documentation_font": "Assistant",
@@ -273,15 +273,65 @@ In addition you can remove the **Built with Sphinx and Nefertiti** notice by set
         "show_powered_by": False
     }
 
-Rebuild the theme
+Custom CSS
+**********
+
+Apart from the options explained in the previous sections you can apply additional style changes to your site customizing the CSS variables provided with Nefertiti for Sphinx. As an example, let's create a ``custom.css`` file and customize one of such variables.
+
+From the directory of your ``conf.py`` file, create a new directory ``static`` if it does not exist yet, and add a file called ``custom.css`` to it:
+
+.. code-block:: bash
+
+    mkdir static
+    touch static/custom.css
+
+Add the following example CSS code to ``custom.css``:
+
+.. code-block:: css
+
+    :root {
+      --nftt-body-font-weight: 400;
+      --nftt-pre-line-height: 135%;
+    }
+
+    .light {
+      --nftt-headings-color: darkblue;
+    }
+
+    .dark {
+      --nftt-headings-color: lightblue;
+    }
+
+The result of those changes are:
+
+* ``--nftt-body-font-weight: 400;`` will change the ``font-weight`` CSS property applied to the ``<body>`` of the HTML page.
+* ``--nftt-pre-line-height: 135%;`` will change the ``line-height`` CSS property for ``<pre>`` elements, like code blocks.
+* ``--nftt-headings-color`` will change the color used for the headings of your documents.
+
+.. admonition:: What are ':root', '.light' and '.dark'?
+    :class: note
+
+    Some of Nefertiti's CSS variables are defined within the selectors ``.light`` and ``.dark``. To be overriden such CSS variables have to be defined with at least the same level of specifity and be loaded in the page after Nefertiti's stylesheet. Other CSS variables, like ``--nftt-pre-line-height``, can be simply added to the ``:root`` pseudo selector instead.
+
+    To load your ``custom.css`` styles after Nefertiti's stylesheet Sphinx provides the option ``html_css_files`` in ``conf.py``.
+
+Now edit your ``conf.py`` and update the ``html_css_files`` entry so that it includes your ``custom.css`` file with higher priority than sphinx-nefertiti's stylesheet:
+
+.. code-block:: python
+
+    html_css_files = ["custom.css",]
+
+And continue to the next section to rebuild your Sphinx site.
+
+
+Rebuild your site
 *****************
 
 With all the previous changes in place, save the content, clean up the build directory, build it and serve it again:
 
 .. code-block:: shell
 
-    $ make clean
-    $ make html
+    $ make clean && make html
     $ python -m http.server -d build/html
 
 Visit http://localhost:8000 to take a look at the changes.

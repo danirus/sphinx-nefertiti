@@ -1,3 +1,7 @@
+:root {
+  --nftt-pre-line-height: 145%;
+}
+
 .project-logo {
   margin-right: 1rem;
   background: white;

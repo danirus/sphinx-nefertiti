@@ -8,15 +8,39 @@
     font-family: 'Red Hat Mono';
     src: url('RedHatMono-VariableFont_wght.ttf') format("woff2-variations"),
          url('RedHatMono-VariableFont_wght.ttf') format("woff2");
-    font-weight: 400 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Mono';
+    src: url('RedHatMono-Italic-VariableFont_wght.ttf') format("woff2-variations"),
+         url('RedHatMono-Italic-VariableFont_wght.ttf') format("woff2");
+    font-style: italic;
   }
 }
 
 @supports not (font-variation-settings: normal) {
   @font-face {
     font-family: 'Red Hat Mono';
+    src: url('RedHatMono-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Mono';
     src: url('RedHatMono-Regular.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Mono';
+    src: url('RedHatMono-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Red Hat Mono';
+    src: url('RedHatMono-SemiBold.ttf') format('truetype');
+    font-weight: 600;
     font-style: normal;
   }
   @font-face {

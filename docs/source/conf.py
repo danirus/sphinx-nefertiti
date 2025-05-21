@@ -77,15 +77,15 @@ today_fmt = '%A %d. %B %Y, %H:%M'
 
 html_theme = "sphinx_nefertiti"
 
-html_style = ["custom.css", "nftt-pygments.min.css"]
+html_css_files = ["custom.css", "nftt-pygments.min.css"]
 
 figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
-    # "documentation_font": "Open Sans",
-    # "documentation_font_size": "1.0rem",
-    # "monospace_font": "Ubuntu Mono",
-    # "monospace_font_size": "1.1rem",
+    # "documentation_font": "Ubuntu Sans",
+    # "documentation_font_size": ".95rem",
+    "monospace_font": "Ubuntu Sans Mono",
+    "monospace_font_size": ".90rem",
 
     "style": "blue",
     "style_header_neutral": True,

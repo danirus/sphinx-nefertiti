@@ -8,11 +8,28 @@
     font-family: 'Exo';
     src: url('Exo-VariableFont_wght.ttf') format("woff2-variations"),
          url('Exo-VariableFont_wght.ttf') format("woff2");
-    font-weight: 300 400 700;
   }
 }
 
 @supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Exo';
+    src: url('Exo-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Exo';
+    src: url('Exo-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Exo';
+    src: url('Exo-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Exo';
     src: url('Exo-Regular.ttf') format('truetype');
@@ -21,8 +38,32 @@
   }
   @font-face {
     font-family: 'Exo';
+    src: url('Exo-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Exo';
+    src: url('Exo-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Exo';
     src: url('Exo-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Exo';
+    src: url('Exo-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Exo';
+    src: url('Exo-Black.ttf') format('truetype');
+    font-weight: 900;
     font-style: normal;
   }
 }

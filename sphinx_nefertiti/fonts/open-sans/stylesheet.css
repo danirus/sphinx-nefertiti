@@ -8,11 +8,16 @@
     font-family: 'Open Sans';
     src: url('OpenSans-VariableFont_wdth,wght.ttf') format("woff2-variations"),
          url('OpenSans-VariableFont_wdth,wght.ttf') format("woff2");
-    font-weight: 300 400 700;
   }
 }
 
 @supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
   @font-face {
     font-family: 'Open Sans';
     src: url('OpenSans-Regular.ttf') format('truetype');
@@ -21,8 +26,26 @@
   }
   @font-face {
     font-family: 'Open Sans';
+    src: url('OpenSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Open Sans';
     src: url('OpenSans-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
     font-style: normal;
   }
 }
