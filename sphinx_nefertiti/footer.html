@@ -18,6 +18,13 @@
         <a class="brand-text d-inline-flex align-items-center mb-2 text-decoration-none" href="/" aria-label="Nefertiti-for-Sphinx">
           <span class="fs-6 fw-bold">{{ project }}</span>
         </a>
+        {%- if last_updated -%}
+          <ul class="list-unstyled small text-muted">
+          {% trans last_updated=last_updated|e -%}
+            <li>Last updated on {{ last_updated }}</li>
+          {%- endtrans -%}
+        </ul>
+        {%- endif %}
         {% if show_copyright %}
           <ul class="list-unstyled small text-muted">
             <li>{{ copyright }}</li>
