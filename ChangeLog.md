@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.8.0] -
+
+- Includes i18n catalog for German and Spanish (defaults to English).
+- Update fonts declaration so that users can overwrite `font-weight`.
+
 ## [0.7.5] - 2025-03-23
 
 - Use 300 font-weight when there is browser support for variable font-weight.

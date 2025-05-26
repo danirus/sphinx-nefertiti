@@ -1,6 +1,6 @@
 {% if theme_versions %}
   <li class="nav-item dropdown">
-    <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Select version">
+    <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-version" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-label="{{ _('Select version') }}">
       <span id="snftt-version-text" class="d-xl-none">{{ project|striptags|e }}</span>
       <span class="ms-2" data-snftt-version-active="{{ theme_current_version }}">{{ theme_current_version }}</span>
     </a>

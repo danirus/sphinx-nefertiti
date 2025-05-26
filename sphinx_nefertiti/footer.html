@@ -32,7 +32,7 @@
         {% endif %}
         {% if theme_show_powered_by|lower == 'true' %}
         <div class="built-with pt-2">
-          Built with <a href="http://sphinx-doc.org">Sphinx {{ sphinx_version }}</a> and <a href="https://github.com/danirus/sphinx-nefertiti">Nefertiti {{ nefertiti_version }}</a>
+          {% trans sphinx_url="http://sphinx-doc.org", nefertiti_url="https://github.com/danirus/sphinx-nefertiti" %}Built with <a href="{{ sphinx_url }}">Sphinx {{ sphinx_version }}</a> and <a href="{{ nefertiti_url }}">Nefertiti {{ nefertiti_version }}</a>{% endtrans %}
         </div>
         {% endif %}
       </div>

@@ -18,16 +18,14 @@
   <noscript>
     <div id="fallback" class="admonition warning">
       <p class="last">
-        {% trans %}Please activate JavaScript to enable the search
-        functionality.{% endtrans %}
+        {% trans %}Please allow JavaScript in your web browser to enable the search functionality.{% endtrans %}
       </p>
     </div>
   </noscript>
   {% endblock %}
   {% block searchtext %}
   <p>
-    {% trans %}Searching for multiple words only shows matches that contain
-    all words.{% endtrans %}
+    {% trans %}Searching for multiple words only shows matches that contain all words.{% endtrans %}
   </p>
   {% endblock %}
 
@@ -38,8 +36,8 @@
     <div class="row">
       <div class="col-auto">
         <div class="input-group input-group-lg">
-        <input type="text" name="q" class="form-control" placeholder="{{ _('Search docs') }}" aria-label="Search" aria-describedby="button-search">
-        <button class="btn btn-primary" type="submit" id="button-search" aria-label="Search"><i class="bi bi-search"></i></button>
+        <input type="text" name="q" class="form-control" placeholder="{{ _('Search') }}" aria-label="{{ _('Search') }}" aria-describedby="button-search">
+        <button class="btn btn-primary" type="submit" id="button-search" aria-label="{{ _('Search') }}"><i class="bi bi-search"></i></button>
       </div>
     </div>
   </form>
@@ -49,7 +47,7 @@
   {% if search_performed %}
   <h2>{{ _('Search Results') }}</h2>
     {% if not search_results %}
-    <p>{{ _('Your search did not match any documents. Please make sure that all words are spelled correctly and that you\'ve selected enough categories.') }}</p>
+    <p>{{ _('Your search did not match any documents. Please make sure that all words are spelled correctly.') }}</p>
     {% endif %}
   {% endif %}
   <div id="search-results">

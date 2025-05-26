@@ -1,12 +1,12 @@
-<!-- colorscheme_dropdown.html -->
+<!-- lightdark-dropdown.html -->
 <li class="nav-item dropdown">
-  <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-luz" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Toggle light/dark">
+  <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-luz" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="{{ _('Change appearance') }}">
     <i class="bi bi-circle-half" data-snftt-luz-icon-active></i>
-    <span id="snftt-luz-text" class="d-xl-none ms-2">{{ _('Toggle light/dark') }}</span>
+    <span id="snftt-luz-text" class="d-xl-none ms-2">{{ _('Change appearance') }}</span>
   </a>
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="snftt-luz-text">
     <li>
-      <h6 class="dropdown-header">{{ _('Light/dark') }}</h6>
+      <h6 class="dropdown-header">{{ _('Change appearance') }}</h6>
     </li>
     <li>
       <a class="dropdown-item d-flex align-items-center" data-snftt-luz="light" href="#" aria-pressed="false">
@@ -31,7 +31,7 @@
         <span>
           <i class="bi bi-circle-half" data-snftt-luz-icon="default"></i>
         </span>
-        <span class="ms-3">{{ _('Default') }}</span>
+        <span class="ms-3">{{ _('Automatic') }}</span>
         <i class="bi bi-check ms-auto"></i>
       </a>
     </li>
