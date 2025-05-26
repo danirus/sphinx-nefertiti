@@ -8,7 +8,7 @@ import sphinx
 
 from sphinx_nefertiti import colorsets, docsver, fonts, links, pygments
 
-__version__ = "0.7.5"
+__version__ = "0.8.0"
 
 pages_wo_index = ["genindex", "search"]
 
@@ -96,6 +96,7 @@ def build_finished(app, exc):
 
 
 def setup(app):
+    theme_path = Path(__file__).parent.resolve()
     sphinx_version = [int(x) for x in sphinx.__version__.split(".")]
     if sphinx_version < [7, 0, 0]:
         raise Exception("Theme sphinx-nefertiti requires sphinx >= 7.0.0")
@@ -103,10 +104,10 @@ def setup(app):
     app.connect("builder-inited", initialize_theme)
     app.connect("html-page-context", update_context)
     app.connect("build-finished", build_finished)
+    app.add_message_catalog("sphinx", theme_path / "locale")
 
     if hasattr(app, "add_html_theme"):
-        theme_path = str(Path(__file__).parent)
-        app.add_html_theme("sphinx_nefertiti", theme_path)
+        app.add_html_theme("sphinx_nefertiti", str(theme_path))
 
     return {
         "version": __version__,

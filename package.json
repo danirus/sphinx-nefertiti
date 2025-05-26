@@ -1,6 +1,6 @@
 {
   "name": "sphinx-nefertiti",
-  "version": "0.7.5",
+  "version": "0.8.0",
   "private": true,
   "description": "Nefertiti is a theme for the Sphinx Documentation Generator.",
   "engines": {
@@ -33,8 +33,8 @@
     "tdd": "npm-run-all --aggregate-output --continue-on-error --parallel js-compile-nefertiti js-debug-test",
     "test": "karma start js/tests/karma.conf.js",
     "watch": "npm-run-all --parallel watch-*",
-    "watch-css": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-lint css-compile\"",
-    "watch-js": "nodemon --watch js/src/ --ext js --exec \"npm-run-all js-lint js-compile-nefertiti\""
+    "css-watch": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-lint css-compile\"",
+    "js-watch": "nodemon --watch js/src/ --ext js --exec \"npm-run-all js-lint js-compile-nefertiti\""
   },
   "keywords": [],
   "author": "Daniela Rus Morales",

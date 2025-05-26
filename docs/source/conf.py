@@ -34,6 +34,7 @@ docs_fmt_url = "https://sphinx-nefertiti.readthedocs.io/{release}/"
 releases = [
     "latest",
     release,
+    "0.7.5",
     "0.6.0",
     "0.5.3",
     "0.4.2",
@@ -92,6 +93,7 @@ html_theme_options = {
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 
+    "locales": ['en', 'de', 'es'],
     "logo": "nefertiti.svg",
     "logo_width": 36,
     "logo_height": 36,

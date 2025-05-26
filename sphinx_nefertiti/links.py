@@ -1,5 +1,7 @@
 import logging
 
+from sphinx.locale import _TranslationProxy
+
 from .exceptions import SphinxNefertitiError
 
 logger = logging.getLogger()
@@ -80,7 +82,7 @@ class HeaderLinksProvider:
                     "in the 'html_theme_options', has a non-string "
                     f"'link':\n\t{dd_item}\n"
                 )
-            if not isinstance(dd_item["text"], str):
+            if not isinstance(dd_item["text"], (str, _TranslationProxy)):
                 raise SphinxNefertitiError(
                     "A dropdown item in the 'header_links' option, "
                     "in the 'html_theme_options', has a non-string "

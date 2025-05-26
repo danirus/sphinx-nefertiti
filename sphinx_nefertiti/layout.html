@@ -116,13 +116,13 @@
     <header id="snftt-nav-bar" class="navbar navbar-expand-xl {% if theme_style_header_neutral is true %}neutral{% else %}navbar-dark{% endif %} nftt-navbar flex-column fixed-top">
       <div class="skip-links container-fluid visually-hidden-focusable overflow-hidden justify-content-start flex-grow-1">
         <div class="border-bottom mb-2 pb-2 w-100">
-          <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">{{ _('Skip to docs navigation') }}</a>
+          <a class="d-none d-md-inline-flex p-2 m-1" href="#sidebar-filter">{{ _('Skip to index filter') }}</a>
           <a class="d-inline-flex p-2 m-1" href="#content">{{ _('Skip to main content') }}</a>
         </div>
       </div>
-      <nav class="container-xxl nftt-gutter flex-wrap flex-xl-nowrap" aria-label="Main navigation">
+      <nav class="container-xxl nftt-gutter flex-wrap flex-xl-nowrap" aria-label="{{ _('Main navigation') }}">
         <div class="nftt-navbar-toggler">
-          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Toggle documentation navigation">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="{{ _('Toggle documentation navigation') }}">
             <i class="bi bi-list"></i>
           </button>
         </div>
@@ -158,10 +158,10 @@
           </ul>
         {% endif %}
         <div class="d-flex d-xl-none">
-          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="Search">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttSearch" aria-controls="nfttSearch" aria-label="{{ _('Search') }}">
             <i class="bi bi-search"></i>
           </button>
-          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttNavbar" aria-controls="nfttNavbar" aria-label="Toggle navigation">
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#nfttNavbar" aria-controls="nfttNavbar" aria-label="{{ _('Toggle navigation') }}">
             <i class="bi bi-three-dots"></i>
           </button>
         </div>
@@ -169,7 +169,7 @@
         <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
           <div class="offcanvas-header px-4 pb-0">
             <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">{{ project }}</span></div>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#nfttNavbar"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="{{ _('Close') }}" data-bs-target="#nfttNavbar"></button>
           </div>
           <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
             <hr class="d-xl-none text-white-50">
@@ -226,6 +226,9 @@
               {% if show_colorset_choices %}
                 {% include "colorsets-dropdown.html" %}
               {% endif %}
+              {% if show_locale_choices %}
+                {% include "locales-dropdown.html" %}
+              {% endif %}
               {% include "lightdark-dropdown.html" %}
             </ul>
           </div>
@@ -271,9 +274,9 @@
           {% if display_toc and not hidetoc %}
           <div class="my-sm-1 my-lg-0 ps-xl-3 text-muted">
             <button class="btn btn-link link-dark p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
-            >On this page <i class="ms-2 bi bi-chevron-expand"></i></button>
+            >{{ _('On this page') }} <i class="ms-2 bi bi-chevron-expand"></i></button>
             <div class="title d-none d-lg-block">
-              <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">On this page</span>
+              <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">{{ _('On this page') }}</span>
             </div>
             <div class="collapse nftt-toc-collapse" id="tocContents">
               <nav id="TableOfContents">

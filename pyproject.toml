@@ -35,6 +35,9 @@ requires-python = ">=3.9"
 [project.entry-points."sphinx.html_themes"]
 sphinx_nefertiti = "sphinx_nefertiti"
 
+[project.scripts]
+nftt = "sphinx_nefertiti.bin.nftt:run"
+
 [project.urls]
 Homepage = "https://github.com/danirus/sphinx-nefertiti"
 Documentation = "https://sphinx-nefertiti.readthedocs.io"
@@ -89,4 +92,7 @@ extend-select = [
     "SIM", # flake8-simplify
     "UP",  # pyupgrade
     "T20", # flake8-print
+]
+ignore = [
+    "T201", # Ignore checks for print statements.
 ]

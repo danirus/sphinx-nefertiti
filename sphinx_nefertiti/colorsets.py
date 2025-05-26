@@ -1,6 +1,8 @@
 import shutil
 from pathlib import Path
 
+from sphinx.locale import _
+
 from .exceptions import SphinxNefertitiError
 
 colorsets_rel_path = Path("colorsets")
@@ -19,6 +21,20 @@ all_colorsets = [
     "green",
     "teal",
     "default",  # cyan.
+]
+
+# Just for i18n purposes:
+color_names = [
+    _("blue"),
+    _("indigo"),
+    _("purple"),
+    _("pink"),
+    _("red"),
+    _("orange"),
+    _("yellow"),
+    _("green"),
+    _("teal"),
+    _("cyan"),
 ]
 
 

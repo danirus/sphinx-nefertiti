@@ -2,6 +2,8 @@
 
 .PHONY: help build docs
 
+export VERSION = `python -c "from sphinx_nefertiti import __version__; print(__version__)"`
+
 clean:  ## Clean up built files.
 	rm -rf build/
 	rm -rf site/css/nftt-pygments*.*
@@ -25,7 +27,8 @@ py-tests:  ## Run Python tests with coverage.
 js-tests:  ## Run JavaScript tests.
 	npm run test
 
-build-ext:  ## Build Sphinx extension.
+
+build-ext: i18n-compile  ## Build Sphinx extension.
 	npm run build
 	mkdir -p sphinx_nefertiti/static/
 	mkdir -p sphinx_nefertiti/colorsets/
@@ -55,6 +58,29 @@ serve-lcov:  ## Web server for content from lcov-report directory.
 
 serve-docs:  build-docs  ## Web server for the sphinx-nefertiti documentation.
 	python -m http.server -d docs/build/html 8194
+
+i18n-extract:  ##  Extract i18n messages to sphinx_nefertiti/locale/sphinx.pot.
+	@pybabel extract -F ./babel.cfg \
+		--input-dirs=sphinx_nefertiti \
+		--output-file=sphinx_nefertiti/locale/sphinx.pot \
+		--copyright-holder='Developers of Nefertiti for Sphinx' \
+		--keywords='_ __ l_ lazy_gettext trans' \
+		--project=sphinx-nefertiti \
+		--version=${VERSION}
+	@pybabel update \
+		-i sphinx_nefertiti/locale/sphinx.pot \
+		-d sphinx_nefertiti/locale \
+		-D sphinx
+
+i18n-new-locale:  ## Add new locale (pass argument LOCALE=<iso-639-1-code>).
+	@pybabel init \
+		-i sphinx_nefertiti/locale/sphinx.pot \
+		-d sphinx_nefertiti/locale \
+		-l ${LOCALE} \
+		-D sphinx
+
+i18n-compile:  ## Compile translation catalogs (PO) to binary files (MO).
+	@pybabel compile -d sphinx_nefertiti/locale -D sphinx
 
 help:  ## Show help message.
 	@IFS=$$'\n' ; \

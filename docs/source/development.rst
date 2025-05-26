@@ -29,18 +29,18 @@ Clone the Git repository, create a Python virtual environment, install the Pytho
 Style development
 *****************
 
-To make changes in the styling, or to create a new color set, you will edit the content of the ``scss/`` directory, and use the npm scripts ``css-compile`` or ``watch-css`` to compile SASS files and generate ``.css`` bundles.
+To make changes in the styling, or to create a new color set, you will edit the content of the ``scss/`` directory, and use the npm scripts ``css-compile`` or ``css-watch`` to compile SASS files and generate ``.css`` bundles.
 
 When doing style development it is recommended to use ``make serve-site`` to serve a sample HTML file, ``site/index.html``, that by default loads ``site/css/sphinx-nefertiti.css``.
 
-This file, ``sphinx-nefertiti.css``, and all its cousins representing each colorset, are produced by the npm script ``css-compile`` and ``watch-css``.
+This file, ``sphinx-nefertiti.css``, and all its cousins representing each colorset, are produced by the npm script ``css-compile`` and ``css-watch``.
 
 Install the **Accessibility Insights for Web** application [1]_ in your browser to verify that your changes do not present accessibility issues.
 
 JavaScript development
 **********************
 
-To make changes in the JavaScript plugin you will edit the content of the ``js/`` directory, in combination with the npm scripts ``js-compile`` or ``watch-js`` to create the JavaScript bundle.
+To make changes in the JavaScript plugin you will edit the content of the ``js/`` directory, in combination with the npm scripts ``js-compile`` or ``js-watch`` to create the JavaScript bundle.
 
 As with Style development, it is recommended to use the ``serve-site`` Makefile target to serve the ``site/index.html`` and test by hand the changes in the JavaScript plugin.
 
