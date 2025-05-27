@@ -93,7 +93,6 @@ html_theme_options = {
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 
-    "locales": ['en', 'de', 'es'],
     "logo": "nefertiti.svg",
     "logo_width": 36,
     "logo_height": 36,

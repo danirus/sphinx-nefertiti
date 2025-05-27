@@ -84,6 +84,8 @@ Edit your ``conf.py`` file and add or modify your ``html_theme_options`` setting
         "doc_headers_font": "Georgia",
     }
 
+Read more about customizing the fonts in :ref:`Customization > Fonts <fonts>`.
+
 2. Header links
 ===============
 
@@ -145,7 +147,7 @@ The following content will produced the header of the image below:
     :align: center
     :class: border-radius-2
 
-    Read more about customizing the header links in :ref:`header-links`.
+    Read more about customizing the header links in :ref:`Customization > Header links <header-links>`.
 
 3. Colorsets
 ============
@@ -164,6 +166,8 @@ To customize the color set in your project add an entry ``style`` to the ``html_
 When ``style`` is not given the theme defaults to ``default``, which is cyan.
 
 Another available setting is ``style_header_neutral``, that when is set to ``True``, makes the header color to adapt to the light or dark color-scheme setting. To test it here, use the colorset dropdown at the top right side of the header.
+
+Read more about customizing the base color in :ref:`Customization > Colorsets <colorsets>`.
 
 4. Pygments styles
 ==================
@@ -185,7 +189,7 @@ If your Sphinx project has code-blocks, try changing the pygments style settings
         'pygments_dark_style': 'solarized-dark'
     }
 
-See more code blocks rendered with Pygments in the :ref:`code-blocks` document in Nefertiti User's Guide.
+See more code blocks rendered with Pygments in the :ref:`Components > Code blocks <code-blocks>` page. You can read more about customizing pygments in :ref:`Customization > Pygments <customize-pygments>`.
 
 5. Repository data
 ==================
@@ -201,6 +205,8 @@ Just add the ``repository_name`` and ``repository_url`` keys to your ``html_them
         "repository_name": "danirus/sphinx-nefertiti",
         "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     }
+
+Read more about customizing the repository widget in :ref:`Customization > Git repository <git-repository>`.
 
 6. Version dropdown
 ===================
@@ -235,6 +241,7 @@ Enable the version dropdown by adding the ``versions`` key to your ``html_theme_
         ]
     }
 
+Read more about customizing this widget in :ref:`Customization > Version dropdown <version-dropdown>`.
 
 7. Footer links
 ===============
