@@ -1,4 +1,4 @@
-# Spanish translations for sphinx-nefertiti.
+# German translations for sphinx-nefertiti.
 # Copyright (C) 2025 Developers of Nefertiti for Sphinx
 # This file is distributed under the same license as the sphinx-nefertiti
 # project.
@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: sphinx-nefertiti 0.8.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2025-05-22 10:17+0200\n"
-"PO-Revision-Date: 2025-05-21 15:43+0200\n"
+"PO-Revision-Date: 2025-05-26 11:24+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
-"Language-Team: es <LL@li.org>\n"
+"Language: de\n"
+"Language-Team: de <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -21,22 +21,21 @@ msgstr ""
 
 #: sphinx_nefertiti/breadcrumbs.html:3
 msgid "Start"
-msgstr "Inicio"
+msgstr "Beginn"
 
 #: sphinx_nefertiti/colorsets-dropdown.html:3
 #: sphinx_nefertiti/colorsets-dropdown.html:5
 #: sphinx_nefertiti/colorsets-dropdown.html:9
 msgid "Change base color"
-msgstr "Cambiar color base"
+msgstr "Grundfarbe ändern"
 
 #: sphinx_nefertiti/colorsets-dropdown.html:17 sphinx_nefertiti/colorsets.py:37
-#, fuzzy
 msgid "cyan"
-msgstr "cian"
+msgstr "cyan"
 
 #: sphinx_nefertiti/colorsets-dropdown.html:24
 msgid "Header style"
-msgstr "Estilo de cabecera"
+msgstr "Kopfzeilenstil"
 
 #: sphinx_nefertiti/colorsets-dropdown.html:29
 msgid "Neutral"
@@ -44,15 +43,15 @@ msgstr "Neutral"
 
 #: sphinx_nefertiti/colorsets.py:28
 msgid "blue"
-msgstr "azul"
+msgstr "blau"
 
 #: sphinx_nefertiti/colorsets.py:29
 msgid "indigo"
-msgstr "índigo"
+msgstr "indigo"
 
 #: sphinx_nefertiti/colorsets.py:30
 msgid "purple"
-msgstr "violeta"
+msgstr "lila"
 
 #: sphinx_nefertiti/colorsets.py:31
 msgid "pink"
@@ -60,23 +59,23 @@ msgstr "rosa"
 
 #: sphinx_nefertiti/colorsets.py:32
 msgid "red"
-msgstr "rojo"
+msgstr "rot"
 
 #: sphinx_nefertiti/colorsets.py:33
 msgid "orange"
-msgstr "naranja"
+msgstr "orange"
 
 #: sphinx_nefertiti/colorsets.py:34
 msgid "yellow"
-msgstr "amarillo"
+msgstr "gelb"
 
 #: sphinx_nefertiti/colorsets.py:35
 msgid "green"
-msgstr "verde"
+msgstr "grün"
 
 #: sphinx_nefertiti/colorsets.py:36
 msgid "teal"
-msgstr "turquesa"
+msgstr "blaugrün"
 
 #: sphinx_nefertiti/footer.html:28
 #, python-format
@@ -84,7 +83,7 @@ msgid ""
 "Built with <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> and "
 "<a href=\"%(nefertiti_url)s\">Nefertiti %(nefertiti_version)s</a>"
 msgstr ""
-"Creado con <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> y <a "
+"Erstellt mit <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> und <a "
 "href=\"%(nefertiti_url)s\">Nefertiti %(nefertiti_version)s</a>"
 
 #: sphinx_nefertiti/genindex-single.html:20
@@ -94,162 +93,160 @@ msgstr ""
 #: sphinx_nefertiti/genindex.html:23 sphinx_nefertiti/genindex.html:59
 #: sphinx_nefertiti/layout.html:66 sphinx_nefertiti/layout.html:254
 msgid "Index"
-msgstr "Índice"
+msgstr "Stichwortverzeichnis"
 
 #: sphinx_nefertiti/genindex-single.html:23
 #, python-format
 msgid "Index &ndash; %(key)s"
-msgstr "Índice &ndash; %(key)s"
+msgstr ""
 
 #: sphinx_nefertiti/genindex-single.html:56
 #: sphinx_nefertiti/genindex-split.html:16
 #: sphinx_nefertiti/genindex-split.html:33 sphinx_nefertiti/genindex.html:66
 msgid "Full index on one page"
-msgstr "Índice completo en una página"
+msgstr "Gesamtes Stichwortverzeichnis auf einer Seite"
 
 #: sphinx_nefertiti/genindex-split.html:6
 msgid "Index pages by letter"
-msgstr "Índice alfabético de páginas"
+msgstr "Stichwortverzeichnis nach Anfangsbuchstabe"
 
 #: sphinx_nefertiti/genindex-split.html:17
 msgid "can be huge"
-msgstr "puede ser muy grande"
+msgstr "kann groß sein"
 
 #: sphinx_nefertiti/globaltoc.html:3
 msgid "Table of contents"
-msgstr "Índice de contenidos"
+msgstr "Inhaltsverzeichnis"
 
 #: sphinx_nefertiti/globaltoc.html:5 sphinx_nefertiti/layout.html:172
 #: sphinx_nefertiti/searchbox.html:5
 msgid "Close"
-msgstr ""
+msgstr "schließen"
 
 #: sphinx_nefertiti/globaltoc.html:9
 msgid "Main menu"
-msgstr "Menú principal"
+msgstr "Hauptmenü"
 
 #: sphinx_nefertiti/globaltoc.html:11
 msgid "index filter"
-msgstr "filtrar índice"
+msgstr "Indexfilter"
 
 #: sphinx_nefertiti/globaltoc.html:18
 msgid "Toggle menu contents"
-msgstr "Mostrar contenido"
+msgstr "Inhalt anzeigen"
 
 #: sphinx_nefertiti/layout.html:49
 #, python-format
 msgid "Search within %(docstitle)s"
-msgstr "Buscar en %(docstitle)s"
+msgstr "Suche in %(docstitle)s"
 
 #: sphinx_nefertiti/layout.html:63
 msgid "About these documents"
-msgstr "Acerca de estos documentos"
+msgstr "Über dieses Dokument"
 
 #: sphinx_nefertiti/layout.html:69 sphinx_nefertiti/layout.html:161
 #: sphinx_nefertiti/search.html:2 sphinx_nefertiti/search.html:16
 #: sphinx_nefertiti/search.html:39 sphinx_nefertiti/search.html:40
 #: sphinx_nefertiti/searchbox.html:13 sphinx_nefertiti/searchbox.html:16
 msgid "Search"
-msgstr "Buscar"
+msgstr "Suche"
 
 #: sphinx_nefertiti/layout.html:72
 msgid "Copyright"
-msgstr "Derechos de autor"
+msgstr "Copyright"
 
 #: sphinx_nefertiti/layout.html:119
 msgid "Skip to index filter"
-msgstr "Salta a filtrar índice"
+msgstr "Zum Filterindex springen"
 
 #: sphinx_nefertiti/layout.html:120
 msgid "Skip to main content"
-msgstr "Salta al contenido principal"
+msgstr "Zum Hauptinhalt springen"
 
 #: sphinx_nefertiti/layout.html:123
 msgid "Main navigation"
-msgstr "Menú principal"
+msgstr "Hauptnavigation"
 
 #: sphinx_nefertiti/layout.html:125
 msgid "Toggle documentation navigation"
-msgstr "Mostrar menú de la documentación"
+msgstr "Menü Dokumentation anzeigen"
 
 #: sphinx_nefertiti/layout.html:164
 msgid "Toggle navigation"
-msgstr "Mostrar navegación"
+msgstr "Navigation anzeigen"
 
 #: sphinx_nefertiti/layout.html:274 sphinx_nefertiti/layout.html:276
-#, fuzzy
 msgid "On this page"
-msgstr "En esta página"
+msgstr "Auf dieser Seite"
 
 #: sphinx_nefertiti/lightdark-dropdown.html:3
 #: sphinx_nefertiti/lightdark-dropdown.html:5
 #: sphinx_nefertiti/lightdark-dropdown.html:9
 msgid "Change appearance"
-msgstr "Cambiar aspecto"
+msgstr "Aussehen ändern"
 
 #: sphinx_nefertiti/lightdark-dropdown.html:16
 msgid "Light"
-msgstr "Claro"
+msgstr "Klar"
 
 #: sphinx_nefertiti/lightdark-dropdown.html:25
 msgid "Dark"
-msgstr "Oscuro"
+msgstr "Dunkel"
 
 #: sphinx_nefertiti/lightdark-dropdown.html:34
 msgid "Automatic"
-msgstr "Automático"
+msgstr "Automatisch"
 
 #: sphinx_nefertiti/pager.html:2
 msgid "Documentation navigation"
-msgstr "Menú de la documentación"
+msgstr "Dokumentationsmenü"
 
 #: sphinx_nefertiti/pager.html:7
 msgid "Previous page:"
-msgstr "Página anterior:"
+msgstr "Vorherige Seite:"
 
 #: sphinx_nefertiti/pager.html:10
 msgid "Previous"
-msgstr "Anterior"
+msgstr "Vorherige"
 
 #: sphinx_nefertiti/pager.html:18
 msgid "Next page:"
-msgstr "Página siguiente:"
+msgstr "Nächste Seite:"
 
 #: sphinx_nefertiti/pager.html:20
 msgid "Next"
-msgstr "Siguiente"
+msgstr "Nächste"
 
 #: sphinx_nefertiti/search.html:21
 msgid ""
 "Please allow JavaScript in your web browser to enable the search "
 "functionality."
 msgstr ""
-"Para que funcione la búsqueda es necesario activa el uso de JavaScript en "
-"el navegador web."
+"Bitte erlauben Sie JavaScript in Ihrem Webbrowser, um die Suchfunktion "
+"zu aktivieren."
 
 #: sphinx_nefertiti/search.html:28
 msgid "Searching for multiple words only shows matches that contain all words."
 msgstr ""
-"Al buscar por múltiples palabras solo se muestran los resultados que "
-"contengan todas las palabras dadas."
+"Bei der Suche nach mehreren Wörtern werden nur Treffer angezeigt, "
+"die alle Wörter enthalten."
 
 #: sphinx_nefertiti/search.html:48 sphinx_nefertiti/searchresults.html:2
 msgid "Search Results"
-msgstr "Resultados de la búsqueda"
+msgstr "Suchergebnisse"
 
 #: sphinx_nefertiti/search.html:50 sphinx_nefertiti/searchresults.html:4
 msgid ""
 "Your search did not match any documents. Please make sure that all words "
 "are spelled correctly."
 msgstr ""
-"La búsqueda no ha encontrado ningún documento. Por favor, asegúrate de "
-"que todas las palabras están escritas correctamente."
+"Ihre Suche ergab keine Treffer. Bitte stellen Sie sicher, dass alle "
+"Wörter richtig geschrieben sind und genügend Kategorien ausgewählt sind."
 
 #: sphinx_nefertiti/version-dropdown.html:3
-#, fuzzy
 msgid "Select version"
-msgstr "Versiones"
+msgstr "Version auswählen"
 
 #: sphinx_nefertiti/version-dropdown.html:10
 msgid "Versions"
-msgstr "Versiones"
+msgstr "Versionen"

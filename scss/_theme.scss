@@ -1,6 +1,10 @@
 /* stylelint-disable selector-no-qualifying-type */
 @use "sass:color";
 
+strong {
+  font-weight: var(--#{$prefix}strong-font-weight);
+}
+
 .btn-primary,
 .btn-primary:hover {
   @include box-shadow($primary);

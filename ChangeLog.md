@@ -4,6 +4,7 @@
 
 - Includes i18n catalog for German and Spanish (defaults to English).
 - Update fonts declaration so that users can overwrite `font-weight`.
+- Add support for [sphinx-last-updated-by-git](https://pypi.org/project/sphinx-last-updated-by-git/) in the `footer.html`.
 
 ## [0.7.5] - 2025-03-23
 
