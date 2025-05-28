@@ -97,7 +97,7 @@ git clone git@github.com:danirus/sphinx-nefertiti.git
 cd sphinx-nefertiti
 python3.12 -m venv venv
 source venv/bin/activate
-pip install -r requirements-dev.txt
+pip install -e .
 nvm use --lts
 npm install
 ```

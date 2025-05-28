@@ -5,7 +5,9 @@
 .coverage
 .eggs/
 .tox
+.idea/
 build/
+_build/
 venv/
 dist/
 docs/_build
