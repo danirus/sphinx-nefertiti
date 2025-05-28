@@ -31,7 +31,7 @@ msgstr "Grundfarbe ändern"
 
 #: sphinx_nefertiti/colorsets-dropdown.html:17 sphinx_nefertiti/colorsets.py:37
 msgid "cyan"
-msgstr "cyan"
+msgstr "türkis" # or „zyan“ „türkis“ is more common
 
 #: sphinx_nefertiti/colorsets-dropdown.html:24
 msgid "Header style"
@@ -121,7 +121,7 @@ msgstr "Inhaltsverzeichnis"
 #: sphinx_nefertiti/globaltoc.html:5 sphinx_nefertiti/layout.html:172
 #: sphinx_nefertiti/searchbox.html:5
 msgid "Close"
-msgstr "schließen"
+msgstr "Schließen"
 
 #: sphinx_nefertiti/globaltoc.html:9
 msgid "Main menu"
@@ -183,11 +183,11 @@ msgstr "Auf dieser Seite"
 #: sphinx_nefertiti/lightdark-dropdown.html:5
 #: sphinx_nefertiti/lightdark-dropdown.html:9
 msgid "Change appearance"
-msgstr "Aussehen ändern"
+msgstr "Farb-Schema einstellen"
 
 #: sphinx_nefertiti/lightdark-dropdown.html:16
 msgid "Light"
-msgstr "Klar"
+msgstr "Hell"
 
 #: sphinx_nefertiti/lightdark-dropdown.html:25
 msgid "Dark"
@@ -207,7 +207,7 @@ msgstr "Vorherige Seite:"
 
 #: sphinx_nefertiti/pager.html:10
 msgid "Previous"
-msgstr "Vorherige"
+msgstr "Zurück"
 
 #: sphinx_nefertiti/pager.html:18
 msgid "Next page:"
@@ -215,7 +215,7 @@ msgstr "Nächste Seite:"
 
 #: sphinx_nefertiti/pager.html:20
 msgid "Next"
-msgstr "Nächste"
+msgstr "Weiter"
 
 #: sphinx_nefertiti/search.html:21
 msgid ""
@@ -241,7 +241,7 @@ msgid ""
 "are spelled correctly."
 msgstr ""
 "Ihre Suche ergab keine Treffer. Bitte stellen Sie sicher, dass alle "
-"Wörter richtig geschrieben sind und genügend Kategorien ausgewählt sind."
+"Wörter korrekt geschrieben sind."
 
 #: sphinx_nefertiti/version-dropdown.html:3
 msgid "Select version"
