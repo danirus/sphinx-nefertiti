@@ -12,7 +12,7 @@ Theme options
 
 Two theme options have to be provided in order to display the version dropdown:
 
-#. ``current_version```
+#. ``current_version``
 #. ``versions``
 
 1. ``current_version``

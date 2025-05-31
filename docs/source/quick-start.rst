@@ -318,7 +318,9 @@ The result of those changes are:
 .. admonition:: What are ':root', '.light' and '.dark'?
     :class: note
 
-    Some of Nefertiti's CSS variables are defined within the selectors ``.light`` and ``.dark``. To be overriden such CSS variables have to be defined with at least the same level of specifity and be loaded in the page after Nefertiti's stylesheet. Other CSS variables, like ``--nftt-pre-line-height``, can be simply added to the ``:root`` pseudo selector instead.
+    Some of Nefertiti's CSS variables are defined within the selectors ``.light`` and ``.dark``. To override such CSS variables they have to be defined with at least the same level of specifity and loaded in the page after Nefertiti's stylesheet.
+
+    Other CSS variables, like ``--nftt-pre-line-height``, can be simply added to the ``:root`` pseudo selector because their values do not change with the color scheme.
 
     To load your ``custom.css`` styles after Nefertiti's stylesheet Sphinx provides the option ``html_css_files`` in ``conf.py``.
 

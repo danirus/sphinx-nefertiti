@@ -53,13 +53,7 @@
 
       <ul class="nftt-header-links-large navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/index-2-row-header.html">Two-rows header</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">Docs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">This One</a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">That Other</a>
@@ -190,6 +184,24 @@
                     <span class="ms-2">v0.4.0</span>
                     <i class="bi bi-check ms-auto"></i>
                   </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">
+              <div class="vr d-none d-xl-flex h-100 mx-xl-2 text-white"></div>
+              <hr class="d-xl-none text-white-50">
+            </li>
+
+            <!-- locales -->
+            <li class="nav-item dropdown">
+              <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-locale" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="Change language">
+                <i class="bi bi-translate"></i>
+                <span class="d-xl-none ms-2">Change language</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-limit-max-height" aria-labelledby="snftt-locale-text" id="locales-dropdown-menu">
+                <li>
+                  <h6 class="dropdown-header">Languages</h6>
                 </li>
               </ul>
             </li>
@@ -710,6 +722,7 @@ $ python -m http.server -d build/html</pre></div>
   </footer>
   <script src="/js/bootstrap.bundle.js"></script>
   <script src="/js/sphinx-nefertiti.js"></script>
+  <script src="/js/docs-locales.js"></script>
   <!-- <script src="/js/colorsets.js" type="module"></script> -->
 </body>
 </html>

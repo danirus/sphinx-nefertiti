@@ -223,12 +223,8 @@
               </li>
               {% endif %}
               {% include "version-dropdown.html" %}
-              {% if show_colorset_choices %}
-                {% include "colorsets-dropdown.html" %}
-              {% endif %}
-              {% if show_locale_choices %}
-                {% include "locales-dropdown.html" %}
-              {% endif %}
+              {% include "colorsets-dropdown.html" %}
+              {% include "locale-dropdown.html" %}
               {% include "lightdark-dropdown.html" %}
             </ul>
           </div>
