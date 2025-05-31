@@ -1,0 +1,18 @@
+{% if theme_locales|length > 0 %}
+  <li class="nav-item dropdown">
+    <a class="nav-link d-flex py-2 px-0 px-xl-2 dropdown-toggle align-items-center" id="snftt-locale" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false" aria-label="{{ _('Change language') }}">
+      <i class="bi bi-translate" data-snftt-locale-active="{{ default_locale }}" data-snftt-locale-active-url="{{ default_locale_url }}"></i>
+      <span class="d-xl-none ms-2">{{ _('Change language') }}</span>
+    </a>
+    {# Feeding the elements takes place via the locales.js #}
+    <ul class="dropdown-menu dropdown-menu-end dropdown-limit-max-height" aria-labelledby="snftt-locale-text" id="locales-dropdown-menu">
+      <li>
+        <h6 class="dropdown-header">{{ _('Languages') }}</h6>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">
+    <div class="vr d-none d-xl-flex h-100 mx-xl-2 text-white-50"></div>
+    <hr class="d-xl-none text-white-50">
+  </li>
+{% endif %}

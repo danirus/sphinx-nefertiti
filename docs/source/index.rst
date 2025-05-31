@@ -65,7 +65,7 @@ Nefertiti for Sphinx is an Open Source project maintained by a small group of de
 
    accessibility
    development
-   localization
+   contributing
 
 How to collaborate
 ******************

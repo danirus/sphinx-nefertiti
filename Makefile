@@ -32,14 +32,14 @@ build-ext: l10n-compile-locales  ## Build Sphinx extension.
 	npm run build
 	mkdir -p sphinx_nefertiti/static/
 	mkdir -p sphinx_nefertiti/colorsets/
-	cp site/css/bootstrap-icons.min.css			sphinx_nefertiti/static/
-	cp site/css/bootstrap-icons.woff2 			sphinx_nefertiti/static/
-	cp site/js/*.min.js               		  	sphinx_nefertiti/static/
-	cp site/js/*.min.js.map           		  	sphinx_nefertiti/static/
-	cp site/css/sphinx-nefertiti*.min.css     	sphinx_nefertiti/colorsets/
-	cp site/css/sphinx-nefertiti*.min.css.map 	sphinx_nefertiti/colorsets/
-	cp site/css/nftt-pygments.min.css 			docs/source/static
-	cp site/css/nftt-pygments.min.css.map		docs/source/static
+	cp site/css/bootstrap-icons.min.css         sphinx_nefertiti/static/
+	cp site/css/fonts/bootstrap-icons.woff2     sphinx_nefertiti/static/
+	cp site/js/*.min.js                         sphinx_nefertiti/static/
+	cp site/js/*.min.js.map                     sphinx_nefertiti/static/
+	cp site/css/sphinx-nefertiti*.min.css       sphinx_nefertiti/colorsets/
+	cp site/css/sphinx-nefertiti*.min.css.map   sphinx_nefertiti/colorsets/
+	cp site/css/nftt-pygments.min.css           docs/source/static
+	cp site/css/nftt-pygments.min.css.map       docs/source/static
 	python -m build
 
 build-docs:  ## Create sphinx-nefertiti documentation.

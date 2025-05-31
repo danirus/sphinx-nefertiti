@@ -36,7 +36,7 @@ export function updateVersion() {
 export function feedVersionsMenu() {
   const vermenu = document.getElementById("versions-dropdown-menu");
   if (!vermenu) {
-    console.log("Did not find the versions dropdown menu.");
+    console.log("Couldn't find an element with id='versions-dropdown-menu'.");
     return false;
   }
   // Use the variable 'docs_versions' loaded as a script in layout.html.

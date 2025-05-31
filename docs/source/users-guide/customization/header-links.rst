@@ -119,7 +119,7 @@ The following ``header_links``, added to the ``html_theme_options`` setting of a
 The **Tutorial** link points to the URL ``/tutorial.html``. When the user clicks on it the URL loads and an underline appears below **Tutorial** to indicate that it is the current active link:
 
 .. cs_figure:: img/rhythm-header-tutorial-active.*
-    :alt: The header link "Tutorial is active.
+    :alt: The header link "Tutorial" is active.
     :width: 500px
     :align: center
     :class: border-radius-2
