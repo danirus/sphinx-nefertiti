@@ -52,19 +52,19 @@ In order to be compliant with [EU's GDPR](https://gdpr.eu/), Nefertiti for Sphin
 * Open Sans
 * Red Hat Display
 * Sofia Sans
-* Ubuntu
+* Ubuntu Sans
 * Varta
 * Work Sans
 * Fira Code (monospace)
 * Red Hat Mono (monospace)
-* Ubuntu Mono (monospace)
+* Ubuntu Sans Mono (monospace)
 
 Combine up to 5 different fonts:
 
     html_theme_options = {
         "sans_serif_font": "Nunito",
         "documentation_font": "Open Sans",
-        "monospace_font": "Ubuntu Mono",
+        "monospace_font": "Ubuntu Sans Mono",
         "project_name_font": "Nunito",
         "doc_headers_font": "Georgia",
 
