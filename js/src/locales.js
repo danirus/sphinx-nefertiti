@@ -13,6 +13,8 @@ export class LocaleHandler {
   registerClickEvents() {
     const q_loc_url = "[data-snftt-locale-active-url]";
     const curr_loc_url_elem = document.querySelector(q_loc_url);
+    if (!curr_loc_url_elem)
+      return;
     const curr_loc_url = curr_loc_url_elem.dataset.snfttLocaleActiveUrl;
 
     const selector = "#locales-dropdown-menu .dropdown-item";
