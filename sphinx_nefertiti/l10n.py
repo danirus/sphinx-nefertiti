@@ -1,7 +1,7 @@
 from babel import Locale
 
 
-class DocsLocaleProvider:
+class LocaleProvider:
     def __init__(self, app):
         self.current_locale = app.config.language
         self.current_locale_url = ""

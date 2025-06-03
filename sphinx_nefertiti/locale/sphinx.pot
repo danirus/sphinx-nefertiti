@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx-nefertiti 0.8.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-22 10:17+0200\n"
+"POT-Creation-Date: 2025-06-03 14:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,21 +22,21 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: sphinx_nefertiti/colorsets-dropdown.html:3
-#: sphinx_nefertiti/colorsets-dropdown.html:5
-#: sphinx_nefertiti/colorsets-dropdown.html:9
+#: sphinx_nefertiti/colorsets-dropdown.html:4
+#: sphinx_nefertiti/colorsets-dropdown.html:6
+#: sphinx_nefertiti/colorsets-dropdown.html:10
 msgid "Change base color"
 msgstr ""
 
-#: sphinx_nefertiti/colorsets-dropdown.html:17 sphinx_nefertiti/colorsets.py:37
+#: sphinx_nefertiti/colorsets-dropdown.html:18 sphinx_nefertiti/colorsets.py:37
 msgid "cyan"
 msgstr ""
 
-#: sphinx_nefertiti/colorsets-dropdown.html:24
+#: sphinx_nefertiti/colorsets-dropdown.html:25
 msgid "Header style"
 msgstr ""
 
-#: sphinx_nefertiti/colorsets-dropdown.html:29
+#: sphinx_nefertiti/colorsets-dropdown.html:30
 msgid "Neutral"
 msgstr ""
 
@@ -76,7 +76,12 @@ msgstr ""
 msgid "teal"
 msgstr ""
 
-#: sphinx_nefertiti/footer.html:28
+#: sphinx_nefertiti/footer.html:23
+#, python-format
+msgid "<li>Last updated on %(last_updated)s</li>"
+msgstr ""
+
+#: sphinx_nefertiti/footer.html:35
 #, python-format
 msgid ""
 "Built with <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> and "
@@ -88,7 +93,7 @@ msgstr ""
 #: sphinx_nefertiti/genindex-split.html:2
 #: sphinx_nefertiti/genindex-split.html:5 sphinx_nefertiti/genindex.html:20
 #: sphinx_nefertiti/genindex.html:23 sphinx_nefertiti/genindex.html:59
-#: sphinx_nefertiti/layout.html:66 sphinx_nefertiti/layout.html:254
+#: sphinx_nefertiti/layout.html:66 sphinx_nefertiti/layout.html:253
 msgid "Index"
 msgstr ""
 
@@ -172,7 +177,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: sphinx_nefertiti/layout.html:274 sphinx_nefertiti/layout.html:276
+#: sphinx_nefertiti/layout.html:273 sphinx_nefertiti/layout.html:275
 msgid "On this page"
 msgstr ""
 
@@ -192,6 +197,15 @@ msgstr ""
 
 #: sphinx_nefertiti/lightdark-dropdown.html:34
 msgid "Automatic"
+msgstr ""
+
+#: sphinx_nefertiti/locale-dropdown.html:3
+#: sphinx_nefertiti/locale-dropdown.html:5
+msgid "Change language"
+msgstr ""
+
+#: sphinx_nefertiti/locale-dropdown.html:9
+msgid "Language"
 msgstr ""
 
 #: sphinx_nefertiti/pager.html:2

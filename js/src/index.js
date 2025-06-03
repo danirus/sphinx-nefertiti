@@ -1,13 +1,13 @@
 import { BackToTop } from "./backtotop.js";
 import { fixFigureStyle } from "./figures.js";
 import { CSchemeHandler } from "./cschemes.js";
+import { LocaleHandler } from "./locales.js";
 import { MenuHandler } from "./menu.js";
 import { selectActiveHeaderLink } from "./navbar.js";
 import { updateRepoMetrics } from "./repometrics.js";
 import { LocationHashHandler, TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
 import { feedVersionsMenu, updateVersion } from "./versions.js";
-import { feedLocalesMenu, updateLocale } from "./locales.js";
 
 
 function agentHas(keyword) {
@@ -76,16 +76,19 @@ function loadSphinxNefertiti() {
   const cscheme_handler = new CSchemeHandler();
   cscheme_handler.registerClickEvents();
 
-  // Feed the versions dropdown element, and
-  // the locales dropdown element.
+  // Versions handling -----------------
+  // Feed the versions dropdown element.
   feedVersionsMenu();
-  feedLocalesMenu();
-
   // The updateVersion function controls the display of the version
   // in the header, adding the CSS class "current" to display the tick
-  // near the version selected. Likewise for the updateLocale function.
+  // near the version selected.
   updateVersion();
-  updateLocale();
+
+  // Handler for user's click events on the language dropdown selector.
+  const locale_handler = new LocaleHandler();
+  if (locale_handler) {
+    locale_handler.registerClickEvents();
+  }
 
   // The function updateRepoMetrics updates the details related to the
   // repository in the header.

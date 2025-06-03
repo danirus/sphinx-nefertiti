@@ -4,11 +4,18 @@
       <i class="bi bi-translate" data-snftt-locale-active="{{ default_locale }}" data-snftt-locale-active-url="{{ default_locale_url }}"></i>
       <span class="d-xl-none ms-2">{{ _('Change language') }}</span>
     </a>
-    {# Feeding the elements takes place via the locales.js #}
     <ul class="dropdown-menu dropdown-menu-end dropdown-limit-max-height" aria-labelledby="snftt-locale-text" id="locales-dropdown-menu">
       <li>
-        <h6 class="dropdown-header">{{ _('Languages') }}</h6>
+        <h6 class="dropdown-header">{{ _('Language') }}</h6>
       </li>
+      {% for item in theme_locales %}
+      <li>
+        <a class="dropdown-item d-flex align-items-center {% if item['lc'] == default_locale %}active current{% endif %}" aria-pressed="false" href="#" data-snftt-locale-url="{{ item['url'] }}" data-snftt-locale="{{ item['lc'] }}">
+          <span>{{ item['name'] }}</span>
+          {% if item['lc'] == default_locale %}<i class="bi bi-check ms-auto"></i>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
     </ul>
   </li>
   <li class="nav-item col-12 col-xl-auto h-100" aria-hidden="true">

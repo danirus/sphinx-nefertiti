@@ -5,6 +5,7 @@
   margin-left: -.25rem;
   font-family: var(--#{$prefix}font-monospace);
   font-size: var(--#{$prefix}font-monospace-size);
+  font-weight: var(--#{$prefix}code-font-weight);
   color: var(--#{$prefix}docapi-kw-color);
   text-indent: -2.5em;
   background: var(--#{$prefix}secondary-bg);
@@ -25,7 +26,7 @@
 
   .sig-prename,
   .sig-name {
-    font-weight: 700;
+    // font-weight: var(--#{$prefix}code-font-weight);
     color: var(--#{$prefix}body-color);
   }
 }

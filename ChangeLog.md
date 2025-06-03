@@ -1,7 +1,9 @@
 # Change Log
 
-## [0.8.0] -
+## [0.8.0] - 2025-01-03
 
+- Add locale dropdown element. It shows up when declaring ``locales`` in the ``html_theme_options``.
+- Add documentation on localization (single language site, multilingual site).
 - Includes i18n catalog for German and Spanish (defaults to English).
 - Update fonts declaration so that users can overwrite `font-weight`.
 - Add support for [sphinx-last-updated-by-git](https://pypi.org/project/sphinx-last-updated-by-git/) in the `footer.html`.
