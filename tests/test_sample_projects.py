@@ -529,7 +529,7 @@ def test_prj3_add_font_noto_sans(test_app):
     assert len(stylesheets) == expected_number_of_stylesheets
     expected_font_stylesheets = [
         "nunito/stylesheet.css",
-        "red-hat-mono/stylesheet.css",
+        "ubuntu-sans-mono/stylesheet.css",
         "noto-sans/stylesheet.css",
     ]
     for font_stylesheet in expected_font_stylesheets:
