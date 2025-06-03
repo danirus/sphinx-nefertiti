@@ -8,9 +8,9 @@ import sphinx
 
 from sphinx_nefertiti import (
     colorsets,
-    docsloc,
     docsver,
     fonts,
+    l10n,
     links,
     pygments,
 )
@@ -53,6 +53,17 @@ def add_nftt_fonts(app):
         app.add_css_file(font.link_stylesheet)
 
 
+def add_nftt_locales(app):
+    """Add the locale list as data in the `static/docs-locales.js`."""
+    locale_provider = l10n.LocaleProvider(app)
+    app.theme_locales = list(locale_provider)
+    if len(app.theme_locales) == 0:
+        return
+    app.default_locale = locale_provider.current_locale
+    app.default_locale_url = locale_provider.current_locale_url
+    app.default_locale_name = locale_provider.current_locale_name
+
+
 def add_nftt_pygments(app):
     pygments_provider = pygments.PygmentsProvider(app)
     for asset in pygments_provider:
@@ -74,28 +85,6 @@ def add_nftt_versions(app, dest_dir):
     app.add_js_file(docs_versions_script)
 
 
-def add_nftt_locales(app, dest_dir):
-    """Add the locale list as data in the `static/docs-locales.js`."""
-    docsloc_provider = docsloc.DocsLocaleProvider(app)
-    app.all_docs_locales = list(docsloc_provider)
-    if len(app.all_docs_locales) == 0:
-        return
-    docs_locales_script = "docs-locales.js"
-    docs_locales_path = dest_dir / docs_locales_script
-    with docs_locales_path.open("w") as f:
-        locales_value = json.dumps(app.all_docs_locales)
-        f.write(f"window.docs_locales = {locales_value};\n")
-        f.write(f"window.def_locale = '{docsloc_provider.current_locale}';\n")
-        f.write(
-            f"window.def_locale_name = '"
-            f"{docsloc_provider.current_locale_name}';"
-        )
-    app.add_js_file(docs_locales_script)
-    app.default_locale = docsloc_provider.current_locale
-    app.default_locale_url = docsloc_provider.current_locale_url
-    app.default_locale_name = docsloc_provider.current_locale_name
-
-
 def initialize_theme(app):
     # Make Sphinx add all the files in Nefertiti's static directory.
     static_path = Path(__file__).parent / "static"
@@ -106,13 +95,13 @@ def initialize_theme(app):
 
     add_nftt_colorset(app)
     add_nftt_fonts(app)
+    add_nftt_locales(app)
     add_nftt_pygments(app)
     header_links_provider = links.HeaderLinksProvider(app)
     app.header_links = list(header_links_provider)
     footer_links_provider = links.FooterLinksProvider(app)
     app.footer_links = list(footer_links_provider)
     add_nftt_versions(app, dest_dir)
-    add_nftt_locales(app, dest_dir)
 
     app.add_js_file("sphinx-nefertiti.min.js")
     app.add_js_file("bootstrap.bundle.min.js")
@@ -126,6 +115,7 @@ def update_context(app, pagename, templatename, context, doctree):
     context["default_locale"] = getattr(app, "default_locale", "")
     context["default_locale_url"] = getattr(app, "default_locale_url", "")
     context["default_locale_name"] = getattr(app, "default_locale_name", "")
+    context["theme_locales"] = getattr(app, "theme_locales", [])
     context["show_colorset_choices"] = app.show_colorset_choices
     context["all_colorsets"] = colorsets.all_colorsets
 

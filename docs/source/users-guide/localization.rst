@@ -142,6 +142,27 @@ Once the translation is ready, build the static site and serve it to check the r
 The browser must show the Nefertiti interface in Spanish, including the content of your documents in **Markdown** and **reStructuredText**.
 
 
+5. Update translations
+======================
+
+Message catalogs have to be updated when there are new entries to translate. If there are new strings to translate in your ``conf.py`` file, run the following command to update files ``_loc_msgs.po``:
+
+.. code-block:: bash
+
+    pybabel update -i locale/_loc_msgs.pot -d locale -D _loc_msgs
+
+Now the new strings are ready to be translated in each locale directory. Edit the files ``locale/<XX>/_loc_msgs.po`` to add the translations.
+
+If on the other hand there is new or updated content in your Markdown or reStructuredText, run ``make gettext`` again to update the ``.pot`` files in ``_build/gettext``, and then run ``sphinx-intl`` to update the ``.po`` files in your ``locale`` directory:
+
+.. code-block:: bash
+
+    make gettext
+    sphinx-intl update -p _build/gettext -l es
+
+Now your ``.po`` files have got the new content and they are ready for translation. Once the translations are done go back to point 3 and 4, to compile language catalogs and build static sites again.
+
+
 The localization widget
 ***********************
 

@@ -17,7 +17,7 @@ def copy_srcdir_to_tmpdir(srcdir, tmp):
 
 
 # Copied and slightly modified from `sphinx.testing.fixtures`.
-@pytest.fixture(scope="module")
+@pytest.fixture
 def do_app() -> Generator:
     """
     Provides make_app function to initialize SphinxTestApp instance.
@@ -42,7 +42,7 @@ def do_app() -> Generator:
         app_.cleanup()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture
 def test_app(do_app, sphinx_test_tempdir) -> Generator:
     test_tmp_dirs = ["_build", "_static", "_templates"]
 
@@ -55,12 +55,12 @@ def test_app(do_app, sphinx_test_tempdir) -> Generator:
         _app = do_app(
             srcdir=src_dir,
             buildername=builder_params.get("buildername", "html"),
-            freshenv=builder_params.get("freshenv", None),
-            confoverrides=builder_params.get("confoverrides", None),
-            status=builder_params.get("status", None),
-            warning=builder_params.get("warning", None),
-            tags=builder_params.get("tags", None),
-            docutilsconf=builder_params.get("docutilsconf", None),
+            freshenv=builder_params.get("freshenv"),
+            confoverrides=builder_params.get("confoverrides"),
+            status=builder_params.get("status"),
+            warning=builder_params.get("warning"),
+            tags=builder_params.get("tags"),
+            docutilsconf=builder_params.get("docutilsconf"),
             parallel=builder_params.get("parallel", 0),
         )
         test_tmp_dirs.append(sphinx_test_tempdir)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sphinx-nefertiti 0.8.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-05-22 10:17+0200\n"
+"POT-Creation-Date: 2025-06-03 14:29+0200\n"
 "PO-Revision-Date: 2025-05-26 11:24+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -23,21 +23,21 @@ msgstr ""
 msgid "Start"
 msgstr "Beginn"
 
-#: sphinx_nefertiti/colorsets-dropdown.html:3
-#: sphinx_nefertiti/colorsets-dropdown.html:5
-#: sphinx_nefertiti/colorsets-dropdown.html:9
+#: sphinx_nefertiti/colorsets-dropdown.html:4
+#: sphinx_nefertiti/colorsets-dropdown.html:6
+#: sphinx_nefertiti/colorsets-dropdown.html:10
 msgid "Change base color"
 msgstr "Grundfarbe ändern"
 
-#: sphinx_nefertiti/colorsets-dropdown.html:17 sphinx_nefertiti/colorsets.py:37
+#: sphinx_nefertiti/colorsets-dropdown.html:18 sphinx_nefertiti/colorsets.py:37
 msgid "cyan"
-msgstr "türkis" # or „zyan“ „türkis“ is more common
+msgstr "türkis\" # or „zyan“ „türkis“ is more commo"
 
-#: sphinx_nefertiti/colorsets-dropdown.html:24
+#: sphinx_nefertiti/colorsets-dropdown.html:25
 msgid "Header style"
 msgstr "Kopfzeilenstil"
 
-#: sphinx_nefertiti/colorsets-dropdown.html:29
+#: sphinx_nefertiti/colorsets-dropdown.html:30
 msgid "Neutral"
 msgstr "Neutral"
 
@@ -77,21 +77,26 @@ msgstr "grün"
 msgid "teal"
 msgstr "blaugrün"
 
-#: sphinx_nefertiti/footer.html:28
+#: sphinx_nefertiti/footer.html:23
+#, python-format
+msgid "<li>Last updated on %(last_updated)s</li>"
+msgstr "<li>Zuletzt aktualisiert am %(last_updated)s</li>"
+
+#: sphinx_nefertiti/footer.html:35
 #, python-format
 msgid ""
 "Built with <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> and "
 "<a href=\"%(nefertiti_url)s\">Nefertiti %(nefertiti_version)s</a>"
 msgstr ""
-"Erstellt mit <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> und <a "
-"href=\"%(nefertiti_url)s\">Nefertiti %(nefertiti_version)s</a>"
+"Erstellt mit <a href=\"%(sphinx_url)s\">Sphinx %(sphinx_version)s</a> und"
+" <a href=\"%(nefertiti_url)s\">Nefertiti %(nefertiti_version)s</a>"
 
 #: sphinx_nefertiti/genindex-single.html:20
 #: sphinx_nefertiti/genindex-single.html:48
 #: sphinx_nefertiti/genindex-split.html:2
 #: sphinx_nefertiti/genindex-split.html:5 sphinx_nefertiti/genindex.html:20
 #: sphinx_nefertiti/genindex.html:23 sphinx_nefertiti/genindex.html:59
-#: sphinx_nefertiti/layout.html:66 sphinx_nefertiti/layout.html:254
+#: sphinx_nefertiti/layout.html:66 sphinx_nefertiti/layout.html:253
 msgid "Index"
 msgstr "Stichwortverzeichnis"
 
@@ -175,7 +180,7 @@ msgstr "Menü Dokumentation anzeigen"
 msgid "Toggle navigation"
 msgstr "Navigation anzeigen"
 
-#: sphinx_nefertiti/layout.html:274 sphinx_nefertiti/layout.html:276
+#: sphinx_nefertiti/layout.html:273 sphinx_nefertiti/layout.html:275
 msgid "On this page"
 msgstr "Auf dieser Seite"
 
@@ -196,6 +201,15 @@ msgstr "Dunkel"
 #: sphinx_nefertiti/lightdark-dropdown.html:34
 msgid "Automatic"
 msgstr "Automatisch"
+
+#: sphinx_nefertiti/locale-dropdown.html:3
+#: sphinx_nefertiti/locale-dropdown.html:5
+msgid "Change language"
+msgstr "Sprache ändern"
+
+#: sphinx_nefertiti/locale-dropdown.html:9
+msgid "Language"
+msgstr "Sprache"
 
 #: sphinx_nefertiti/pager.html:2
 msgid "Documentation navigation"
@@ -222,14 +236,14 @@ msgid ""
 "Please allow JavaScript in your web browser to enable the search "
 "functionality."
 msgstr ""
-"Bitte erlauben Sie JavaScript in Ihrem Webbrowser, um die Suchfunktion "
-"zu aktivieren."
+"Bitte erlauben Sie JavaScript in Ihrem Webbrowser, um die Suchfunktion zu"
+" aktivieren."
 
 #: sphinx_nefertiti/search.html:28
 msgid "Searching for multiple words only shows matches that contain all words."
 msgstr ""
-"Bei der Suche nach mehreren Wörtern werden nur Treffer angezeigt, "
-"die alle Wörter enthalten."
+"Bei der Suche nach mehreren Wörtern werden nur Treffer angezeigt, die "
+"alle Wörter enthalten."
 
 #: sphinx_nefertiti/search.html:48 sphinx_nefertiti/searchresults.html:2
 msgid "Search Results"

@@ -486,8 +486,7 @@ def test_prj2_current_version_and_versions(test_app):
 
     outdir = Path(sample_prj2.outdir)
 
-    # Check that ``colorsets.js`` file (allows the user to switch between
-    # colorsets using the selector in the header) is also in the _static dir.
+    # Check that ``docs-versions.js`` file is in the _static dir.
     docs_versions_js = outdir / "_static" / "docs-versions.js"
     assert docs_versions_js.exists()
 
@@ -590,3 +589,157 @@ def test_prj3_has_footer_links(test_app):
     number_of_nav_items_in_footer_links = 4
     nav_items = fl_elem[0].xpath('.//a[@class="list-item"]')
     assert len(nav_items) == number_of_nav_items_in_footer_links
+
+
+# ---------------------------------------------------------------------
+def test_prj4_is_in_german(test_app):
+    """With ``language = "de"`` Nefertiti's interface is in German."""
+    sample_prj4 = test_app(buildername="html", srcdir="sample_prj_4")
+
+    # Check that Nefertiti's UI is in German.
+    content = Path(sample_prj4.outdir, "index.html").read_text()
+    html = etree.HTML(content)
+
+    # Take a look at the strings of the light/dark color scheme
+    # selector to verify that the text is displayed in German.
+    cscheme_xpath = html.xpath("//a[@id='snftt-luz']")
+    assert cscheme_xpath is not None
+    assert len(cscheme_xpath) == 1
+
+    cscheme_widget = cscheme_xpath[0]
+    assert cscheme_widget.get("aria-label") == "Farb-Schema einstellen"
+
+    ul_elem = cscheme_widget.getnext()
+    assert ul_elem.tag == "ul"
+
+    li_h6, li_hell, li_dunkel, li_auto = ul_elem.xpath(".//li")
+    assert li_h6.xpath(".//h6")[0].text == "Farb-Schema einstellen"
+    assert li_hell.xpath(".//a")[0].get("data-snftt-luz") == "light"
+    assert li_hell.xpath('.//span[@class="ms-3"]')[0].text == "Hell"
+    assert li_dunkel.xpath(".//a")[0].get("data-snftt-luz") == "dark"
+    assert li_dunkel.xpath('.//span[@class="ms-3"]')[0].text == "Dunkel"
+    assert li_auto.xpath(".//a")[0].get("data-snftt-luz") == "default"
+    assert li_auto.xpath('.//span[@class="ms-3"]')[0].text == "Automatisch"
+
+    # Check pagination.
+    page2 = Path(sample_prj4.outdir, "getting-started.html").read_text()
+    html = etree.HTML(page2)
+
+    prev_xpath = html.xpath("//a[@rel='prev']")
+    assert prev_xpath is not None
+    assert len(prev_xpath) == 1
+    assert prev_xpath[0].xpath(".//span")[1].text == "Zurück"
+
+    next_xpath = html.xpath("//a[@rel='next']")
+    assert next_xpath is not None
+    assert len(next_xpath) == 1
+    assert next_xpath[0].xpath(".//span")[0].text == "Weiter"
+
+
+# ---------------------------------------------------------------------
+def test_prj5_build_with_language_de(test_app):
+    """
+    Building prj5 for German. Check that module ``l10n.py`` works as expected.
+    """
+    sample_prj5_de = test_app(
+        buildername="html",
+        srcdir="sample_prj_5",
+        builddir="de",
+        confoverrides={
+            "language": "de",
+        },
+    )
+    content = Path(sample_prj5_de.outdir / "index.html").read_text()
+    html = etree.HTML(content)
+
+    locale_xpath = html.xpath("//a[@id='snftt-locale']")
+    assert locale_xpath is not None
+    assert len(locale_xpath) == 1
+
+    # Get the <i> element that contains the "data-snftt-"
+    # attributes about the active locale.
+    locale_data_xpath = locale_xpath[0].xpath(".//i")
+    assert len(locale_data_xpath) == 1
+    locale_data_elem = locale_data_xpath[0]
+    assert locale_data_elem.get("data-snftt-locale-active") == "de"
+    assert locale_data_elem.get("data-snftt-locale-active-url") == "/de/"
+
+    # Get the <li> items in the dropdown-menu with id="locales-dropdown-menu".
+    locale_xpath = html.xpath("//ul[@id='locales-dropdown-menu']")
+    assert locale_xpath is not None
+    assert len(locale_xpath) == 1
+
+    # Get the UL element.
+    ul = locale_xpath[0].xpath(".//li")
+    assert ul is not None
+    num_items = 4  # h6, DE, EN, ES
+    assert len(ul) == num_items
+
+    # Check the header of the widget:
+    assert ul[0].xpath("./h6")[0].text == "Sprache"
+    # Check that the 1st. language is "Deutsch" (alphabetically sorted).
+    assert ul[1].xpath("./a")[0].get("data-snftt-locale") == "de"
+    assert ul[1].xpath("./a")[0].get("data-snftt-locale-url") == "/de/"
+    assert ul[1].xpath(".//span")[0].text == "Deutsch"
+    # Check that the 2nd. language is "Englisch".
+    assert ul[2].xpath("./a")[0].get("data-snftt-locale") == "en"
+    assert ul[2].xpath("./a")[0].get("data-snftt-locale-url") == "/en/"
+    assert ul[2].xpath(".//span")[0].text == "Englisch - English"
+    # Check that the 3rd. language is "Spanisch".
+    assert ul[3].xpath("./a")[0].get("data-snftt-locale") == "es"
+    assert ul[3].xpath("./a")[0].get("data-snftt-locale-url") == "/es/"
+    assert ul[3].xpath(".//span")[0].text == "Spanisch - español"
+
+
+def test_prj5_build_with_language_es(test_app):
+    """
+    Building prj5 for Spanish. Check that module ``l10n.py`` works as expected.
+    """
+    sample_prj5_es = test_app(
+        buildername="html",
+        srcdir="sample_prj_5",
+        builddir="es",
+        confoverrides={
+            "language": "es",
+        },
+    )
+    content = Path(sample_prj5_es.outdir / "index.html").read_text()
+    html = etree.HTML(content)
+
+    locale_xpath = html.xpath("//a[@id='snftt-locale']")
+    assert locale_xpath is not None
+    assert len(locale_xpath) == 1
+
+    # Get the <i> element that contains the "data-snftt-"
+    # attributes about the active locale.
+    locale_data_xpath = locale_xpath[0].xpath(".//i")
+    assert len(locale_data_xpath) == 1
+    locale_data_elem = locale_data_xpath[0]
+    assert locale_data_elem.get("data-snftt-locale-active") == "es"
+    assert locale_data_elem.get("data-snftt-locale-active-url") == "/es/"
+
+    # Get the <li> items in the dropdown-menu with id="locales-dropdown-menu".
+    locale_xpath = html.xpath("//ul[@id='locales-dropdown-menu']")
+    assert locale_xpath is not None
+    assert len(locale_xpath) == 1
+
+    # Get the UL element.
+    ul = locale_xpath[0].xpath(".//li")
+    assert ul is not None
+    num_items = 4  # h6, DE, EN, ES
+    assert len(ul) == num_items
+
+    # Check the header of the widget:
+    assert ul[0].xpath("./h6")[0].text == "Idioma"
+    # Check that the 1st. language is "alemán" (alphabetically sorted).
+    assert ul[1].xpath("./a")[0].get("data-snftt-locale") == "de"
+    assert ul[1].xpath("./a")[0].get("data-snftt-locale-url") == "/de/"
+    assert ul[1].xpath(".//span")[0].text == "alemán - Deutsch"
+    # Check that the 2nd. language is "español".
+    assert ul[2].xpath("./a")[0].get("data-snftt-locale") == "es"
+    assert ul[2].xpath("./a")[0].get("data-snftt-locale-url") == "/es/"
+    assert ul[2].xpath(".//span")[0].text == "español"
+    # Check that the 3rd. language is "inglés".
+    assert ul[3].xpath("./a")[0].get("data-snftt-locale") == "en"
+    assert ul[3].xpath("./a")[0].get("data-snftt-locale-url") == "/en/"
+    assert ul[3].xpath(".//span")[0].text == "inglés - English"
