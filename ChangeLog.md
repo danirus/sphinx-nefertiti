@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.8.1] - 2025-01-03
+
+- Use Ubuntu Sans Mono as default monospace font.
+- Fixes small issue in JavaScript plugin.
+
 ## [0.8.0] - 2025-01-03
 
 - Add locale dropdown element. It shows up when declaring ``locales`` in the ``html_theme_options``.

@@ -74,9 +74,6 @@ html_css_files = ["custom.css", "nftt-pygments.min.css"]
 figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
-    # "documentation_font": "Ubuntu Sans",
-    # "documentation_font_size": ".95rem",
-    "monospace_font": "Ubuntu Sans Mono",
     "monospace_font_size": ".90rem",
 
     "style": "blue",
