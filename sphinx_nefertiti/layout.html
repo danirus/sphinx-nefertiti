@@ -37,6 +37,12 @@
     <meta name="docsearch:package_type" content="{{ package_type|striptags|e }}" />
     <meta name="docsearch:release" content="{{ release|striptags|e }}" />
     <meta name="docsearch:version" content="{{ version|striptags|e }}" />
+    {% if theme_style_header_neutral is true %}
+      <meta name="theme-color" content="{{ theme_colors['light-neutral'] }}" media="(prefers-color-scheme: light)" />
+      <meta name="theme-color" content="{{ theme_colors['dark-neutral'] }}" media="(prefers-color-scheme: dark)" />
+    {% else %}
+      <meta name="theme-color" content="{{ theme_colors['primary'] }}" />
+    {% endif %}
     {% block htmltitle %}
       <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% endblock %}
