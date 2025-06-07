@@ -15,7 +15,7 @@ from sphinx_nefertiti import (
     pygments,
 )
 
-__version__ = "0.8.1"
+__version__ = "0.8.2"
 
 pages_wo_index = ["genindex", "search"]
 
@@ -118,6 +118,7 @@ def update_context(app, pagename, templatename, context, doctree):
     context["theme_locales"] = getattr(app, "theme_locales", [])
     context["show_colorset_choices"] = app.show_colorset_choices
     context["all_colorsets"] = colorsets.all_colorsets
+    context["theme_colors"] = app.active_colorset.theme_colors
 
 
 def build_finished(app, exc):

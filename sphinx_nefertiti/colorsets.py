@@ -37,6 +37,61 @@ color_names = [
     _("cyan"),
 ]
 
+# Values to share in layout.html <meta name="theme-color" content="">.
+# Values for primary, light-neutral, dark-neutral, for every color theme.
+theme_colors = {
+    "blue": {
+        "primary": "#0D6EFD",
+        "light-neutral": "#CFE2FF",
+        "dark-neutral": "#031633",
+    },
+    "indigo": {
+        "primary": "#6610f2",
+        "light-neutral": "#E0CFFC",
+        "dark-neutral": "#140330",
+    },
+    "purple": {
+        "primary": "#6F42C1",
+        "light-neutral": "#E2D9F3",
+        "dark-neutral": "#160D27",
+    },
+    "pink": {
+        "primary": "#D63384",
+        "light-neutral": "#F7D6E6",
+        "dark-neutral": "#2B0A1A",
+    },
+    "red": {
+        "primary": "#DC3545",
+        "light-neutral": "#F8D7DA",
+        "dark-neutral": "#2C0B0E",
+    },
+    "orange": {
+        "primary": "#FD7E14",
+        "light-neutral": "#FFE5D0",
+        "dark-neutral": "#330F04",
+    },
+    "yellow": {
+        "primary": "#FFC107",
+        "light-neutral": "#FFF3CD",
+        "dark-neutral": "#332701",
+    },
+    "green": {
+        "primary": "#078349",
+        "light-neutral": "#CDE6DB",
+        "dark-neutral": "#011A0F",
+    },
+    "teal": {
+        "primary": "#20C997",
+        "light-neutral": "#D2F4EA",
+        "dark-neutral": "#06281E",
+    },
+    "default": {
+        "primary": "#0DCAF0",
+        "light-neutral": "#CFF4FC",
+        "dark-neutral": "#032830",
+    },
+}
+
 
 class ColorSet:
     def __init__(self, name, app):
@@ -47,6 +102,7 @@ class ColorSet:
                 f"Style 'hl({name})' is not known as a color set."
             )
         self._name = _name
+        self.theme_colors = theme_colors[self._name]
 
     @property
     def link_stylesheet(self):
