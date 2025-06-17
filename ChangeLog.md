@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.8.3] - 2025-06-15
+
+- Fixes issue when running a few make targets other than `html`.
+
 ## [0.8.2] - 2025-06-07
 
 - Includes `theme-color` meta tag.

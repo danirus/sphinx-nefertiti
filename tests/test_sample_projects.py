@@ -10,7 +10,37 @@ from sphinx_nefertiti.exceptions import SphinxNefertitiError
 from sphinx_nefertiti.fonts import extra_fonts, web_safe_fonts
 
 
-# ---------------------------------------------------------------------
+@pytest.mark.parametrize(
+    "builder_name",
+    [
+        "html",
+        "dirhtml",
+        "singlehtml",
+        "pickle",
+        "json",
+        "htmlhelp",
+        "qthelp",
+        "devhelp",
+        "epub",
+        "latex",
+        "text",
+        "man",
+        "texinfo",
+        "gettext",
+        "changes",
+        "xml",
+        "pseudoxml",
+        "linkcheck",
+    ],
+)
+def test_prj1_runs_with_builder(builder_name, test_app):
+    """
+    Test that the project fails to build because of wrong settings.
+    """
+    app = test_app(buildername=builder_name, srcdir="sample_prj_1")
+    assert app.statuscode == 0
+
+
 @pytest.mark.parametrize(
     "config, expected",
     [

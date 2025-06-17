@@ -126,16 +126,17 @@ class ColorsetProvider:
 
         self._index = -1
         self._csets = []
+        self.colorset = None
         self.multiple = self.theme_custom.get("show_colorset_choices", False)
-        self.default = self.theme_defaults["style"]
+        self.default = self.theme_defaults.get("style", None)
         self.selected = self.theme_custom.get("style", self.default)
-        self.colorset = ColorSet(self.selected, app)
-
-        if self.multiple:
-            for choice in all_colorsets:
-                self._csets.append(ColorSet(choice, app))
-        else:
-            self._csets.append(self.colorset)
+        if self.selected:
+            self.colorset = ColorSet(self.selected, app)
+            if self.multiple:
+                for choice in all_colorsets:
+                    self._csets.append(ColorSet(choice, app))
+            else:
+                self._csets.append(self.colorset)
 
     def __iter__(self):
         return self
