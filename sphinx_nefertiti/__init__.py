@@ -15,7 +15,7 @@ from sphinx_nefertiti import (
     pygments,
 )
 
-__version__ = "0.8.2"
+__version__ = "0.8.3"
 
 pages_wo_index = ["genindex", "search"]
 
@@ -27,10 +27,12 @@ def get_html_theme_path():
 
 def add_nftt_colorset(app):
     colorsets_path = Path(__file__).parent / "colorsets"
-
     colorset_provider = colorsets.ColorsetProvider(app)
     app.show_colorset_choices = colorset_provider.multiple
     app.active_colorset = colorset_provider.colorset
+
+    if app.builder.name in ["epub"]:
+        return
 
     if app.show_colorset_choices:
         shutil.copyfile(
@@ -57,8 +59,6 @@ def add_nftt_locales(app):
     """Add the locale list as data in the `static/docs-locales.js`."""
     locale_provider = l10n.LocaleProvider(app)
     app.theme_locales = list(locale_provider)
-    if len(app.theme_locales) == 0:
-        return
     app.default_locale = locale_provider.current_locale
     app.default_locale_url = locale_provider.current_locale_url
     app.default_locale_name = locale_provider.current_locale_name
@@ -66,6 +66,9 @@ def add_nftt_locales(app):
 
 def add_nftt_pygments(app):
     pygments_provider = pygments.PygmentsProvider(app)
+    if not pygments_provider:
+        return
+
     for asset in pygments_provider:
         dest_file = asset.create_pygments_style_file(app.builder.srcdir)
         app.add_css_file(dest_file.name)
@@ -87,12 +90,12 @@ def add_nftt_versions(app, dest_dir):
 
 def initialize_theme(app):
     # Make Sphinx add all the files in Nefertiti's static directory.
+    if not hasattr(app.builder, "theme"):
+        return
     static_path = Path(__file__).parent / "static"
     app.config.html_static_path.append(str(static_path.absolute()))
-
     dest_dir = Path(app.builder.outdir) / "_static"
     dest_dir.mkdir(exist_ok=True)
-
     add_nftt_colorset(app)
     add_nftt_fonts(app)
     add_nftt_locales(app)
@@ -102,7 +105,6 @@ def initialize_theme(app):
     footer_links_provider = links.FooterLinksProvider(app)
     app.footer_links = list(footer_links_provider)
     add_nftt_versions(app, dest_dir)
-
     app.add_js_file("sphinx-nefertiti.min.js")
     app.add_js_file("bootstrap.bundle.min.js")
     app.add_css_file("bootstrap-icons.min.css")
@@ -122,12 +124,25 @@ def update_context(app, pagename, templatename, context, doctree):
 
 
 def build_finished(app, exc):
-    # Move bootstrap-icons.woff2 to _static/fonts/.
+    if app.builder.name in [
+        "epub",
+        "gettext",
+        "latex",
+        "linkcheck",
+        "man",
+        "pseudoxml",
+        "texinfo",
+        "text",
+        "xml",
+    ]:
+        return
+
     static_outdir = Path(app.builder.outdir) / "_static"
     fonts_outdir = static_outdir / "fonts"
     if not fonts_outdir.exists():
         fonts_outdir.mkdir()
 
+    # Move bootstrap-icons.woff2 to _static/fonts/.
     src_path = static_outdir / "bootstrap-icons.woff2"
     dest_path = fonts_outdir / "bootstrap-icons.woff2"
     if src_path.exists() and not dest_path.exists():

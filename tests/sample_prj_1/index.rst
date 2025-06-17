@@ -8,3 +8,6 @@ Sample Project 1
 
 This Sphinx project fails to build because the settings for
 the theme sphinx-nefertiti are wrong.
+
+* A `redirect link to check <https://stackoverflow.com/a/38317060/14874218>`_.
+* A normal `link to check <https://github.com/danirus/sphinx-nefertiti>`_.
