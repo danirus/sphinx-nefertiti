@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.8.4] - 2025-06-19
+
+- Add CSS class `highlighted`, required to highlight search results terms.
+- Fixes documentation regarding header-links in `quick-start.rst`.
+
 ## [0.8.3] - 2025-06-15
 
 - Fixes issue when running a few make targets other than `html`.
