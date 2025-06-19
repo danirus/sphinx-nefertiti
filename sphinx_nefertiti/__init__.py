@@ -31,7 +31,7 @@ def add_nftt_colorset(app):
     app.show_colorset_choices = colorset_provider.multiple
     app.active_colorset = colorset_provider.colorset
 
-    if app.builder.name in ["epub"]:
+    if app.builder.name in ["epub"] or not app.active_colorset:
         return
 
     if app.show_colorset_choices:
@@ -120,7 +120,7 @@ def update_context(app, pagename, templatename, context, doctree):
     context["theme_locales"] = getattr(app, "theme_locales", [])
     context["show_colorset_choices"] = app.show_colorset_choices
     context["all_colorsets"] = colorsets.all_colorsets
-    context["theme_colors"] = app.active_colorset.theme_colors
+    context["theme_colors"] = getattr(app.active_colorset, "theme_colors", None)
 
 
 def build_finished(app, exc):

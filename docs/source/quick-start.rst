@@ -89,7 +89,7 @@ Read more about customizing the fonts in :ref:`Customization > Fonts <fonts>`.
 2. Header links
 ===============
 
-Add links to the header of your Sphinx project using header links. They can be mere links or dropdown lists. The user will see an underline below the link whenever it corresponds to the page loaded in the browser.
+Add links to the header of your Sphinx project using header links. They can be mere links or dropdown lists. The value given to the ``link`` can be either an URL or a documentation link in reStructuredText or Markdown. The user will see an underline below the HTML link whenever it corresponds to the page loaded in the browser.
 
 Header links can be displayed in a second row in the header.
 
@@ -110,29 +110,29 @@ The following content will produced the header of the image below:
                 "dropdown": (
                     {
                         "text": "Learn",
-                        "link": "/learn/index.html",
+                        "link": "learn/index",
                     }, {
                         "text": "Python Types Intro",
-                        "link": "/python-types.html",
+                        "link": "python-types",
                     }, {
                         "text": "Concurrency and async/await",
-                        "link": "/async.html",
+                        "link": "async",
                     }, {
                         "divider": True,
                     }, {
                         "text": "Tutorial - User Guide",
-                        "link": "/tutorial/index.html",
+                        "link": "tutorial/index",
                         "match": "^/tutorial/*",
                     }, {
                         "text": "Advanced User Guide",
-                        "link": "/advanced/index.html",
+                        "link": "advanced/index",
                         "match": "^/advanced/*"
                     }
                 )
             },
             {
                 'text': 'Release Notes',
-                'link': '/release-notes.html',
+                'link': 'release-notes',
             },
             {
                 'text': 'Blog',
