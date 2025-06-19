@@ -74,6 +74,8 @@ class PygmentsProvider:
                 style_name = theme_defaults[opt]
             elif getattr(app.config, opt, False):  # pragma: no cover
                 style_name = getattr(app.config, opt)
+            else:
+                style_name = None
 
             if style_name:
                 try:

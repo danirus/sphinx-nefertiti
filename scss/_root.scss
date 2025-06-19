@@ -51,6 +51,7 @@
 
 
   --#{$prefix}docapi-kw-color: #{$docapi-light-kw-color};
+  --#{$prefix}term-highlighted: #{$scheme-light-term-highlighted};
 
   // neutral variables:
   // --#{$prefix}-neutral-bg-rgb: 255, 255, 255;
@@ -132,6 +133,7 @@
   --#{$prefix}admon-tip-color-bg: #{$scheme-dark-admon-tip-color-bg};
 
   --#{$prefix}docapi-kw-color: #{$docapi-dark-kw-color};
+  --#{$prefix}term-highlighted: #{$scheme-dark-term-highlighted};
 
   // neutral variables:
   --#{$prefix}neutral-bg-rgb: #{to-rgb($scheme-dark-neutral-bg)};

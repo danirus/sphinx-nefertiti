@@ -104,6 +104,7 @@ $scheme-light-admon-note-color-bg: $cyan-200;
 $scheme-light-admon-tip-color-bg: $teal-300;
 $scheme-light-table-bg: white;
 $scheme-light-table-striped-bg: tint-color($indigo, 90%);
+$scheme-light-term-highlighted: $yellow;
 
 // scheme-color dark.
 $scheme-dark-body-color: $gray-100;
@@ -142,6 +143,7 @@ $scheme-dark-admon-note-color-bg: $cyan-700;
 $scheme-dark-admon-tip-color-bg: $teal-700;
 $scheme-dark-table-bg: shade-color($gray-800, 70%);
 $scheme-dark-table-striped-bg: $gray-900;
+$scheme-dark-term-highlighted: $yellow;
 
 // Fonts
 

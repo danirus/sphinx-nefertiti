@@ -72,3 +72,8 @@ dd {
 .border-br-radius-0 {
   border-bottom-right-radius: 0;
 }
+
+.highlighted {
+  font-weight: 700;
+  color: var(--#{$prefix}term-highlighted);
+}
