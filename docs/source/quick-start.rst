@@ -43,13 +43,14 @@ Customize the theme
 
 The following features of Nefertiti for Sphinx can be customized:
 
-1. Fonts.
+1. Fonts
 2. Header links
-3. Color set: blue, indigo, purple, pink, red, ...
-4. Pygments styles for light and dark color schemes.
-5. Repository name and URL to display it in the header.
-6. Project version dropdown selector.
-7. Footer links.
+3. Localization widget
+4. Color set: blue, indigo, purple, pink, red, ...
+5. Pygments styles for light and dark color schemes
+6. Repository name and URL to display it in the header
+7. Project version dropdown selector
+8. Footer links
 
 
 1. Fonts
@@ -149,7 +150,28 @@ The following content will produced the header of the image below:
 
     Read more about customizing the header links in :ref:`Customization > Header links <header-links>`.
 
-3. Colorsets
+3. Localization widget
+======================
+
+If your project is available in different languages, Nefertiti for Sphinx can display a dropdown in the header to switch between them.
+
+Enable the localization widget by including the ``locales`` entry in your ``html_theme_options`` setting:
+
+.. code-block:: python
+
+    html_theme_options = {
+        # ... other options ...
+        "locales": [
+            ("de", "http://sample-project.org/de/"),
+            ("en", "http://sample-project.org/en/"),
+            ("es", "http://sample-project.org/es/"),
+        ]
+    }
+
+Read more about customizing this widget in :ref:`ug-localization`.
+
+
+4. Colorsets
 ============
 
 Another customizable feature of the theme is the colorset. In the header of this documentation you can see a dropdown with a palette icon. The colors listed in the dropdown represent the available color sets. Try them to apply the selected color set to this documentation.
@@ -169,7 +191,7 @@ Another available setting is ``style_header_neutral``, that when is set to ``Tru
 
 Read more about customizing the base color in :ref:`Customization > Colorsets <colorsets>`.
 
-4. Pygments styles
+5. Pygments styles
 ==================
 
 Pygments_ is the package that renders code blocks. Sphinx supports two settings related with pygments:
@@ -191,7 +213,7 @@ If your Sphinx project has code-blocks, try changing the pygments style settings
 
 See more code blocks rendered with Pygments in the :ref:`Components > Code blocks <code-blocks>` page. You can read more about customizing pygments in :ref:`Customization > Pygments <customize-pygments>`.
 
-5. Repository data
+6. Repository data
 ==================
 
 If your Sphinx project is about a source code product, and it resides in a Git repository, in GitHub or GitLab, Nefertiti can display information relative to your repository in the header.
@@ -208,7 +230,7 @@ Just add the ``repository_name`` and ``repository_url`` keys to your ``html_them
 
 Read more about customizing the repository widget in :ref:`Customization > Git repository <git-repository>`.
 
-6. Version dropdown
+7. Version dropdown
 ===================
 
 If your project is available in different versions Nefertiti for Sphinx can display a dropdown in the header to switch between them.
@@ -243,7 +265,7 @@ Enable the version dropdown by adding the ``versions`` key to your ``html_theme_
 
 Read more about customizing this widget in :ref:`Customization > Version dropdown <version-dropdown>`.
 
-7. Footer links
+8. Footer links
 ===============
 
 In addition to the copyright notice, configurable with the ``copyright`` Sphinx setting, you can add links that are important to your project, like a link to your company website or a link to your code repository. Footer links are added via the ``footer_links`` key in the ``html_theme_options``. This entry has to be a list of dictionaries.

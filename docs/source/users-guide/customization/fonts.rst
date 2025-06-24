@@ -22,7 +22,7 @@ There can be up to 5 different fonts in use in a web page produced using Neferti
 The font options are:
 
 * ``sans_serif_font``: Default font for everything except code. Defaults to `Nunito`_.
-* ``monospace_font``: Default monospace font, for code. Defaults to `Red Hat Mono`_.
+* ``monospace_font``: Default monospace font, for code. Defaults to `Ubuntu Sans Mono`_.
 * ``project_name_font``: For project's name in header and footer. Defaults to ``sans_serif_font``.
 * ``documentation_font``: Renders the body. Defaults to ``sans_serif_font``.
 * ``doc_headers_font``: Renders body's headers. Defaults to ``Georgia``, the web safe font.
@@ -78,9 +78,9 @@ To customize font settings, edit your ``conf.py`` module and update the ``html_t
 
     html_theme_options = {
         # "sans_serif_font": "Nunito",  # Default value.
-        # "documentation_font": "Ubuntu Sans",
+        # "documentation_font": "Comme",
         # "documentation_font_size": ".95rem",
-        "monospace_font": "Ubuntu Sans Mono",
+        "monospace_font": "Red Hat Mono",
         "monospace_font_size": ".90rem",
         # "project_name_font": "Nunito",  # Default value.
         # "documentation_font_size": "1.0rem",  # Default value.

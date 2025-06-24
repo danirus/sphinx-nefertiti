@@ -74,6 +74,7 @@ html_css_files = ["custom.css", "nftt-pygments.min.css"]
 figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
+    "project_short": "sphinx-nefertiti",
     "monospace_font_size": ".90rem",
 
     "style": "blue",

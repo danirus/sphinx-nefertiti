@@ -135,23 +135,20 @@
         {%- if theme_logo and theme_logo != 'None' %}
           <a
             href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
-            {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-            class="navbar-brand me-0 md-lg-2 pe-lg-4"
+            class="navbar-brand"
           >
             <img src="{{ pathto('_static/' + theme_logo, 1) }}"
               {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
               {%- if theme_logo_height %} height="{{ theme_logo_height|e }}"{% endif %}
               {%- if theme_logo_alt %} alt="{{ theme_logo_alt|e }}"{% endif %}
-              {%- if theme_logo_title %} title="{{ theme_logo_title|e }}"{% endif %}
               class="project-logo"
             />
-            <span class="brand-text">{{ project }}</span>
+            <span class="brand-text">{{ project }}</span><span class="brand-short-text">{{ theme_project_short or project }}</span>
           </a>
         {% else %}
           <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
-              {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-              class="navbar-brand p-0 me-0 md-lg-2 pe-lg-4"
-          ><span class="brand-text">{{ project }}</span></a>
+             class="navbar-brand"
+          ><span class="brand-text">{{ project }}</span><span class="brand-short-text">{{ theme_project_short or project }}</span></a>
         {% endif %}
         {% if header_links and theme_header_links_in_2nd_row != true %}
           <ul class="nftt-header-links-large navbar-nav">
@@ -174,7 +171,7 @@
         {% include "searchbox.html" %}
         <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="nfttNavbar" aria-labelledby="nfttNavbarOffcanvasLabel" data-bs-scroll="true">
           <div class="offcanvas-header px-4 pb-0">
-            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-text">{{ project }}</span></div>
+            <div class="offcanvas-title navbar-brand" id="nfttNavbarOffcanvasLabel"><span class="brand-short-text">{{ theme_project_short or project }}</span></div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="{{ _('Close') }}" data-bs-target="#nfttNavbar"></button>
           </div>
           <div class="offcanvas-body p-4 pt-0 p-xl-0 px-xl-3">
@@ -275,7 +272,7 @@
         <aside class="nftt-toc my-3">
           {% if display_toc and not hidetoc %}
           <div class="my-sm-1 my-lg-0 ps-xl-3 text-muted">
-            <button class="btn btn-link link-dark p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
+            <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
             >{{ _('On this page') }} <i class="ms-2 bi bi-chevron-expand"></i></button>
             <div class="title d-none d-lg-block">
               <i class="bi bi-file-earmark-text"></i>&nbsp;&nbsp;<span class="small">{{ _('On this page') }}</span>

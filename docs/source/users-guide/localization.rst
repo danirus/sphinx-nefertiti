@@ -175,9 +175,9 @@ If your site was written in English and translated to German and Spanish, you co
     html_theme_options = {
         # Other options have been omitted.
         "locales": [
-            ("de", "http://localhost:8008/de/"),
-            ("en", "http://localhost:8008/en/"),
-            ("es", "http://localhost:8008/es/"),
+            ("de", "http://sample-project.org/de/"),
+            ("en", "http://sample-project.org/en/"),
+            ("es", "http://sample-project.org/es/"),
         ],
     }
 
