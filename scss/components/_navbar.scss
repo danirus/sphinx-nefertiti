@@ -65,7 +65,9 @@
     padding: 2px 8px;
 
     @include media-breakpoint-down(md) {
+      justify-content: start;
       margin-right: 0;
+      overflow-x: auto;
     }
 
     &:focus-visible {
@@ -73,11 +75,11 @@
       box-shadow: 0 0 0 .25rem var(--#{$prefix}primary-border-subtle);
     }
 
-    img {
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
-    }
+    // img {
+    //   @include media-breakpoint-down(md) {
+    //     display: none;
+    //   }
+    // }
   }
 
   .brand-text {
@@ -98,11 +100,11 @@
     }
   }
 
-  .nftt-navbar-toggler {
-    @include media-breakpoint-down(lg) {
-      width: 4.25rem;
-    }
-  }
+  // .nftt-navbar-toggler {
+  //   @include media-breakpoint-down(lg) {
+  //     width: 4.25rem;
+  //   }
+  // }
 
   .navbar-toggler {
     padding: 0;
