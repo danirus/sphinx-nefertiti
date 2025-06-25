@@ -78,7 +78,7 @@ html_theme_options = {
     "monospace_font_size": ".90rem",
 
     "style": "blue",
-    "style_header_neutral": True,
+    "style_header_neutral": False,
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
 
