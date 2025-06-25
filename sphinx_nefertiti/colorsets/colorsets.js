@@ -1,5 +1,5 @@
 let DEFAULT = "default";
-let IS_HS_NEUTRAL = false;
+let IS_NEUTRAL = false;
 let RESET_AFTER_MS = 0;
 
 class ColorsetHandler {
@@ -32,6 +32,12 @@ class ColorsetHandler {
 
     this.applyColorset(localStorage.getItem('snftt-colorset') || DEFAULT);
     this.updateDropdown(localStorage.getItem('snftt-colorset') || DEFAULT);
+
+    const is_neutral = (
+      localStorage.getItem('snftt-is-header-neutral') == "true"
+    );
+    this.applyHeaderNeutral(is_neutral || IS_NEUTRAL);
+    this.updateHeaderNeutralDropdown(is_neutral || IS_NEUTRAL);
 
     // Set timer to reset to default if the timer does not exist yet.
     if (!colorset_changed_epoch) {

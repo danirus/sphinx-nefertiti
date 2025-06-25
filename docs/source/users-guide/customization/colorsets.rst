@@ -93,8 +93,8 @@ Test the different colorsets using the palette dropdown in the header. You can a
     When adding ``"show_colorset_choices": True`` and building in ReadTheDocs, be sure to add ``sphinx_nefertiti`` as an extension to your ``extensions`` setting in ``conf.py``.
 
 
-The ``style`` setting
-*********************
+The ``style`` option
+********************
 
 To customize the colorset in your project add an entry ``style`` to the ``html_theme_options`` setting of your ``conf.py`` file and pass any of the colorsets given above. When ``style`` is not given the colorset applied is **cyan**:
 
@@ -108,10 +108,10 @@ To customize the colorset in your project add an entry ``style`` to the ``html_t
 Possible values are: ``blue``, ``indigo``, ``purple``, ``pink``, ``red``, ``orange``, ``yellow``, ``green``, ``tail`` and ``default`` (which is cyan).
 
 
-The ``style_header_neutral`` setting
-************************************
+The ``style_header_neutral`` option
+***********************************
 
-By default the header's background color does not change when switching between light and dark schemes. If you want it to adapt to light and dark schemes, turn on the ``style_header_neutral`` setting:
+By default the header's background color does not change when switching between light and dark schemes. If you want it to adapt to light and dark schemes, turn on the ``style_header_neutral`` option:
 
 .. code-block:: python
 

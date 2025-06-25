@@ -9,4 +9,5 @@ The user's guide explains in detail how to use Nefertiti for Sphinx. It extends 
     installation
     customization/index
     localization
+    theme-options
     components/index

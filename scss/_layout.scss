@@ -55,7 +55,7 @@ body {
     margin-top: 1.5rem;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(lg) {
     row-gap: 0;
     column-gap: 18px;
     margin-top: 0;

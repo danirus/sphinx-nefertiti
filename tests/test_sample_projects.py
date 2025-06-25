@@ -773,3 +773,59 @@ def test_prj5_build_with_language_es(test_app):
     assert ul[3].xpath("./a")[0].get("data-snftt-locale") == "en"
     assert ul[3].xpath("./a")[0].get("data-snftt-locale-url") == "/en/"
     assert ul[3].xpath(".//span")[0].text == "inglés - English"
+
+
+def test_prj5_theme_project_short(test_app):
+    """Project 5 provides a custom `project_short`."""
+    sample_prj5 = test_app(
+        buildername="html",
+        srcdir="sample_prj_5",
+        confoverrides={
+            "project": "long project name",
+            "html_theme_options": {"project_short": "short name"},
+        },
+    )
+    content = Path(sample_prj5.outdir / "index.html").read_text()
+    html = etree.HTML(content)
+
+    # Verify that "tralari" appears associated with 'brand-text'...
+    spans = html.xpath("//span[@class='brand-text']")
+    assert spans is not None
+    assert len(spans) > 0
+    assert spans[0].text == "long project name"
+
+    spans = html.xpath("//span[@class='brand-short-text']")
+    assert spans is not None
+    assert len(spans) > 0
+    assert spans[0].text == "short name"
+
+
+def test_prj5_theme_project_short_with_logo(test_app):
+    """Project 5 provides a custom `project_short`."""
+    sample_prj5 = test_app(
+        buildername="html",
+        srcdir="sample_prj_5",
+        confoverrides={
+            "project": "long project name",
+            "html_theme_options": {
+                "project_short": "short name",
+                "logo": "nefertiti.svg",
+                "logo_width": 36,
+                "logo_height": 36,
+                "logo_alt": "Nefertiti-for-Sphinx",
+            },
+        },
+    )
+    content = Path(sample_prj5.outdir / "index.html").read_text()
+    html = etree.HTML(content)
+
+    # Verify that "tralari" appears associated with 'brand-text'...
+    spans = html.xpath("//span[@class='brand-text']")
+    assert spans is not None
+    assert len(spans) > 0
+    assert spans[0].text == "long project name"
+
+    spans = html.xpath("//span[@class='brand-short-text']")
+    assert spans is not None
+    assert len(spans) > 0
+    assert spans[0].text == "short name"

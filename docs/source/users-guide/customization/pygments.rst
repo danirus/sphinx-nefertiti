@@ -109,16 +109,6 @@ Customize Pygments styles by modifying the ``pygments_light_style`` and ``pygmen
         "pygments_dark_style": "dracula",
     }
 
-Should your ``conf.py`` provide the global setting ``pygments_style``, it will be overrided by this configuration.
-
-Then save the changes and rebuild your Sphinx site:
-
-.. code-block:: shell
-
-    $ make clean
-    $ make html
-    $ python -m http.server -d build/html
-
-Visit http://localhost:8000 to take a look at the changes.
+These entries take precedence over the global setting ``pygments_style``.
 
 .. _Pygments: https://pygments.org/

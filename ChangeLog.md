@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.8.5] - 2025-06-25
+
+- Add theme option `project_short`, and related tests.
+- Fix header aspect when the project name overflow the x-axis in small screens.
+- Fix issue when toggling neutral header using the colorset dropdown.
+- Add new documentation page listing all the options supported.
+
 ## [0.8.4] - 2025-06-19
 
 - Add CSS class `highlighted`, required to highlight search results terms.
