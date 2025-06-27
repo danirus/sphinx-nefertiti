@@ -98,9 +98,14 @@ cd sphinx-nefertiti
 python3.12 -m venv venv
 source venv/bin/activate
 pip install -e .
+nvm install --lts
 nvm use --lts
 npm install
 ```
+```shell
+sphinx-build -b html docs/source docs/build
+```
+
 
 Before contributing, please, install the pre-commit hook scripts:
 
