@@ -1,6 +1,24 @@
+.class {
+  padding: .8rem;
+  padding-top: .6rem;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: .25rem;
+
+  .sig-object {
+    font-size: large;
+  }
+}
+
+/* SCSS / обычный CSS одинаковы */
+:is(.method, .class, .function) + :is(.method, .class, .function) {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 2px solid var(--#{$prefix}border-color);
+}
+
 /* stylelint-disable selector-no-qualifying-type */
 .sig:not(.sig-inline) {
-  padding: .25rem .25rem .25rem 0.7rem;
+  padding: .25rem .25rem .25rem .7rem;
   margin-right: -.25rem;
   margin-left: -.25rem;
   font-family: var(--#{$prefix}font-monospace);
@@ -24,14 +42,19 @@
   }
 
   em.sig-param {
-    span.n {
+    span.n:first-of-type {
       color: var(--nftt-cyan);
     }
 
-    span.o {
-      margin: 5px;
+    span.n:not(:first-of-type) {
+      color: var(--nftt-code-color);
     }
 
+    &:not(:has(.w)) span.o {
+      margin: 7px;
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern */
     span.default_value {
       color: var(--nftt-code-color);
     }
@@ -39,6 +62,11 @@
 
   dl {
     margin: 0;
+    margin-left: 25px;
+  }
+
+  .sig-return-typehint {
+    color: var(--nftt-code-color);
   }
 
   .sig-prename,

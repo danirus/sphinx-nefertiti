@@ -55,6 +55,49 @@ A Python code-block example:
 
             return self.cache[n]
 
+Auto-docs example:
+
+.. py:class:: FibonacciCalculator
+    :noindex:
+
+    .. py:method:: calculate_fibonacci(n, cache_size:int, use_memoization:bool=True, validation_mode='strict') -> int
+
+        :param n: Position in Fibonacci sequence
+        :param cache_size: Maximum cache size
+        :param use_memoization: Enable memoization
+        :param validation_mode: Input validation mode
+
+        :return: Fibonacci number at position n
+
+        :raises ValueError: If n is not a positive integer
+
+    .. py:method:: clear_cache()
+
+        Clear the cache of computed Fibonacci numbers.
+
+        :return: None
+
+        :raises RuntimeError: If cache is empty
+
+And out the class docs:
+
+.. py:method:: method_fibonacci(n: int) -> int
+
+    Calculate the Fibonacci number at position n.
+
+    :param n: Position in Fibonacci sequence (0-indexed)
+    :return: Fibonacci number at position n
+    :raises ValueError: If n is not a non-negative integer
+
+.. py:function:: func_fibonacci(n: int) -> int
+
+    Calculate the Fibonacci number at position n.
+
+    :param n: Position in Fibonacci sequence (0-indexed)
+    :return: Fibonacci number at position n
+    :raises ValueError: If n is not a non-negative integer
+
+
 Java
 ====
 

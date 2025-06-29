@@ -102,16 +102,35 @@ nvm install --lts
 nvm use --lts
 npm install
 ```
-```shell
-sphinx-build -b html docs/source docs/build
-```
-
 
 Before contributing, please, install the pre-commit hook scripts:
 
 ```shell
 pre-commit install
 ```
+
+### Run tests
+
+Run Python tests:
+
+```shell
+python -m pytest tests/ -v
+```
+
+Run linters:
+
+```shell
+npm run lint
+ruff check
+```
+
+### Build documentation
+
+```shell
+rm -rf docs/build/html && npm run build && cd docs && make html && cd ..
+```
+If your changes are not applied, reinstall the Python package `pip install -e .`
+
 
 There are a comprehensive number of scripts in the package.json. Beyond them there is a Makefile that saves time when building the CSS and JavaScript bundles to deliver them within the Python package of the theme.
 

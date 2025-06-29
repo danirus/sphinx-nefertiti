@@ -1,0 +1,35 @@
+/*
+ * This file produces a customization of the Pygments files
+ * used in dark and light color schemes.
+ * The reason to apply these changes is to comply with the
+ * accessibility rules proposed by:
+ * https://accessibilityinsights.io/docs/web/overview/
+ */
+.light .nftt-main .highlight .s,
+.light .nftt-main .highlight .s1,
+.light .nftt-main .highlight .s2,
+.light .nftt-main .highlight .sb {
+  color: #d12000;
+}
+.light .nftt-main .highlight .c,
+.light .nftt-main .highlight .c1,
+.light .nftt-main .highlight .ch,
+.light .nftt-main .highlight .cm,
+.light .nftt-main .highlight .cpf,
+.light .nftt-main .highlight .kt {
+  color: #737373;
+}
+
+.dark .nftt-main .highlight .c,
+.dark .nftt-main .highlight .ch,
+.dark .nftt-main .highlight .cm,
+.dark .nftt-main .highlight .cp,
+.dark .nftt-main .highlight .cpf,
+.dark .nftt-main .highlight .c1 {
+  color: #9a947a;
+}
+.dark .nftt-main .highlight .nt,
+.dark .nftt-main .highlight .kn,
+.dark .nftt-main .highlight .ow {
+  color: #ff36ab;
+}

@@ -197,3 +197,5 @@ man_pages = [
 ]
 
 csi_add_script_to_html_output = False
+
+python_maximum_signature_line_length = 30
