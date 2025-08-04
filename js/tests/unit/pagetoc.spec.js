@@ -8,7 +8,7 @@ import { getFixture, clearFixture } from '../helpers/fixture.js';
  * works, it tests only the code in the pagetoc.js module.
  */
 const doc_content = [ // The .nftt-content element.
-  '<article class="nftt-content" role="main">',
+  '<article id="content" class="nftt-content" role="main">',
   '  <section id="tutorial">',
   '    <span id="id1"></span>',
   '    <h1>Tutorial<a class="headerlink" href="#tutorial" ',
