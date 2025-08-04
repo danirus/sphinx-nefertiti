@@ -28,13 +28,18 @@ export class TocObserver {
       }
     );
 
+    // For text:
     for (const element of this.doc.querySelectorAll(":scope section")) {
+      this.section_observer.observe(element);
+    }
+    // APIs have <dl><dt>... entries listed in the TOC.
+    for (const element of this.doc.querySelectorAll(":scope dl dt")) {
       this.section_observer.observe(element);
     }
   }
 
   init = () => {
-    this.doc = document.querySelector(".nftt-content");
+    this.doc = document.querySelector("#content");
     this.toc = document.querySelector("#TableOfContents");
     if (this.doc == undefined || this.toc == undefined) {
       return -1;
@@ -55,10 +60,10 @@ export class TocObserver {
 
     // Sphinx returns anchors in the toc with the class "internal"
     // and "reference". Also, it returns the first anchor with the
-    // class "active", which is not correct, as I want the
-    // IntersectionObserver to handle what is the section
-    // active in each moment. Therefore, I remove here
-    // the "active" class from all anchors in the toc.
+    // class "active", which is not what I prefer here. I want the
+    // IntersectionObserver to handle what is the section active
+    // in each moment. Therefore, I remove here the "active"
+    // class from all anchors in the toc.
     const anchors = this.toc.querySelectorAll("a.reference");
     for (const anchor of anchors) {
       anchor.classList.remove("active");
