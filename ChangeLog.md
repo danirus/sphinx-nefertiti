@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.8.6] - 2025-08-04
+
+- Fix for the TOC ([issue 75](https://github.com/danirus/sphinx-nefertiti/issues/75)): The `IntersectionObserver` has to *observe* API entries too, which are DL DT elements in the document.
+
 ## [0.8.5] - 2025-06-25
 
 - Add theme option `project_short`, and related tests.
