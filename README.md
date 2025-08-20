@@ -112,9 +112,9 @@ There are a comprehensive number of scripts in the package.json. Beyond them the
 
 Further read the following sections:
 
- * For [Style development](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/development.html#style-development)
- * For [JavaScript development](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/development.html#javascript-development)
- * For [Sphinx theme development](https://sphinx-nefertiti.readthedocs.io/en/latest/users-guide/development.html##python-development)
+ * For [Style development](https://sphinx-nefertiti.readthedocs.io/latest/development.html#style-development)
+ * For [JavaScript development](https://sphinx-nefertiti.readthedocs.io/latest/development.html#javascript-development)
+ * For [Sphinx theme development](https://sphinx-nefertiti.readthedocs.io/latest/development.html#python-development)
 
 
 ## License
