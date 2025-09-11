@@ -8,7 +8,7 @@
 <div class="offcanvas-body">
   <nav class="toc" aria-label="{{ _('Main menu') }}">
     {%- if theme_logo and theme_logo != 'None' and theme_logo_location == 'sidebar' %}
-      <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}" class="pb-4" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin: 0 auto;">
+      <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}" class="d-flex justify-content-center">
         <img src="{{ pathto('_static/' + theme_logo, 1) }}"
           {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
           {%- if theme_logo_height %} height="{{ theme_logo_height|e }}"{% endif %}
