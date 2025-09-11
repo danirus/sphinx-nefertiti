@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.8.8] - 2025-09-11
+
+- Update bootstrap dependency to version 5.3.8.
+- Remove hard-coded `style` attribute added to `globaltoc.html` during 0.8.7.
+
 ## [0.8.7] - 2025-09-11
 
 - Add new theme option `logo_location`, requested with [ticket 78](https://github.com/danirus/sphinx-nefertiti/issues/78), to optionally display the logo in the sidebar. Document the new feature. See the details in the [theme-options](https://sphinx-nefertiti.readthedocs.io/latest/users-guide/theme-options.html#logo-location).
