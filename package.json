@@ -1,6 +1,6 @@
 {
   "name": "sphinx-nefertiti",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "private": true,
   "description": "Nefertiti is a theme for the Sphinx Documentation Generator.",
   "engines": {
@@ -77,6 +77,6 @@
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
-    "bootstrap": "5.3.3"
+    "bootstrap": "5.3.8"
   }
 }
