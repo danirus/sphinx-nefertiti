@@ -132,7 +132,7 @@
             <i class="bi bi-list"></i>
           </button>
         </div>
-        {%- if theme_logo and theme_logo != 'None' %}
+        {%- if theme_logo and theme_logo != 'None' and theme_logo_location == 'header' %}
           <a
             href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
             class="navbar-brand"
@@ -252,7 +252,7 @@
         <aside class="nftt-sidebar {% if hideindex %}border-0{% endif %}">
           <div class="nftt-sidebar-content">
             {% if not hideindex %}
-            <div class="title d-none d-xl-block">
+            <div class="title d-none d-xl-none">
               <i class="bi bi-book"></i>&nbsp;&nbsp;<span>{{ _('Index') }}</span>
             </div>
             <div id="sidebar" tabindex="-1" class="offcanvas-xl offcanvas-start" aria-labelledby="nfttSidebarOffcanvasLabel">

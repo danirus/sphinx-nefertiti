@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.8.7] - 2025-09-11
+
+- Add new theme option `logo_location`, requested with [ticket 78](https://github.com/danirus/sphinx-nefertiti/issues/78), to optionally display the logo in the sidebar. Document the new feature. See the details in the [theme-options](https://sphinx-nefertiti.readthedocs.io/latest/users-guide/theme-options.html#logo-location).
+
 ## [0.8.6] - 2025-08-04
 
 - Fix for the TOC ([issue 75](https://github.com/danirus/sphinx-nefertiti/issues/75)): The `IntersectionObserver` has to *observe* API entries too, which are DL DT elements in the document.

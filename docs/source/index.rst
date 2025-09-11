@@ -30,6 +30,8 @@ Features
 * Optional project version selector in the header.
 * Back-to-top button.
 
+Take a look at the :doc:`users-guide/theme-options` to see all the customizable features.
+
 Project background
 ==================
 

@@ -19,20 +19,21 @@ This is the list of customizable options available in Nefertiti for Sphinx. They
 12. ``doc_headers_font``
 13. ``locales``
 14. ``logo``
-15. ``logo_alt``
-16. ``logo_height``
-17. ``logo_url``
-18. ``logo_width``
-19. ``current_version``
-20. ``versions``
-21. ``repository_url``
-22. ``repository_name``
-23. ``header_links_in_2nd_row``
-24. ``header_links``
-25. ``footer_links``
-26. ``show_powered_by``
-27. ``show_colorset_choices``
-28. ``reset_colorset_choice_after_ms``
+15. ``logo_location``
+16. ``logo_alt``
+17. ``logo_height``
+18. ``logo_url``
+19. ``logo_width``
+20. ``current_version``
+21. ``versions``
+22. ``repository_url``
+23. ``repository_name``
+24. ``header_links_in_2nd_row``
+25. ``header_links``
+26. ``footer_links``
+27. ``show_powered_by``
+28. ``show_colorset_choices``
+29. ``reset_colorset_choice_after_ms``
 
 1. ``project_short``
 *************************
@@ -305,8 +306,58 @@ Use the ``logo`` to display an image at the left side of the project name. The f
     :align: center
     :class: border-radius-2
 
+15. ``logo_location``
+*********************
 
-15. ``logo_alt``
+The ``logo_location`` option may take two values: ``header`` and ``sidebar``. The default value is ``header``. When combined with ``logo``, ``logo_width`` and ``logo_height``, it allows to place the logo either in the header, like in the current document for Nefertiti for Sphinx, or in the sidebar.
+
+To display the logo of the project in the sidebar, give ``logo_location`` the value ``sidebar``:
+
+.. code-block:: python
+
+    html_theme_options = {
+        "logo": "nefertiti.svg",
+        "logo_location": "sidebar",
+        "logo_width": 106,
+        "logo_height": 106,
+    }
+
+Additionally, you can pass your project's own CSS styling in a custom CSS file (as `this documention does <https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/static/custom.css>`_) and declare there the class ``.project-logo`` which is applied to the logo image element. To render the logo in the sidebar, the `custom.css` would look like this:
+
+.. code-block:: css
+
+    /* This class selector will render a white circle under the
+     * Nefertiti logo, which helps when switching between light
+     * and dark color schemes.
+     */
+    .project-logo {
+        margin-right: 1rem;
+        background: white;
+        border: 0;
+        border-radius: 50%;
+        height: 106px;
+        width: 106px;
+    }
+
+To load the ``custom.css`` file as a stylesheet, remember to pass it in the ``html_css_files`` in your ``conf.py``:
+
+.. code-block:: python
+
+    html_css_files = ["custom.css",]
+
+
+The result of the previous code produces the following result:
+
+.. cs_figure:: img/option-logo_location.png
+    :alt: The theme option logo_location.
+    :width: 75%
+    :align: center
+    :class: border-radius-2
+
+    The logo of the project is displayed in the sidebar.
+
+
+16. ``logo_alt``
 ****************
 
 The ``logo_alt`` option is provided as the attribute ``alt`` for the ``<img>`` element. It is valuable when using non-visual browsers, when the user chooses not to display images or when the image is invalid or an unsupported type.
@@ -323,7 +374,7 @@ The ``logo_alt`` option is provided as the attribute ``alt`` for the ``<img>`` e
     }
 
 
-16. ``logo_height``
+17. ``logo_height``
 *******************
 
 Adjust the height of the logo using the option ``logo_height``. See the example above in :ref:`logo <theme-options-logo>`.
@@ -333,12 +384,12 @@ Adjust the height of the logo using the option ``logo_height``. See the example 
 
 Adjust the width of the logo using the option ``logo_width``. See the example above in :ref:`logo <theme-options-logo>`.
 
-17. ``logo_url``
+19. ``logo_url``
 ****************
 
 If the ``logo_url`` option is given the logo will link to it. Otherwise the logo is a link to the master document of your project.
 
-19. ``current_version``
+20. ``current_version``
 ***********************
 
 ``current_version`` is an option related to the :ref:`version-dropdown`. It represents the value displayed in the label of the dropdown.
@@ -352,7 +403,7 @@ If the ``logo_url`` option is given the logo will link to it. Otherwise the logo
     The ``3.13`` displayed in the widget is the value of ``current_version``.
 
 
-20. ``versions``
+21. ``versions``
 ****************
 
 ``versions`` is an option related to the version dropdown widget. Its value is a list of tuples. Each tuple must have two elements. The first element is the label displayed in the version dropdown and the second is the URL it points to:
@@ -373,18 +424,18 @@ If the ``logo_url`` option is given the logo will link to it. Otherwise the logo
 
 Read more about it in the :ref:`version-dropdown`.
 
-21. ``repository_url``
+22. ``repository_url``
 **********************
 
 When both, ``repository_url`` and ``repository_name`` have values, the header displays a repository link. Read more about it in :ref:`git-repository`.
 
-22. ``repository_name``
+23. ``repository_name``
 ***********************
 
 When both, ``repository_url`` and ``repository_name`` have values, the header displays a repository link. Read more about it in :ref:`git-repository`.
 
 
-23. ``header_links_in_2nd_row``
+24. ``header_links_in_2nd_row``
 *******************************
 
 ``header_links_in_2nd_row`` can be either ``True`` or ``False``, and it works in combination with the ``header_links`` option.
@@ -399,7 +450,7 @@ When it is ``True``, the header links are displayed in a second row in the heade
 
     When ``header_links_in_2nd_row`` is ``True``, header links are displayed below the project name.
 
-24. ``header_links``
+25. ``header_links``
 ********************
 
 ``header_links`` allows adding links to the header:
@@ -434,7 +485,7 @@ When it is ``True``, the header links are displayed in a second row in the heade
 Header links can contain dropdown elements with more links. Read more about it and see additional examples in :ref:`header-links`.
 
 
-25. ``footer_links``
+26. ``footer_links``
 ********************
 
 Use ``footer_links`` to display links in the footer of the site:
@@ -459,13 +510,13 @@ Use ``footer_links`` to display links in the footer of the site:
 Read more about it in :ref:`footer-links`.
 
 
-26. ``show_powered_by``
+27. ``show_powered_by``
 ***********************
 
 The ``show_powered_by`` option can be ``True`` or ``False``. It is ``True`` by default. When ``True`` the site displays a small line at the bottom of the footer indicating that the site has been built with Sphinx and Nefertiti.
 
 
-27. ``show_colorset_choices``
+28. ``show_colorset_choices``
 *****************************
 
 The ``show_colorset_choices`` option can be ``True`` or ``False``. It is ``False`` by default. It was added as a way to show the effect of applying different values of the ``style`` option.
@@ -473,7 +524,7 @@ The ``show_colorset_choices`` option can be ``True`` or ``False``. It is ``False
 When active the site displays a style dropdown with all the styles and a switch to switch the neutral header.
 
 
-28. ``reset_colorset_choice_after_ms``
+29. ``reset_colorset_choice_after_ms``
 **************************************
 
 The ``reset_colorset_choice_after_ms`` option indicates how many milliseconds a style change will last. Once the time expires the site will revert back to the style defined with ``style`` option. The expiration can be disabled passing ``0`` to this option. But then users won't be able to get back to the original value declared with ``style``.
