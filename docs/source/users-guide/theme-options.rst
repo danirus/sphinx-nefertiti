@@ -309,44 +309,20 @@ Use the ``logo`` to display an image at the left side of the project name. The f
 15. ``logo_location``
 *********************
 
-The ``logo_location`` option may take two values: ``header`` and ``sidebar``. The default value is ``header``. When combined with ``logo``, ``logo_width`` and ``logo_height``, it allows to place the logo either in the header, like in the current document for Nefertiti for Sphinx, or in the sidebar.
+The ``logo_location`` option may take two values: ``header`` and ``sidebar``. The default value is ``header``. It allows to place the logo either in the header, like in the current document for Nefertiti for Sphinx, or in the sidebar.
 
-To display the logo of the project in the sidebar, give ``logo_location`` the value ``sidebar``:
+To display the logo in the sidebar, give ``logo_location`` the value ``sidebar``:
 
 .. code-block:: python
 
     html_theme_options = {
-        "logo": "nefertiti.svg",
+        # By default, when placing the logo in the sidebar,
+        # it is not necessary to pass the width and height.
+        "logo": "pharaoh.svg",
         "logo_location": "sidebar",
-        "logo_width": 106,
-        "logo_height": 106,
     }
 
-Additionally, you can pass your project's own CSS styling in a custom CSS file (as `this documention does <https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/static/custom.css>`_) and declare there the class ``.project-logo`` which is applied to the logo image element. To render the logo in the sidebar, the `custom.css` would look like this:
-
-.. code-block:: css
-
-    /* This class selector will render a white circle under the
-     * Nefertiti logo, which helps when switching between light
-     * and dark color schemes.
-     */
-    .project-logo {
-        margin-right: 1rem;
-        background: white;
-        border: 0;
-        border-radius: 50%;
-        height: 106px;
-        width: 106px;
-    }
-
-To load the ``custom.css`` file as a stylesheet, remember to pass it in the ``html_css_files`` in your ``conf.py``:
-
-.. code-block:: python
-
-    html_css_files = ["custom.css",]
-
-
-The result of the previous code produces the following result:
+The previous code produces the following result:
 
 .. cs_figure:: img/option-logo_location.png
     :alt: The theme option logo_location.
@@ -355,7 +331,6 @@ The result of the previous code produces the following result:
     :class: border-radius-2
 
     The logo of the project is displayed in the sidebar.
-
 
 16. ``logo_alt``
 ****************
