@@ -21,11 +21,12 @@ dd {
     padding-left: .5rem;
     font-family: var(--#{$prefix}font-monospace);
     font-size: .95rem;
-    word-break: break-word;
+    // word-break: break-word;  Commented to fix issue #83.
   }
 
   dd {
     margin: 0;
+    overflow-x: scroll;
   }
 
   p {
@@ -37,12 +38,8 @@ dd {
   dl {
     margin-bottom: 0;
   }
-}
 
-// .contains-task-list {
-//   padding-left: .5rem;
-//   list-style-type: none;
-// }
+}
 
 .task-list-item-checkbox {
   @extend .form-check-input;

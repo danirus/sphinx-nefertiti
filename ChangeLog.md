@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.8.9] - 2025-09-14
+
+- Fix CSS code to prevent `<pre>` elements to overflow horizontally when used to document APIs with the autodoc extension.
+- Provide default CSS attributes for selector `.project-logo` when used in the sidebar. By default the image does not need specific width and hight, and it uses an `aspect-ratio` with value `auto`.
+
 ## [0.8.8] - 2025-09-11
 
 - Update bootstrap dependency to version 5.3.8.
