@@ -106,6 +106,13 @@ body {
       margin-left: auto;
     }
   }
+
+  .project-logo {
+    width: 92%;
+    height: 92%;
+    aspect-ratio: auto;
+    margin-right: 1rem;
+  }
 }
 
 .nftt-toc {
@@ -251,10 +258,6 @@ body {
       }
     }
   }
-}
-
-.project-logo {
-  margin-right: 1rem;
 }
 
 #back-to-top-container {  // stylelint-disable-line selector-max-id
