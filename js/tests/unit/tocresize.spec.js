@@ -1,8 +1,9 @@
 import { resizeAsides, updateScrollPaddingTop } from "../../src/tocresize.js";
 import { getFixture, clearFixture } from '../helpers/fixture.js';
 
-const html_template_1 = [
-  '<header style="height: 64px">',
+const header_height = 30;
+const html_header = [
+  `<header style="height: ${header_height}px">`,
   '  <nav><h1>This is the header</h1></nav>',
   '</header>',
 ];
@@ -10,9 +11,17 @@ const html_template_1 = [
 const nftt_template = [
   '<div>',
   '  <div class="nftt-content">',
-  '    <p>Nothing important here</p>',
+  '    <div style="height: 250px">',
+  '      <p>Nothing important here</p>',
+  '    </div>',
   '  </div>',
   '</div>',
+];
+
+const html_footer = [
+  '<footer style="height: 30px">',
+  '  <p>This is the footer</p>',
+  '</footer>',
 ];
 
 describe('resize', () => {
@@ -32,14 +41,15 @@ describe('resize', () => {
   });
 
   it('checks updateScrollPaddingTop', () => {
-    fixtureEl.innerHTML = html_template_1.join('');
+    fixtureEl.innerHTML = html_header.join('');
 
     const scroll_padding_top = updateScrollPaddingTop();
-    expect(scroll_padding_top).toEqual(24 + 64);
+    // 24 is aprox. amount of pixels in margin-top of nftt-page.
+    expect(scroll_padding_top).toEqual(24 + header_height);
 
     const html = document.querySelector('html');
     const html_style = html.getAttribute('style');
-    expect(html_style).toEqual('scroll-padding-top: 88px');
+    expect(html_style).toEqual('scroll-padding-top: 54px');
   });
 
   it('checks resizeAsides skips changes', () => {
@@ -56,9 +66,11 @@ describe('resize', () => {
   });
 
   it('checks resizeAsides when nftt_content higher than body', () => {
-    fixtureEl.innerHTML = html_template_1.join('') + nftt_template.join('');
+    fixtureEl.innerHTML = (
+      html_header.join('') + nftt_template.join('') + html_footer.join('')
+    );
     const body = document.querySelector("body");
-    const nftt_content = document.querySelector(".nftt-content");
+    const nftt_content = document.querySelector(".nftt-content > div");
 
     // Make nftt_content height greater than the body's.
     nftt_content.setAttribute("style", `height: ${body.clientHeight + 10}px`);
@@ -71,16 +83,16 @@ describe('resize', () => {
     );
 
     const result = resizeAsides();
-    expect(result).toEqual("height: calc(100vh - 104px); top: 104px;");
+    expect(result).toEqual("height: calc(100vh - 70px); top: 70px;");
   });
 
   it('checks resizeAsides when nftt_content shorter than body', () => {
-    fixtureEl.innerHTML = html_template_1.join('') + nftt_template.join('');
-    const body = document.querySelector("body");
-    const nftt_content = document.querySelector(".nftt-content");
-    const expected_height = (
-      `height: ${nftt_content.clientHeight}px; top: 104px;`
+    fixtureEl.innerHTML = (
+      html_header.join('') + nftt_template.join('') + html_footer.join('')
     );
+    const body = document.querySelector("body");
+    const nftt_content = document.querySelector(".nftt-content > div");
+    const expected_height = "height: 250px; top: 70px;";
 
     // Make body height greater than the body's.
     body.setAttribute("style", `height: ${nftt_content.clientHeight + 10}px`);
