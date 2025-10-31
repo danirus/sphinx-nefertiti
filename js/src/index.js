@@ -68,7 +68,7 @@ function loadSphinxNefertiti() {
     resizeAsides();
   });
   body_observer.observe(document.body);
-  window.addEventListener("resize", [updateScrollPaddingTop, resizeAsides,]);
+  window.addEventListener("resize", [updateScrollPaddingTop, resizeAsides]);
 
   // The CSchemeHandler controls the selection of the 3 possible
   // options (light, dark, default) and the switching between
