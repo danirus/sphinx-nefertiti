@@ -265,9 +265,11 @@
           </div>
         </aside>
         <article id="content" class="nftt-content" role="main">
-          {% include "breadcrumbs.html" %}
-          {%- block body %}
-          {% endblock -%}
+          <div>
+            {% include "breadcrumbs.html" %}
+            {%- block body %}
+            {% endblock -%}
+          </div>
         </article>
         <aside class="nftt-toc my-3">
           {% if display_toc and not hidetoc %}
