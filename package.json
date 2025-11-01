@@ -66,7 +66,7 @@
     "nodemon": "^3.1.7",
     "npm-run-all2": "^7.0.1",
     "postcss": "^8.4.47",
-    "rimraf": "^6.1.10",
+    "rimraf": "^6.1.0",
     "rollup": "^4.24.4",
     "rollup-plugin-istanbul": "^5.0.0",
     "sass": "1.78.0",
