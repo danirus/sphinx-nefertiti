@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.8.10] - 2025-11-01
+
+- Fix resizing the sidebars depending on the height of the content of the central column. The resizing is needed to adjust sidebars' height to the height displayed in the central column. And to make the scroll-into-view of TOC entries. When the TOC is longer than the content in the central column, the scroll-into-view of an entry in the TOC may scroll upwards the content of the central column.
+
 ## [0.8.9] - 2025-09-16
 
 - Fix CSS code to prevent `<pre>` elements to overflow horizontally when used to document APIs with the autodoc extension.
