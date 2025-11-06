@@ -335,6 +335,7 @@ def test_prj1_runs_with_builder(builder_name, test_app):
                 "\t{'text': 'item_B', 'link': '/item_a'}\n"
             ),
         ),
+        # https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#target
         (  # 'footer_links' test 1.
             {
                 "html_theme_options": {"footer_links": {}},
@@ -603,6 +604,31 @@ def test_prj3_has_header_links(test_app):
     assert len(dropdowns_in_sm) == number_of_dropdowns_in_header_links
 
 
+def test_prj3_header_links_with_target_attr(test_app):
+    sample_prj3 = test_app(buildername="html", srcdir="sample_prj_3")
+
+    content = Path(sample_prj3.outdir, "index.html").read_text()
+    html = etree.HTML(content)
+    elem = html.xpath("//ul[@class='nftt-header-links-large navbar-nav']")
+    assert elem[0] is not None, "Couldn't find .nftt-header-links-large"
+
+    # Check that the first link contains a `target="_blank"` attribute.
+    github_link = "https://github.com/danirus/sphinx-nefertiti"
+    scsi_link = "https://sphinx-colorschemed-images.readthedocs.io"
+    assert elem[0].xpath(".//a")[0].get("href") == github_link
+    assert elem[0].xpath(".//a")[0].get("target") == "_blank"
+
+    t_self = elem[0].xpath(".//a[@target='_self']")
+    assert t_self is not None, 'Couldn\'t find elements with `target="_self"`'
+    assert t_self[0].get("href") == "/users-guide/old-components/index.html"
+    assert t_self[1].get("href") == "/changelog.html"
+
+    t_blank = elem[0].xpath(".//a[@target='_blank']")
+    assert t_blank is not None, 'Couldn\'t find elements with `target="_blank"`'
+    assert t_blank[0].get("href") == github_link
+    assert t_blank[1].get("href") == scsi_link
+
+
 def test_prj3_has_footer_links(test_app):
     """Adds footer_links, and checks that each footer link is added."""
     sample_prj3 = test_app(buildername="html", srcdir="sample_prj_3")
@@ -619,6 +645,27 @@ def test_prj3_has_footer_links(test_app):
     number_of_nav_items_in_footer_links = 4
     nav_items = fl_elem[0].xpath('.//a[@class="list-item"]')
     assert len(nav_items) == number_of_nav_items_in_footer_links
+
+
+def test_prj3_footer_links_with_target_attr(test_app):
+    sample_prj3 = test_app(buildername="html", srcdir="sample_prj_3")
+
+    content = Path(sample_prj3.outdir, "index.html").read_text()
+    html = etree.HTML(content)
+    elem = html.xpath("//ul[@id='nftt-footer-links']")
+    assert elem[0] is not None, "Couldn't find .nftt-footer-links"
+
+    t_self = elem[0].xpath(".//a[@target='_self']")
+    assert t_self is not None, 'Couldn\'t find elements with `target="_self"`'
+    pypi_link = "https://pypi.com/sphinx-nefertiti"
+    issues_link = "https://github.com/danirus/sphinx-nefertiti/issues"
+    assert t_self[0].get("href") == pypi_link
+    assert t_self[1].get("href") == issues_link
+
+    t_blank = elem[0].xpath(".//a[@target='_blank']")
+    assert t_blank is not None, 'Couldn\'t find elements with `target="_blank"`'
+    github_link = "https://github.com/danirus/sphinx-nefertiti"
+    assert t_blank[0].get("href") == github_link
 
 
 # ---------------------------------------------------------------------

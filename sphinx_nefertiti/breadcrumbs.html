@@ -1,9 +1,21 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ pathto(master_doc) }}">{{ _('Start') }}</a></li>
-    {%- for doc in parents %}
-      <li class="breadcrumb-item"><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
-    {%- endfor %}
-    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-  </ol>
-</nav>
+<div class="d-flex flex-row justify-content-between">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{ pathto(master_doc) }}">{{ _('Start') }}</a></li>
+      {%- for doc in parents %}
+        <li class="breadcrumb-item"><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+      {%- endfor %}
+      <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+    </ol>
+  </nav>
+  {% if show_source or has_source %}
+    <div class="fs085">
+      {%- if show_source and theme_docs_repository_url %}
+        <a href="{{ theme_docs_repository_url }}{{ pagename }}{{ page_source_suffix }}" rel="nofollow" aria-label="Show source of this document in the documentation repository"><i class="bi bi-pencil"></i></a>
+      {%- endif %}
+      {%- if has_source and sourcename %}
+        <a href="{{ pathto('_sources/' + sourcename, true)|e }}"  rel="nofollow" aria-label="Show source of this document"><i class="bi bi-file-earmark-code"></i></a>
+      {%- endif %}
+    </div>
+  {% endif %}
+</div>

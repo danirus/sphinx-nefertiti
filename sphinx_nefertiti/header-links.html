@@ -15,7 +15,7 @@
     <li><hr class="dropdown-divider"></li>
   {% elif "text" in link_item and "link" in link_item %}
     <li {% if li_class %}class="{{ li_class }}"{% endif %}>
-      <a {% if a_class %}class="snftt-hl {{ a_class }}"{% endif %} href="{{ pathto(link_item.link, link_item.resource) }}" data-snftt-hl-id="{{ link_item.hlid }}" {% if 'match' in link_item %}data-snftt-hl-id="{{ link_item.id }}" data-snftt-hl-regexps="{{ link_item.match|join('&&') }}"{% endif %}>{{ link_item.text }}</a>
+      <a {% if a_class %}class="snftt-hl {{ a_class }}"{% endif %} href="{{ pathto(link_item.link, link_item.resource) }}" data-snftt-hl-id="{{ link_item.hlid }}" {% if 'target' in link_item %}target="{{ link_item.target }}"{% endif %} {% if 'match' in link_item %}data-snftt-hl-id="{{ link_item.id }}" data-snftt-hl-regexps="{{ link_item.match|join('&&') }}"{% endif %}>{{ link_item.text }}</a>
     </li>
   {% endif %}
 {% endfor %}

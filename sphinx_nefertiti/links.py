@@ -89,6 +89,9 @@ class HeaderLinksProvider:
                     f"'text':\n\t{dd_item}\n"
                 )
 
+            if "target" in dd_item and len(dd_item["target"]) == 0:
+                dd_item["target"] = "_self"
+
             if dd_item["link"] in self._urls:
                 raise SphinxNefertitiError(
                     f"URL '{dd_item['link']}' appears more than once "
@@ -136,6 +139,9 @@ class HeaderLinksProvider:
                     "'link' keys or a 'text' and a 'dropdown' "
                     f"keys:\n\t{item}\n"
                 )
+
+            if "target" in item and len(item["target"]) == 0:
+                item["target"] = "_self"
 
             if item["link"] in self._urls:
                 raise SphinxNefertitiError(
@@ -210,6 +216,9 @@ class FooterLinksProvider:
                     "in the option 'footer_links' in the "
                     "'html_theme_options'.\n"
                 )
+
+            if "target" in item and len(item["target"]) == 0:
+                item["target"] = "_self"
 
             self._urls.add(item["link"])
             if "://" in item["link"]:

@@ -6,7 +6,7 @@
       <ul id="nftt-footer-links" class="list-unstyled list-separator col-lg-12 pb-2 text-center">
         {% for item in footer_links %}
           <li class="d-inline">
-            <a href="{{ pathto(item.link, item.resource) }}" class="list-item">{{ item.text }}</a>
+            <a href="{{ pathto(item.link, item.resource) }}" {% if 'target' in item %}target="{{ item.target }}"{% endif %} class="list-item">{{ item.text }}</a>
           </li>
         {% endfor %}
       </ul>
@@ -30,11 +30,11 @@
             <li>{{ copyright }}</li>
           </ul>
         {% endif %}
-        {% if theme_show_powered_by|lower == 'true' %}
+        {%- if show_sphinx %}
         <div class="built-with pt-2">
           {% trans sphinx_url="http://sphinx-doc.org", nefertiti_url="https://github.com/danirus/sphinx-nefertiti" %}Built with <a href="{{ sphinx_url }}">Sphinx {{ sphinx_version }}</a> and <a href="{{ nefertiti_url }}">Nefertiti {{ nefertiti_version }}</a>{% endtrans %}
         </div>
-        {% endif %}
+        {%- endif %}
       </div>
     </div>
   </div>

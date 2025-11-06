@@ -5,12 +5,10 @@ Footer links
 
 The footer of HTML pages built with Nefertiti for Sphinx is divided in 4 areas or strings, from top to bottom:
 
-* The area for the Nefertiti footer links.
+* The area for the Nefertiti footer links, customizable with the ``html_theme_options``.
 * The name of the project, provided by Sphinx ``project`` setting.
 * The copyright notice, provided by Sphinx ``copyright`` setting.
 * The powered-by notice.
-
-The first and the last are theme specific and can be customized using the ``html_theme_options`` setting.
 
 Theme options
 =============
@@ -18,7 +16,7 @@ Theme options
 The following two options related with the footer can be customized in the ``html_theme_options``:
 
 #. ``footer_links``: Represents a list of dictionaries with text and links.
-#. ``show_powered_by``: A boolean value.
+#. ``html_show_sphinx``: A boolean value.
 
 1. ``footer_links``
 -------------------
@@ -37,6 +35,7 @@ The content for the ``footer_links`` is a list of dictionaries with the format:
         {
             'text': '<the label to display>',
             'link': '<toctree-doc-path | URL>',
+            'target': '<values for HTML anchor's attribute>',
         },
     ]
 
@@ -44,6 +43,7 @@ Each dictionary has two keys:
 
 #. ``text``: represents the label for the link, and
 #. ``link``: represents the target URL the user will visit when clicking on the link.
+#. (optional) ``target``: may be any of the values given to the `HTML anchor's attribute <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#target>`_. If left blank it takes the value `_self`.
 
 A valid footer links could be:
 
@@ -58,9 +58,11 @@ A valid footer links could be:
             }, {
                 'text': 'Documentation',
                 'link': 'https://myproject.org/docs',
+                'target': '_blank',
             }, {
                 'text': 'Code',
                 'link': 'https://your.git.host/code',
+                'target': '_blank',
             },
         ],
 
@@ -69,17 +71,14 @@ A valid footer links could be:
 Here is the `link <https://github.com/danirus/sphinx-nefertiti/blob/main/docs/source/conf.py#L96>`_ to the source code for the ``footer_links`` displayed at the bottom of this documentation.
 
 
-2. ``show_powered_by``
-----------------------
+2. ``html_show_sphinx``
+-----------------------
 
-The powered by notice is a static string with the value **Built with Sphinx and Nefertiti**. It is displayed by default, and can be omitted by setting the ``show_powered_by`` to ``False`` in the ``html_theme_options``:
+The small notice **Built with Sphinx and Nefertiti** is displayed by default, and can be omitted by setting the ``html_show_sphinx`` to ``False``:
 
 .. code-block:: python
 
-    html_theme_options = {
-        # ... other options ...
-        "show_powered_by": False
-    }
+    html_show_sphinx = False
 
 Rebuild the theme
 =================
