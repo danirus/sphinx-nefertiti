@@ -91,6 +91,8 @@ html_theme_options = {
     "repository_url": "https://github.com/danirus/sphinx-nefertiti",
     "repository_name": "sphinx-nefertiti",
 
+    "docs_repository_url": "https://github.com/danirus/sphinx-nefertiti/tree/main/docs/source/",
+
     "current_version": "latest",
     "versions": [
         (item, docs_fmt_url.format(release=item)) for item in releases
@@ -139,7 +141,8 @@ html_theme_options = {
                 },
                 {
                     "text": "Color-schemed Images",
-                    "link": "https://sphinx-colorschemed-images.readthedocs.io"
+                    "link": "https://sphinx-colorschemed-images.readthedocs.io",
+                    "target": "_blank",
                 },
             )
         },

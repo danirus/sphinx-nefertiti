@@ -28,6 +28,10 @@
   width: 100%;
   margin-bottom: $spacer;
   overflow-x: auto;
+
+  td ul {
+    padding-left: 1rem;
+  }
 }
 
 table th p:last-child,
@@ -72,6 +76,14 @@ table.docutils {
     font-size: .9rem;
     text-align: center;
     caption-side: top;
+  }
+
+  &.align-left caption {
+    text-align: left;
+  }
+
+  &.align-right caption {
+    text-align: right;
   }
 
   .text-left {
@@ -220,4 +232,14 @@ div.math {
 
 .centered {
   text-align: center;
+}
+
+img.icon {
+  .light & {
+    filter: invert(0);
+  }
+
+  .dark & {
+    filter: invert(1);
+  }
 }

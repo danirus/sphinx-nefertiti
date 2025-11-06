@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.0] -
+
+- Add show-source links, at the right side of the breadcrumbs. Associated settings are `html_copy_source` and `html_show_sourcelink` provided by Sphinx, and the configuration setting `docs_repository_url` [1](https://sphinx-nefertiti.readthedocs.io/latest/users-guide/theme-options.html#docs-repository-url) in `html_theme_options`.
+- Add attribute `target` to header and footer links. When given an empty `target` attribute, it takes the default value of `_self`, so that the link opens in the same browser window. Otherwise the attribute is passed as is to the output in HTML.
+- Remove theme setting `show_powered_by` in favor of `html_show_sphinx`.
+
 ## [0.8.10] - 2025-11-01
 
 - Fix resizing the sidebars depending on the height of the content of the central column. The resizing is needed to adjust sidebars' height to the height displayed in the central column. And to make the scroll-into-view of TOC entries. When the TOC is longer than the content in the central column, the scroll-into-view of an entry in the TOC may scroll upwards the content of the central column.

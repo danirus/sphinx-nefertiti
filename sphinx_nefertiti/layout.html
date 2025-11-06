@@ -266,7 +266,9 @@
         </aside>
         <article id="content" class="nftt-content" role="main">
           <div>
-            {% include "breadcrumbs.html" %}
+            {%- if pagename != "search" -%}
+              {% include "breadcrumbs.html" %}
+            {% endif %}
             {%- block body %}
             {% endblock -%}
           </div>

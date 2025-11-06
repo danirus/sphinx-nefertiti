@@ -53,11 +53,12 @@ The ``html_theme_options`` setting in Nefertiti for Sphinx can have two entries 
 1. ``header_links``
 -------------------
 
-Header links can be either actual links or dropdown elements. Each header link may contain a ``text``, a ``link`` and an optional ``match``:
+Header links can be either actual links or dropdown elements. Each header link may contain a ``text``, a ``link``, an optional ``match`` and an optional ``target``:
 
 * ``text``: a string.
 * ``link``: a document path in Sphinx or a URL.
 * ``match``: a string or list or strings, used as JavaScript Regular Expressions.
+* ``target``: a string with any of the expected values for the `HTML anchor's target attribute <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#target>`_.
 
 An example:
 
@@ -112,6 +113,7 @@ The following ``header_links``, added to the ``html_theme_options`` setting of a
         {
             'text': 'Blog',
             'link': 'https://example.com/blog',
+            'target': '_blank',
         },
     ],
 

@@ -12,6 +12,7 @@ The following features can be customized:
 
     fonts
     colorsets
+    source-links
     header-links
     footer-links
     version-dropdown

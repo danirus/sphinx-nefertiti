@@ -31,12 +31,12 @@ This is the list of customizable options available in Nefertiti for Sphinx. They
 24. ``header_links_in_2nd_row``
 25. ``header_links``
 26. ``footer_links``
-27. ``show_powered_by``
-28. ``show_colorset_choices``
-29. ``reset_colorset_choice_after_ms``
+27. ``show_colorset_choices``
+28. ``reset_colorset_choice_after_ms``
+29. ``documentation_url``
 
 1. ``project_short``
-*************************
+********************
 
 ``project_short`` represents a shorter version of the ``project`` setting. It is used in the header as the name of the project when the site is rendered in a small device like a phone screen.
 
@@ -485,13 +485,7 @@ Use ``footer_links`` to display links in the footer of the site:
 Read more about it in :ref:`footer-links`.
 
 
-27. ``show_powered_by``
-***********************
-
-The ``show_powered_by`` option can be ``True`` or ``False``. It is ``True`` by default. When ``True`` the site displays a small line at the bottom of the footer indicating that the site has been built with Sphinx and Nefertiti.
-
-
-28. ``show_colorset_choices``
+27. ``show_colorset_choices``
 *****************************
 
 The ``show_colorset_choices`` option can be ``True`` or ``False``. It is ``False`` by default. It was added as a way to show the effect of applying different values of the ``style`` option.
@@ -499,12 +493,35 @@ The ``show_colorset_choices`` option can be ``True`` or ``False``. It is ``False
 When active the site displays a style dropdown with all the styles and a switch to switch the neutral header.
 
 
-29. ``reset_colorset_choice_after_ms``
+28. ``reset_colorset_choice_after_ms``
 **************************************
 
 The ``reset_colorset_choice_after_ms`` option indicates how many milliseconds a style change will last. Once the time expires the site will revert back to the style defined with ``style`` option. The expiration can be disabled passing ``0`` to this option. But then users won't be able to get back to the original value declared with ``style``.
 
 It defaults to ``0``.
+
+
+29. ``docs_repository_url``
+***************************
+
+Represents the link to the repository with the documentation, provided with the base path. ie:
+
+.. code-block:: python
+
+    html_theme_options = {
+        "docs_repository_url": "https://code.net/repo/tree/main/docs/source/",
+    }
+
+If Sphinx setting ``html_show_sourcelink`` is ``True`` (default value) and ``html_theme_options`` contains the ``docs_repository_url``, a link to the source file in the documentation repository is displayed at the top right of the central column. It is represented as a pencil.
+
+Additionally, when the setting ``html_copy_source`` is ``True`` (it is by default), Sphinx copies the source of the documentation to the output directory. In such a case Nefertiti displays a link to the corresponding source content, represented with an icon that shows a file with angle brackets.
+
+To disable both links set those two settings to ``False``:
+
+.. code-block:: python
+
+    html_copy_source = False
+    html_show_sourcelink = False
 
 
 .. _Comme: https://fonts.google.com/specimen/Comme

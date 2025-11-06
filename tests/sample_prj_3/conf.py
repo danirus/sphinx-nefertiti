@@ -29,6 +29,7 @@ html_theme_options = {
         {
             "text": "Code",
             "link": "https://github.com/danirus/sphinx-nefertiti",
+            "target": "_blank",
         },
         {
             "text": "Quick Start",
@@ -42,9 +43,7 @@ html_theme_options = {
                     "text": "Introduction",
                     "link": "/users-guide/components/index.html",
                 },
-                {
-                    "divider": True,
-                },
+                {"divider": True},
                 {
                     "text": "Admonitions",
                     "link": "/users-guide/components/admonitions.html",
@@ -68,19 +67,27 @@ html_theme_options = {
                 {"divider": True},
                 {
                     "text": "Old components",
-                    "link": "/users-guide/old-components/index.html",
+                    "link": "/users-guide/old-components/index",
                     "match": "^/users-guide/old-components/*",
+                    "target": "",  # Will be transformed to `target="_self"`
+                },
+                {"divider": True},
+                {
+                    "text": "Color-schemed Images",
+                    "link": "https://sphinx-colorschemed-images.readthedocs.io",
+                    "target": "_blank",
                 },
             ),
         },
         {
             "text": "Examples",
-            "link": "/examples/index.html",
+            "link": "/examples/index",
             "match": "^/examples/*",
         },
         {
             "text": "Change Log",
-            "link": "/changelog.html",
+            "link": "/changelog",
+            "target": "",
         },
     ],
     "footer_links": [
@@ -91,14 +98,17 @@ html_theme_options = {
         {
             "text": "Package",
             "link": "https://pypi.com/sphinx-nefertiti",
+            "target": "_self",
         },
         {
             "text": "Repository",
             "link": "https://github.com/danirus/sphinx-nefertiti",
+            "target": "_blank",
         },
         {
             "text": "Issues",
             "link": "https://github.com/danirus/sphinx-nefertiti/issues",
+            "target": "",
         },
     ],
 }
