@@ -8,6 +8,7 @@ import { updateRepoMetrics } from "./repometrics.js";
 import { LocationHashHandler, TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
 import { feedVersionsMenu, updateVersion } from "./versions.js";
+import { TableHandler } from "./tables.js";
 
 
 function agentHas(keyword) {
@@ -134,13 +135,8 @@ function loadSphinxNefertiti() {
   }
 
   // Wrap tables with responsive container.
-  const tables = document.querySelectorAll('table.docutils');
-  for (const table of tables) {
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("nftt-table");
-    table.before(wrapper);
-    wrapper.append(table);
-  }
+  const table_handler = new TableHandler();
+  table_handler.wrapTables();
 
   // Fix admonitions-like blocks used in Sphinx to display version
   // changes. Such directives are: versionadded, versionchanged,

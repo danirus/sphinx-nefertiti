@@ -3,7 +3,7 @@
 Document source links
 #####################
 
-Sphinx offers two settings that help to visualize the input text used to build each HTML page:
+Sphinx offers two settings that help to visualize document source files:
 
 * ``html_copy_source`` `[1] <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_copy_source>`_
 * ``html_show_sourcelink`` `[2] <https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_show_sourcelink>`_
