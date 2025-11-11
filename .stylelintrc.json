@@ -15,7 +15,8 @@
         "declaration-no-important": null,
         "scss/at-function-named-arguments": [
           "never", { "ignoreFunctions": ["color.scale"] }
-        ]
+        ],
+        "selector-class-pattern": null
       }
     }
   ]

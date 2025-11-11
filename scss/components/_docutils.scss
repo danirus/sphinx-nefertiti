@@ -29,6 +29,16 @@
   margin-bottom: $spacer;
   overflow-x: auto;
 
+  > a.expand {
+    position: sticky;
+    left: 735px;
+    cursor: pointer;
+    font-family: "bootstrap-icons"; /* stylelint-disable-line */
+    font-size: .85rem;
+    text-decoration: none;
+    text-underline-offset: 0;
+  }
+
   td ul {
     padding-left: 1rem;
   }
@@ -63,6 +73,10 @@ table.docutils {
     > tbody {
       @extend .table-group-divider;
       border-color: var(--#{$prefix}border-color);
+    }
+
+    .nftt-table--expand & {  /* stylelint-disable-line */
+      margin-top: -$spacer;
     }
   }
 
