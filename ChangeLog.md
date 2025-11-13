@@ -2,7 +2,8 @@
 
 ## [0.9.0] -
 
-- Display large tables (those with a width wider than the central column) in a modal.
+- Add the capacity to display Mermaid diagrams in a modal.
+- Add the capacity to display large tables in a modal. A large table is any table whose width is wider than the central column.
 - Add show-source links, at the right side of the breadcrumbs. Associated settings are `html_copy_source` and `html_show_sourcelink` provided by Sphinx, and the configuration setting `docs_repository_url` [1](https://sphinx-nefertiti.readthedocs.io/latest/users-guide/theme-options.html#docs-repository-url) in `html_theme_options`.
 - Add attribute `target` to header and footer links. When provided empty, it takes the value `_self`, so that the link opens in the same browser window. Otherwise the attribute is passed as is to the output in HTML.
 - Remove theme setting `show_powered_by` in favor of `html_show_sphinx`.

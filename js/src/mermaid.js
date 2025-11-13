@@ -27,7 +27,7 @@ export class MermaidHandler {
     const target = this._observer_map.get(observer);
     for (const mutation of mutation_list) {
       if (target.firstChild && target.firstChild.nodeName !== "svg") {
-        // So long as the target does not have the <svg>, keep iterating.
+        // Iterate so long as the target does not have the <svg>.
         continue;
       }
       if (
@@ -90,7 +90,9 @@ export class MermaidHandler {
     new_mm_div.classList.add("mermaid");
     new_mm_div.append(new_mm_svg);
 
-    const caption_span = mm_parent.querySelector("figcaption span.caption-text");
+    const caption_span = mm_parent.querySelector(
+      "figcaption span.caption-text"
+    );
     const title = document.getElementById("nftt-modal-title");
     if (caption_span) {
       title.textContent = caption_span.textContent;
