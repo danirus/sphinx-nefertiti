@@ -3,6 +3,8 @@ export class TableHandler {
     // Wrap tables with responsive container.
     const tables = document.querySelectorAll('table.docutils');
     const central_col = document.querySelector("#content");
+    const nftt_modal = document.getElementById("nftt-modal");
+
     for (const table of tables) {
       const wrapper = document.createElement("div");
       wrapper.classList.add("nftt-table");
@@ -16,7 +18,6 @@ export class TableHandler {
        * smaller than the width of the window (so, do not open a
        * dialog in a phone).
        */
-      const nftt_modal = document.getElementById("nftt-modal");
       if (table.offsetWidth > central_col.offsetWidth && nftt_modal) {
         wrapper.classList.add("nftt-table--expand");
         const anchor_expand = document.createElement("a");

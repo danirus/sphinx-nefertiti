@@ -8,6 +8,7 @@ import { updateRepoMetrics } from "./repometrics.js";
 import { LocationHashHandler, TocObserver } from "./pagetoc.js";
 import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
 import { feedVersionsMenu, updateVersion } from "./versions.js";
+import { MermaidHandler } from "./mermaid.js";
 import { TableHandler } from "./tables.js";
 
 
@@ -137,6 +138,10 @@ function loadSphinxNefertiti() {
   // Wrap tables with responsive container.
   const table_handler = new TableHandler();
   table_handler.wrapTables();
+
+  // Allow Mermaid diagrams to be displayed in the modal window.
+  const mermaid_handler = new MermaidHandler();
+  mermaid_handler.start();
 
   // Fix admonitions-like blocks used in Sphinx to display version
   // changes. Such directives are: versionadded, versionchanged,
