@@ -13,4 +13,3 @@ To enable this feature, one must install the Sphinx extension, ``sphinx_last_upd
         # ... Existing Extensions ...
         'sphinx_last_updated_by_git'
     ]
-
