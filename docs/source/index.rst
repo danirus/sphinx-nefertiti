@@ -26,7 +26,7 @@ Features
 * Images that switch between color schemes. Released as `sphinx-colorschemed-images <https://pypi.org/project/sphinx-colorschemed-images/>`_.
 * Diverse color sets are available: blue, indigo, purple, pink, red, orange, yellow, ...
 * Header and footer links. Header links can be grouped in dropdown elements.
-* Display large tables and `Mermaid <https://mermaid.js.org>`_ diagrams in wide modal windows.
+* Display large tables and Mermaid diagrams in a modal window.
 * Optional highlighting of the project repository in the header.
 * Optional project version selector in the header.
 * Back-to-top button.
