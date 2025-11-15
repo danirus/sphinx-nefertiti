@@ -16,4 +16,5 @@ The following features can be customized:
     footer-links
     version-dropdown
     git-repository
+    last-updated
     pygments
