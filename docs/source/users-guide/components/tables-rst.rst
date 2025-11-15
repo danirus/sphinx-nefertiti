@@ -267,6 +267,8 @@ Below is an example use of the list-table directive:
       played by millions of people worldwide.
 
 
+.. _re-large-table-example:
+
 A large table example
 *********************
 
