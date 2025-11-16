@@ -25,18 +25,22 @@
  */
 
 .nftt-table {
+  position: relative;
   width: 100%;
   margin-bottom: $spacer;
   overflow-x: auto;
 
-  > a.expand {
+  .nftt-expand-container {
     position: sticky;
-    left: 735px;
-    cursor: pointer;
-    font-family: "bootstrap-icons"; /* stylelint-disable-line */
-    font-size: .85rem;
-    text-decoration: none;
-    text-underline-offset: 0;
+    left: 0;
+
+    > .nftt-expand {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      font-family: "bootstrap-icons"; /* stylelint-disable-line */
+      font-size: .85rem;
+    }
   }
 
   td ul {
@@ -119,6 +123,21 @@ table.docutils {
   }
 
   margin-bottom: $spacer;
+}
+
+#nftt-modal-body {
+  padding-top: 0;
+
+  table.docutils {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    > thead {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+  }
 }
 
 // Separate headings excluding the first.
