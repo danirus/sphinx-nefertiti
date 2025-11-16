@@ -19,14 +19,16 @@ export class TableHandler {
        * dialog in a phone).
        */
       if (table.offsetWidth > central_col.offsetWidth && nftt_modal) {
-        wrapper.classList.add("nftt-table--expand");
-        const anchor_expand = document.createElement("a");
-        anchor_expand.innerHTML = "&#xF14A;";
-        anchor_expand.classList.add("expand");
-        anchor_expand.href = "#";
-        anchor_expand.dataset.snfttTableId = table.id;
-        table.before(anchor_expand);
-        anchor_expand.addEventListener('click', this.openModal);
+        const expand_holder = document.createElement("div");
+        expand_holder.classList.add("nftt-expand-container");
+        const expand_anchor = document.createElement("a");
+        expand_anchor.innerHTML = '<i class="bi bi-arrows-angle-expand"></i>';
+        expand_anchor.classList.add("nftt-expand");
+        expand_anchor.href = "#";
+        expand_anchor.dataset.snfttTableId = table.id;
+        expand_holder.append(expand_anchor);
+        table.before(expand_holder)
+        expand_anchor.addEventListener('click', this.openModal);
         nftt_modal.addEventListener('hide.bs.modal', this.emptyModal);
       }
     }
@@ -36,7 +38,7 @@ export class TableHandler {
     // Copy the table referred to in the data-snftt-table-id attribute
     // of the anchor clicked to the body of the modal.
     event.preventDefault();
-    const target = event.target;
+    const target = event.currentTarget;
     const nftt_modal = new bootstrap.Modal('#nftt-modal');
     const table = document.getElementById(target.dataset.snfttTableId);
     const newtable = table.cloneNode(true);
