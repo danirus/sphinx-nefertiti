@@ -6,7 +6,7 @@ Unlike other components, tables written in Markdown are different from those wri
 
 This section is separated in two documents, one written in Markdown and another written in reStructuredText to show the standard syntax for tables in each language.
 
-In addition to the standard syntax both, MyST-Parser and docutils, offer directives that extend the capabilities to write tables. These directives are `table`, `csv-table` and `list-table`.
+When a table is wider than the width of the central column Nefertiti adds a small expand icon at the top right side of the table that allows to open the table in a modal window.
 
 ```{toctree}
 :glob:
