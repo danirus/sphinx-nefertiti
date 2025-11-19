@@ -173,8 +173,7 @@ Here below is an example of a list-table:
      played by millions of people worldwide.
 :::
 
-(markdown-large-table-example)=
-## A large table example
+## A wide table example
 
 This is an extract of the first 10 rows of the table of the World's 100 most threatened species, [taken from Wikipedia](https://en.wikipedia.org/wiki/The_world%27s_100_most_threatened_species).
 

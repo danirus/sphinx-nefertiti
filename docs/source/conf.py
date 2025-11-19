@@ -25,6 +25,7 @@ docs_fmt_url = "https://sphinx-nefertiti.readthedocs.io/{release}/"
 releases = [
     "latest",
     release,
+    "0.8.10",
     "0.7.5",
     "0.6.0",
     "0.5.3",
@@ -38,7 +39,6 @@ releases = [
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinxcontrib.mermaid',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'myst_parser',
@@ -73,9 +73,6 @@ html_theme = "sphinx_nefertiti"
 html_css_files = ["custom.css", "nftt-pygments.min.css"]
 
 figure_language_filename = "images/{path}/{basename}{ext}"
-
-mermaid_fullscreen = True  # Enable/disable globally (default: True)
-mermaid_fullscreen_button = "⛶"  # Customize button icon (default: ⛶)
 
 html_theme_options = {
     "project_short": "sphinx-nefertiti",
