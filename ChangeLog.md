@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.1] - 2025-12-02
+
+- Fixes issue [#93](https://github.com/danirus/sphinx-nefertiti/issues/93): Wide table modal doesn't display for standard syntax Markdown tables.
+- Fixes the styling of the link that open Mermaid diagrams in the modal window provided with sphinxcontrib-mermaid implemented in their [PR#190](https://github.com/mgaitan/sphinxcontrib-mermaid/pull/190). [#91](https://github.com/danirus/sphinx-nefertiti/issues/91)
+- The background color in dark mode goes darker, from `#212529` to `#181b1e`.
+
 ## [0.9.0] - 2025-11-19
 
 - Add the capacity to display wide tables in a modal. Wide table are those with a width wider than the central column.

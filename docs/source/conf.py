@@ -42,6 +42,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'myst_parser',
+    'sphinxcontrib.mermaid',
     'sphinx_design',
     'sphinx_copybutton',
     'sphinx_colorschemed_images',
@@ -60,6 +61,9 @@ myst_enable_extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = []
+
+mermaid_fullscreen = True  # Enable/disable globally (default: True)
+mermaid_fullscreen_button = "⛶"  # Customize button icon (default: ⛶)
 
 
 # -- Options for HTML output -------------------------------------------------

@@ -267,6 +267,8 @@ Below is an example use of the list-table directive:
       played by millions of people worldwide.
 
 
+.. _a-wide-table-in-rst:
+
 A wide table example
 ********************
 

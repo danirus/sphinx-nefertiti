@@ -17,7 +17,8 @@ $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+// $gray-900: #212529 !default;
+$gray-901: #181b1e !default;
 $black:    #000 !default;
 
 $blue:    #0d6efd !default;
@@ -105,12 +106,12 @@ $scheme-light-term-highlighted: $yellow;
 // scheme-color dark.
 $scheme-dark-body-color: $gray-100;
 $scheme-dark-body-hc-color: $white;
-$scheme-dark-body-bg: $gray-900;
+$scheme-dark-body-bg: $gray-901;
 $scheme-dark-neutral-bg: $cyan-900;
 $scheme-dark-body-secondary-color: rgba($scheme-dark-body-color, .75) !default;
 $scheme-dark-body-secondary-bg: $gray-800 !default;
 $scheme-dark-body-tertiary-color: rgba($scheme-dark-body-color, .5) !default;
-$scheme-dark-body-tertiary-bg: mix($gray-800, $gray-900, 50%) !default;
+$scheme-dark-body-tertiary-bg: mix($gray-800, $gray-901, 50%) !default;
 $scheme-dark-body-emphasis-color: $white !default;
 $scheme-dark-pre-border-color: $gray-700;
 $scheme-dark-foot1-bg: $gray-800;
@@ -137,7 +138,7 @@ $scheme-dark-admon-error-color-bg: $red-600;
 $scheme-dark-admon-important-color-bg: $blue-600;
 $scheme-dark-admon-note-color-bg: $cyan-700;
 $scheme-dark-admon-tip-color-bg: $teal-700;
-$scheme-dark-table-bg: $gray-900;
+$scheme-dark-table-bg: $gray-901;
 $scheme-dark-table-striped-bg: shade-color($cyan, 70%);
 $scheme-dark-term-highlighted: $yellow;
 

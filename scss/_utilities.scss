@@ -78,3 +78,12 @@ dd {
 .fs085 {
   font-size: .85rem;
 }
+
+.mermaid-container {
+  position: relative;
+}
+
+.mermaid-fullscreen-btn {
+  position: absolute;
+  z-index: 10;
+}

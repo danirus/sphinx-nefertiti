@@ -25,11 +25,14 @@ export class TableHandler {
         expand_anchor.innerHTML = '<i class="bi bi-arrows-angle-expand"></i>';
         expand_anchor.classList.add("nftt-expand");
         expand_anchor.href = "#";
+        if (table.id.length === 0) {
+          table.id = crypto.randomUUID();
+        }
         expand_anchor.dataset.snfttTableId = table.id;
         expand_holder.append(expand_anchor);
         table.before(expand_holder)
         expand_anchor.addEventListener('click', this.openModal);
-        nftt_modal.addEventListener('hide.bs.modal', this.emptyModal);
+        nftt_modal.addEventListener('hidden.bs.modal', this.emptyModal);
       }
     }
   }
@@ -49,15 +52,33 @@ export class TableHandler {
       newtable.querySelector("caption")?.remove();
     }
     const body = document.getElementById("nftt-modal-body");
+    const body_style = window.getComputedStyle(body);
+    const body_width = body_style.getPropertyValue("--nftt-modal-width");
+    const modal_body_with = (  // Get the width in number removing the 'px'.
+      body_width.endsWith("px") && Number.parseInt(body_width.slice(0, -2))
+    );
+
+    // If the modal window is not wide enough to display the table
+    // without scrolling, we directly show the modal in fullscreen.
+    if (modal_body_with < table.offsetWidth) {
+      const modal_dialog = document.querySelector("#nftt-modal .modal-dialog");
+      if (modal_dialog) {
+        modal_dialog.classList.remove("modal-fullscreen-xxl-down");
+        modal_dialog.classList.add("modal-fullscreen");
+      }
+    }
     body.append(newtable);
     nftt_modal.show();
     nftt_modal.handleUpdate();
   }
 
   emptyModal(event) {
+    const modal_dialog = document.querySelector("#nftt-modal .modal-dialog");
     const body = document.getElementById("nftt-modal-body");
     for (const child of body.children) {
       child.remove();
     }
+    modal_dialog.classList.remove("modal-fullscreen");
+    modal_dialog.classList.add("modal-fullscreen-xxl-down");
   }
 }
