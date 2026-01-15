@@ -11,29 +11,22 @@ export class TableHandler {
       table.before(wrapper);
       wrapper.append(table);
 
-      /*
-       * When the width of the table is larger than the width of the
-       * central column, display the content of the table in a modal
-       * dialog. But only when the width of the central column is
-       * smaller than the width of the window (so, do not open a
-       * dialog in a phone).
-       */
-      if (table.offsetWidth > central_col.offsetWidth && nftt_modal) {
-        const expand_holder = document.createElement("div");
-        expand_holder.classList.add("nftt-expand-container");
-        const expand_anchor = document.createElement("a");
-        expand_anchor.innerHTML = '<i class="bi bi-arrows-angle-expand"></i>';
-        expand_anchor.classList.add("nftt-expand");
-        expand_anchor.href = "#";
-        if (table.id.length === 0) {
-          table.id = crypto.randomUUID();
-        }
-        expand_anchor.dataset.snfttTableId = table.id;
-        expand_holder.append(expand_anchor);
-        table.before(expand_holder)
-        expand_anchor.addEventListener('click', this.openModal);
-        nftt_modal.addEventListener('hidden.bs.modal', this.emptyModal);
+      const expand_holder = document.createElement("div");
+      expand_holder.classList.add("nftt-expand-container");
+      const expand_anchor = document.createElement("a");
+      expand_anchor.innerHTML = '<i class="bi bi-arrows-angle-expand"></i>';
+      expand_anchor.classList.add(
+        "btn", "btn-outline-primary", "btn-sm", "nftt-expand"
+      );
+      expand_anchor.href = "#";
+      if (table.id.length === 0) {
+        table.id = crypto.randomUUID();
       }
+      expand_anchor.dataset.snfttTableId = table.id;
+      expand_holder.append(expand_anchor);
+      table.before(expand_holder)
+      expand_anchor.addEventListener('click', this.openModal);
+      nftt_modal.addEventListener('hidden.bs.modal', this.emptyModal);
     }
   }
 

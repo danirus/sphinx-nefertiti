@@ -3,7 +3,7 @@
 Modal window
 ############
 
-Sometimes the representation of the data requires more width than the width of the central column. When loading web pages Nefertiti checks that the width of every table in the document fits in the central column. Those tables wider than the central column receive an *expand* icon that, when clicked, open the table in a modal window.
+Sometimes the representation of the data requires a wider view than the central column. It particularly happens when displaying tables. Nefertiti adds a expand button at the top right side of each table that when clicked opens a modal window with the table in a wider view.
 
 The modal window is active for two types of elements: **tables** and **mermaid diagrams**.
 

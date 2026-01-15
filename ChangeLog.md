@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.9.2] - 2026-01-15
+
+- Add expand button to all tables, not just those that do not fit in the width of the central column. Sometimes, even when squeezed in the central column, tables benefit from a wider view with the header fixed at the top.
+
 ## [0.9.1] - 2025-12-02
 
 - Fixes issue [#93](https://github.com/danirus/sphinx-nefertiti/issues/93): Wide table modal doesn't display for standard syntax Markdown tables.
