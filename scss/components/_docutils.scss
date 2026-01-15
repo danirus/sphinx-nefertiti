@@ -36,10 +36,11 @@
 
     > .nftt-expand {
       position: absolute;
-      top: 20px;
       right: 0;
       font-family: "bootstrap-icons"; /* stylelint-disable-line */
-      font-size: .85rem;
+      line-height: .85;
+      --nftt-btn-bg: var(--nftt-body-bg);
+      --nftt-btn-font-size: .75rem;
     }
   }
 
@@ -134,7 +135,12 @@ table.docutils {
 
     > thead {
       position: sticky;
-      top: 0;
+      top: -1px;
+      z-index: 10;
+    }
+    > thead * {
+      top: -1px;
+      position: sticky;
       z-index: 10;
     }
   }

@@ -178,8 +178,6 @@ Here below is an example of a list-table:
 
 This is an extract of the first 10 rows of the table of the World's 100 most threatened species, [taken from Wikipedia](https://en.wikipedia.org/wiki/The_world%27s_100_most_threatened_species).
 
-The width of the table is wider than the width of the central column. When a table exceeds the width of the central column, Nefertiti for Sphinx displays a link at the right side of the caption of the table, that on click will display a modal window with the content of the table.
-
 :::{list-table} The World's 100 most threatened species
 :widths: 170 120 120 240 220 180 250
 :header-rows: 1
