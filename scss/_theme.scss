@@ -323,3 +323,38 @@ blockquote {
     max-width: none;
   }
 }
+
+// --------------
+// Resize grip
+
+.resize-grip-container {
+  position: absolute;
+  top: 50%;
+  margin-left: -2rem;
+  z-index: 10;
+  display: flex;
+  transform: translateY(-50%);
+}
+
+.resize-grip-label {
+  display: flex;
+  padding-inline-start: .625rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: ew-resize;
+}
+
+.resize-grip-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.resize-grip-icon {
+  width: .3125rem;
+  height: 1.375rem;
+  border-inline-start: 1px solid currentcolor;
+  border-inline-end: 1px solid currentcolor;
+}

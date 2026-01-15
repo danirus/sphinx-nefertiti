@@ -24,7 +24,7 @@
     {%- endfor %}
 {%- endmacro %}
 <!DOCTYPE html>
-<html class="no-js" {% if language is not none %}lang="{{ language }}"{% endif %} data-content_root="{{ content_root }}">
+<html class="" {% if language is not none %}lang="{{ language }}"{% endif %} data-content_root="{{ content_root }}">
   <head>
     <meta charset="utf-8" />
     {%- if metatags %}
@@ -265,7 +265,14 @@
           </div>
         </aside>
         <article id="content" class="nftt-content" role="main">
-          <div>
+          <div class="resize-grip-container">
+            <label class="resize-grip-label">
+              <input class="resize-grip-input" type="range" step="10" name="main-panel-width">
+              <span class="visually-hidden-focusable">Main panel width</span>
+              <div class="resize-grip-icon"></div>
+            </label>
+          </div>
+          <div class="doc">
             {%- if pagename != "search" -%}
               {% include "breadcrumbs.html" %}
             {% endif %}

@@ -3,7 +3,7 @@ export function resizeAsides() {
   let height = "";
   let top = "";
 
-  const nftt_content = document.querySelector(".nftt-content > div");
+  const nftt_content = document.querySelector(".nftt-content > div.doc");
   const nftt_sidebar = document.querySelector(".nftt-sidebar");
   const backtotop_div = document.getElementById("back-to-top-container");
   const nftt_toc = document.querySelector(".nftt-toc");
