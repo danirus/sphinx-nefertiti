@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.4] - 2026-02-17
+
+- Exposes CSS variables to allow easy UI customization.
+- Adds documentation on how to customize the look using CSS variables.
+- Change priority of CSS stylesheets to give precendence to user's custom stylesheets.
+
 ## [0.9.3] - 2026-02-16
 
 - Fixes issue [#97](https://github.com/danirus/sphinx-nefertiti/issues/97): Make right sidebar ("on this page") sticky on medium screen.

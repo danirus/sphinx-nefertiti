@@ -85,7 +85,7 @@ Edit your ``conf.py`` file and add or modify your ``html_theme_options`` setting
         "doc_headers_font": "Georgia",
     }
 
-Read more about customizing the fonts in :ref:`Customization > Fonts <fonts>`.
+Read more about customizing the fonts in :ref:`Customization > Fonts <doc-fonts>`.
 
 2. Header links
 ===============

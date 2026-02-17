@@ -67,11 +67,11 @@ table.docutils {
     @extend .table-striped;
 
     > thead {
-      border-top: #{$table-border-width} solid var(--#{$prefix}border-color);
+      border-top: var(--#{$prefix}table-thead-border-top) solid var(--#{$prefix}border-color);
     }
 
-    /* stylelint-disable-next-line */
     > thead > tr > * {
+      font-size: var(--#{$prefix}table-thead-font-size);
       background-color: var(--#{$prefix}body-bg);
     }
 
@@ -79,6 +79,12 @@ table.docutils {
       @extend .table-group-divider;
       border-color: var(--#{$prefix}border-color);
     }
+
+    > tbody > tr > *,
+    > tbody > tr code .pre {
+      font-size: var(--#{$prefix}table-tbody-font-size);
+    }
+
 
     .nftt-table--expand & {  /* stylelint-disable-line */
       margin-top: -$spacer;
@@ -92,9 +98,9 @@ table.docutils {
   }
 
   caption {
-    font-size: .9rem;
-    text-align: center;
-    caption-side: top;
+    font-size: var(--#{$prefix}table-caption-font-size);
+    text-align: var(--#{$prefix}table-caption-text-align);
+    caption-side: var(--#{$prefix}table-caption-side);
   }
 
   &.align-left caption {
@@ -149,8 +155,11 @@ table.docutils {
   h4,
   h5,
   h6 {
-    margin-top: $headings-margin-bottom * 4;
-    margin-bottom: $headings-margin-bottom * 2;
+    // margin-top: $headings-margin-bottom * 4;
+    // margin-bottom: $headings-margin-bottom * 2;
+
+    margin-top: var(--#{$prefix}doc-headers-margin-top);
+    margin-bottom: var(--#{$prefix}doc-headers-margin-bottom);
   }
 }
 
