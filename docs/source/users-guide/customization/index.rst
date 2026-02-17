@@ -20,3 +20,4 @@ The following features can be customized:
     last-updated
     modal-window
     pygments
+    css-variables

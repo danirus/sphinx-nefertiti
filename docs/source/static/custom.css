@@ -1,5 +1,9 @@
 :root {
   --nftt-pre-line-height: 145%;
+  --nftt-doc-headers-font-weight: 800;
+
+  --light-header: #ddd;
+  --dark-header: #333;
 }
 
 .project-logo {
@@ -14,4 +18,25 @@
 html.dark {
   --sd-color-tabs-overline: rgba(173, 181, 189, 0.175);
   --sd-color-tabs-underline: rgba(173, 181, 189, 0.175);
+}
+
+:root:not(.light):not(.dark) {
+    color-scheme: light dark;
+    --nftt-doc-headers-color: var(--dark-header);
+
+    @media (prefers-color-scheme: light) {
+        --nftt-doc-headers-color: var(--dark-header);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --nftt-doc-headers-color: var(--light-header);
+    }
+}
+
+:root:is(.light) {
+    --nftt-doc-headers-color: var(--dark-header);
+}
+
+:root:is(.dark) {
+    --nftt-doc-headers-color: var(--light-header);
 }

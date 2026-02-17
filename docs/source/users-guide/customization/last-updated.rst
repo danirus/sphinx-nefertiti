@@ -1,6 +1,6 @@
 .. _last-updated:
 
-Last Updated Timestamp
+Last updated timestamp
 ######################
 
 If your Sphinx content is managed in ``git``, the Nefertiti theme can automatically insert a *"Last updated on <timestamp>"* in the footer for you.

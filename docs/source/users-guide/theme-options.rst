@@ -162,7 +162,7 @@ The list of styles available is listed in :ref:`customize-pygments`.
         "sans_serif_font": "Nunito",
     }
 
-Read more about it in :ref:`Customization > Fonts <fonts>`.
+Read more about it in :ref:`Customization > Fonts <doc-fonts>`.
 
 
 7. ``monospace_font``

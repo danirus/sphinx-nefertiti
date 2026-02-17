@@ -80,10 +80,12 @@ figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
     "project_short": "sphinx-nefertiti",
-    # "monospace_font": "Fira Code",
+    "project_name_font": "Montserrat",
+    "monospace_font": "Fira Code",
     "monospace_font_size": "1.0rem",
     # "documentation_font": "Work Sans",
     "documentation_font_size": "1.1rem",
+    "doc_headers_font": "Montserrat",
 
     "style": "red",
     "style_header_neutral": False,
@@ -140,8 +142,24 @@ html_theme_options = {
                     "link": "users-guide/customization/git-repository"
                 },
                 {
+                    "text": "Document source links",
+                    "link": "users-guide/customization/source-links"
+                },
+                {
+                    "text": "Last updated timestamp",
+                    "link": "users-guide/customization/last-updated"
+                },
+                {
+                    "text": "Modal window",
+                    "link": "users-guide/customization/modal window"
+                },
+                {
                     "text": "Pygments",
                     "link": "users-guide/customization/pygments"
+                },
+                {
+                    "text": "CSS variables",
+                    "link": "users-guide/customization/css-variables"
                 },
                 {
                     "divider": True

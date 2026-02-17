@@ -6,7 +6,7 @@ html {
   height: 100vh;
   padding: 0;
   margin: 0 auto;
-  font-size: $font-size-base;
+  font-size: var(--#{$prefix}body-font-size);
   color: var(--#{$prefix}body-color);
   scroll-behavior: smooth;
 }
@@ -126,6 +126,18 @@ body {
   h5,
   h6 {
     font-family: var(--#{$prefix}doc-headers-font);
+    font-weight: var(--#{$prefix}doc-headers-font-weight);
+    color: var(--#{$prefix}doc-headers-color);
+  }
+
+  h1 *,
+  h2 *,
+  h3 *,
+  h4 *,
+  h5 *,
+  h6 * {
+    font-size: inherit;
+    font-weight: inherit;
   }
 }
 

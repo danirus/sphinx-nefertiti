@@ -3,8 +3,9 @@
   "customSyntax": "postcss-scss",
   "ignoreFiles": ["**.*.min.css*"],
   "rules": {
+    "selector-max-compound-selectors": 5,
     "selector-max-id": 1,
-    "selector-max-type": [2, {"ignore": ["descendant"]}]
+    "selector-max-type": [3, {"ignore": ["descendant"]}]
   },
   "overrides": [
     {

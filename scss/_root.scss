@@ -30,6 +30,7 @@
   --#{$prefix}foot2-link-hover: #{$scheme-light-foot2-link-hover};
 
   --#{$prefix}headings-color: #{$scheme-light-headings-color};
+  --#{$prefix}doc-headers-color: #{$scheme-light-headings-color};
   --#{$prefix}border-color: #{$scheme-light-border-color};
   --#{$prefix}border-color-translucent: #{$scheme-light-border-color-translucent};
   --#{$prefix}link-color: #{$scheme-light-link-color};
@@ -113,6 +114,7 @@
   --#{$prefix}foot2-link-hover: #{$scheme-dark-foot2-link-hover};
 
   --#{$prefix}headings-color: #{$scheme-dark-headings-color};
+  --#{$prefix}doc-headers-color: #{$scheme-dark-headings-color};
   --#{$prefix}border-color: #{$scheme-dark-border-color};
   --#{$prefix}border-color-translucent: #{$scheme-dark-border-color-translucent};
   --#{$prefix}link-color: #{$scheme-dark-link-color};
@@ -233,7 +235,12 @@
   --#{$prefix}font-family-monospace: #{inspect($font-family-monospace)};
   --#{$prefix}documentation-font-size: #{inspect($font-size-base)};
   --#{$prefix}monospace-font-size: 1rem;
+  --#{$prefix}monospace-font-weight: normal;
   --#{$prefix}gradient: #{$gradient};
+
+  --#{$prefix}doc-headers-font-weight: #{$font-weight-bold};
+  --#{$prefix}doc-headers-margin-top: #{$headings-margin-bottom * 4};
+  --#{$prefix}doc-headers-margin-bottom: #{$headings-margin-bottom * 2};
 
   // Root and body
   // scss-docs-start root-body-variables
@@ -250,6 +257,19 @@
   }
   // --#{$prefix}body-bg: #{$body-bg};
   // scss-docs-end root-body-variables
+
+  --#{$prefix}blockquote-padding: 1rem 1rem .1rem 2rem;
+  --#{$prefix}blockquote-margin: 1rem .5rem;
+  --#{$prefix}blockquote-font-size: 1.1em;
+  --#{$prefix}blockquote-font-style: italic;
+  --#{$prefix}blockquote-border-radius: .25rem;
+
+  --#{$prefix}table-caption-font-size: .9rem;
+  --#{$prefix}table-caption-text-align: center;
+  --#{$prefix}table-caption-side: top;
+  --#{$prefix}table-thead-border-top: #{$table-border-width};
+  --#{$prefix}table-thead-font-size: .95rem;
+  --#{$prefix}table-tbody-font-size: .95rem;
 
   // scss-docs-start root-border-var
   --#{$prefix}border-width: #{$border-width};

@@ -15,7 +15,7 @@ from sphinx_nefertiti import (
     pygments,
 )
 
-__version__ = "0.9.3"
+__version__ = "0.9.4"
 
 pages_wo_index = ["genindex", "search"]
 
@@ -45,7 +45,7 @@ def add_nftt_colorset(app):
     else:
         app.active_colorset.copy_to_static()
 
-    app.add_css_file(app.active_colorset.link_stylesheet)
+    app.add_css_file(app.active_colorset.link_stylesheet, priority=110)
 
 
 def add_nftt_fonts(app):
@@ -71,7 +71,7 @@ def add_nftt_pygments(app):
 
     for asset in pygments_provider:
         dest_file = asset.create_pygments_style_file(app.builder.srcdir)
-        app.add_css_file(dest_file.name)
+        app.add_css_file(dest_file.name, priority=100)
 
 
 def add_nftt_versions(app, dest_dir):

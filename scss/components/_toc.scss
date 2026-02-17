@@ -1,4 +1,4 @@
-/* stylelint-disable selector-max-compound-selectors, selector-no-qualifying-type */
+/* stylelint-disable selector-no-qualifying-type */
 .toc {
   a {
     display: inline-block;
@@ -131,6 +131,10 @@
     &:focus {
       @include scrollbars();
     }
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-right: 1rem;
   }
 
   ul > li ul {

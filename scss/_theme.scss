@@ -161,8 +161,14 @@ pre {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 14px;
+  line-height: var(--nftt-pre-line-height, 140%);
   border: 1px solid var(--#{$prefix}pre-border-color);
   border-radius: 8px;
+}
+
+.dark pre,
+.light pre {
+  line-height: var(--nftt-pre-line-height, 140%);
 }
 
 .tab-content {
@@ -226,6 +232,7 @@ samp *,
 .text-monospace * {
   font-family: var(--#{$prefix}font-monospace);
   font-size: var(--#{$prefix}monospace-font-size);
+  font-weight: var(--#{$prefix}monospace-font-weight);
 }
 
 .blue { color: $blue; }
@@ -281,12 +288,12 @@ samp *,
 }
 
 blockquote {
-  padding: 1rem 2rem .5rem 3rem;
-  margin: 2rem 1rem;
-  font-size: 1.2em;
-  font-style: italic;
+  padding: var(--#{$prefix}blockquote-padding);
+  margin: var(--#{$prefix}blockquote-margin);
+  font-size: var(--#{$prefix}blockquote-font-size);
+  font-style: var(--#{$prefix}blockquote-font-style);
   background-color: var(--#{$prefix}tertiary-bg);
-  border-radius: .25rem;
+  border-radius: var(--#{$prefix}blockquote-border-radius);
 
   .attribution {
     padding-top: .8rem;

@@ -1,4 +1,4 @@
-.. _fonts:
+.. _doc-fonts:
 
 Fonts
 #####
