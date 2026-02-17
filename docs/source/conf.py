@@ -80,10 +80,12 @@ figure_language_filename = "images/{path}/{basename}{ext}"
 
 html_theme_options = {
     "project_short": "sphinx-nefertiti",
+    # "monospace_font": "Fira Code",
     "monospace_font_size": "1.0rem",
+    # "documentation_font": "Work Sans",
     "documentation_font_size": "1.1rem",
 
-    "style": "orange",
+    "style": "red",
     "style_header_neutral": False,
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",

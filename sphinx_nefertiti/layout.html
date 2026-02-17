@@ -248,7 +248,7 @@
     </header>
 
     <div class="container-fluid flex-grow-1">
-      <div class="nftt-gutter {% if hidetoc %}nftt-page-wo-toc{% else %}nftt-page{% endif %}">
+      <div class="nftt-gutter nftt-page">
         <aside class="nftt-sidebar {% if hideindex %}border-0{% endif %}">
           <div class="nftt-sidebar-content">
             {% if not hideindex %}
@@ -274,7 +274,7 @@
           </div>
         </article>
         <aside class="nftt-toc my-3">
-          {% if display_toc and not hidetoc %}
+          {% if not hidetoc %}
           <div class="my-sm-1 my-lg-0 ps-xl-3 text-muted">
             <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none nftt-toc-toggle d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents"
             >{{ _('On this page') }} <i class="ms-2 bi bi-chevron-expand"></i></button>

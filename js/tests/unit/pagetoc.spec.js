@@ -9,6 +9,7 @@ import { getFixture, clearFixture } from '../helpers/fixture.js';
  */
 const doc_content = [ // The .nftt-content element.
   '<article id="content" class="nftt-content" role="main">',
+  '<div>',
   '  <section id="tutorial">',
   '    <span id="id1"></span>',
   '    <h1>Tutorial<a class="headerlink" href="#tutorial" ',
@@ -62,6 +63,7 @@ const doc_content = [ // The .nftt-content element.
   '      </section>',
   '    </section>',
   '  </section>',
+  '</div>',
   '</article>',
 ];
 
