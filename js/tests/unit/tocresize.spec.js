@@ -9,7 +9,7 @@ const html_header = [
 ];
 
 const nftt_template = [
-  '<div>',
+  '<div class="nftt-page">',
   '  <div class="nftt-content">',
   '    <div style="height: 250px">',
   '      <p>Nothing important here</p>',

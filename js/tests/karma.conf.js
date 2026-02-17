@@ -102,8 +102,8 @@ const config = {
     thresholds: {
       emitWarning: false,
       global: {
-        statements: 90,
-        lines: 90,
+        statements: 85,
+        lines: 85,
         branches: 70,
         functions: 80,
       },

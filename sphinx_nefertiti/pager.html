@@ -4,7 +4,7 @@
       <ul class="pagination justify-content-between mb-0">
         {%- if prev -%}
           <li class="d-flex page-item">
-            <a href="{{ prev.link|e }}" class="d-flex px-5 align-items-end" rel="prev" aria-label="{{_('Previous page:')}} {{ prev.title|striptags|e }}">
+            <a href="{{ prev.link|e }}" class="d-flex pe-5 px-lg-5 align-items-end" rel="prev" aria-label="{{_('Previous page:')}} {{ prev.title|striptags|e }}">
               <span class="prev-page"><i class="bi bi-caret-left"></i></span>
               <div class="d-none d-sm-flex flex-column">
                 <span class="text-small text-start text-muted">{{ _('Previous') }}</span>
@@ -15,7 +15,7 @@
         {% endif %}
         {%- if next -%}
           <li class="d-flex page-item ms-auto">
-            <a href="{{ next.link|e }}" class="d-flex px-5 align-items-end" rel="next" aria-label="{{_('Next page:')}} {{ next.title|striptags|e }}">
+            <a href="{{ next.link|e }}" class="d-flex ps-5 px-lg-5 align-items-end" rel="next" aria-label="{{_('Next page:')}} {{ next.title|striptags|e }}">
               <div class="d-flex flex-column">
                 <span class="text-small text-end text-start text-muted">{{ _('Next') }}</span>
                 <span class="underline">{{ next.title }}</span>

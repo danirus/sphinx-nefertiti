@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.9.3] - 2026-02-16
+
+- Fixes issue [#97](https://github.com/danirus/sphinx-nefertiti/issues/97): Make right sidebar ("on this page") sticky on medium screen.
+- Removes small right margin displayed on left sidebar, on devices with a width smaller than the xl-breakpoint.
+
 ## [0.9.2] - 2026-01-15
 
 - Add expand button to all tables, not just those that do not fit in the width of the central column. Sometimes, even when squeezed in the central column, tables benefit from a wider view with the header fixed at the top.

@@ -124,7 +124,6 @@
 .nftt-sidebar .toc {
   @include media-breakpoint-up(lg) {
     width: 100%;
-    margin-right: 16px;
     overflow-y: auto;
     font-size: .9rem;
 
