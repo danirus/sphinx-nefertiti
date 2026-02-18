@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.9.5] - 2026-02-18
+
+- Resolves issue with the stickyness of the sidebars.
+- Precendence of extension's CSS has to be less than user's or Nefertiti's.
+
 ## [0.9.4] - 2026-02-17
 
 - Exposes CSS variables to allow easy UI customization.

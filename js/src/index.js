@@ -6,7 +6,6 @@ import { MenuHandler } from "./menu.js";
 import { selectActiveHeaderLink } from "./navbar.js";
 import { updateRepoMetrics } from "./repometrics.js";
 import { LocationHashHandler, TocObserver } from "./pagetoc.js";
-import { resizeAsides, updateScrollPaddingTop } from "./tocresize.js";
 import { feedVersionsMenu, updateVersion } from "./versions.js";
 // import { MermaidHandler } from "./mermaid.js";
 import { TableHandler } from "./tables.js";
@@ -53,24 +52,6 @@ function loadSphinxNefertiti() {
     console.log("Could not find the <template data-toggle-item-template>.");
     console.log("Therefore left side nested menu entries will not be visible.")
   };
-
-  // --------------------------------------------------
-  // On every page load, adjust height of nftt-sidebar
-  // and nftt-toc, based on height of nftt-content.
-  //
-  updateScrollPaddingTop();
-  resizeAsides(); // Resize just after DOM content is loaded.
-
-  // And register the function for every height change of the body.
-  const body_observer = new ResizeObserver(entries => {
-    const header_h = document.querySelector("header")?.offsetHeight;
-    document.body.style.paddingTop = `${header_h + 4}px`;
-
-    updateScrollPaddingTop();
-    resizeAsides();
-  });
-  body_observer.observe(document.body);
-  window.addEventListener("resize", [updateScrollPaddingTop, resizeAsides]);
 
   // The CSchemeHandler controls the selection of the 3 possible
   // options (light, dark, default) and the switching between
