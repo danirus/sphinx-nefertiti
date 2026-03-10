@@ -63,7 +63,7 @@ function loadSphinxNefertiti() {
     const header_h = document.querySelector("header")?.offsetHeight;
     document.body.style.paddingTop = `${header_h + 4}px`;
     updateScrollPaddingTop();
-    resizeAsides();
+    resizeAsides("body_observer");
   });
 
   // The CSchemeHandler controls the selection of the 3 possible
@@ -176,7 +176,7 @@ function loadSphinxNefertiti() {
   // On every page load, adjust the height of nftt-sidebar
   // and nftt-toc, based on height of nftt-content.
   updateScrollPaddingTop();
-  resizeAsides();  // Resize just after DOM content is loaded.
+  resizeAsides("main");  // Resize just after DOM content is loaded.
 
   // Scroll the item from the left sidebar into view:
   const sidebar_elem = document.querySelector(".nftt-sidebar a.current");
