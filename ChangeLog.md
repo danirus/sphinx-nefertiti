@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.9.7] - 2026-03-10
+
+- Trigger the resizing of the aside blocks once the body is fully loaded.
+- Once the aside blocks have adapted their height to the central content, scroll into view the item from the left sidebar.
+
 ## [0.9.6] - 2026-03-10
 
 - Fix issue [#101](https://github.com/danirus/sphinx-nefertiti/issues/101): Table of contents must be scrolled to bottom of page to see all contents.
