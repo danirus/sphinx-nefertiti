@@ -87,7 +87,7 @@ html_theme_options = {
     "documentation_font_size": "1.1rem",
     "doc_headers_font": "Montserrat",
 
-    "style": "red",
+    "style": "indigo",
     "style_header_neutral": False,
     "pygments_light_style": "pastie",
     "pygments_dark_style": "dracula",
