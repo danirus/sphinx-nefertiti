@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.9.6] - 2026-03-10
+
+- Fix issue [#101](https://github.com/danirus/sphinx-nefertiti/issues/101): Table of contents must be scrolled to bottom of page to see all contents.
+
 ## [0.9.5] - 2026-02-18
 
 - Resolves issue with the stickyness of the sidebars.
