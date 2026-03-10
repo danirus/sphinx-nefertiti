@@ -55,12 +55,9 @@ function loadSphinxNefertiti() {
   };
 
   // ----------------------------------------------------------------
-  // On every page load, adjust the height of nftt-sidebar
-  // and nftt-toc, based on height of nftt-content.
-  updateScrollPaddingTop();
-  resizeAsides();  // Resize just after DOM content is loaded.
-
-  // And register the function for every height change of the body.
+  // Register the function for every height change of the body.
+  // Additionally they will be called once when the page loads,
+  // at the bottom of this function.
   const body_observer = new ResizeObserver(entries => {
     // The header may be one or two rows.
     const header_h = document.querySelector("header")?.offsetHeight;
@@ -176,11 +173,17 @@ function loadSphinxNefertiti() {
   selectActiveHeaderLink();
 
   // -------------------------------------------------------------------
+  // On every page load, adjust the height of nftt-sidebar
+  // and nftt-toc, based on height of nftt-content.
+  updateScrollPaddingTop();
+  resizeAsides();  // Resize just after DOM content is loaded.
+
   // Scroll the item from the left sidebar into view:
   const sidebar_elem = document.querySelector(".nftt-sidebar a.current");
   if (sidebar_elem) {
     const parent = sidebar_elem.closest(".toc li");
     if (parent) {
+      console.log(`Scrolling into view: ${sidebar_elem.textContent}`);
       parent.scrollIntoView({behavior: "smooth", block: "end"});
     }
   }
