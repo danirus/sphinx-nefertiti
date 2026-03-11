@@ -1,4 +1,4 @@
-export function resizeAsides(called_from) {
+export function resizeAsides() {
   let style = "";
   let height = "";
   let top = "";
@@ -12,7 +12,6 @@ export function resizeAsides(called_from) {
   const header_h = document.querySelector("header")?.offsetHeight;
   const footer_h = document.querySelector("footer")?.offsetHeight;
 
-  console.log(`Resizing asides: ${called_from}`);
   // If min-width is not >= 1200px, don't do anything.
   // if (window.matchMedia('(min-width: 1200px)').matches == false) {
   //   nftt_sidebar?.setAttribute("style", "");
