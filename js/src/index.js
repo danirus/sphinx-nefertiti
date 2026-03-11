@@ -54,18 +54,6 @@ function loadSphinxNefertiti() {
     console.log("Therefore left side nested menu entries will not be visible.")
   };
 
-  // ----------------------------------------------------------------
-  // Register the function for every height change of the body.
-  // Additionally they will be called once when the page loads,
-  // at the bottom of this function.
-  const body_observer = new ResizeObserver(entries => {
-    // The header may be one or two rows.
-    const header_h = document.querySelector("header")?.offsetHeight;
-    document.body.style.paddingTop = `${header_h + 4}px`;
-    updateScrollPaddingTop();
-    resizeAsides("body_observer");
-  });
-
   // The CSchemeHandler controls the selection of the 3 possible
   // options (light, dark, default) and the switching between
   // them.
@@ -176,8 +164,24 @@ function loadSphinxNefertiti() {
   // On every page load, adjust the height of nftt-sidebar
   // and nftt-toc, based on height of nftt-content.
   updateScrollPaddingTop();
-  resizeAsides("main");  // Resize just after DOM content is loaded.
+  resizeAsides("main");
 
+  // Register the function for every height change of the body.
+  // Additionally they will be called once when the page loads,
+  // at the bottom of this function.
+  const content_observer = new ResizeObserver(entries => {
+    // The header may be one or two rows.
+    const header_h = document.querySelector("header")?.offsetHeight;
+    document.body.style.paddingTop = `${header_h + 4}px`;
+    updateScrollPaddingTop();
+    resizeAsides("content_observer");
+  });
+  const content_elem = document.querySelector(".nftt-content > div");
+  if (content_elem) {
+    content_observer.observe(content_elem);
+  };
+
+  // -------------------------------------------------------------------
   // Scroll the item from the left sidebar into view:
   const sidebar_elem = document.querySelector(".nftt-sidebar a.current");
   if (sidebar_elem) {

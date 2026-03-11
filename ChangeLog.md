@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.9.8] - 2026-03-11
+
+- Fix issue: Make the `content_observer` to actually observe the content. The `ResizeObserver` was there, but it was not observing.
+
 ## [0.9.7] - 2026-03-10
 
 - Trigger the resizing of the aside blocks once the body is fully loaded.
