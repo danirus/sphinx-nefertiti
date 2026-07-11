@@ -15,6 +15,9 @@ export class TableHandler {
       expand_holder.classList.add("nftt-expand-container");
       const expand_anchor = document.createElement("a");
       expand_anchor.innerHTML = '<i class="bi bi-arrows-angle-expand"></i>';
+      expand_anchor.setAttribute("aria-label", "Expand table");
+      expand_anchor.setAttribute("title", "Expand table");
+      expand_anchor.querySelector("i").setAttribute("aria-hidden", "true");
       expand_anchor.classList.add(
         "btn", "btn-outline-primary", "btn-sm", "nftt-expand"
       );
