@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.9.9] - 2026-07-12
+
+- Fix issue: Make table-expand button WCAG2AA compliant [#106](https://github.com/danirus/sphinx-nefertiti/issues/106).
+- Update version of dependencies (Python and JavaScript dependencies).
+
 ## [0.9.8] - 2026-03-11
 
 - Fix issue: Make the `content_observer` to actually observe the content. The `ResizeObserver` was there, but it was not observing.
