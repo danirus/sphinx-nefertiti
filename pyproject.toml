@@ -54,7 +54,7 @@ dev = [
     "ruff >=0.15.21",
 ]
 docs = [
-    "sphinx >=9.1.0, <10",
+    "sphinx >=6, <10",
     "myst-parser >=5.1.0, <5.2",
     "sphinxcontrib-mermaid >=2.0.3, <3.0",
     "sphinx-colorschemed-images >=0.3.0",
