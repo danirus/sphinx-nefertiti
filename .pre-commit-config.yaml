@@ -31,10 +31,10 @@ repos:
       - id: js-lint
         name: local-js-lint
         entry: npm run js-lint --
-        language: node
+        language: system
         types: [javascript]
       - id: css-lint-stylelint
         name: local-css-lint-stylelint
         entry: npm run css-lint-stylelint --
-        language: node
+        language: system
         types: [scss]
