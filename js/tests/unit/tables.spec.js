@@ -12,14 +12,14 @@ describe('tables', () => {
   beforeEach(() => {
     spyOn(crypto, "randomUUID").and.returnValue("generated-table-id");
     modal = jasmine.createSpyObj("Modal", ["show", "handleUpdate"]);
-    window.bootstrap = {
+    globalThis.bootstrap = {
       Modal: jasmine.createSpy("Modal").and.returnValue(modal)
     };
   });
 
   afterEach(() => {
     clearFixture();
-    delete window.bootstrap;
+    delete globalThis.bootstrap;
   });
 
   it('adds an accessible label to the table expand control', () => {
@@ -97,7 +97,7 @@ describe('tables', () => {
     const modal_table = modal_body.querySelector("table");
 
     expect(event.preventDefault).toHaveBeenCalled();
-    expect(window.bootstrap.Modal).toHaveBeenCalledWith("#nftt-modal");
+    expect(globalThis.bootstrap.Modal).toHaveBeenCalledWith("#nftt-modal");
     expect(fixtureEl.querySelector("#nftt-modal-title").textContent)
       .toBe("Wide table");
     expect(modal_table).not.toBeNull();

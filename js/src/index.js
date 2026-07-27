@@ -22,8 +22,8 @@ function isFirefox() {
 
 function isSafari() {
   return (
-    !!window.ApplePaySetupFeature
-    || !!window.safari
+    !!globalThis.ApplePaySetupFeature
+    || !!globalThis.safari
   ) && agentHas("Safari") && !agentHas("Chrome") && !agentHas("CriOS");
 }
 

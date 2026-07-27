@@ -14,13 +14,13 @@ describe('gitlab', () => {
   it('fetches the correct URL', () => {
     const encoded = encodeURIComponent(project);
     const expected_url = `https://${base}/api/v4/projects/${encoded}`;
-    spyOn(window, 'fetch').and.returnValue(new Promise(() => {}));
+    spyOn(globalThis, 'fetch').and.returnValue(new Promise(() => {}));
     readFromGitLab(base, project);
-    expect(window.fetch).toHaveBeenCalledWith(expected_url);
+    expect(globalThis.fetch).toHaveBeenCalledWith(expected_url);
   });
 
   it('gets a non http-200 response in the fetch call', async () => {
-    spyOn(window, 'fetch').and.returnValue(Promise.resolve({status: 404}));
+    spyOn(globalThis, 'fetch').and.returnValue(Promise.resolve({status: 404}));
     let error_msg = "";
     try {
       await readFromGitLab(base, project);
@@ -31,7 +31,7 @@ describe('gitlab', () => {
   });
 
   it('works and returns {tag: "", stars, forks} object', async () => {
-    spyOn(window, 'fetch').and.returnValue(Promise.resolve({
+    spyOn(globalThis, 'fetch').and.returnValue(Promise.resolve({
       status: 200,
       json: () => {
         return {

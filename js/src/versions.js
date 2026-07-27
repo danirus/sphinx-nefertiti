@@ -5,7 +5,7 @@ function _getCurrentVersion() {
   for (const version_elem of all_version_elems) {
     let version_url = version_elem.dataset?.snfttVersionUrl;
     version_url = version_url.replace("?", String.raw`\?`);
-    if (new RegExp(version_url).test(window.location.href)) {
+    if (new RegExp(version_url).test(globalThis.location.href)) {
       return version_elem.dataset?.snfttVersion;
     };
   }

@@ -71,7 +71,7 @@ describe('lightdark', () => {
   it('checks stored (getter) loads "default" and applies "light"', () => {
     // Force 'default' scheme.
     localStorage.setItem('snftt-color-scheme', 'default');
-    spyOn(window, 'matchMedia').and.callFake(
+    spyOn(globalThis, 'matchMedia').and.callFake(
       (_) => {
         return {
           matches: false,    // prefers-color-scheme: light
@@ -94,7 +94,7 @@ describe('lightdark', () => {
   it('checks stored (getter) loads default and applies dark', () => {
     // Force 'default' scheme.
     localStorage.setItem('snftt-color-scheme', 'default');
-    spyOn(window, 'matchMedia').and.callFake(
+    spyOn(globalThis, 'matchMedia').and.callFake(
       (_) => {
         return {
           matches: true,  // prefers-color-scheme: dark
@@ -137,7 +137,7 @@ describe('lightdark', () => {
     const scheme = "light";
     fixtureEl.innerHTML = dropdown.join('');
     localStorage.setItem('snftt-color-scheme', scheme);
-    spyOn(window, 'matchMedia').and.callFake(
+    spyOn(globalThis, 'matchMedia').and.callFake(
       (_) => {
         return {
           matches: true,

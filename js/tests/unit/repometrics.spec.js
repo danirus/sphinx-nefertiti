@@ -49,7 +49,7 @@ describe('repometrics', () => {
     fixtureEl.innerHTML = repo_github_widget_template.join('');
     // mock_v2_fetch_github will make calling to readFromGitHub
     // to return an object with {tag: "1.0", stars: 24, forks: 12}.
-    spyOn(window, 'fetch').and.callFake(mock_v2_fetch_github);
+    spyOn(globalThis, 'fetch').and.callFake(mock_v2_fetch_github);
     const result = await updateRepoMetrics();
     expect(result).toBe(3);
 
@@ -63,7 +63,7 @@ describe('repometrics', () => {
 
   it('gets data from a GitLab URL, with a mocked fetch', async () => {
     fixtureEl.innerHTML = repo_gitlab_widget_template.join('');
-    spyOn(window, 'fetch').and.returnValue(Promise.resolve({
+    spyOn(globalThis, 'fetch').and.returnValue(Promise.resolve({
       status: 200,
       json: () => {
         return {
@@ -89,7 +89,7 @@ describe('repometrics', () => {
     fixtureEl.innerHTML = repo_github_widget_template.join('');
     // Calling fetch will fail, and will cause _getRepoMetrics to
     // process the 'catch' branch of the try..catch.
-    spyOn(window, 'fetch').withArgs(github_url_1).and.returnValue(
+    spyOn(globalThis, 'fetch').withArgs(github_url_1).and.returnValue(
       Promise.resolve({status: 404})
     );
 
@@ -114,7 +114,7 @@ describe('repometrics', () => {
     fixtureEl.innerHTML = repo_github_widget_template.join('');
     // Calling fetch will fail, and will cause _getRepoMetrics to
     // process the 'catch' branch of the try..catch.
-    spyOn(window, 'fetch').withArgs(github_url_1).and.returnValue(
+    spyOn(globalThis, 'fetch').withArgs(github_url_1).and.returnValue(
       Promise.resolve({status: 404})
     );
 
@@ -141,7 +141,7 @@ describe('repometrics', () => {
     fixtureEl.innerHTML = repo_github_widget_template.join('');
     // Calling fetch will fail, and will cause _getRepoMetrics to
     // process the 'catch' branch of the try..catch.
-    spyOn(window, 'fetch').withArgs(github_url_1).and.returnValue(
+    spyOn(globalThis, 'fetch').withArgs(github_url_1).and.returnValue(
       Promise.resolve({status: 404})
     );
 
@@ -169,7 +169,7 @@ describe('repometrics', () => {
     // mock_v2_fetch_github will make calling to readFromGitHub
     // to return an object with {tag: "1.0", stars: 24, forks: 12}.
     // But this test will use the values stored in localStorage.
-    spyOn(window, 'fetch').and.callFake(mock_v2_fetch_github);
+    spyOn(globalThis, 'fetch').and.callFake(mock_v2_fetch_github);
 
     localStorage.setItem('user:repo:lastaccess', `${Date.now()}`);
     localStorage.setItem('user:repo:tag', '2.0');
@@ -195,7 +195,7 @@ describe('repometrics', () => {
     // mock_v2_fetch_github will make calling to readFromGitHub
     // to return an object with {tag: "1.0", stars: 24, forks: 12}.
     // But this test will use the values stored in localStorage.
-    spyOn(window, 'fetch').and.callFake(mock_v2_fetch_github);
+    spyOn(globalThis, 'fetch').and.callFake(mock_v2_fetch_github);
 
     const now = Date.now();
     const ts = new Date();

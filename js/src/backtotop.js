@@ -21,7 +21,7 @@ export class BackToTop {
   }
 
   _scrollHandler = (event) => {
-    var y_offset = window.pageYOffset || document.documentElement.scrollTop;
+    var y_offset = globalThis.pageYOffset || document.documentElement.scrollTop;
 
     if (y_offset > this.prev_offset || y_offset <= this.navbar_height) {
       this.btn.classList.add("d-none");
@@ -29,7 +29,7 @@ export class BackToTop {
       this.btn.classList.remove("d-none");
     }
 
-    this.prev_offset = y_offset <= 0 ? 0 : y_offset;
+    this.prev_offset = Math.max(y_offset, 0);
   }
 
   _scrollToTopHandler = (event) => {
@@ -38,7 +38,7 @@ export class BackToTop {
   }
 
   init = () => {
-    window.addEventListener("scroll", this._scrollHandler, false);
+    globalThis.addEventListener("scroll", this._scrollHandler, false);
     this.btn.addEventListener("click", this._scrollToTopHandler, false);
   }
 }

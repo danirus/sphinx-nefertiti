@@ -16,7 +16,7 @@ function _addActiveCssClass(elem) {
 }
 
 export function selectActiveHeaderLink() {
-  const curl = URL.parse(window.location.href);
+  const curl = URL.parse(globalThis.location.href);
 
   for (const elem of document.querySelectorAll(".snftt-hl")) {
     elem.classList.remove("active");
