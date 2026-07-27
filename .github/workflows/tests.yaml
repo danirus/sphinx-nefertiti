@@ -7,8 +7,9 @@ on:
 
 env:
   FORCE_COLOR: true
-  NODE: 20
-  PYTHON: 3.13
+  NODE: 24
+  # For non-matrix jobs/lint
+  PYTHON: 3.14
 
 permissions:
   contents: read
@@ -37,7 +38,43 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        sphinx: ["7.3", "7.4", "8.0", "8.1"]
+        include:
+          - python: "3.13"
+            sphinx: "7.3"
+            tox-env: py3.13-sphinx7.3
+          - python: "3.13"
+            sphinx: "7.3"
+            tox-env: py3.13-sphinx7.3-test
+          - python: "3.13"
+            sphinx: "7.4"
+            tox-env: py3.13-sphinx7.4
+          - python: "3.13"
+            sphinx: "7.4"
+            tox-env: py3.13-sphinx7.4-test
+          - python: "3.13"
+            sphinx: "8.0"
+            tox-env: py3.13-sphinx8.0
+          - python: "3.13"
+            sphinx: "8.0"
+            tox-env: py3.13-sphinx8.0-test
+          - python: "3.13"
+            sphinx: "8.1"
+            tox-env: py3.13-sphinx8.1
+          - python: "3.13"
+            sphinx: "8.1"
+            tox-env: py3.13-sphinx8.1-test
+          - python: "3.14"
+            sphinx: "9.0"
+            tox-env: py3.14-sphinx9.0
+          - python: "3.14"
+            sphinx: "9.0"
+            tox-env: py3.14-sphinx9.0-test
+          - python: "3.14"
+            sphinx: "9.1"
+            tox-env: py3.14-sphinx9.1
+          - python: "3.14"
+            sphinx: "9.1"
+            tox-env: py3.14-sphinx9.1-test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,14 +85,14 @@ jobs:
         run: npm ci
       - uses: actions/setup-python@v5
         with:
-          python-version: "${{ env.PYTHON }}"
+          python-version: "${{ matrix.python }}"
           cache: pip
       - name: Install deps
         run: pip install tox build
       - name: Create CSS bundles
         run: make build-ext
       - name: Run unit tests
-        run: tox -e py3.13-sphinx${{ matrix.sphinx }}
+        run: tox -e ${{ matrix.tox-env }}
 
   javascript-tests:
     runs-on: ubuntu-latest
