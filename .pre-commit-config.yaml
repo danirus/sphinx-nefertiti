@@ -1,10 +1,10 @@
 ---
 exclude: |
-  (?x)(
-    ^dist|
-    ^sphinx_nefertiti/colorsets|
-    ^sphinx_nefertiti/static|
-    ^docs/source/static/
+  ^(
+    dist/|
+    sphinx_nefertiti/colorsets/|
+    sphinx_nefertiti/static/|
+    docs/source/static/
   )
 
 repos:
@@ -20,7 +20,7 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.4
+    rev: v0.14.0
     hooks:
       - id: ruff
         args:
