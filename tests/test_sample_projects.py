@@ -571,9 +571,9 @@ def test_prj3_add_font_noto_sans(test_app):
                 found = True
                 break
         assert found is True, f"Couldn't find {expected_href}"
-        assert (
-            fonts_dir / font_stylesheet
-        ).exists(), f"File {font_stylesheet} does not exist in {fonts_dir}"
+        assert (fonts_dir / font_stylesheet).exists(), (
+            f"File {font_stylesheet} does not exist in {fonts_dir}"
+        )
 
 
 def test_prj3_has_header_links(test_app):
