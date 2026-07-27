@@ -48,13 +48,13 @@ export class TableHandler {
       newtable.querySelector("caption")?.remove();
     }
     const body = document.getElementById("nftt-modal-body");
-    const body_style = window.getComputedStyle(body);
+    const body_style = globalThis.getComputedStyle(body);
     const body_width = body_style.getPropertyValue("--nftt-modal-width");
     const modal_body_with = (  // Get the width in number removing the 'px'.
       body_width.endsWith("px") && Number.parseInt(body_width.slice(0, -2))
     );
 
-    // If the modal window is not wide enough to display the table
+    // If the modal globalThis is not wide enough to display the table
     // without scrolling, we directly show the modal in fullscreen.
     if (modal_body_with < table.offsetWidth) {
       const modal_dialog = document.querySelector("#nftt-modal .modal-dialog");

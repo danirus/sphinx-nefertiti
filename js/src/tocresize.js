@@ -18,7 +18,7 @@ export function resizeAsides() {
   // }
 
   // If min-width is not >= 992px...
-  if (window.matchMedia('(min-width: 992px)').matches == false) {
+  if (globalThis.matchMedia('(min-width: 992px)').matches == false) {
     nftt_sidebar?.setAttribute("style", "");
     nftt_toc?.setAttribute("style", "");
     return "";

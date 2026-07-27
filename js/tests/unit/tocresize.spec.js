@@ -56,7 +56,7 @@ describe('resize', () => {
     // resizeAsides applies changes only when min-width >= 992px.
     // I mock matchMedia to make resizeAsides get false when
     // checking that condition, so that it does no change.
-    spyOn(window, 'matchMedia').and.callFake(
+    spyOn(globalThis, 'matchMedia').and.callFake(
       (_) => {
         return { matches: false };
       }
@@ -76,7 +76,7 @@ describe('resize', () => {
     nftt_content.setAttribute("style", `height: ${body.clientHeight + 10}px`);
 
     // Fake matchMedia('min-width: 992px) to return true'.
-    spyOn(window, 'matchMedia').and.callFake(
+    spyOn(globalThis, 'matchMedia').and.callFake(
       (_) => {
         return { matches: true };
       }
@@ -98,7 +98,7 @@ describe('resize', () => {
     body.setAttribute("style", `height: ${nftt_content.clientHeight + 10}px`);
 
     // Fake matchMedia('min-width: 992px) to return true'.
-    spyOn(window, 'matchMedia').and.callFake(
+    spyOn(globalThis, 'matchMedia').and.callFake(
       (_) => {
         return { matches: true };
       }

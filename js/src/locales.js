@@ -21,7 +21,7 @@ export class LocaleHandler {
     for (const item of document.querySelectorAll(selector)) {
       item.addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.href = window.location.href.replace(
+        globalThis.location.href = globalThis.location.href.replace(
           curr_loc_url, item.dataset.snfttLocaleUrl
         );
       });

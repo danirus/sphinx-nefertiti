@@ -78,7 +78,7 @@ export class TocObserver {
 export class LocationHashHandler {
   constructor() {
     this.toc = document.querySelector("#TableOfContents");
-    window.addEventListener("hashchange", this.hashChanged);
+    globalThis.addEventListener("hashchange", this.hashChanged);
     this.hashChanged();
   }
 
@@ -88,10 +88,10 @@ export class LocationHashHandler {
       rect.top >= 0 &&
       rect.left >= 0 &&
       rect.bottom <= (
-        window.innerHeight || document.documentElement.clientHeight
+        globalThis.innerHeight || document.documentElement.clientHeight
       ) &&
       rect.right <= (
-        window.innerWidth || document.documentElement.clientWidth
+        globalThis.innerWidth || document.documentElement.clientWidth
       )
     );
   }
@@ -102,7 +102,7 @@ export class LocationHashHandler {
       anchor.classList.remove("active");
     }
 
-    const ubits = window.location.href.split("#");
+    const ubits = globalThis.location.href.split("#");
     if (ubits.length > 1) {
       const toc_ref = `a.reference.internal[href='#${ubits[1]}']`;
       const toc_ref_elem = this.toc?.querySelector(toc_ref);

@@ -1,15 +1,15 @@
 ---
 exclude: |
-  (?x)(
-    ^dist|
-    ^sphinx_nefertiti/colorsets|
-    ^sphinx_nefertiti/static|
-    ^docs/source/static/
+  ^(
+    dist/|
+    sphinx_nefertiti/colorsets/|
+    sphinx_nefertiti/static/|
+    docs/source/static/
   )
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
@@ -20,22 +20,21 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.4
+    rev: v0.14.0
     hooks:
       - id: ruff
         args:
           - "--fix"
       - id: ruff-format
-
   - repo: local
     hooks:
       - id: js-lint
         name: local-js-lint
         entry: npm run js-lint --
-        language: node
+        language: system
         types: [javascript]
       - id: css-lint-stylelint
         name: local-css-lint-stylelint
         entry: npm run css-lint-stylelint --
-        language: node
+        language: system
         types: [scss]
