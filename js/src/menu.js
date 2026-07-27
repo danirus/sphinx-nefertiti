@@ -24,7 +24,7 @@ export class MenuHandler {
 
   _removeRef = (ref) => {
     const pos = this.refs.indexOf(ref);
-    if (pos > -1) {
+    if (pos !== -1) {
       this.refs.splice(pos, 1);
       localStorage.setItem("toc-expanded", this.refs.join(","));
     }
