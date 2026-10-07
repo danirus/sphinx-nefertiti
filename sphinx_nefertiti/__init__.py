@@ -15,7 +15,7 @@ from sphinx_nefertiti import (
     pygments,
 )
 
-__version__ = "0.9.9"
+__version__ = "0.9.10"
 
 pages_wo_index = ["genindex", "search"]
 

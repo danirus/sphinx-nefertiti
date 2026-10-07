@@ -56,6 +56,11 @@ figure {
       margin-right: auto;
       margin-left: auto;
     }
+
+    >.graphviz {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &.align-left {
