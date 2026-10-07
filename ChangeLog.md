@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.9.10] - 2026-10-07
+
+- Fix issue [#112](https://github.com/danirus/sphinx-nefertiti/issues/106): Center Graphviz generated SVG when using the 'center' class.
+
 ## [0.9.9] - 2026-07-12
 
 - Fix issue: Make table-expand button WCAG2AA compliant [#106](https://github.com/danirus/sphinx-nefertiti/issues/106).
