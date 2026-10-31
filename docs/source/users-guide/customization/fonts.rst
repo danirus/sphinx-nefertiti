@@ -3,7 +3,7 @@
 Fonts
 #####
 
-Nefertiti for Sphinx comes bundled with 14 fonts and allows you to easily add more if your prefer so. This document explains how you can do it. First, a note about EU's GDPR.
+Nefertiti for Sphinx comes bundled with 15 fonts and allows you to easily add more if your prefer so. This document explains how you can do it. First, a note about EU's GDPR.
 
 About EU's GDPR
 ***************
@@ -120,14 +120,16 @@ Cd into your source directory (where the ``index.md`` or ``index.rst`` are) and 
 2. Get the font family
 ======================
 
-`Noto Sans`_ has an OFL, Open Font License, which allows you to use the font with your project. Follow the previous link to visit Google Fonts and click on the "Download family" button.
+`Noto Sans`_ has an OFL, Open Font License, which allows you to use the font with your project. Follow the previous link to visit Fontsource and select "Get font".
 
-The Noto Sans font family has 18 font files of which Nefertiti will use only 2:
+The entire font family contains many styles and weights.
+This example walks you through only two of them.
+Download the Latin WOFF2 files for normal style at weights 400 and 700:
 
-* ``NotoSans-Regular.ttf``
-* ``NotoSans-Bold.ttf``
+* ``noto-sans-latin-400-normal.woff2``
+* ``noto-sans-latin-700-normal.woff2``
 
-Copy these two files inside the ``static/fonts/noto-sans`` directory.
+Copy these two files and the included license into ``static/fonts/noto-sans``.
 
 3. Write the ``font-face`` declaration
 ======================================
@@ -136,19 +138,18 @@ Create a file ``stylesheet.css`` inside ``static/fonts/noto-sans``, add the foll
 
 .. code-block:: css
 
-    /* Sans Serif font family: Noto Sans.
-     */
-
     @font-face {
       font-family: 'Noto Sans';
-      src: url('NotoSans-Regular.ttf') format('truetype');
+      src: url('noto-sans-latin-400-normal.woff2') format('woff2');
+      font-display: swap;
       font-weight: 400;
       font-style: normal;
     }
 
     @font-face {
       font-family: 'Noto Sans';
-      src: url('NotoSans-Bold.ttf') format('truetype');
+      src: url('noto-sans-latin-700-normal.woff2') format('woff2');
+      font-display: swap;
       font-weight: 700;
       font-style: normal;
     }
@@ -185,19 +186,19 @@ Once the previous steps have been completed the project can be built. The font f
 Visit http://localhost:8000 to take a look at the changes.
 
 
-.. _Assistant: https://fonts.google.com/specimen/Assistant
-.. _Comme: https://fonts.google.com/specimen/Comme
-.. _Exo: https://fonts.google.com/specimen/Exo
-.. _Montserrat: https://fonts.google.com/specimen/Montserrat
-.. _Mulish: https://fonts.google.com/specimen/Mulish
-.. _Noto Sans: https://fonts.google.com/noto/specimen/Noto+Sans
-.. _Nunito: https://fonts.google.com/specimen/Nunito
-.. _Ubuntu Sans Mono: https://fonts.google.com/specimen/Ubuntu+Sans+Mono
-.. _Open Sans: https://fonts.google.com/specimen/Open+Sans
-.. _Red Hat Display: https://fonts.google.com/specimen/Red+Hat+Display
-.. _Sofia Sans: https://fonts.google.com/specimen/Sofia+Sans
-.. _Ubuntu Sans: https://fonts.google.com/specimen/Ubuntu+Sans
-.. _Varta: https://fonts.google.com/specimen/Varta
-.. _Work Sans: https://fonts.google.com/specimen/Work+Sans
-.. _Fira Code: https://fonts.google.com/specimen/Fira+Code
-.. _Red Hat Mono: https://fonts.google.com/specimen/Red+Hat+Mono
+.. _Assistant: https://fontsource.org/fonts/assistant
+.. _Comme: https://fontsource.org/fonts/comme
+.. _Exo: https://fontsource.org/fonts/exo
+.. _Montserrat: https://fontsource.org/fonts/montserrat
+.. _Mulish: https://fontsource.org/fonts/mulish
+.. _Noto Sans: https://fontsource.org/fonts/noto-sans
+.. _Nunito: https://fontsource.org/fonts/nunito
+.. _Ubuntu Sans Mono: https://fontsource.org/fonts/ubuntu-sans-mono
+.. _Open Sans: https://fontsource.org/fonts/open-sans
+.. _Red Hat Display: https://fontsource.org/fonts/red-hat-display
+.. _Sofia Sans: https://fontsource.org/fonts/sofia-sans
+.. _Ubuntu Sans: https://fontsource.org/fonts/ubuntu-sans
+.. _Varta: https://fontsource.org/fonts/varta
+.. _Work Sans: https://fontsource.org/fonts/work-sans
+.. _Fira Code: https://fontsource.org/fonts/fira-code
+.. _Red Hat Mono: https://fontsource.org/fonts/red-hat-mono
