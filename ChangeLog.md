@@ -1,8 +1,13 @@
 # Change Log
 
+## [0.9.11] - 2026-11-02
+
+- Implements ticket [#114](https://github.com/danirus/sphinx-nefertiti/issues/114): Performance opportunity for font rendering (thanks to @DaveParillo).
+- Fixes the project link in the footer, so that it points to the `master_doc` (thanks to @volkm).
+
 ## [0.9.10] - 2026-10-07
 
-- Fix issue [#112](https://github.com/danirus/sphinx-nefertiti/issues/106): Center Graphviz generated SVG when using the 'center' class.
+- Fix issue [#112](https://github.com/danirus/sphinx-nefertiti/issues/106): Center Graphviz generated SVG when using the 'center' class (thanks to @DaveParillo).
 
 ## [0.9.9] - 2026-07-12
 
